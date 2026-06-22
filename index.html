@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Interactive PMP Exam Study App covering PMBOK 6th & 7th Edition — Predictive, Agile, Hybrid approaches with flashcards, EVM calculator, and scenario-based mock exam.">
+  <title>PMP Exam Mastery — PMBOK 6th & 7th Edition Study Tool</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="pmp_logo.png">
+</head>
+<body>
+
+<button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">☰</button>
+
+<div class="app-wrapper">
+  <!-- ═══════ SIDEBAR ═══════ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-logo">
+        <div class="logo-icon">PM</div>
+        <div class="logo-text">
+          <h1>PMP Mastery</h1>
+          <span>PMBOK 6th &amp; 7th Edition</span>
+        </div>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Overview</div>
+      <div class="nav-item active" data-section="dashboard">
+        <span class="nav-icon">📊</span> Dashboard
+      </div>
+
+      <div class="nav-section-label">PMBOK 6th Edition — Predictive</div>
+      <div class="nav-item" data-section="process-groups">
+        <span class="nav-icon">⚙️</span> Process Groups &amp; KAs
+        <span class="nav-badge">49</span>
+      </div>
+
+      <div class="nav-section-label">PMBOK 7th Edition — Adaptive</div>
+      <div class="nav-item" data-section="principles">
+        <span class="nav-icon">🧭</span> 12 Principles
+      </div>
+      <div class="nav-item" data-section="domains">
+        <span class="nav-icon">🎯</span> 8 Performance Domains
+      </div>
+
+      <div class="nav-section-label">Comparison</div>
+      <div class="nav-item" data-section="compare">
+        <span class="nav-icon">⚖️</span> Predictive vs Agile
+      </div>
+
+      <div class="nav-section-label">Tools</div>
+      <div class="nav-item" data-section="evm">
+        <span class="nav-icon">📐</span> EVM Calculator
+      </div>
+      <div class="nav-item" data-section="flashcards">
+        <span class="nav-icon">🃏</span> Flashcards
+      </div>
+
+      <div class="nav-section-label">Exam Prep</div>
+      <div class="nav-item" data-section="quiz">
+        <span class="nav-icon">🧪</span> Mock Exam
+        <span class="nav-badge">20</span>
+      </div>
+    </nav>
+
+    <div class="sidebar-footer">
+      PMP Exam Mastery v1.0<br>
+      Built for exam success 🎓
+    </div>
+  </aside>
+
+  <!-- ═══════ MAIN CONTENT ═══════ -->
+  <main class="main-content">
+
+    <!-- ──── DASHBOARD ──── -->
+    <section class="section active" id="section-dashboard">
+      <div class="page-header">
+        <div class="breadcrumb">PMP Mastery <span class="sep">›</span> Dashboard</div>
+        <h2>📊 Welcome to PMP Exam Mastery</h2>
+        <p>Your comprehensive study companion for the PMI PMP certification exam.</p>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-card teal">
+          <div class="stat-icon">📘</div>
+          <div class="stat-value">49</div>
+          <div class="stat-label">Processes (PMBOK 6)</div>
+        </div>
+        <div class="stat-card blue">
+          <div class="stat-icon">🧭</div>
+          <div class="stat-value">12</div>
+          <div class="stat-label">Principles (PMBOK 7)</div>
+        </div>
+        <div class="stat-card purple">
+          <div class="stat-icon">🎯</div>
+          <div class="stat-value">8</div>
+          <div class="stat-label">Performance Domains</div>
+        </div>
+        <div class="stat-card orange">
+          <div class="stat-icon">📐</div>
+          <div class="stat-value">10</div>
+          <div class="stat-label">Knowledge Areas</div>
+        </div>
+        <div class="stat-card pink">
+          <div class="stat-icon">🧪</div>
+          <div class="stat-value">20</div>
+          <div class="stat-label">Mock Exam Questions</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span class="emoji">🗺️</span> Your Study Roadmap</div>
+        <p style="color:var(--text-secondary); margin-bottom:18px;">The PMP exam (2021+) tests on <strong class="text-accent">Predictive (Waterfall)</strong>, <strong class="text-blue">Agile</strong>, and <strong class="text-purple">Hybrid</strong> approaches. About 50% of the exam is predictive and 50% is agile/hybrid. Here's how to study:</p>
+        <div class="cards-grid">
+          <div class="concept-card">
+            <div class="concept-number">Step 1</div>
+            <h3>📘 Master Process Groups &amp; Knowledge Areas</h3>
+            <p>Learn the 5 Process Groups (Initiating → Closing) and 10 Knowledge Areas with their 49 processes from PMBOK 6th Edition.</p>
+            <span class="concept-tag tag-predictive">Predictive</span>
+          </div>
+          <div class="concept-card">
+            <div class="concept-number">Step 2</div>
+            <h3>🧭 Internalize the 12 Principles</h3>
+            <p>Understand the principle-based standard from PMBOK 7th Edition: Stewardship, Team, Stakeholders, Value, Systems Thinking, Leadership, Tailoring, Quality, Complexity, Risk, Adaptability, and Change.</p>
+            <span class="concept-tag tag-agile">Principles-Based</span>
+          </div>
+          <div class="concept-card">
+            <div class="concept-number">Step 3</div>
+            <h3>🎯 Learn 8 Performance Domains</h3>
+            <p>Understand how the 8 domains interact as a system: Stakeholders, Team, Development Approach & Life Cycle, Planning, Project Work, Delivery, Measurement, and Uncertainty.</p>
+            <span class="concept-tag tag-hybrid">Domains</span>
+          </div>
+          <div class="concept-card">
+            <div class="concept-number">Step 4</div>
+            <h3>⚖️ Compare Predictive vs Agile</h3>
+            <p>Know when to use which approach. Understand Scrum ceremonies, Kanban, servant leadership, and how hybrid combines both worlds.</p>
+            <span class="concept-tag tag-hybrid">Hybrid</span>
+          </div>
+          <div class="concept-card">
+            <div class="concept-number">Step 5</div>
+            <h3>📐 Master EVM Formulas</h3>
+            <p>PV, EV, AC → CV, SV, CPI, SPI, EAC, ETC, VAC, TCPI. Know how to interpret each metric and what actions to take.</p>
+            <span class="concept-tag tag-predictive">Calculations</span>
+          </div>
+          <div class="concept-card">
+            <div class="concept-number">Step 6</div>
+            <h3>🧪 Practice Scenario Questions</h3>
+            <p>The PMP exam is situational. Practice "What should the PM do NEXT?" and "What is the BEST action?" questions.</p>
+            <span class="concept-tag tag-hybrid">Exam Prep</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ──── PROCESS GROUPS & KNOWLEDGE AREAS (PMBOK 6) ──── -->
+    <section class="section" id="section-process-groups">
+      <div class="page-header">
+        <div class="breadcrumb">PMP Mastery <span class="sep">›</span> PMBOK 6th Edition</div>
+        <h2>⚙️ Process Groups &amp; Knowledge Areas</h2>
+        <p>The 49 processes organized by 5 Process Groups and 10 Knowledge Areas — the backbone of predictive project management.</p>
+      </div>
+
+      <!-- 5 Process Groups Overview -->
+      <div class="stats-row">
+        <div class="stat-card teal">
+          <div class="stat-value" style="font-size:1.3rem;">Initiating</div>
+          <div class="stat-label">2 Processes — Define & authorize the project</div>
+        </div>
+        <div class="stat-card blue">
+          <div class="stat-value" style="font-size:1.3rem;">Planning</div>
+          <div class="stat-label">24 Processes — Define scope, objectives & actions</div>
+        </div>
+        <div class="stat-card purple">
+          <div class="stat-value" style="font-size:1.3rem;">Executing</div>
+          <div class="stat-label">10 Processes — Complete the work defined in the plan</div>
+        </div>
+        <div class="stat-card orange">
+          <div class="stat-value" style="font-size:1.3rem;">Monitoring &amp; Controlling</div>
+          <div class="stat-label">12 Processes — Track, review & regulate progress</div>
+        </div>
+        <div class="stat-card pink">
+          <div class="stat-value" style="font-size:1.3rem;">Closing</div>
+          <div class="stat-label">1 Process — Formally complete the project or phase</div>
+        </div>
+      </div>
+
+      <!-- Process Matrix -->
+      <div class="card">
+        <div class="card-title"><span class="emoji">📋</span> 49 Process Matrix</div>
+        <div class="matrix-container">
+          <table class="process-matrix">
+            <thead>
+              <tr>
+                <th>Knowledge Area</th>
+                <th class="col-init">
+                  Initiating
+                  <div class="group-dropdown">
+                    <h4>Initiating Group</h4>
+                    <p>Defines and authorizes the project or a new project phase. Focuses on alignment and initial stakeholder engagement.</p>
+                    <div class="badge">2 Processes</div>
+                  </div>
+                </th>
+                <th class="col-plan">
+                  Planning
+                  <div class="group-dropdown">
+                    <h4>Planning Group</h4>
+                    <p>Establishes the total scope, defines objectives, and outlines the course of action needed to achieve them.</p>
+                    <div class="badge">24 Processes</div>
+                  </div>
+                </th>
+                <th class="col-exec">
+                  Executing
+                  <div class="group-dropdown">
+                    <h4>Executing Group</h4>
+                    <p>Completes the work defined in the project management plan to satisfy project specifications and requirements.</p>
+                    <div class="badge">10 Processes</div>
+                  </div>
+                </th>
+                <th class="col-mc">
+                  Monitoring &amp; Controlling
+                  <div class="group-dropdown">
+                    <h4>Monitoring &amp; Controlling</h4>
+                    <p>Tracks, reviews, and regulates the progress and performance; identifies necessary changes and initiates them.</p>
+                    <div class="badge">12 Processes</div>
+                  </div>
+                </th>
+                <th class="col-close">
+                  Closing
+                  <div class="group-dropdown">
+                    <h4>Closing Group</h4>
+                    <p>Formally completes or closes the project, phase, or contract. Captures lessons learned and transitions deliverables.</p>
+                    <div class="badge">1 Process</div>
+                  </div>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>4. Integration</td>
+                <td><div class="process-cell"><div class="proc-item">4.1 Develop Project Charter</div></div></td>
+                <td><div class="process-cell"><div class="proc-item">4.2 Develop PM Plan</div></div></td>
+                <td><div class="process-cell"><div class="proc-item">4.3 Direct & Manage Project Work</div><div class="proc-item">4.4 Manage Project Knowledge</div></div></td>
+                <td><div class="process-cell"><div class="proc-item">4.5 Monitor & Control Project Work</div><div class="proc-item">4.6 Perform Integrated Change Control</div></div></td>
+                <td><div class="process-cell"><div class="proc-item">4.7 Close Project or Phase</div></div></td>
+              </tr>
+              <tr>
+                <td>5. Scope</td>
+                <td>—</td>
+                <td><div class="process-cell"><div class="proc-item">5.1 Plan Scope Management</div><div class="proc-item">5.2 Collect Requirements</div><div class="proc-item">5.3 Define Scope</div><div class="proc-item">5.4 Create WBS</div></div></td>
+                <td>—</td>
+                <td><div class="process-cell"><div class="proc-item">5.5 Validate Scope</div><div class="proc-item">5.6 Control Scope</div></div></td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td>6. Schedule</td>
+                <td>—</td>
+                <td><div class="process-cell"><div class="proc-item">6.1 Plan Schedule Mgmt</div><div class="proc-item">6.2 Define Activities</div><div class="proc-item">6.3 Sequence Activities</div><div class="proc-item">6.4 Estimate Activity Durations</div><div class="proc-item">6.5 Develop Schedule</div></div></td>
+                <td>—</td>
+                <td><div class="process-cell"><div class="proc-item">6.6 Control Schedule</div></div></td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td>7. Cost</td>
+                <td>—</td>
+                <td><div class="process-cell"><div class="proc-item">7.1 Plan Cost Management</div><div class="proc-item">7.2 Estimate Costs</div><div class="proc-item">7.3 Determine Budget</div></div></td>
+                <td>—</td>
+                <td><div class="process-cell"><div class="proc-item">7.4 Control Costs</div></div></td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td>8. Quality</td>
+                <td>—</td>
+                <td><div class="process-cell"><div class="proc-item">8.1 Plan Quality Mgmt</div></div></td>
+                <td><div class="process-cell"><div class="proc-item">8.2 Manage Quality</div></div></td>
+                <td><div class="process-cell"><div class="proc-item">8.3 Control Quality</div></div></td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td>9. Resource</td>
+                <td>—</td>
+                <td><div class="process-cell"><div class="proc-item">9.1 Plan Resource Mgmt</div><div class="proc-item">9.2 Estimate Activity Resources</div></div></td>
+                <td><div class="process-cell"><div class="proc-item">9.3 Acquire Resources</div><div class="proc-item">9.4 Develop Team</div><div class="proc-item">9.5 Manage Team</div></div></td>
+                <td><div class="process-cell"><div class="proc-item">9.6 Control Resources</div></div></td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td>10. Communications</td>
+                <td>—</td>
+                <td><div class="process-cell"><div class="proc-item">10.1 Plan Comms Mgmt</div></div></td>
+                <td><div class="process-cell"><div class="proc-item">10.2 Manage Comms</div></div></td>
+                <td><div class="process-cell"><div class="proc-item">10.3 Monitor Comms</div></div></td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td>11. Risk</td>
+                <td>—</td>
+                <td><div class="process-cell"><div class="proc-item">11.1 Plan Risk Mgmt</div><div class="proc-item">11.2 Identify Risks</div><div class="proc-item">11.3 Qualitative Risk Analysis</div><div class="proc-item">11.4 Quantitative Risk Analysis</div><div class="proc-item">11.5 Plan Risk Responses</div></div></td>
+                <td><div class="process-cell"><div class="proc-item">11.6 Implement Risk Responses</div></div></td>
+                <td><div class="process-cell"><div class="proc-item">11.7 Monitor Risks</div></div></td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td>12. Procurement</td>
+                <td>—</td>
+                <td><div class="process-cell"><div class="proc-item">12.1 Plan Procurement Mgmt</div></div></td>
+                <td><div class="process-cell"><div class="proc-item">12.2 Conduct Procurements</div></div></td>
+                <td><div class="process-cell"><div class="proc-item">12.3 Control Procurements</div></div></td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td>13. Stakeholder</td>
+                <td><div class="process-cell"><div class="proc-item">13.1 Identify Stakeholders</div></div></td>
+                <td><div class="process-cell"><div class="proc-item">13.2 Plan Stakeholder Engagement</div></div></td>
+                <td><div class="process-cell"><div class="proc-item">13.3 Manage Stakeholder Engagement</div></div></td>
+                <td><div class="process-cell"><div class="proc-item">13.4 Monitor Stakeholder Engagement</div></div></td>
+                <td>—</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Key Definitions -->
+      <div class="card">
+        <div class="card-title"><span class="emoji">📖</span> Key PMBOK 6 Definitions</div>
+        <div class="cards-grid">
+          <div class="concept-card">
+            <div class="concept-number">Definition</div>
+            <h3>Project</h3>
+            <p>A <strong class="key-term">temporary endeavor</strong> undertaken to create a unique product, service, or result. Has a definite beginning and end.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-number">Definition</div>
+            <h3>Program</h3>
+            <p>A group of <strong class="key-term">related projects</strong>, subsidiary programs, and program activities managed in a coordinated way to obtain benefits not available from managing them individually.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-number">Definition</div>
+            <h3>Portfolio</h3>
+            <p>Projects, programs, subsidiary portfolios, and operations managed as a group to achieve <strong class="key-term">strategic objectives</strong>.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-number">Definition</div>
+            <h3>OPA — Organizational Process Assets</h3>
+            <p>Plans, processes, policies, procedures, and knowledge bases <strong class="key-term">specific to and used by</strong> the performing organization. Internal to the org.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-number">Definition</div>
+            <h3>EEF — Enterprise Environmental Factors</h3>
+            <p>Conditions, not under the project team's control, that influence, constrain, or direct the project. Can be <strong class="key-term">internal or external</strong>.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-number">Definition</div>
+            <h3>Work Breakdown Structure (WBS)</h3>
+            <p>A <strong class="key-term">hierarchical decomposition</strong> of the total scope of work to be carried out by the project team. The lowest level is a Work Package.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ──── 12 PRINCIPLES (PMBOK 7) ──── -->
+    <section class="section" id="section-principles">
+      <div class="page-header">
+        <div class="breadcrumb">PMP Mastery <span class="sep">›</span> PMBOK 7th Edition</div>
+        <h2>🧭 12 Project Management Principles</h2>
+        <p>PMBOK 7th Edition replaced prescriptive processes with principles — foundational guidelines for strategy, decision making, and problem solving.</p>
+      </div>
+
+      <div class="cards-grid" id="principlesGrid">
+        <!-- Populated by JS -->
+      </div>
+    </section>
+
+    <!-- ──── 8 PERFORMANCE DOMAINS ──── -->
+    <section class="section" id="section-domains">
+      <div class="page-header">
+        <div class="breadcrumb">PMP Mastery <span class="sep">›</span> PMBOK 7th Edition</div>
+        <h2>🎯 8 Project Performance Domains</h2>
+        <p>Performance domains are groups of related activities critical for effective delivery of project outcomes. They form an interactive, interdependent system.</p>
+      </div>
+
+      <div class="cards-grid" id="domainsGrid">
+        <!-- Populated by JS -->
+      </div>
+    </section>
+
+    <!-- ──── PREDICTIVE vs AGILE ──── -->
+    <section class="section" id="section-compare">
+      <div class="page-header">
+        <div class="breadcrumb">PMP Mastery <span class="sep">›</span> Comparison</div>
+        <h2>⚖️ Predictive vs Agile vs Hybrid</h2>
+        <p>The PMP exam is approximately 50% predictive and 50% agile/hybrid. Know the differences, when to use each, and key ceremonies.</p>
+      </div>
+
+      <div class="comparison-grid">
+        <div class="compare-column">
+          <div class="compare-header predictive">🏗️ Predictive (Waterfall)</div>
+          <div class="compare-body">
+            <div class="compare-item"><div class="label">Approach</div><div class="value">Plan-driven; requirements defined upfront</div></div>
+            <div class="compare-item"><div class="label">Scope</div><div class="value">Fixed scope; changes controlled via CCB</div></div>
+            <div class="compare-item"><div class="label">Schedule</div><div class="value">Sequential phases; Gantt charts, CPM</div></div>
+            <div class="compare-item"><div class="label">Delivery</div><div class="value">Single delivery at end of project</div></div>
+            <div class="compare-item"><div class="label">Documentation</div><div class="value">Comprehensive; detailed PM plan</div></div>
+            <div class="compare-item"><div class="label">Change</div><div class="value">Formal change control process</div></div>
+            <div class="compare-item"><div class="label">Team Structure</div><div class="value">Hierarchical; PM directs work</div></div>
+            <div class="compare-item"><div class="label">Best For</div><div class="value">Well-understood, stable requirements (construction, manufacturing)</div></div>
+          </div>
+        </div>
+        <div class="compare-column">
+          <div class="compare-header agile">🚀 Agile (Adaptive)</div>
+          <div class="compare-body">
+            <div class="compare-item"><div class="label">Approach</div><div class="value">Value-driven; requirements evolve through collaboration</div></div>
+            <div class="compare-item"><div class="label">Scope</div><div class="value">Flexible scope; prioritized product backlog</div></div>
+            <div class="compare-item"><div class="label">Schedule</div><div class="value">Iterative sprints (1–4 weeks); velocity-based</div></div>
+            <div class="compare-item"><div class="label">Delivery</div><div class="value">Incremental; working product each sprint</div></div>
+            <div class="compare-item"><div class="label">Documentation</div><div class="value">Just enough; user stories, backlog</div></div>
+            <div class="compare-item"><div class="label">Change</div><div class="value">Welcomed; backlog reprioritized each sprint</div></div>
+            <div class="compare-item"><div class="label">Team Structure</div><div class="value">Self-organizing; servant leader (Scrum Master)</div></div>
+            <div class="compare-item"><div class="label">Best For</div><div class="value">Evolving requirements, innovation (software, R&D)</div></div>
+          </div>
+        </div>
+        <div class="compare-column">
+          <div class="compare-header hybrid">🔄 Hybrid</div>
+          <div class="compare-body">
+            <div class="compare-item"><div class="label">Approach</div><div class="value">Combines predictive & adaptive elements</div></div>
+            <div class="compare-item"><div class="label">Scope</div><div class="value">Some fixed, some flexible components</div></div>
+            <div class="compare-item"><div class="label">Schedule</div><div class="value">Phased with iterative elements within phases</div></div>
+            <div class="compare-item"><div class="label">Delivery</div><div class="value">Mix of incremental and single deliveries</div></div>
+            <div class="compare-item"><div class="label">Documentation</div><div class="value">Moderate; tailored to project needs</div></div>
+            <div class="compare-item"><div class="label">Change</div><div class="value">Formal for some areas, flexible for others</div></div>
+            <div class="compare-item"><div class="label">Team Structure</div><div class="value">Combined; PM + Scrum Master may coexist</div></div>
+            <div class="compare-item"><div class="label">Best For</div><div class="value">Large projects with mixed certainty levels</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Agile Key Ceremonies -->
+      <div class="card">
+        <div class="card-title"><span class="emoji">🔁</span> Agile / Scrum Key Ceremonies &amp; Roles</div>
+        <div class="cards-grid">
+          <div class="concept-card">
+            <div class="concept-number">Ceremony</div>
+            <h3>Sprint Planning</h3>
+            <p>Team selects backlog items for the sprint; defines the <strong class="key-term">Sprint Goal</strong> and how work will be done. Timeboxed to 8 hours (for 4-week sprint).</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-number">Ceremony</div>
+            <h3>Daily Standup (Daily Scrum)</h3>
+            <p>15-minute timebox. Team answers: What did I do? What will I do? Any impediments? <strong class="key-term">Not a status meeting</strong> for management.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-number">Ceremony</div>
+            <h3>Sprint Review</h3>
+            <p>Team demonstrates the <strong class="key-term">increment</strong> to stakeholders. Gather feedback. Adapt the backlog. Not a formal sign-off.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-number">Ceremony</div>
+            <h3>Sprint Retrospective</h3>
+            <p>Team reflects on <strong class="key-term">how they worked</strong> (not what they built). Identify improvements. "What went well? What to improve?"</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-number">Role</div>
+            <h3>Product Owner</h3>
+            <p>Owns the <strong class="key-term">Product Backlog</strong>. Maximizes value. Represents stakeholders. One person, not a committee. Decides priority.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-number">Role</div>
+            <h3>Scrum Master</h3>
+            <p>A <strong class="key-term">Servant Leader</strong>. Removes impediments. Coaches the team on Scrum practices. Protects the team from outside interference.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-number">Artifact</div>
+            <h3>Product Backlog</h3>
+            <p>An <strong class="key-term">ordered list</strong> of everything that is known to be needed in the product. Single source of requirements. Continuously refined.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-number">Concept</div>
+            <h3>Velocity</h3>
+            <p>The amount of work (story points) a team completes in a sprint. Used for <strong class="key-term">forecasting</strong> future sprint capacity. Measured over time.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ──── EVM CALCULATOR ──── -->
+    <section class="section" id="section-evm">
+      <div class="page-header">
+        <div class="breadcrumb">PMP Mastery <span class="sep">›</span> Tools</div>
+        <h2>📐 Earned Value Management Calculator</h2>
+        <p>Enter PV, EV, AC and BAC values to instantly calculate all key EVM metrics. Master these — they appear on every PMP exam.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span class="emoji">🧮</span> Interactive EVM Calculator</div>
+        <div class="evm-layout">
+          <div class="evm-inputs">
+            <div class="evm-field">
+              <label>PV — Planned Value ($)</label>
+              <input type="number" id="evmPV" placeholder="e.g. 50000">
+            </div>
+            <div class="evm-field">
+              <label>EV — Earned Value ($)</label>
+              <input type="number" id="evmEV" placeholder="e.g. 45000">
+            </div>
+            <div class="evm-field">
+              <label>AC — Actual Cost ($)</label>
+              <input type="number" id="evmAC" placeholder="e.g. 55000">
+            </div>
+            <div class="evm-field">
+              <label>BAC — Budget at Completion ($)</label>
+              <input type="number" id="evmBAC" placeholder="e.g. 100000">
+            </div>
+            <button class="evm-calculate-btn" id="evmCalculateBtn">Calculate All Metrics →</button>
+          </div>
+          <div class="evm-results" id="evmResults">
+            <div class="evm-result-card"><div class="formula">EV − AC</div><div class="result-value" id="resCV">—</div><div class="result-label">Cost Variance (CV)</div><div class="interpretation" id="intCV"></div></div>
+            <div class="evm-result-card"><div class="formula">EV − PV</div><div class="result-value" id="resSV">—</div><div class="result-label">Schedule Variance (SV)</div><div class="interpretation" id="intSV"></div></div>
+            <div class="evm-result-card"><div class="formula">EV / AC</div><div class="result-value" id="resCPI">—</div><div class="result-label">Cost Performance Index (CPI)</div><div class="interpretation" id="intCPI"></div></div>
+            <div class="evm-result-card"><div class="formula">EV / PV</div><div class="result-value" id="resSPI">—</div><div class="result-label">Schedule Performance Index (SPI)</div><div class="interpretation" id="intSPI"></div></div>
+            <div class="evm-result-card"><div class="formula">BAC / CPI</div><div class="result-value" id="resEAC">—</div><div class="result-label">Estimate at Completion (EAC)</div><div class="interpretation" id="intEAC"></div></div>
+            <div class="evm-result-card"><div class="formula">EAC − AC</div><div class="result-value" id="resETC">—</div><div class="result-label">Estimate to Complete (ETC)</div><div class="interpretation" id="intETC"></div></div>
+            <div class="evm-result-card"><div class="formula">BAC − EV</div><div class="result-value" id="resVAC">—</div><div class="result-label">Variance at Completion (VAC)</div><div class="interpretation" id="intVAC"></div></div>
+            <div class="evm-result-card"><div class="formula">(BAC−EV)/(BAC−AC)</div><div class="result-value" id="resTCPI">—</div><div class="result-label">To-Complete Performance Index</div><div class="interpretation" id="intTCPI"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EVM Formulas Quick Reference -->
+      <div class="card">
+        <div class="card-title"><span class="emoji">📝</span> EVM Formulas Quick Reference</div>
+        <div class="formulas-grid">
+          <div class="formula-card">
+            <div class="f-name">Cost Variance</div>
+            <div class="f-equation">CV = EV − AC</div>
+            <div class="f-meaning">Positive = Under budget. Negative = Over budget.</div>
+          </div>
+          <div class="formula-card">
+            <div class="f-name">Schedule Variance</div>
+            <div class="f-equation">SV = EV − PV</div>
+            <div class="f-meaning">Positive = Ahead of schedule. Negative = Behind schedule.</div>
+          </div>
+          <div class="formula-card">
+            <div class="f-name">Cost Performance Index</div>
+            <div class="f-equation">CPI = EV / AC</div>
+            <div class="f-meaning">&gt;1 = Under budget. &lt;1 = Over budget. Most critical EVM forecasting metric.</div>
+          </div>
+          <div class="formula-card">
+            <div class="f-name">Schedule Performance Index</div>
+            <div class="f-equation">SPI = EV / PV</div>
+            <div class="f-meaning">&gt;1 = Ahead. &lt;1 = Behind. Shows schedule efficiency.</div>
+          </div>
+          <div class="formula-card">
+            <div class="f-name">Estimate at Completion</div>
+            <div class="f-equation">EAC = BAC / CPI</div>
+            <div class="f-meaning">Forecasted total cost. Assumes current CPI trend continues.</div>
+          </div>
+          <div class="formula-card">
+            <div class="f-name">Estimate to Complete</div>
+            <div class="f-equation">ETC = EAC − AC</div>
+            <div class="f-meaning">How much more money is needed to finish.</div>
+          </div>
+          <div class="formula-card">
+            <div class="f-name">Variance at Completion</div>
+            <div class="f-equation">VAC = BAC − EAC</div>
+            <div class="f-meaning">Positive = Under budget at end. Negative = Over budget at end.</div>
+          </div>
+          <div class="formula-card">
+            <div class="f-name">To-Complete Perf. Index</div>
+            <div class="f-equation">TCPI = (BAC−EV) / (BAC−AC)</div>
+            <div class="f-meaning">&gt;1 = Must perform better. &lt;1 = Can afford to slow down. =1 = On track.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ──── FLASHCARDS ──── -->
+    <section class="section" id="section-flashcards">
+      <div class="page-header">
+        <div class="breadcrumb">PMP Mastery <span class="sep">›</span> Study Tools</div>
+        <h2>🃏 Flashcard Study Deck</h2>
+        <p>Click a card to flip and reveal the answer. Use the category filters to focus your study.</p>
+      </div>
+
+      <div class="flashcard-controls">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="pmbok6">PMBOK 6</button>
+        <button class="filter-btn" data-filter="pmbok7">PMBOK 7</button>
+        <button class="filter-btn" data-filter="agile">Agile</button>
+        <button class="filter-btn" data-filter="evm">EVM</button>
+      </div>
+
+      <div class="flashcard-stage">
+        <div class="flashcard" id="flashcard">
+          <div class="flashcard-face flashcard-front">
+            <div class="flashcard-category" id="fcCategory">Loading...</div>
+            <h3 id="fcQuestion">Loading flashcard...</h3>
+            <div class="hint">Click to flip →</div>
+          </div>
+          <div class="flashcard-face flashcard-back">
+            <div class="flashcard-category" id="fcCategoryBack">Answer</div>
+            <p id="fcAnswer">Loading answer...</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flashcard-nav">
+        <button class="fc-nav-btn" id="fcPrev" title="Previous">◄</button>
+        <button class="fc-action-btn review" id="fcReview">🔄 Review Again</button>
+        <span class="fc-counter" id="fcCounter">1 / 1</span>
+        <button class="fc-action-btn learned" id="fcLearned">✓ Got It</button>
+        <button class="fc-nav-btn" id="fcNext" title="Next">►</button>
+      </div>
+    </section>
+
+    <!-- ──── MOCK EXAM ──── -->
+    <section class="section" id="section-quiz">
+      <div class="page-header">
+        <div class="breadcrumb">PMP Mastery <span class="sep">›</span> Exam Prep</div>
+        <h2>🧪 PMP Mock Exam Simulator</h2>
+        <p>20 PMP-style scenario questions. Read the scenario carefully, pick the BEST answer, then review the detailed explanation.</p>
+      </div>
+
+      <!-- Quiz Active State -->
+      <div id="quizActive">
+        <div class="quiz-header">
+          <div class="quiz-progress-bar">
+            <div class="quiz-progress-fill" id="quizProgressFill" style="width:0%"></div>
+          </div>
+          <div class="quiz-score">Question <strong id="quizCurrentNum">1</strong> of <strong>20</strong> &nbsp;|&nbsp; Score: <strong id="quizScoreDisplay">0</strong></div>
+        </div>
+
+        <div class="question-card" id="questionCard">
+          <div class="question-number" id="qNumber">Question 1 of 20</div>
+          <div class="question-scenario" id="qScenario"></div>
+          <div class="question-text" id="qText"></div>
+          <div class="options-list" id="qOptions"></div>
+          <div class="explanation-box" id="qExplanation">
+            <h4>💡 Why this is the best answer:</h4>
+            <p id="qExplanationText"></p>
+          </div>
+        </div>
+
+        <div class="quiz-actions">
+          <button class="btn btn-primary" id="quizSubmitBtn" disabled>Submit Answer</button>
+          <button class="btn btn-primary hidden" id="quizNextBtn">Next Question →</button>
+        </div>
+      </div>
+
+      <!-- Quiz Results State -->
+      <div id="quizResults" class="hidden">
+        <div class="question-card">
+          <div class="quiz-results">
+            <div class="results-score-circle" id="resultsCircle">
+              <span class="score-num" id="finalScoreNum">0</span>
+              <span class="score-total">out of 20</span>
+            </div>
+            <div class="results-message" id="resultsMessage">Great Job!</div>
+            <div class="results-sub" id="resultsSub">You scored above the passing threshold.</div>
+            <div class="quiz-actions">
+              <button class="btn btn-primary" id="quizRetakeBtn">🔁 Retake Exam</button>
+              <button class="btn btn-secondary" id="quizReviewBtn">📋 Review Answers</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review Section -->
+        <div id="quizReviewSection" class="hidden"></div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- ITTO Modal -->
+<div id="ittoModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <div style="display:flex; align-items:center;">
+        <h3 id="modalTitle">Process Details</h3>
+        <span id="modalPgBadge" class="modal-pg-badge"></span>
+      </div>
+      <button class="modal-close" id="modalCloseBtn">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div id="modalDesc" class="modal-desc"></div>
+      <table class="itto-table">
+        <thead>
+          <tr>
+            <th style="width: 25%">Category</th>
+            <th>Exam-Critical Key Items</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="itto-section-title text-teal">📥 Inputs</td>
+            <td><ul id="modalInputs" style="margin: 0; padding-left: 20px;"></ul></td>
+          </tr>
+          <tr>
+            <td class="itto-section-title text-orange">🛠️ Tools &amp; Tech</td>
+            <td><ul id="modalTools" style="margin: 0; padding-left: 20px;"></ul></td>
+          </tr>
+          <tr>
+            <td class="itto-section-title text-pink">📤 Outputs</td>
+            <td><ul id="modalOutputs" style="margin: 0; padding-left: 20px;"></ul></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js')
+        .then((reg) => console.log('Service Worker registered successfully:', reg.scope))
+        .catch((err) => console.error('Service Worker registration failed:', err));
+    });
+  }
+</script>
+</body>
+</html>

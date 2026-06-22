@@ -1,0 +1,22 @@
+{
+  "name": "PMP Exam Mastery",
+  "short_name": "PMP Mastery",
+  "description": "Interactive PMBOK 6th & 7th Edition PMP exam preparation tool.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "pmp_logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "pmp_logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
