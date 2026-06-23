@@ -1331,13 +1331,27 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function updateNotifUI() {
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    const isStandalone = window.navigator.standalone || window.matchMedia('(display-mode: standalone)').matches;
+
     if (!('Notification' in window)) {
-      notifStatusBadge.textContent = 'Unsupported';
-      notifStatusBadge.className = 'status-badge blocked';
-      notifToggleBtn.textContent = 'Notifications Unsupported';
-      notifToggleBtn.disabled = true;
-      notifIntervalSelect.disabled = true;
-      notifTestBtn.disabled = true;
+      if (isIOS && !isStandalone) {
+        notifStatusBadge.textContent = 'Install App';
+        notifStatusBadge.className = 'status-badge blocked';
+        notifToggleBtn.textContent = 'Add to Home Screen First';
+        notifToggleBtn.disabled = true;
+        notifIntervalSelect.disabled = true;
+        notifTestBtn.disabled = true;
+        notifScheduleInfo.classList.remove('hidden');
+        notifScheduleInfo.innerHTML = `<span style="color:var(--accent-orange); font-size:0.78rem; line-height:1.4;">ℹ️ iOS requires you to run this as an installed app. Tap the <strong>Share</strong> button in Safari, select <strong>Add to Home Screen</strong>, and launch it from there!</span>`;
+      } else {
+        notifStatusBadge.textContent = 'Unsupported';
+        notifStatusBadge.className = 'status-badge blocked';
+        notifToggleBtn.textContent = 'Notifications Unsupported';
+        notifToggleBtn.disabled = true;
+        notifIntervalSelect.disabled = true;
+        notifTestBtn.disabled = true;
+      }
       return;
     }
 
