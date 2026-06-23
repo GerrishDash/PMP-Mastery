@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pmp-mastery-v2';
+const CACHE_NAME = 'pmp-mastery-v3';
 const ASSETS = [
   './index.html',
   './styles.css',
@@ -62,6 +62,25 @@ self.addEventListener('fetch', (event) => {
         // If offline and request fails (and isn't cached), could return an offline page if it existed
         console.error('[Service Worker] Fetch failed offline for:', event.request.url);
       });
+    })
+  );
+});
+
+// Notification Click Event - Open or Focus App Window
+self.addEventListener('notificationclick', (event) => {
+  event.notification.close(); // Close notification popup
+
+  // Look for open tabs of the app and focus them, otherwise open a new one
+  event.waitUntil(
+    clients.matchAll({ type: 'window', includeUncontrolled: true }).then((clientList) => {
+      for (const client of clientList) {
+        if ('focus' in client) {
+          return client.focus();
+        }
+      }
+      if (clients.openWindow) {
+        return clients.openWindow('./index.html');
+      }
     })
   );
 });

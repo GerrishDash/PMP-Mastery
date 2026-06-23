@@ -1260,6 +1260,202 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // ══════════════════════════════════════════════
+  //  PASSIVE LEARNING NOTIFICATION SYSTEM
+  // ══════════════════════════════════════════════
+  const notifStatusBadge = document.getElementById('notifStatusBadge');
+  const notifIntervalSelect = document.getElementById('notifIntervalSelect');
+  const notifToggleBtn = document.getElementById('notifToggleBtn');
+  const notifTestBtn = document.getElementById('notifTestBtn');
+  const notifScheduleInfo = document.getElementById('notifScheduleInfo');
+  const notifCountdown = document.getElementById('notifCountdown');
+
+  let countdownTimer = null;
+  let secondsRemaining = 0;
+
+  // Helper to compile PMP tips from existing dataset and new custom summaries
+  function getPmpTips() {
+    const tips = [
+      // Key PMP concepts
+      { title: "OPA vs EEF", body: "OPAs are internal procedures, templates, and lessons learned. EEFs are external or internal conditions you cannot control (laws, culture, software)." },
+      { title: "Validate Scope vs Control Quality", body: "Validate Scope = customer signs off on deliverables. Control Quality = internal QC checks for correctness. QC is done first." },
+      { title: "Risk: Mitigate vs Transfer", body: "Mitigate reduces risk probability/impact (e.g. testing). Transfer shifts financial exposure to a third party (e.g. insurance)." },
+      { title: "EVM: CPI < 1.0", body: "Cost Performance Index (CPI) less than 1.0 means you are over budget. This is the most critical metric on the PMP exam!" },
+      { title: "EVM: SPI > 1.0", body: "Schedule Performance Index (SPI) greater than 1.0 means you are ahead of schedule. (SPI = EV / PV)" },
+      { title: "Agile: Servant Leadership", body: "A Scrum Master does not assign tasks. They remove blockers, protect the team from distractions, and coach them on self-organization." },
+      { title: "Conflict Resolution: Collaborate", body: "PMI's preferred method is Collaborate/Problem Solve. It is a win-win, long-term solution that addresses root causes." },
+      { title: "Change Requests", body: "Before implementing any change to baseline scope/schedule/cost, you MUST perform an impact analysis and submit a change request to the CCB." },
+      { title: "WBS Work Packages", body: "The lowest level of the Work Breakdown Structure is the Work Package. It is where cost and duration can be reliably estimated." },
+      { title: "Project Charter", body: "The Charter formally authorizes the project and gives the PM authority. It is issued by the Sponsor, not the PM." },
+      { title: "Definition of Done (DoD)", body: "A shared list of criteria a user story must meet before it can be considered complete and ready for release." },
+      { title: "Sprint Retrospective", body: "An agile event focused on HOW the team worked (processes, tools, relationships) and identifying action items for improvement." },
+      { title: "To-Complete Performance Index (TCPI)", body: "TCPI = (BAC - EV) / (BAC - AC). If > 1.0, you must perform more efficiently to stay within budget." },
+      { title: "Analogous vs Parametric Estimating", body: "Analogous uses historical data (fast but less accurate). Parametric uses a mathematical algorithm (e.g., $ per square foot)." },
+      { title: "Resource Leveling vs Smoothing", body: "Leveling adjusts dates based on resource limits (can change critical path). Smoothing only uses float (critical path stays same)." }
+    ];
+
+    // Merge in flashcard contents dynamically to expand database to 50+ tips
+    allFlashcards.forEach(fc => {
+      tips.push({ title: fc.q.substring(0, 40) + (fc.q.length > 40 ? '...' : ''), body: fc.a });
+    });
+
+    // Merge in principles
+    principles.forEach(p => {
+      tips.push({ title: `Principle: ${p.title}`, body: p.desc });
+    });
+
+    return tips;
+  }
+
+  const tipsList = getPmpTips();
+
+  function triggerLocalNotification() {
+    const randomTip = tipsList[Math.floor(Math.random() * tipsList.length)];
+    const title = `PMP Study Tip: ${randomTip.title}`;
+    const options = {
+      body: randomTip.body,
+      icon: 'pmp_logo.png',
+      badge: 'pmp_logo.png',
+      tag: 'pmp-study-tip', // replaces previous notification
+      renotify: true,
+      silent: false
+    };
+
+    if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
+      navigator.serviceWorker.ready.then(reg => {
+        reg.showNotification(title, options);
+      });
+    } else {
+      new Notification(title, options);
+    }
+  }
+
+  function updateNotifUI() {
+    if (!('Notification' in window)) {
+      notifStatusBadge.textContent = 'Unsupported';
+      notifStatusBadge.className = 'status-badge blocked';
+      notifToggleBtn.textContent = 'Notifications Unsupported';
+      notifToggleBtn.disabled = true;
+      notifIntervalSelect.disabled = true;
+      notifTestBtn.disabled = true;
+      return;
+    }
+
+    const permission = Notification.permission;
+    if (permission === 'default') {
+      notifStatusBadge.textContent = 'Disabled';
+      notifStatusBadge.className = 'status-badge inactive';
+      notifToggleBtn.textContent = 'Enable Notifications';
+      notifIntervalSelect.disabled = true;
+      notifTestBtn.disabled = true;
+      notifScheduleInfo.classList.add('hidden');
+    } else if (permission === 'granted') {
+      const isEnabled = localStorage.getItem('pmp_notif_enabled') === 'true';
+      if (isEnabled) {
+        notifStatusBadge.textContent = 'Active';
+        notifStatusBadge.className = 'status-badge active';
+        notifToggleBtn.textContent = 'Disable Notifications';
+        notifIntervalSelect.disabled = false;
+        notifTestBtn.disabled = false;
+        notifScheduleInfo.classList.remove('hidden');
+      } else {
+        notifStatusBadge.textContent = 'Paused';
+        notifStatusBadge.className = 'status-badge inactive';
+        notifToggleBtn.textContent = 'Resume Notifications';
+        notifIntervalSelect.disabled = false;
+        notifTestBtn.disabled = false;
+        notifScheduleInfo.classList.add('hidden');
+      }
+    } else if (permission === 'denied') {
+      notifStatusBadge.textContent = 'Blocked';
+      notifStatusBadge.className = 'status-badge blocked';
+      notifToggleBtn.textContent = 'Permission Blocked';
+      notifToggleBtn.disabled = true;
+      notifIntervalSelect.disabled = true;
+      notifTestBtn.disabled = true;
+      notifScheduleInfo.classList.add('hidden');
+    }
+  }
+
+  function startScheduler() {
+    stopScheduler(); // Clear existing
+
+    const isEnabled = localStorage.getItem('pmp_notif_enabled') === 'true';
+    if (!isEnabled || Notification.permission !== 'granted') return;
+
+    const intervalSec = parseInt(notifIntervalSelect.value);
+    secondsRemaining = intervalSec;
+
+    // Local Storage persistence of last interval setting
+    localStorage.setItem('pmp_notif_interval', intervalSec);
+
+    // Update Countdown display
+    updateCountdownDisplay();
+    
+    countdownTimer = setInterval(() => {
+      secondsRemaining--;
+      if (secondsRemaining <= 0) {
+        triggerLocalNotification();
+        secondsRemaining = intervalSec; // reset
+      }
+      updateCountdownDisplay();
+    }, 1000);
+  }
+
+  function stopScheduler() {
+    if (countdownTimer) {
+      clearInterval(countdownTimer);
+      countdownTimer = null;
+    }
+  }
+
+  function updateCountdownDisplay() {
+    const mins = Math.floor(secondsRemaining / 60);
+    const secs = secondsRemaining % 60;
+    notifCountdown.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+  }
+
+  notifToggleBtn.addEventListener('click', () => {
+    if (!('Notification' in window)) return;
+    
+    if (Notification.permission === 'default') {
+      Notification.requestPermission().then(permission => {
+        if (permission === 'granted') {
+          localStorage.setItem('pmp_notif_enabled', 'true');
+          startScheduler();
+        }
+        updateNotifUI();
+      });
+    } else {
+      const isEnabled = localStorage.getItem('pmp_notif_enabled') === 'true';
+      localStorage.setItem('pmp_notif_enabled', !isEnabled);
+      if (!isEnabled) {
+        startScheduler();
+      } else {
+        stopScheduler();
+      }
+      updateNotifUI();
+    }
+  });
+
+  notifIntervalSelect.addEventListener('change', () => {
+    startScheduler();
+  });
+
+  notifTestBtn.addEventListener('click', () => {
+    triggerLocalNotification();
+  });
+
+  // Load Saved Settings from LocalStorage
+  if (localStorage.getItem('pmp_notif_interval')) {
+    notifIntervalSelect.value = localStorage.getItem('pmp_notif_interval');
+  }
+  
+  updateNotifUI();
+  if (localStorage.getItem('pmp_notif_enabled') === 'true') {
+    startScheduler();
+  }
+
   // Initialize quiz
   startQuiz();
 

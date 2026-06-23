@@ -3,3 +3,8 @@
 
 # Keep the walkthrough and task files if needed, but since they are in the appDataDir brain directory, they won't be in this folder anyway.
 # We only want to deploy index.html, styles.css, app.js, manifest.json, sw.js, and pmp_logo.png.
+
+# Exclude SSH Keys
+Key1
+Key1.pub
+Key/

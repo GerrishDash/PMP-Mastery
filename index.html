@@ -114,6 +114,34 @@
         </div>
       </div>
 
+      <!-- Passive Learning Notification Panel -->
+      <div class="card notification-panel">
+        <div class="card-title"><span class="emoji">🔔</span> Passive Study Notification System</div>
+        <p style="color:var(--text-secondary); margin-bottom:18px;">Receive randomized exam tips, vocabulary, and formulas periodically to help you study on the go.</p>
+        <div class="notification-controls-grid">
+          <div class="notif-control-item">
+            <span class="control-label">System Status</span>
+            <div id="notifStatusBadge" class="status-badge inactive">Disabled</div>
+          </div>
+          <div class="notif-control-item">
+            <span class="control-label">Notification Interval</span>
+            <select id="notifIntervalSelect" class="notif-select" disabled>
+              <option value="1800">Every 30 Minutes</option>
+              <option value="3600">Every 1 Hour</option>
+              <option value="7200">Every 2 Hours</option>
+              <option value="15">Test Mode (15 Seconds)</option>
+            </select>
+          </div>
+          <div class="notif-control-buttons">
+            <button id="notifToggleBtn" class="btn btn-primary">Enable Notifications</button>
+            <button id="notifTestBtn" class="btn btn-secondary" disabled>Test Notification</button>
+          </div>
+        </div>
+        <div id="notifScheduleInfo" class="notif-schedule-info hidden">
+          Next study tip scheduled in: <strong id="notifCountdown">--:--</strong>
+        </div>
+      </div>
+
       <div class="card">
         <div class="card-title"><span class="emoji">🗺️</span> Your Study Roadmap</div>
         <p style="color:var(--text-secondary); margin-bottom:18px;">The PMP exam (2021+) tests on <strong class="text-accent">Predictive (Waterfall)</strong>, <strong class="text-blue">Agile</strong>, and <strong class="text-purple">Hybrid</strong> approaches. About 50% of the exam is predictive and 50% is agile/hybrid. Here's how to study:</p>
