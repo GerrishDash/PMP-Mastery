@@ -34,6 +34,9 @@
       <div class="nav-item active" data-section="dashboard">
         <span class="nav-icon">📊</span> Dashboard
       </div>
+      <div class="nav-item" data-section="mindset">
+        <span class="nav-icon">🧠</span> PMP Mindset
+      </div>
 
       <div class="nav-section-label">PMBOK 6th Edition — Predictive</div>
       <div class="nav-item" data-section="process-groups">
@@ -60,6 +63,9 @@
       </div>
       <div class="nav-item" data-section="flashcards">
         <span class="nav-icon">🃏</span> Flashcards
+      </div>
+      <div class="nav-item" data-section="itto-game">
+        <span class="nav-icon">🎮</span> ITTO Match Game
       </div>
 
       <div class="nav-section-label">Exam Prep</div>
@@ -182,6 +188,23 @@
             <p>The PMP exam is situational. Practice "What should the PM do NEXT?" and "What is the BEST action?" questions.</p>
             <span class="concept-tag tag-hybrid">Exam Prep</span>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ──── PMP MINDSET PLAYBOOK ──── -->
+    <section class="section" id="section-mindset">
+      <div class="page-header">
+        <div class="breadcrumb">PMP Mastery <span class="sep">›</span> Overview</div>
+        <h2>🧠 The PMP Exam Mindset Playbook</h2>
+        <p>PMI-specific guidelines that represent the "perfect project manager" world. Internalize these rules to immediately unlock high scores on situational questions.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-title"><span class="emoji">🛡️</span> Golden Rules of the PMP Mindset</div>
+        <p style="color:var(--text-secondary); margin-bottom:20px;">Examiners write situational questions to test if you will react impulsively or act like a disciplined, collaborative leader. Click each rule to see exactly how it is tested on the exam:</p>
+        <div class="mindset-rules-list" id="mindsetRulesList">
+          <!-- Populated by JS -->
         </div>
       </div>
     </section>
@@ -559,6 +582,33 @@
         </div>
       </div>
 
+      <!-- EVM Exam Practice Generator -->
+      <div class="card evm-generator-card">
+        <div class="card-title"><span class="emoji">🎓</span> EVM PMP Exam Math Simulator</div>
+        <p style="color:var(--text-secondary); margin-bottom:20px;">PMP mathematical questions are presented as word scenarios. Generate a problem, calculate the required indices, and check the step-by-step breakdown.</p>
+        
+        <div class="evm-scenario-box">
+          <button id="btnGenerateEVM" class="btn btn-primary" style="width: 100%;">Generate PMP Math Problem 🎲</button>
+          
+          <div id="evmProblemContainer" class="evm-problem-container hidden" style="margin-top:20px;">
+            <div class="evm-problem-text" id="evmProblemText" style="font-size:0.95rem; font-weight:500; padding:16px; background:var(--bg-secondary); border-radius:var(--radius-md); border-left:3px solid var(--accent-secondary); line-height:1.6; margin-bottom:18px;">
+              Generated problem scenario appears here...
+            </div>
+            
+            <div class="evm-problem-options" id="evmProblemOptions" style="display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-bottom:18px;">
+              <!-- Dynamic answers buttons -->
+            </div>
+
+            <button id="btnRevealEVM" class="btn btn-secondary" style="width:100%;">Show Step-by-Step Explanation 💡</button>
+            
+            <div id="evmExplanationContainer" class="evm-explanation-container hidden" style="margin-top:18px; padding:20px; background:rgba(6, 214, 160, 0.08); border:1px solid rgba(6, 214, 160, 0.2); border-radius:var(--radius-md);">
+              <h4 style="color:var(--accent-primary); font-size:0.95rem; font-weight:700; margin-bottom:10px;">💡 Step-by-Step Solution:</h4>
+              <p id="evmExplanationText" style="font-size:0.85rem; line-height:1.6; color:var(--text-secondary);"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- EVM Formulas Quick Reference -->
       <div class="card">
         <div class="card-title"><span class="emoji">📝</span> EVM Formulas Quick Reference</div>
@@ -616,11 +666,27 @@
       </div>
 
       <div class="flashcard-controls">
-        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn active" data-filter="all">All Cards</button>
         <button class="filter-btn" data-filter="pmbok6">PMBOK 6</button>
         <button class="filter-btn" data-filter="pmbok7">PMBOK 7</button>
         <button class="filter-btn" data-filter="agile">Agile</button>
         <button class="filter-btn" data-filter="evm">EVM</button>
+      </div>
+
+      <!-- Leitner Spaced Repetition stats -->
+      <div class="leitner-stats-bar">
+        <div class="leitner-deck-counter red active" data-box="1">
+          <span class="l-count" id="countBox1">0</span>
+          <span class="l-label">Hard (Soon)</span>
+        </div>
+        <div class="leitner-deck-counter yellow" data-box="2">
+          <span class="l-count" id="countBox2">0</span>
+          <span class="l-label">Familiar (Later)</span>
+        </div>
+        <div class="leitner-deck-counter green" data-box="3">
+          <span class="l-count" id="countBox3">0</span>
+          <span class="l-label">Mastered (Done)</span>
+        </div>
       </div>
 
       <div class="flashcard-stage">
@@ -639,13 +705,68 @@
 
       <div class="flashcard-nav">
         <button class="fc-nav-btn" id="fcPrev" title="Previous">◄</button>
-        <button class="fc-action-btn review" id="fcReview">🔄 Review Again</button>
-        <span class="fc-counter" id="fcCounter">1 / 1</span>
-        <button class="fc-action-btn learned" id="fcLearned">✓ Got It</button>
+        <button class="fc-action-btn leitner-btn red" id="btnHard">❌ Hard</button>
+        <button class="fc-action-btn leitner-btn yellow" id="btnMedium">⚠️ Medium</button>
+        <button class="fc-action-btn leitner-btn green" id="btnEasy">✅ Easy</button>
         <button class="fc-nav-btn" id="fcNext" title="Next">►</button>
       </div>
+      <div class="fc-counter" id="fcCounter" style="margin-top:12px; text-align:center; font-family:var(--font-mono); color:var(--text-secondary);">Box 1: 1 / 1</div>
     </section>
 
+    <!-- ──── ITTO MATCHING GAME ──── -->
+    <section class="section" id="section-itto-game">
+      <div class="page-header">
+        <div class="breadcrumb">PMP Mastery <span class="sep">›</span> Tools</div>
+        <h2>🎮 PMP ITTO Matching Board</h2>
+        <p>Classify PMP artifacts, outputs, or tools into their correct category. Drag the cards, or click/tap them then select the destination box.</p>
+      </div>
+
+      <div class="card itto-game-card">
+        <div class="itto-game-header" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; padding-bottom:12px; border-bottom:1px solid var(--border-subtle);">
+          <div class="itto-score-board" style="font-family:var(--font-mono); font-size:0.9rem; color:var(--text-secondary);">
+            Correct Matches: <strong id="ittoScore" style="color:var(--accent-primary);">0</strong> &nbsp;|&nbsp; 
+            Current Streak: <strong id="ittoStreak" style="color:var(--accent-secondary);">0 🔥</strong>
+          </div>
+          <button id="btnResetIttoGame" class="btn btn-secondary" style="padding:6px 14px; font-size:0.78rem;">Reset Stats</button>
+        </div>
+
+        <div class="itto-game-stage" style="display:flex; flex-direction:column; gap:24px; align-items:center;">
+          <!-- Floating card to classify -->
+          <div class="itto-source-card-container" style="width:100%; display:flex; justify-content:center;">
+            <div id="ittoSourceCard" class="itto-source-card" draggable="true">
+              <span class="card-icon" id="ittoCardIcon" style="font-size:1.8rem; margin-bottom:8px;">📄</span>
+              <h4 id="ittoCardName">Project Charter</h4>
+              <p style="font-size:0.7rem; color:var(--text-muted); margin-top:8px;">Drag this card OR tap/click it and choose a target below</p>
+            </div>
+          </div>
+
+          <!-- Matching targets -->
+          <div class="itto-targets-grid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:18px; width:100%;">
+            <div class="itto-target-box box-input" data-type="input" id="targetInput">
+              <div class="target-title">📥 Inputs</div>
+              <p class="target-desc">Pre-existing files, criteria, plans, or standards required before a process runs.</p>
+            </div>
+            <div class="itto-target-box box-tool" data-type="tool" id="targetTool">
+              <div class="target-title">🛠️ Tools &amp; Techniques</div>
+              <p class="target-desc">Methods, models, mathematical operations, or meetings applied to inputs.</p>
+            </div>
+            <div class="itto-target-box box-output" data-type="output" id="targetOutput">
+              <div class="target-title">📤 Outputs</div>
+              <p class="target-desc">New files, updates, reports, baselines, or products generated by the process.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coach commentary -->
+        <div id="ittoFeedbackBox" class="itto-feedback-box hidden" style="margin-top:24px; padding:18px; background:rgba(123, 97, 255, 0.08); border:1px solid rgba(123, 97, 255, 0.2); border-radius:var(--radius-lg); display:flex; gap:14px; align-items:flex-start;">
+          <div class="coach-avatar" style="font-size:2rem; line-height:1;">👨‍💼</div>
+          <div class="coach-text">
+            <strong style="font-size:0.85rem; color:var(--accent-tertiary); display:block; margin-bottom:4px;">PMP Examiner Coach:</strong>
+            <p id="ittoFeedbackText" style="font-size:0.8rem; line-height:1.55; color:var(--text-secondary); margin:0;"></p>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- ──── MOCK EXAM ──── -->
     <section class="section" id="section-quiz">
       <div class="page-header">

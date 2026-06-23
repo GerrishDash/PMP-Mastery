@@ -438,9 +438,27 @@ document.addEventListener('DOMContentLoaded', () => {
   // ══════════════════════════════════════════════
   //  FLASHCARDS
   // ══════════════════════════════════════════════
-  let currentFilter = 'all';
-  let filteredCards = [...allFlashcards];
+  // ══════════════════════════════════════════════
+  //  FLASHCARDS (SPACED REPETITION / LEITNER SYSTEM)
+  // ══════════════════════════════════════════════
+  let currentFilter = 'all'; // 'all', 'pmbok6', 'pmbok7', 'agile', 'evm'
+  let activeBoxFilter = 'all'; // 'all', '1', '2', '3'
   let currentCardIndex = 0;
+
+  // Spaced Repetition History Stack for 'All Boxes' mode
+  let cardHistory = [];
+  let historyPointer = -1;
+
+  // Load Leitner boxes from LocalStorage
+  let cardBoxes = JSON.parse(localStorage.getItem('pmp_card_boxes')) || {};
+  
+  // Default all cards to Box 1 (Hard/Review Soon)
+  allFlashcards.forEach((card, idx) => {
+    if (cardBoxes[idx] === undefined) {
+      cardBoxes[idx] = 1;
+    }
+  });
+  localStorage.setItem('pmp_card_boxes', JSON.stringify(cardBoxes));
 
   const flashcard = document.getElementById('flashcard');
   const fcCategory = document.getElementById('fcCategory');
@@ -449,66 +467,245 @@ document.addEventListener('DOMContentLoaded', () => {
   const fcAnswer = document.getElementById('fcAnswer');
   const fcCounter = document.getElementById('fcCounter');
 
+  const countBox1 = document.getElementById('countBox1');
+  const countBox2 = document.getElementById('countBox2');
+  const countBox3 = document.getElementById('countBox3');
+
   function getCategoryLabel(cat) {
     const labels = { pmbok6: 'PMBOK 6th Edition', pmbok7: 'PMBOK 7th Edition', agile: 'Agile / Scrum', evm: 'Earned Value Mgmt' };
     return labels[cat] || cat;
   }
 
+  // Get list of cards matching category and Leitner filters
+  function getFilteredCards() {
+    return allFlashcards.map((card, originalIdx) => ({ ...card, originalIdx }))
+      .filter(c => {
+        const matchesCategory = currentFilter === 'all' || c.cat === currentFilter;
+        const matchesBox = activeBoxFilter === 'all' || cardBoxes[c.originalIdx].toString() === activeBoxFilter;
+        return matchesCategory && matchesBox;
+      });
+  }
+
+  function updateLeitnerCounters() {
+    let box1 = 0, box2 = 0, box3 = 0;
+    allFlashcards.forEach((_, idx) => {
+      const box = cardBoxes[idx];
+      if (box === 1) box1++;
+      if (box === 2) box2++;
+      if (box === 3) box3++;
+    });
+    countBox1.textContent = box1;
+    countBox2.textContent = box2;
+    countBox3.textContent = box3;
+  }
+
+  // Select next card based on box frequency (Box 1: 70%, Box 2: 20%, Box 3: 10%)
+  function selectNextLeitnerCard(filtered) {
+    if (filtered.length === 0) return 0;
+    if (filtered.length === 1) return 0;
+
+    const box1 = filtered.filter(c => cardBoxes[c.originalIdx] === 1);
+    const box2 = filtered.filter(c => cardBoxes[c.originalIdx] === 2);
+    const box3 = filtered.filter(c => cardBoxes[c.originalIdx] === 3);
+
+    const r = Math.random();
+    let chosenBox = 1;
+    if (r < 0.70) {
+      chosenBox = 1;
+    } else if (r < 0.90) {
+      chosenBox = 2;
+    } else {
+      chosenBox = 3;
+    }
+
+    let selectedList = [];
+    if (chosenBox === 1) {
+      if (box1.length > 0) selectedList = box1;
+      else if (box2.length > 0) selectedList = box2;
+      else selectedList = box3;
+    } else if (chosenBox === 2) {
+      if (box2.length > 0) selectedList = box2;
+      else if (box1.length > 0) selectedList = box1;
+      else selectedList = box3;
+    } else {
+      if (box3.length > 0) selectedList = box3;
+      else if (box2.length > 0) selectedList = box2;
+      else selectedList = box1;
+    }
+
+    if (selectedList.length === 0) return 0;
+
+    // Avoid immediate repetition if possible
+    let currentOriginalIdx = filtered[currentCardIndex] ? filtered[currentCardIndex].originalIdx : -1;
+    let pick = selectedList[Math.floor(Math.random() * selectedList.length)];
+    if (selectedList.length > 1) {
+      let attempts = 0;
+      while (pick.originalIdx === currentOriginalIdx && attempts < 5) {
+        pick = selectedList[Math.floor(Math.random() * selectedList.length)];
+        attempts++;
+      }
+    }
+    
+    const targetIdx = filtered.findIndex(c => c.originalIdx === pick.originalIdx);
+    return targetIdx !== -1 ? targetIdx : 0;
+  }
+
+  // Reset navigation history stack on filter changes
+  function resetFlashcardNavigation() {
+    cardHistory = [];
+    historyPointer = -1;
+    currentCardIndex = 0;
+    
+    const filtered = getFilteredCards();
+    if (filtered.length > 0 && activeBoxFilter === 'all') {
+      currentCardIndex = selectNextLeitnerCard(filtered);
+      cardHistory.push(filtered[currentCardIndex].originalIdx);
+      historyPointer = 0;
+    }
+  }
+
   function renderFlashcard() {
-    if (filteredCards.length === 0) {
-      fcCategory.textContent = 'No Cards';
-      fcQuestion.textContent = 'No flashcards match the selected filter.';
-      fcAnswer.textContent = '';
+    const filtered = getFilteredCards();
+    updateLeitnerCounters();
+
+    if (filtered.length === 0) {
+      fcCategory.textContent = 'Empty Deck';
+      fcCategoryBack.textContent = 'Empty Deck';
+      fcQuestion.textContent = `No flashcards currently in this group. Select a different Box or Category above to continue studying!`;
+      fcAnswer.textContent = 'N/A';
       fcCounter.textContent = '0 / 0';
+      flashcard.classList.remove('flipped');
       return;
     }
-    const card = filteredCards[currentCardIndex];
+
+    if (currentCardIndex >= filtered.length || currentCardIndex < 0) {
+      currentCardIndex = 0;
+    }
+
+    const card = filtered[currentCardIndex];
     fcCategory.textContent = getCategoryLabel(card.cat);
     fcCategoryBack.textContent = getCategoryLabel(card.cat);
     fcQuestion.textContent = card.q;
     fcAnswer.textContent = card.a;
-    fcCounter.textContent = `${currentCardIndex + 1} / ${filteredCards.length}`;
+    
+    let counterLabel = `Box ${cardBoxes[card.originalIdx]}`;
+    if (activeBoxFilter === 'all') {
+      counterLabel += ` | History: Card ${historyPointer + 1} of ${cardHistory.length}`;
+    } else {
+      counterLabel += ` | Card ${currentCardIndex + 1} of ${filtered.length}`;
+    }
+    fcCounter.textContent = counterLabel;
     flashcard.classList.remove('flipped');
+  }
+
+  function gradeCard(boxNum) {
+    const filtered = getFilteredCards();
+    if (filtered.length === 0) return;
+
+    const card = filtered[currentCardIndex];
+    cardBoxes[card.originalIdx] = boxNum;
+    localStorage.setItem('pmp_card_boxes', JSON.stringify(cardBoxes));
+    
+    if (activeBoxFilter === 'all') {
+      // Draw a new card using Leitner frequency probabilities
+      currentCardIndex = selectNextLeitnerCard(filtered);
+      cardHistory.push(filtered[currentCardIndex].originalIdx);
+      historyPointer = cardHistory.length - 1;
+    } else {
+      // In single box filter, the graded card is no longer in this box.
+      // Recalculate list and move to next available card index
+      const newFiltered = getFilteredCards();
+      if (newFiltered.length > 0) {
+        currentCardIndex = currentCardIndex % newFiltered.length;
+      } else {
+        currentCardIndex = 0;
+      }
+    }
+    renderFlashcard();
   }
 
   flashcard.addEventListener('click', () => flashcard.classList.toggle('flipped'));
 
   document.getElementById('fcPrev').addEventListener('click', () => {
-    if (filteredCards.length === 0) return;
-    currentCardIndex = (currentCardIndex - 1 + filteredCards.length) % filteredCards.length;
+    const filtered = getFilteredCards();
+    if (filtered.length === 0) return;
+    
+    if (activeBoxFilter === 'all') {
+      if (historyPointer > 0) {
+        historyPointer--;
+        const prevOriginalIdx = cardHistory[historyPointer];
+        const prevIdx = filtered.findIndex(c => c.originalIdx === prevOriginalIdx);
+        if (prevIdx !== -1) {
+          currentCardIndex = prevIdx;
+        } else {
+          currentCardIndex = 0; // Fallback
+        }
+      }
+    } else {
+      // Sequential previous
+      currentCardIndex = (currentCardIndex - 1 + filtered.length) % filtered.length;
+    }
     renderFlashcard();
   });
 
   document.getElementById('fcNext').addEventListener('click', () => {
-    if (filteredCards.length === 0) return;
-    currentCardIndex = (currentCardIndex + 1) % filteredCards.length;
+    const filtered = getFilteredCards();
+    if (filtered.length === 0) return;
+    
+    if (activeBoxFilter === 'all') {
+      if (historyPointer < cardHistory.length - 1) {
+        historyPointer++;
+        const nextOriginalIdx = cardHistory[historyPointer];
+        const nextIdx = filtered.findIndex(c => c.originalIdx === nextOriginalIdx);
+        if (nextIdx !== -1) {
+          currentCardIndex = nextIdx;
+        } else {
+          currentCardIndex = 0; // Fallback
+        }
+      } else {
+        // Draw a new card using probabilities
+        currentCardIndex = selectNextLeitnerCard(filtered);
+        cardHistory.push(filtered[currentCardIndex].originalIdx);
+        historyPointer = cardHistory.length - 1;
+      }
+    } else {
+      // Sequential next
+      currentCardIndex = (currentCardIndex + 1) % filtered.length;
+    }
     renderFlashcard();
   });
 
-  document.getElementById('fcLearned').addEventListener('click', () => {
-    if (filteredCards.length === 0) return;
-    filteredCards.splice(currentCardIndex, 1);
-    if (currentCardIndex >= filteredCards.length) currentCardIndex = 0;
-    renderFlashcard();
-  });
+  // Grading buttons
+  document.getElementById('btnHard').addEventListener('click', (e) => { e.stopPropagation(); gradeCard(1); });
+  document.getElementById('btnMedium').addEventListener('click', (e) => { e.stopPropagation(); gradeCard(2); });
+  document.getElementById('btnEasy').addEventListener('click', (e) => { e.stopPropagation(); gradeCard(3); });
 
-  document.getElementById('fcReview').addEventListener('click', () => {
-    // Move current card to end
-    if (filteredCards.length <= 1) return;
-    const card = filteredCards.splice(currentCardIndex, 1)[0];
-    filteredCards.push(card);
-    if (currentCardIndex >= filteredCards.length) currentCardIndex = 0;
-    renderFlashcard();
-  });
-
-  // Filter buttons
-  document.querySelectorAll('.filter-btn').forEach(btn => {
+  // Filter Category Buttons
+  document.querySelectorAll('.flashcard-controls .filter-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.flashcard-controls .filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       currentFilter = btn.dataset.filter;
-      filteredCards = currentFilter === 'all' ? [...allFlashcards] : allFlashcards.filter(c => c.cat === currentFilter);
-      currentCardIndex = 0;
+      resetFlashcardNavigation();
+      renderFlashcard();
+    });
+  });
+
+  // Filter Leitner Box Buttons
+  document.querySelectorAll('.leitner-deck-counter').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.leitner-deck-counter').forEach(b => b.classList.remove('active'));
+      
+      const newBoxFilter = btn.dataset.box;
+      if (activeBoxFilter === newBoxFilter) {
+        // Toggle off to show all
+        activeBoxFilter = 'all';
+      } else {
+        activeBoxFilter = newBoxFilter;
+        btn.classList.add('active');
+      }
+      
+      resetFlashcardNavigation();
       renderFlashcard();
     });
   });
@@ -519,9 +716,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!flashcardSection.classList.contains('active')) return;
     if (e.key === 'ArrowLeft') document.getElementById('fcPrev').click();
     if (e.key === 'ArrowRight') document.getElementById('fcNext').click();
-    if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); flashcard.classList.toggle('flipped'); }
+    if (e.key === ' ') { e.preventDefault(); flashcard.classList.toggle('flipped'); }
+    if (e.key === '1') { e.preventDefault(); gradeCard(1); }
+    if (e.key === '2') { e.preventDefault(); gradeCard(2); }
+    if (e.key === '3') { e.preventDefault(); gradeCard(3); }
   });
 
+  // Initial seeding for first display
+  resetFlashcardNavigation();
   renderFlashcard();
 
   // ══════════════════════════════════════════════
@@ -1459,6 +1661,392 @@ document.addEventListener('DOMContentLoaded', () => {
   notifTestBtn.addEventListener('click', () => {
     triggerLocalNotification();
   });
+
+  // Load Saved Settings from LocalStorage
+  if (localStorage.getItem('pmp_notif_interval')) {
+    notifIntervalSelect.value = localStorage.getItem('pmp_notif_interval');
+  }
+  
+  updateNotifUI();
+  if (localStorage.getItem('pmp_notif_enabled') === 'true') {
+    startScheduler();
+  }
+
+  // ══════════════════════════════════════════════
+  //  PMP EXAM MINDSET PLAYBOOK
+  // ══════════════════════════════════════════════
+  const mindsetRules = [
+    {
+      id: 1,
+      title: "Analyze and Assess FIRST",
+      icon: "🔍",
+      instruction: "When a new issue, risk, or change occurs, the Project Manager's first step is ALWAYS to analyze the impact, consult registers, or evaluate options. Never take immediate action or request changes without understanding the effect.",
+      scenario: "A key stakeholder requests a modification to the database schema mid-execution. What should the PM do first?",
+      answer: "Analyze the impact of the requested change on the scope, timeline, budget, and quality before preparing a change request."
+    },
+    {
+      id: 2,
+      title: "Collaborate and Talk Privately",
+      icon: "🤝",
+      instruction: "Resolve conflicts and disagreements at the lowest level possible. Always speak to team members privately, listen actively, and seek consensus. Avoid immediately escalating to management or the sponsor.",
+      scenario: "Two senior developers are arguing over an architecture decision, stalling sprint progress. What should the PM do first?",
+      answer: "Facilitate a private meeting between the two developers to discuss their concerns and guide them toward a collaborative decision."
+    },
+    {
+      id: 3,
+      title: "Agile is Servant Leadership",
+      icon: "🛡️",
+      instruction: "In Agile, the PM (acting as Scrum Master) does not assign tasks, dictate schedules, or issue directives. Instead, you remove impediments, protect the team from distractions, and coach them on self-organization.",
+      scenario: "An agile team is struggling to meet their sprint goal because of frequent ad-hoc requests from a sales manager. What should the PM do?",
+      answer: "Intervene to shield the team from the sales manager's requests, and coach the manager to direct all requests through the Product Owner."
+    },
+    {
+      id: 4,
+      title: "Follow the Change Control Board (CCB)",
+      icon: "📋",
+      instruction: "For predictive projects, any modification to baselines (scope, schedule, or cost) requires a formal change request processed through the Integrated Change Control process and approved by the CCB.",
+      scenario: "The client asks a developer to add a minor extra field to a report. The developer says it takes only 10 minutes. What should the PM do?",
+      answer: "Instruct the developer not to add the feature yet; document the request and submit a formal change request to the CCB."
+    },
+    {
+      id: 5,
+      title: "Do Not Fire or Escalate Unilaterally",
+      icon: "❌",
+      instruction: "When dealing with team performance issues, always follow coaching and performance improvement paths. Firing team members or formal escalations to HR/Sponsor are final resorts after all internal coaching attempts fail.",
+      scenario: "A developer's productivity has fallen for three consecutive sprints, causing delayed deliverables. What should the PM do?",
+      answer: "Meet with the developer privately to understand the root cause of the performance drop and collaboratively create a support plan."
+    }
+  ];
+
+  const mindsetListContainer = document.getElementById('mindsetRulesList');
+  if (mindsetListContainer) {
+    mindsetRules.forEach(rule => {
+      const card = document.createElement('div');
+      card.className = 'mindset-rule-card';
+      card.innerHTML = `
+        <div class="rule-header">
+          <div class="rule-header-left">
+            <span class="rule-num">Rule ${rule.id}</span>
+            <span class="rule-title">${rule.icon} ${rule.title}</span>
+          </div>
+          <span class="rule-arrow">►</span>
+        </div>
+        <div class="rule-body">
+          <p class="rule-instruction">${rule.instruction}</p>
+          <div class="rule-scenario-box">
+            <span class="scenario-tag">PMP Exam Scenario Example</span>
+            <blockquote>"${rule.scenario}"</blockquote>
+            <div class="rule-scenario-qa">
+              <strong>Best PMP Action:</strong> ${rule.answer}
+            </div>
+          </div>
+        </div>
+      `;
+      
+      const header = card.querySelector('.rule-header');
+      header.addEventListener('click', () => {
+        card.classList.toggle('expanded');
+      });
+      
+      mindsetListContainer.appendChild(card);
+    });
+  }
+
+  // ══════════════════════════════════════════════
+  //  EVM PRACTICE SCENARIO SIMULATOR
+  // ══════════════════════════════════════════════
+  const evmProblemTemplates = [
+    {
+      calc: (bac) => {
+        const pv = Math.round(bac * 0.5);
+        const ev = Math.round(bac * 0.4);
+        const ac = Math.round(bac * 0.45);
+        return { pv, ev, ac, bac };
+      },
+      generator: (vals) => {
+        const cv = vals.ev - vals.ac;
+        const correctText = `CV = $${cv.toLocaleString()}; Over Budget`;
+        const options = [
+          correctText,
+          `CV = $${Math.abs(cv).toLocaleString()}; Under Budget`,
+          `CV = -$${Math.abs(vals.pv - vals.ac).toLocaleString()}; Over Budget`,
+          `CV = $0; On Budget`
+        ];
+        return {
+          questionText: `You are managing an infrastructure installation project. The Budget at Completion (BAC) is $${vals.bac.toLocaleString()}. At Month 6, your Planned Value (PV) is $${vals.pv.toLocaleString()}, your Earned Value (EV) is $${vals.ev.toLocaleString()}, and your Actual Cost (AC) is $${vals.ac.toLocaleString()}.\n\nQuestion: Calculate the Cost Variance (CV) and determine the cost status.`,
+          options,
+          correctIndex: 0,
+          explanation: `Cost Variance (CV) = EV - AC.\nIn this case: CV = $${vals.ev.toLocaleString()} - $${vals.ac.toLocaleString()} = $${cv.toLocaleString()}.\nSince the CV is negative, the project is OVER BUDGET. A CPI of ${(vals.ev / vals.ac).toFixed(2)} means you are getting only 89 cents of value for every dollar spent.`
+        };
+      }
+    },
+    {
+      calc: (bac) => {
+        const pv = Math.round(bac * 0.6);
+        const ev = Math.round(bac * 0.5);
+        const ac = Math.round(bac * 0.58);
+        return { pv, ev, ac, bac };
+      },
+      generator: (vals) => {
+        const spi = vals.ev / vals.pv;
+        const correctText = `SPI = ${spi.toFixed(2)}; Behind Schedule`;
+        const options = [
+          correctText,
+          `SPI = ${(vals.ev / vals.ac).toFixed(2)}; Ahead of Schedule`,
+          `SPI = ${(vals.pv / vals.ev).toFixed(2)}; Behind Schedule`,
+          `SPI = ${spi.toFixed(2)}; On Schedule`
+        ];
+        return {
+          questionText: `Your software construction project has a BAC of $${vals.bac.toLocaleString()}. Your schedule baseline dictates you should have completed work worth $${vals.pv.toLocaleString()} by today (Planned Value). The team has completed work worth $${vals.ev.toLocaleString()} (Earned Value) while spending $${vals.ac.toLocaleString()}.\n\nQuestion: Calculate the Schedule Performance Index (SPI) and project schedule status.`,
+          options,
+          correctIndex: 0,
+          explanation: `Schedule Performance Index (SPI) = EV / PV.\nIn this case: SPI = $${vals.ev.toLocaleString()} / $${vals.pv.toLocaleString()} = ${spi.toFixed(2)}.\nSince the SPI is less than 1.0, the project is BEHIND SCHEDULE. You are performing work at only ${Math.round(spi * 100)}% of the planned rate.`
+        };
+      }
+    },
+    {
+      calc: (bac) => {
+        const pv = Math.round(bac * 0.7);
+        const ev = Math.round(bac * 0.65);
+        const ac = Math.round(bac * 0.75);
+        return { pv, ev, ac, bac };
+      },
+      generator: (vals) => {
+        const cpi = vals.ev / vals.ac;
+        const eac = vals.bac / cpi;
+        const correctText = `EAC = $${Math.round(eac).toLocaleString()}`;
+        const options = [
+          correctText,
+          `EAC = $${Math.round(vals.bac + (vals.pv - vals.ev)).toLocaleString()}`,
+          `EAC = $${Math.round(vals.ac + (vals.bac - vals.ev)).toLocaleString()}`,
+          `EAC = $${Math.round(vals.bac).toLocaleString()}`
+        ];
+        return {
+          questionText: `Your hardware deployment project has a BAC of $${vals.bac.toLocaleString()}. At the midpoint, the Earned Value (EV) is $${vals.ev.toLocaleString()} and the Actual Cost (AC) is $${vals.ac.toLocaleString()}. The cost variance is typical and expected to continue.\n\nQuestion: Calculate the forecasted Estimate at Completion (EAC).`,
+          options,
+          correctIndex: 0,
+          explanation: `When current cost variance is typical and expected to continue, the formula is: EAC = BAC / CPI.\nFirst, calculate CPI = EV / AC = $${vals.ev.toLocaleString()} / $${vals.ac.toLocaleString()} = ${cpi.toFixed(3)}.\nNow, EAC = $${vals.bac.toLocaleString()} / ${cpi.toFixed(3)} = $${Math.round(eac).toLocaleString()}.\nThe project will cost an extra $${Math.round(eac - vals.bac).toLocaleString()} over the original budget.`
+        };
+      }
+    },
+    {
+      calc: (bac) => {
+        const pv = Math.round(bac * 0.8);
+        const ev = Math.round(bac * 0.75);
+        const ac = Math.round(bac * 0.85);
+        return { pv, ev, ac, bac };
+      },
+      generator: (vals) => {
+        const tcpi = (vals.bac - vals.ev) / (vals.bac - vals.ac);
+        const correctText = `TCPI = ${tcpi.toFixed(2)}`;
+        const options = [
+          correctText,
+          `TCPI = ${(vals.ev / vals.ac).toFixed(2)}`,
+          `TCPI = ${((vals.bac - vals.ev) / vals.bac).toFixed(2)}`,
+          `TCPI = ${(1 / tcpi).toFixed(2)}`
+        ];
+        return {
+          questionText: `A project has a BAC of $${vals.bac.toLocaleString()}. You have completed work worth $${vals.ev.toLocaleString()} (EV) while spending $${vals.ac.toLocaleString()} (AC). The sponsor demands that the project must be completed within the original budget.\n\nQuestion: Calculate the required To-Complete Performance Index (TCPI) to meet the sponsor's target.`,
+          options,
+          correctIndex: 0,
+          explanation: `To complete within the original budget (BAC), the formula is: TCPI = (BAC - EV) / (BAC - AC).\nIn this case: TCPI = ($${vals.bac.toLocaleString()} - $${vals.ev.toLocaleString()}) / ($${vals.bac.toLocaleString()} - $${vals.ac.toLocaleString()}) = $${(vals.bac - vals.ev).toLocaleString()} / $${(vals.bac - vals.ac).toLocaleString()} = ${tcpi.toFixed(2)}.\nSince TCPI is greater than 1.0, you must perform more efficiently than you have so far to avoid busting the budget.`
+        };
+      }
+    }
+  ];
+
+  function generateEVMProblem() {
+    const template = evmProblemTemplates[Math.floor(Math.random() * evmProblemTemplates.length)];
+    const bases = [150000, 200000, 300000, 500000, 750000, 900000, 1200000];
+    const bac = bases[Math.floor(Math.random() * bases.length)];
+    const vals = template.calc(bac);
+    const problem = template.generator(vals);
+
+    document.getElementById('evmProblemText').innerHTML = problem.questionText.replace(/\n/g, '<br>');
+    const optionsContainer = document.getElementById('evmProblemOptions');
+    optionsContainer.innerHTML = '';
+
+    // Create options with metadata
+    const optsWithMeta = problem.options.map((opt, idx) => ({ text: opt, isCorrect: idx === problem.correctIndex }));
+    shuffleArray(optsWithMeta);
+
+    optsWithMeta.forEach(opt => {
+      const btn = document.createElement('button');
+      btn.textContent = opt.text;
+      btn.addEventListener('click', () => {
+        // Disable all buttons in this options panel
+        optionsContainer.querySelectorAll('button').forEach(b => {
+          b.disabled = true;
+          const meta = optsWithMeta.find(o => o.text === b.textContent);
+          if (meta && meta.isCorrect) {
+            b.classList.add('correct');
+          }
+        });
+
+        if (opt.isCorrect) {
+          btn.classList.add('correct');
+        } else {
+          btn.classList.add('incorrect');
+        }
+
+        document.getElementById('evmExplanationText').innerHTML = problem.explanation.replace(/\n/g, '<br>');
+        document.getElementById('evmExplanationContainer').classList.remove('hidden');
+      });
+      optionsContainer.appendChild(btn);
+    });
+
+    document.getElementById('evmExplanationContainer').classList.add('hidden');
+    document.getElementById('evmProblemContainer').classList.remove('hidden');
+  }
+
+  document.getElementById('btnGenerateEVM').addEventListener('click', generateEVMProblem);
+  document.getElementById('btnRevealEVM').addEventListener('click', () => {
+    document.getElementById('evmExplanationContainer').classList.remove('hidden');
+  });
+
+
+  // ══════════════════════════════════════════════
+  //  ITTO MATCHING GAME
+  // ══════════════════════════════════════════════
+  const ittoGameCards = [
+    { name: "Project Charter", icon: "📜", type: "input", desc: "A critical input to many processes (like Develop PM Plan or Plan Scope Mgmt). It authorizes the project.", process: "Develop Project Management Plan" },
+    { name: "WBS (Work Breakdown Structure)", icon: "📐", type: "output", desc: "A hierarchical decomposition of project scope. Part of the Scope Baseline output of Create WBS.", process: "Create WBS" },
+    { name: "Decomposition", icon: "🪓", type: "tool", desc: "A tool and technique used to break deliverables down into work packages or activities.", process: "Create WBS / Define Activities" },
+    { name: "Change Requests", icon: "📝", type: "output", desc: "Generated in executing/controlling processes when deviations occur or improvements are identified.", process: "Direct & Manage Project Work / Control Scope" },
+    { name: "Approved Change Requests", icon: "✅", type: "input", desc: "The critical input required by Direct and Manage Project Work to implement authorized modifications.", process: "Direct and Manage Project Work" },
+    { name: "Expert Judgment", icon: "🧠", type: "tool", desc: "Consulting experts. It is the most common tool & technique across almost all PMBOK processes.", process: "All Processes" },
+    { name: "Lessons Learned Register", icon: "📓", type: "output", desc: "The core output of Manage Project Knowledge where team learnings are recorded to update OPAs.", process: "Manage Project Knowledge" },
+    { name: "Accepted Deliverables", icon: "🤝", type: "output", desc: "Deliverables signed off by the customer, which is the main output of Validate Scope.", process: "Validate Scope" },
+    { name: "Verified Deliverables", icon: "🔍", type: "input", desc: "Outputs of Control Quality that are inputs to Validate Scope for formal customer acceptance.", process: "Validate Scope" },
+    { name: "Monte Carlo Simulation", icon: "🎲", type: "tool", desc: "A quantitative risk analysis simulation tool that computes project schedule/cost probabilities.", process: "Perform Quantitative Risk Analysis" },
+    { name: "Earned Value Analysis", icon: "📊", type: "tool", desc: "A data analysis technique used to evaluate variance between planned progress and actual performance.", process: "Control Costs / Control Schedule" },
+    { name: "Final Product Transition", icon: "🚚", type: "output", desc: "The ultimate output of Close Project or Phase where the final product is delivered to the customer.", process: "Close Project or Phase" },
+    { name: "Tornado Diagram", icon: "🌪️", type: "tool", desc: "A sensitivity analysis display tool used in quantitative risk analysis to show which risks have the most impact.", process: "Perform Quantitative Risk Analysis" },
+    { name: "Bidder Conferences", icon: "📢", type: "tool", desc: "Meetings with prospective sellers to ensure everyone has a clear, common understanding of procurement requirements.", process: "Conduct Procurements" },
+    { name: "Stakeholder Register", icon: "👥", type: "output", desc: "The primary output of Identify Stakeholders, listing identification, assessment, and classification details.", process: "Identify Stakeholders" }
+  ];
+
+  let ittoScore = 0;
+  let ittoStreak = 0;
+  let currentIttoCard = null;
+  let isIttoCardClicked = false;
+
+  const ittoSourceCard = document.getElementById('ittoSourceCard');
+  const ittoCardIcon = document.getElementById('ittoCardIcon');
+  const ittoCardName = document.getElementById('ittoCardName');
+  const ittoScoreEl = document.getElementById('ittoScore');
+  const ittoStreakEl = document.getElementById('ittoStreak');
+  const ittoFeedbackBox = document.getElementById('ittoFeedbackBox');
+  const ittoFeedbackText = document.getElementById('ittoFeedbackText');
+
+  function loadNextIttoCard() {
+    const card = ittoGameCards[Math.floor(Math.random() * ittoGameCards.length)];
+    currentIttoCard = card;
+    ittoCardIcon.textContent = card.icon;
+    ittoCardName.textContent = card.name;
+    
+    // Clear clicked highlights
+    isIttoCardClicked = false;
+    ittoSourceCard.classList.remove('clicked-target');
+    document.querySelectorAll('.itto-target-box').forEach(box => box.classList.remove('clicked-target'));
+  }
+
+  function handleIttoMatch(selectedType, targetBoxElement) {
+    if (!currentIttoCard) return;
+
+    if (selectedType === currentIttoCard.type) {
+      // Success!
+      ittoScore++;
+      ittoStreak++;
+      ittoScoreEl.textContent = ittoScore;
+      ittoStreakEl.textContent = `${ittoStreak} 🔥`;
+      
+      // Success animation on box
+      targetBoxElement.classList.add('success-pulse');
+      setTimeout(() => targetBoxElement.classList.remove('success-pulse'), 600);
+
+      // Examiner Feedback
+      ittoFeedbackText.innerHTML = `<strong>Correct!</strong> "${currentIttoCard.name}" is indeed classified as an <strong>${currentIttoCard.type.toUpperCase()}</strong>.<br>${currentIttoCard.desc} (Associated process: <em>${currentIttoCard.process}</em>).`;
+      ittoFeedbackBox.classList.remove('hidden');
+
+      loadNextIttoCard();
+    } else {
+      // Wrong match
+      ittoStreak = 0;
+      ittoStreakEl.textContent = `${ittoStreak} 🔥`;
+
+      // Shake animation on box
+      targetBoxElement.classList.add('shake');
+      setTimeout(() => targetBoxElement.classList.remove('shake'), 500);
+
+      // Examiner Feedback
+      ittoFeedbackText.innerHTML = `<strong>Incorrect!</strong> "${currentIttoCard.name}" is NOT an ${selectedType.toUpperCase()}. Think like an examiner: It belongs to the <strong>${currentIttoCard.type.toUpperCase()}</strong> category.<br>Review its use in: <em>${currentIttoCard.process}</em>.`;
+      ittoFeedbackBox.classList.remove('hidden');
+    }
+  }
+
+  // 1. Drag and Drop Bindings
+  ittoSourceCard.addEventListener('dragstart', (e) => {
+    e.dataTransfer.setData('text/plain', currentIttoCard.type);
+    ittoSourceCard.style.opacity = '0.5';
+  });
+
+  ittoSourceCard.addEventListener('dragend', () => {
+    ittoSourceCard.style.opacity = '1';
+  });
+
+  const targetBoxes = document.querySelectorAll('.itto-target-box');
+  targetBoxes.forEach(box => {
+    box.addEventListener('dragover', (e) => {
+      e.preventDefault(); // Required to allow drop
+    });
+
+    box.addEventListener('dragenter', () => {
+      box.classList.add('hover');
+    });
+
+    box.addEventListener('dragleave', () => {
+      box.classList.remove('hover');
+    });
+
+    box.addEventListener('drop', (e) => {
+      box.classList.remove('hover');
+      const selectedType = e.dataTransfer.getData('text/plain');
+      handleIttoMatch(box.dataset.type, box);
+    });
+
+    // 2. Click-to-Match fallback (Best for Mobile)
+    box.addEventListener('click', () => {
+      if (isIttoCardClicked) {
+        handleIttoMatch(box.dataset.type, box);
+      }
+    });
+  });
+
+  // Source card click state
+  ittoSourceCard.addEventListener('click', (e) => {
+    e.stopPropagation();
+    isIttoCardClicked = !isIttoCardClicked;
+    ittoSourceCard.classList.toggle('clicked-target', isIttoCardClicked);
+    
+    // Highlight boxes to show they are targets
+    targetBoxes.forEach(box => {
+      box.classList.toggle('clicked-target', isIttoCardClicked);
+    });
+  });
+
+  document.getElementById('btnResetIttoGame').addEventListener('click', () => {
+    ittoScore = 0;
+    ittoStreak = 0;
+    ittoScoreEl.textContent = '0';
+    ittoStreakEl.textContent = '0 🔥';
+    ittoFeedbackBox.classList.add('hidden');
+    loadNextIttoCard();
+  });
+
+  // Initialize ITTO Game
+  loadNextIttoCard();
+
 
   // Load Saved Settings from LocalStorage
   if (localStorage.getItem('pmp_notif_interval')) {
