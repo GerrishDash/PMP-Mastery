@@ -1,10 +1,12 @@
-const CACHE_NAME = 'pmp-mastery-v5';
+const CACHE_NAME = 'pmp-mastery-v6';
 const ASSETS = [
   './index.html',
   './styles.css',
   './app.js',
   './manifest.json',
-  './pmp_logo.png'
+  './pmp_logo.png',
+  './Project-Management-Institute-A-Guide-to-the-Project-Management-Body-of-Knowledge-PMBOK-R-Guide-PMBOK®️-Guide-Project-Management-Institute-2021 (1).md',
+  './Project-Management-Institute-A-Guide-to-the-Project-Management-Body-of-Knowledge-PMBOK®-Guide–Sixth-Edition-Project-Management-Institute-2017.md'
 ];
 
 // Install Event - Caching Assets

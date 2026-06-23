@@ -58,6 +58,9 @@
       </div>
 
       <div class="nav-section-label">Tools</div>
+      <div class="nav-item" data-section="reader">
+        <span class="nav-icon">📚</span> PMP Library
+      </div>
       <div class="nav-item" data-section="evm">
         <span class="nav-icon">📐</span> EVM Calculator
       </div>
@@ -767,6 +770,118 @@
         </div>
       </div>
     </section>
+
+    <!-- ──── PMP BOOKSHELF READER ──── -->
+    <section class="section" id="section-reader">
+      <div class="page-header">
+        <div class="breadcrumb">PMP Mastery <span class="sep">›</span> Library</div>
+        <h2>📚 PMP Book Reader &amp; Bookshelf</h2>
+        <p>A Kindle-like reading experience for PMBOK 6th and 7th Editions. Highlight your stop point and customize theme and typography for comfortable reading.</p>
+      </div>
+
+      <div class="card reader-card">
+        <div class="reader-toolbar">
+          <div class="toolbar-left">
+            <select id="readerBookSelect" class="notif-select reader-book-select" style="width:auto; margin:0;">
+              <option value="pmbok7">PMBOK 7th Edition</option>
+              <option value="pmbok6">PMBOK 6th Edition</option>
+            </select>
+            <button id="btnToggleTOC" class="btn btn-secondary" style="padding:8px 14px; font-size:0.85rem;"><span class="emoji">📖</span> TOC</button>
+            <button id="btnToggleReaderSettings" class="btn btn-secondary" style="padding:8px 14px; font-size:0.85rem;"><span class="emoji">⚙️</span> Settings</button>
+          </div>
+          <div class="toolbar-right">
+            <button id="btnSaveBookmark" class="btn btn-primary" style="padding:8px 16px; font-size:0.85rem;"><span class="emoji">🔖</span> Save Progress</button>
+          </div>
+        </div>
+
+        <!-- Collapsible Reader Settings Panel -->
+        <div id="readerSettingsPanel" class="reader-settings-panel hidden" style="margin-bottom:15px; padding:15px; background:var(--bg-secondary); border-radius:var(--radius-md); border:1px solid var(--border-subtle);">
+          <h4 style="font-size:0.85rem; text-transform:uppercase; color:var(--text-muted); margin-bottom:12px; letter-spacing:0.05em;">Display Settings</h4>
+          <div class="settings-grid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:18px;">
+            <div class="setting-item">
+              <span style="font-size:0.8rem; color:var(--text-secondary); display:block; margin-bottom:6px;">Reading Theme</span>
+              <div class="theme-buttons" style="display:flex; gap:8px;">
+                <button class="btn btn-secondary btn-theme active" data-theme="dark" style="flex:1; font-size:0.75rem; padding:6px;">Dark</button>
+                <button class="btn btn-secondary btn-theme" data-theme="light" style="flex:1; font-size:0.75rem; padding:6px; background:#fff; color:#333;">Light</button>
+                <button class="btn btn-secondary btn-theme" data-theme="sepia" style="flex:1; font-size:0.75rem; padding:6px; background:#f4ecd8; color:#5b4636;">Sepia</button>
+                <button class="btn btn-secondary btn-theme" data-theme="system" style="flex:1; font-size:0.75rem; padding:6px;">OS Theme</button>
+              </div>
+            </div>
+            <div class="setting-item">
+              <span style="font-size:0.8rem; color:var(--text-secondary); display:block; margin-bottom:6px;">Font Size</span>
+              <div class="font-size-controls" style="display:flex; gap:8px; align-items:center;">
+                <button id="btnFontDec" class="btn btn-secondary" style="flex:1; font-size:0.85rem; padding:6px;">A −</button>
+                <span id="lblFontSize" style="font-family:var(--font-mono); font-size:0.85rem; min-width:35px; text-align:center;">18px</span>
+                <button id="btnFontInc" class="btn btn-secondary" style="flex:1; font-size:0.85rem; padding:6px;">A +</button>
+              </div>
+            </div>
+            <div class="setting-item">
+              <span style="font-size:0.8rem; color:var(--text-secondary); display:block; margin-bottom:6px;">Font Family</span>
+              <div class="font-family-controls" style="display:flex; gap:8px;">
+                <button class="btn btn-secondary btn-font active" data-font="serif" style="flex:1; font-size:0.75rem; padding:6px; font-family:Georgia, serif;">Serif</button>
+                <button class="btn btn-secondary btn-font" data-font="sans" style="flex:1; font-size:0.75rem; padding:6px; font-family:system-ui, sans-serif;">Sans</button>
+                <button class="btn btn-secondary btn-font" data-font="mono" style="flex:1; font-size:0.75rem; padding:6px; font-family:var(--font-mono);">Mono</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Collapsible Table of Contents Panel -->
+        <div id="readerTOCPanel" class="reader-toc-panel hidden" style="margin-bottom:15px; padding:15px; background:var(--bg-secondary); border-radius:var(--radius-md); border:1px solid var(--border-subtle); max-height:240px; overflow-y:auto;">
+          <h4 style="font-size:0.85rem; text-transform:uppercase; color:var(--text-muted); margin-bottom:10px; letter-spacing:0.05em;">Table of Contents</h4>
+          <ul id="readerTOCList" class="reader-toc-list" style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:6px;">
+            <!-- Populated dynamically by JS -->
+          </ul>
+        </div>
+
+        <!-- Kindle Viewport -->
+        <div class="reader-viewport-container" style="position:relative; width:100%; border-radius:var(--radius-lg); overflow:hidden; margin-bottom:15px; border:1px solid var(--border-subtle);">
+          
+          <!-- Tap overlays for mobile page turns -->
+          <div class="reader-tap-zone zone-left" id="readerZoneLeft" title="Previous Page"></div>
+          <div class="reader-tap-zone zone-right" id="readerZoneRight" title="Next Page"></div>
+          
+          <!-- Viewport Box -->
+          <div id="readerContentArea" class="reader-content-area reader-theme-dark font-serif" style="padding:32px; min-height:480px; max-height:640px; overflow-y:auto; transition: all var(--transition-medium); line-height:1.7;">
+            <div id="readerLoader" class="reader-loader" style="display:flex; flex-direction:column; justify-content:center; align-items:center; height:400px; gap:14px;">
+              <span class="spinner" style="font-size:2.5rem; animation:spin 2s linear infinite; display:inline-block;">🔄</span>
+              <span style="font-weight:600; color:var(--text-secondary);">Pre-caching and loading PMBOK book...</span>
+            </div>
+            
+            <div id="readerPageWrapper" class="reader-page-wrapper hidden" style="max-width:680px; margin:0 auto;">
+              <!-- Markdown text render target -->
+              <div id="readerText" class="reader-text" style="font-size:18px;"></div>
+            </div>
+
+            <!-- Fallback warning for CORS or load errors -->
+            <div id="readerErrorMsg" class="reader-error-msg hidden" style="display:flex; flex-direction:column; justify-content:center; align-items:center; height:400px; padding:20px; text-align:center; gap:16px;">
+              <span style="font-size:2.5rem;">⚠️</span>
+              <h4 style="color:var(--accent-orange); font-size:1rem; font-weight:700;">Local CORS Security Policy Restriction</h4>
+              <p style="font-size:0.85rem; color:var(--text-secondary); max-width:500px; line-height:1.5;">
+                Browsers block fetching local text files directly via the <code>file:///</code> protocol. To view the books, please run the app using a local development server (such as Live Server in VS Code, or by running <code>npx serve</code> in the project directory), or access your hosted GitHub Pages site.
+              </p>
+              <div class="host-info-card" style="padding:12px; background:rgba(255, 159, 28, 0.08); border:1px dashed var(--accent-orange); border-radius:var(--radius-md); font-family:var(--font-mono); font-size:0.75rem;">
+                npx serve .
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reader Navigation & Progress Bar -->
+        <div class="reader-footer-nav" style="display:flex; flex-direction:column; gap:12px; align-items:center; padding-top:8px; border-top:1px solid var(--border-subtle);">
+          <div class="reader-nav-buttons" style="display:flex; justify-content:space-between; width:100%; align-items:center;">
+            <button id="btnReaderPrev" class="btn btn-secondary" style="padding:8px 18px; font-size:0.85rem;">◄ Previous</button>
+            <span id="lblReaderPageStatus" class="reader-page-status" style="font-family:var(--font-mono); font-size:0.82rem; color:var(--text-secondary); font-weight:600;">Page 0 of 0 (0%)</span>
+            <button id="btnReaderNext" class="btn btn-secondary" style="padding:8px 18px; font-size:0.85rem;">Next ►</button>
+          </div>
+          <input type="range" id="readerProgressSlider" min="0" max="100" value="0" style="width:100%; cursor:pointer; height:6px; outline:none; border-radius:3px;">
+          <div id="readerBookmarkInfo" class="reader-bookmark-info" style="font-size:0.75rem; color:var(--text-muted); text-align:center;">
+            No active bookmark saved for this book.
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ──── MOCK EXAM ──── -->
     <section class="section" id="section-quiz">
       <div class="page-header">

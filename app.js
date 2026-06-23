@@ -385,6 +385,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Close mobile menu
     document.getElementById('sidebar').classList.remove('open');
     window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // Lazy load the bookshelf reader if selected
+    if (sectionId === 'reader' && typeof loadBook === 'function' && bookPages.length === 0) {
+      loadBook(readerBookSelect.value || 'pmbok7');
+    }
   }
 
   navItems.forEach(item => {
@@ -2046,6 +2051,376 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initialize ITTO Game
   loadNextIttoCard();
+
+
+  // ══════════════════════════════════════════════
+  //  PMP BOOKSHELF & E-READER (KINDLE EXPERIENCE)
+  // ══════════════════════════════════════════════
+  const bookPaths = {
+    pmbok7: './Project-Management-Institute-A-Guide-to-the-Project-Management-Body-of-Knowledge-PMBOK-R-Guide-PMBOK®️-Guide-Project-Management-Institute-2021 (1).md',
+    pmbok6: './Project-Management-Institute-A-Guide-to-the-Project-Management-Body-of-Knowledge-PMBOK®-Guide–Sixth-Edition-Project-Management-Institute-2017.md'
+  };
+
+  let bookPages = [];
+  let bookTOC = [];
+  let currentBookId = 'pmbok7';
+  let currentPageIndex = 0;
+  let readerFontSize = parseInt(localStorage.getItem('pmp_reader_font_size')) || 18;
+  let readerTheme = localStorage.getItem('pmp_reader_theme') || 'dark';
+  let readerFontFamily = localStorage.getItem('pmp_reader_font_family') || 'serif';
+
+  const readerBookSelect = document.getElementById('readerBookSelect');
+  const btnToggleTOC = document.getElementById('btnToggleTOC');
+  const btnToggleReaderSettings = document.getElementById('btnToggleReaderSettings');
+  const btnSaveBookmark = document.getElementById('btnSaveBookmark');
+  const readerSettingsPanel = document.getElementById('readerSettingsPanel');
+  const readerTOCPanel = document.getElementById('readerTOCPanel');
+  const readerTOCList = document.getElementById('readerTOCList');
+  const readerContentArea = document.getElementById('readerContentArea');
+  const readerPageWrapper = document.getElementById('readerPageWrapper');
+  const readerLoader = document.getElementById('readerLoader');
+  const readerErrorMsg = document.getElementById('readerErrorMsg');
+  const readerText = document.getElementById('readerText');
+  
+  const btnReaderPrev = document.getElementById('btnReaderPrev');
+  const btnReaderNext = document.getElementById('btnReaderNext');
+  const lblReaderPageStatus = document.getElementById('lblReaderPageStatus');
+  const readerProgressSlider = document.getElementById('readerProgressSlider');
+  const readerBookmarkInfo = document.getElementById('readerBookmarkInfo');
+
+  const btnFontDec = document.getElementById('btnFontDec');
+  const btnFontInc = document.getElementById('btnFontInc');
+  const lblFontSize = document.getElementById('lblFontSize');
+
+  // 1. Font Display Controls
+  function updateFontSizeDisplay() {
+    lblFontSize.textContent = `${readerFontSize}px`;
+    readerText.style.fontSize = `${readerFontSize}px`;
+    localStorage.setItem('pmp_reader_font_size', readerFontSize);
+  }
+
+  btnFontDec.addEventListener('click', () => {
+    if (readerFontSize > 12) {
+      readerFontSize -= 2;
+      updateFontSizeDisplay();
+    }
+  });
+
+  btnFontInc.addEventListener('click', () => {
+    if (readerFontSize < 32) {
+      readerFontSize += 2;
+      updateFontSizeDisplay();
+    }
+  });
+
+  // 2. Font Family Controls
+  document.querySelectorAll('.font-family-controls .btn-font').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.font-family-controls .btn-font').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      readerFontFamily = btn.dataset.font;
+      localStorage.setItem('pmp_reader_font_family', readerFontFamily);
+      applyFontFamily();
+    });
+  });
+
+  function applyFontFamily() {
+    readerContentArea.classList.remove('font-serif', 'font-sans', 'font-mono');
+    readerContentArea.classList.add('font-' + readerFontFamily);
+    document.querySelectorAll('.font-family-controls .btn-font').forEach(b => {
+      b.classList.toggle('active', b.dataset.font === readerFontFamily);
+    });
+  }
+
+  // 3. Theme Configuration Controls
+  document.querySelectorAll('.theme-buttons .btn-theme').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.theme-buttons .btn-theme').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      readerTheme = btn.dataset.theme;
+      localStorage.setItem('pmp_reader_theme', readerTheme);
+      applyReaderTheme();
+    });
+  });
+
+  function applyReaderTheme() {
+    readerContentArea.classList.remove('reader-theme-dark', 'reader-theme-light', 'reader-theme-sepia');
+    document.querySelectorAll('.theme-buttons .btn-theme').forEach(b => {
+      b.classList.toggle('active', b.dataset.theme === readerTheme);
+    });
+
+    if (readerTheme === 'system') {
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      readerContentArea.classList.add(prefersDark ? 'reader-theme-dark' : 'reader-theme-light');
+    } else {
+      readerContentArea.classList.add('reader-theme-' + readerTheme);
+    }
+  }
+
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+    if (readerTheme === 'system') {
+      applyReaderTheme();
+    }
+  });
+
+  // 4. Panel Toggles
+  btnToggleTOC.addEventListener('click', () => {
+    readerTOCPanel.classList.toggle('hidden');
+    readerSettingsPanel.classList.add('hidden');
+  });
+
+  btnToggleReaderSettings.addEventListener('click', () => {
+    readerSettingsPanel.classList.toggle('hidden');
+    readerTOCPanel.classList.add('hidden');
+  });
+
+  // 5. Book Loader
+  async function loadBook(bookId) {
+    currentBookId = bookId;
+    readerLoader.classList.remove('hidden');
+    readerPageWrapper.classList.add('hidden');
+    readerErrorMsg.classList.add('hidden');
+    readerTOCList.innerHTML = '';
+    
+    bookPages = [];
+    bookTOC = [];
+
+    const path = bookPaths[bookId];
+    try {
+      const response = await fetch(path);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const text = await response.text();
+      
+      // Parse pages by splitting on form feed character
+      bookPages = text.split(/\f|\x0c|\u000c/);
+      bookPages = bookPages.map(page => page.trim()).filter(page => page.length > 0);
+
+      if (bookPages.length === 0) {
+        // Fallback boundary split if form feed is absent
+        bookPages = text.split(/\n\s*\n\s*\n/);
+      }
+
+      buildTOC();
+
+      // Retrieve saved progress
+      const savedBookmark = localStorage.getItem(`pmp_bookmark_${currentBookId}`);
+      if (savedBookmark !== null) {
+        currentPageIndex = parseInt(savedBookmark);
+      } else {
+        currentPageIndex = 0;
+      }
+
+      renderReaderPage();
+      updateBookmarkInfo();
+
+      readerLoader.classList.add('hidden');
+      readerPageWrapper.classList.remove('hidden');
+    } catch (err) {
+      console.error('Error loading book:', err);
+      readerLoader.classList.add('hidden');
+      readerErrorMsg.classList.remove('hidden');
+    }
+  }
+
+  // 6. Dynamic Table of Contents builder
+  function buildTOC() {
+    bookPages.forEach((page, index) => {
+      const lines = page.split('\n');
+      for (let line of lines) {
+        line = line.trim();
+        // Catch major Markdown header blocks as TOC anchors
+        const headerMatch = line.match(/^(?:#|##|###)\s+(.+)$/);
+        if (headerMatch) {
+          let title = headerMatch[1].trim();
+          title = title.replace(/[\*_`#]/g, '');
+          if (title.length > 0 && title.length < 60) {
+            bookTOC.push({ title, pageIndex: index });
+            break;
+          }
+        }
+      }
+    });
+
+    if (bookTOC.length === 0) {
+      for (let i = 0; i < bookPages.length; i += 20) {
+        bookTOC.push({ title: `Page ${i + 1}`, pageIndex: i });
+      }
+    }
+
+    bookTOC.forEach(item => {
+      const li = document.createElement('li');
+      li.textContent = item.title;
+      li.dataset.page = item.pageIndex;
+      li.addEventListener('click', () => {
+        currentPageIndex = item.pageIndex;
+        renderReaderPage();
+        readerTOCPanel.classList.add('hidden');
+      });
+      readerTOCList.appendChild(li);
+    });
+  }
+
+  // 7. Mini Markdown Formatter
+  function renderMarkdownToHTML(markdown) {
+    let html = markdown
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+
+    html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
+    html = html.replace(/^## (.*$)/gim, '<h2>$1</h2>');
+    html = html.replace(/^# (.*$)/gim, '<h1>$1</h1>');
+
+    html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    html = html.replace(/__(.*?)__/g, '<strong>$1</strong>');
+    html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
+    html = html.replace(/_(.*?)_/g, '<em>$1</em>');
+
+    const blocks = html.split(/\n\s*\n/);
+    const formattedBlocks = blocks.map(block => {
+      block = block.trim();
+      if (!block) return '';
+      if (block.startsWith('<h1') || block.startsWith('<h2') || block.startsWith('<h3')) {
+        return block;
+      }
+      if (block.startsWith('&gt;')) {
+        return `<blockquote>${block.substring(4).trim()}</blockquote>`;
+      }
+      if (block.startsWith('•') || block.startsWith('*') || block.startsWith('-')) {
+        const items = block.split(/\n[•\*\-]\s*/);
+        return '<ul>' + items.map(item => {
+          item = item.replace(/^[•\*\-]\s*/, '').trim();
+          return item ? `<li>${item}</li>` : '';
+        }).filter(li => li).join('') + '</ul>';
+      }
+      return `<p>${block.replace(/\n/g, '<br>')}</p>`;
+    });
+
+    return formattedBlocks.join('\n');
+  }
+
+  // 8. Viewport Render Page
+  function renderReaderPage() {
+    if (bookPages.length === 0) return;
+    
+    if (currentPageIndex < 0) currentPageIndex = 0;
+    if (currentPageIndex >= bookPages.length) currentPageIndex = bookPages.length - 1;
+
+    const rawText = bookPages[currentPageIndex];
+    readerText.innerHTML = renderMarkdownToHTML(rawText);
+    readerContentArea.scrollTop = 0;
+
+    const total = bookPages.length;
+    const current = currentPageIndex + 1;
+    const pct = Math.round((currentPageIndex / (total - 1 || 1)) * 100);
+
+    lblReaderPageStatus.textContent = `Page ${current} of ${total} (${pct}%)`;
+    readerProgressSlider.value = pct;
+
+    document.querySelectorAll('.reader-toc-list li').forEach(li => {
+      li.classList.toggle('active', parseInt(li.dataset.page) === currentPageIndex);
+    });
+  }
+
+  // 9. Input & Control listeners
+  readerProgressSlider.addEventListener('input', () => {
+    const pct = parseInt(readerProgressSlider.value);
+    currentPageIndex = Math.round((pct / 100) * (bookPages.length - 1));
+    renderReaderPage();
+  });
+
+  btnReaderPrev.addEventListener('click', () => {
+    if (currentPageIndex > 0) {
+      currentPageIndex--;
+      renderReaderPage();
+    }
+  });
+
+  btnReaderNext.addEventListener('click', () => {
+    if (currentPageIndex < bookPages.length - 1) {
+      currentPageIndex++;
+      renderReaderPage();
+    }
+  });
+
+  document.getElementById('readerZoneLeft').addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (currentPageIndex > 0) {
+      currentPageIndex--;
+      renderReaderPage();
+    }
+  });
+
+  document.getElementById('readerZoneRight').addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (currentPageIndex < bookPages.length - 1) {
+      currentPageIndex++;
+      renderReaderPage();
+    }
+  });
+
+  // 10. Swipe gestures support for phone screens
+  let touchStartX = 0;
+  let touchEndX = 0;
+  
+  readerContentArea.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+  
+  readerContentArea.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    const threshold = 55;
+    if (touchStartX - touchEndX > threshold) {
+      btnReaderNext.click(); // Next page
+    } else if (touchEndX - touchStartX > threshold) {
+      btnReaderPrev.click(); // Previous page
+    }
+  }, { passive: true });
+
+  // Keyboard navigation inside reader
+  document.addEventListener('keydown', (e) => {
+    const readerSection = document.getElementById('section-reader');
+    if (!readerSection.classList.contains('active')) return;
+    if (e.key === 'ArrowLeft') btnReaderPrev.click();
+    if (e.key === 'ArrowRight') btnReaderNext.click();
+  });
+
+  // 11. Bookmarking and Progress persistence
+  btnSaveBookmark.addEventListener('click', () => {
+    localStorage.setItem(`pmp_bookmark_${currentBookId}`, currentPageIndex);
+    const dateStr = new Date().toLocaleString('en-US', { hour12: true, month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+    localStorage.setItem(`pmp_bookmark_time_${currentBookId}`, dateStr);
+    updateBookmarkInfo();
+
+    const originalText = btnSaveBookmark.textContent;
+    btnSaveBookmark.textContent = '✅ Saved!';
+    btnSaveBookmark.style.background = 'var(--accent-primary)';
+    setTimeout(() => {
+      btnSaveBookmark.textContent = originalText;
+      btnSaveBookmark.style.background = '';
+    }, 1500);
+  });
+
+  function updateBookmarkInfo() {
+    const savedPage = localStorage.getItem(`pmp_bookmark_${currentBookId}`);
+    const savedTime = localStorage.getItem(`pmp_bookmark_time_${currentBookId}`);
+    if (savedPage !== null && savedTime) {
+      readerBookmarkInfo.innerHTML = `📚 Stopped at <strong>Page ${parseInt(savedPage) + 1}</strong> on ${savedTime}`;
+    } else {
+      readerBookmarkInfo.textContent = 'No active bookmark saved for this book.';
+    }
+  }
+
+  readerBookSelect.addEventListener('change', () => {
+    loadBook(readerBookSelect.value);
+  });
+
+  // 12. Initialize Display settings on start
+  updateFontSizeDisplay();
+  applyFontFamily();
+  applyReaderTheme();
 
 
   // Load Saved Settings from LocalStorage
