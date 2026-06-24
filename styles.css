@@ -1966,193 +1966,699 @@ body {
 }
 
 /* ── PMP Bookshelf Reader Styles ── */
-.reader-toolbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 20px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--border-subtle);
+.bookshelf-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(285px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
 }
 
-.toolbar-left, .toolbar-right {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.reader-book-select {
-  padding: 8px 12px;
-  font-size: 0.85rem;
-  border-radius: var(--radius-md);
-}
-
-.reader-settings-panel, .reader-toc-panel {
-  transition: all var(--transition-medium);
-}
-
-.reader-toc-list li {
-  padding: 8px 12px;
+.book-card {
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-sm);
-  font-size: 0.82rem;
-  cursor: pointer;
-  transition: all var(--transition-fast);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.reader-toc-list li:hover {
-  background: var(--bg-card-hover);
-  border-color: var(--border-medium);
-  transform: translateX(4px);
-}
-
-.reader-toc-list li.active {
-  background: rgba(123, 97, 255, 0.1);
-  border-color: var(--accent-tertiary);
-  color: var(--accent-tertiary);
-  font-weight: 700;
-}
-
-/* Tap Zones for Page Turning */
-.reader-tap-zone {
-  position: absolute;
-  top: 0;
-  height: 100%;
-  width: 14%;
-  cursor: pointer;
-  z-index: 10;
-  transition: background-color var(--transition-fast);
-  user-select: none;
-}
-
-.zone-left {
-  left: 0;
-}
-
-.zone-left:hover {
-  background: linear-gradient(to right, rgba(255, 255, 255, 0.04), transparent);
-}
-
-.zone-right {
-  right: 0;
-}
-
-.zone-right:hover {
-  background: linear-gradient(to left, rgba(255, 255, 255, 0.04), transparent);
-}
-
-/* Reader Content Themes */
-.reader-content-area {
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  display: flex;
+  gap: 16px;
+  transition: all var(--transition-medium);
+  align-items: flex-start;
   position: relative;
-  scrollbar-width: thin;
+  overflow: hidden;
 }
 
-.reader-content-area::-webkit-scrollbar {
+.book-card:hover {
+  border-color: var(--border-medium);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.book-cover {
+  width: 105px;
+  height: 150px;
+  border-radius: var(--radius-sm);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.35);
+  flex-shrink: 0;
+  user-select: none;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.agile-cover {
+  background: linear-gradient(135deg, #092e20 0%, #06d6a0 100%);
+}
+
+.predictive-cover {
+  background: linear-gradient(135deg, #0d283c 0%, #118ab2 100%);
+}
+
+.custom-cover {
+  background: linear-gradient(135deg, #251240 0%, #7b61ff 100%);
+}
+
+.cover-accent {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
   width: 6px;
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 1px 0 3px rgba(0,0,0,0.25);
+  z-index: 2;
 }
 
-.reader-content-area::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
+.cover-logo {
+  font-size: 0.52rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.55);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  text-align: right;
+}
+
+.cover-title {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.25;
+  margin-top: 18px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
+
+.cover-subtitle {
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.cover-tag {
+  align-self: flex-start;
+  font-size: 0.48rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 1px 5px;
   border-radius: 3px;
+  color: #ffffff;
+  margin-top: auto;
+  letter-spacing: 0.03em;
 }
 
-.reader-content-area.font-serif {
-  font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+.book-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 150px;
+  justify-content: space-between;
 }
 
-.reader-content-area.font-sans {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+.book-info h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+  margin: 0;
 }
 
-.reader-content-area.font-mono {
-  font-family: var(--font-mono);
+.book-author {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 1px;
 }
 
-/* Theme Dark (Kindle Night Mode) */
-.reader-content-area.reader-theme-dark {
-  background-color: #121212 !important;
-  color: #d1d5db !important;
+.book-progress-box {
+  margin-top: 6px;
 }
 
-.reader-content-area.reader-theme-dark canvas {
-  filter: invert(0.9) hue-rotate(180deg) contrast(1.1) brightness(0.95);
+.progress-bar-bg {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
+  overflow: hidden;
 }
 
-/* Theme Light (Kindle Paperwhite) */
-.reader-content-area.reader-theme-light {
-  background-color: #FAF8F5 !important;
-  color: #1e1e1e !important;
+.progress-bar-fill {
+  height: 100%;
+  background: var(--accent-primary);
+  width: 0%;
+  transition: width 0.35s ease;
 }
 
-.reader-content-area.reader-theme-light canvas {
-  filter: none;
+.progress-txt {
+  font-size: 0.68rem;
+  color: var(--text-secondary);
+  display: block;
+  margin-top: 3px;
+  font-weight: 500;
 }
 
-.reader-content-area.reader-theme-light::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.15);
+.book-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: auto;
 }
 
-/* Theme Sepia (Kindle Warm Light) */
-.reader-content-area.reader-theme-sepia {
-  background-color: #f4ecd8 !important;
-  color: #4a3c31 !important;
+.btn-delete-book {
+  background: none;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 6px 9px;
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.reader-content-area.reader-theme-sepia canvas {
-  filter: sepia(0.35) contrast(1.1) brightness(0.95);
+.btn-delete-book:hover {
+  border-color: var(--accent-warm);
+  color: var(--accent-warm);
+  background: rgba(239, 71, 111, 0.05);
 }
 
-.reader-content-area.reader-theme-sepia::-webkit-scrollbar-thumb {
-  background: rgba(91, 70, 54, 0.15);
-}
-
-/* Reader Upload Zone Dropzone */
-.reader-upload-zone {
+.bookshelf-upload-zone {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   border: 2px dashed var(--border-subtle);
   border-radius: var(--radius-lg);
-  margin: 15px;
+  padding: 36px 20px;
+  text-align: center;
   cursor: pointer;
   transition: all var(--transition-medium);
   background: var(--bg-card);
+  margin-top: 24px;
 }
 
-.reader-upload-zone:hover, .reader-upload-zone.dragover {
-  border-color: var(--accent-primary) !important;
-  background: var(--bg-card-hover) !important;
-  box-shadow: 0 0 20px rgba(123, 97, 255, 0.15);
+.bookshelf-upload-zone:hover {
+  border-color: var(--accent-primary);
+  background: var(--bg-card-hover);
+  box-shadow: 0 0 20px rgba(6, 214, 160, 0.08);
 }
 
-/* Viewport details */
-.reader-page-wrapper {
-  transition: transform var(--transition-fast);
+/* ── Kindle Fullscreen E-Reader Overlay ── */
+.kindle-reader-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  user-select: none;
+  transition: background-color 0.3s ease;
 }
 
-/* Mobile Adjustments for Reader */
+/* Tap Zones */
+.kindle-tap-zone {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 20;
+}
+
+.kindle-tap-zone.zone-left {
+  left: 0;
+  width: 16%;
+  cursor: w-resize;
+}
+
+.kindle-tap-zone.zone-left:hover {
+  background: linear-gradient(to right, rgba(255,255,255,0.02), transparent);
+}
+
+.kindle-tap-zone.zone-right {
+  right: 0;
+  width: 16%;
+  cursor: e-resize;
+}
+
+.kindle-tap-zone.zone-right:hover {
+  background: linear-gradient(to left, rgba(255,255,255,0.02), transparent);
+}
+
+.kindle-tap-zone.zone-center {
+  left: 16%;
+  right: 16%;
+  cursor: pointer;
+}
+
+/* HUD elements */
+.kindle-hud-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  transform: translateY(-100%);
+  transition: transform var(--transition-medium);
+  padding: 10px 18px 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.18);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.kindle-hud-header.visible {
+  transform: translateY(0);
+}
+
+.hud-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hud-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hud-header-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--text-secondary);
+  margin-top: 1px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 30px;
+}
+
+.kindle-hud-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  transform: translateY(100%);
+  transition: transform var(--transition-medium);
+  padding: 12px 18px 16px;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.18);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.kindle-hud-footer.visible {
+  transform: translateY(0);
+}
+
+.hud-footer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+}
+
+.hud-progress-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.hud-footer-status {
+  font-size: 0.7rem;
+  text-align: center;
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-family: var(--font-mono);
+}
+
+/* Icons and buttons */
+.hud-btn {
+  background: none;
+  border: none;
+  padding: 6px;
+  border-radius: 50%;
+  color: var(--text-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--transition-fast);
+}
+
+.hud-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.hud-btn.text-aa:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Side Drawers */
+.kindle-drawer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 310px;
+  z-index: 40;
+  background: var(--bg-secondary);
+  border-right: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  transform: translateX(-100%);
+  transition: transform var(--transition-medium);
+  box-shadow: var(--shadow-lg);
+}
+
+.kindle-drawer.visible {
+  transform: translateX(0);
+}
+
+.kindle-drawer.drawer-right {
+  right: 0;
+  left: auto;
+  border-right: none;
+  border-left: 1px solid var(--border-subtle);
+  transform: translateX(100%);
+}
+
+.kindle-drawer.drawer-right.visible {
+  transform: translateX(0);
+}
+
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.drawer-header h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.drawer-close {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 2px;
+}
+
+.drawer-list {
+  list-style: none;
+  padding: 12px;
+  margin: 0;
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.drawer-list li {
+  padding: 8px 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 5px;
+  font-size: 0.76rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--text-secondary);
+}
+
+.drawer-list li:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-medium);
+  color: var(--text-primary);
+  transform: translateX(3px);
+}
+
+.drawer-list li.active {
+  background: rgba(123, 97, 255, 0.1);
+  border-color: var(--accent-tertiary);
+  color: var(--accent-tertiary);
+  font-weight: 700;
+}
+
+/* Aa popover settings panel */
+.kindle-popover {
+  position: absolute;
+  top: 60px;
+  right: 18px;
+  z-index: 45;
+  width: 250px;
+  padding: 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  display: none;
+  flex-direction: column;
+  transition: all var(--transition-fast);
+}
+
+.kindle-popover.visible {
+  display: flex;
+}
+
+.popover-setting-item label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.btn-theme-hud {
+  flex: 1;
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  font-size: 0.7rem;
+  padding: 6px 0;
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-weight: 500;
+}
+
+.btn-theme-hud.active {
+  outline: 2px solid var(--accent-tertiary);
+  outline-offset: 1px;
+}
+
+/* Reading Viewport & Canvas Layout */
+.kindle-viewport {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+  padding: 24px;
+}
+
+.kindle-canvas-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  background: #ffffff;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.35);
+  border-radius: 3px;
+}
+
+.kindle-canvas-container canvas {
+  transition: filter 0.3s ease;
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Bookmark Ribbon */
+.kindle-bookmark-ribbon {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  width: 26px;
+  height: 36px;
+  color: #cbd5e1;
+  cursor: pointer;
+  z-index: 25;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.18));
+  transition: color var(--transition-fast), transform var(--transition-fast);
+  transform-origin: top;
+}
+
+.kindle-bookmark-ribbon:hover {
+  transform: scaleY(1.08);
+}
+
+.kindle-bookmark-ribbon.active {
+  color: #3b82f6 !important;
+}
+
+/* Loader */
+.kindle-loader {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(10,14,26,0.92);
+}
+
+/* About Drawer Cover */
+.kindle-about-cover {
+  width: 110px;
+  height: 155px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #1f2937, #111827);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.45);
+}
+
+/* Overlay Visual Themes adaptation */
+.kindle-reader-overlay.theme-dark {
+  background-color: #121212 !important;
+}
+.kindle-reader-overlay.theme-dark .kindle-hud-header,
+.kindle-reader-overlay.theme-dark .kindle-hud-footer,
+.kindle-reader-overlay.theme-dark .kindle-drawer {
+  background-color: #1a1a1a !important;
+  border-color: #2a2a2a !important;
+  color: #e5e7eb !important;
+}
+.kindle-reader-overlay.theme-dark .hud-btn {
+  color: #e5e7eb !important;
+}
+.kindle-reader-overlay.theme-dark .hud-btn-sm {
+  background-color: #2a2a2a !important;
+  border-color: #3a3a3a !important;
+  color: #e5e7eb !important;
+}
+.kindle-reader-overlay.theme-dark .drawer-list li {
+  background-color: #242424 !important;
+  border-color: #333333 !important;
+  color: #9ca3af !important;
+}
+.kindle-reader-overlay.theme-dark .drawer-list li:hover {
+  background-color: #2d2d2d !important;
+  color: #ffffff !important;
+}
+.kindle-reader-overlay.theme-dark .hud-footer-status {
+  color: #9ca3af !important;
+}
+.kindle-reader-overlay.theme-dark canvas {
+  filter: invert(0.9) hue-rotate(180deg) contrast(1.1) brightness(0.95);
+}
+
+.kindle-reader-overlay.theme-light {
+  background-color: #FAF8F5 !important;
+}
+.kindle-reader-overlay.theme-light .kindle-hud-header,
+.kindle-reader-overlay.theme-light .kindle-hud-footer,
+.kindle-reader-overlay.theme-light .kindle-drawer {
+  background-color: #ffffff !important;
+  border-color: #e5e7eb !important;
+  color: #1f2937 !important;
+}
+.kindle-reader-overlay.theme-light .hud-btn {
+  color: #4b5563 !important;
+}
+.kindle-reader-overlay.theme-light .hud-btn-sm {
+  background-color: #f3f4f6 !important;
+  border-color: #e5e7eb !important;
+  color: #1f2937 !important;
+}
+.kindle-reader-overlay.theme-light .hud-btn-sm.active {
+  background-color: var(--accent-tertiary) !important;
+  color: white !important;
+}
+.kindle-reader-overlay.theme-light .drawer-list li {
+  background-color: #f9fafb !important;
+  border-color: #e5e7eb !important;
+  color: #4b5563 !important;
+}
+.kindle-reader-overlay.theme-light .drawer-list li:hover {
+  background-color: #f3f4f6 !important;
+  color: #111827 !important;
+}
+.kindle-reader-overlay.theme-light .hud-footer-status {
+  color: #4b5563 !important;
+}
+.kindle-reader-overlay.theme-light canvas {
+  filter: none;
+}
+
+.kindle-reader-overlay.theme-sepia {
+  background-color: #f4ecd8 !important;
+}
+.kindle-reader-overlay.theme-sepia .kindle-hud-header,
+.kindle-reader-overlay.theme-sepia .kindle-hud-footer,
+.kindle-reader-overlay.theme-sepia .kindle-drawer {
+  background-color: #ebdcb9 !important;
+  border-color: #dccba0 !important;
+  color: #5b4636 !important;
+}
+.kindle-reader-overlay.theme-sepia .hud-btn {
+  color: #5b4636 !important;
+}
+.kindle-reader-overlay.theme-sepia .hud-btn-sm {
+  background-color: #e3d2ab !important;
+  border-color: #dccba0 !important;
+  color: #5b4636 !important;
+}
+.kindle-reader-overlay.theme-sepia .hud-btn-sm.active {
+  background-color: #8b6e51 !important;
+  border-color: #8b6e51 !important;
+  color: white !important;
+}
+.kindle-reader-overlay.theme-sepia .drawer-list li {
+  background-color: #eddcb7 !important;
+  border-color: #dfcdab !important;
+  color: #705847 !important;
+}
+.kindle-reader-overlay.theme-sepia .drawer-list li:hover {
+  background-color: #e3d2ab !important;
+  color: #5b4636 !important;
+}
+.kindle-reader-overlay.theme-sepia .hud-footer-status {
+  color: #705847 !important;
+}
+.kindle-reader-overlay.theme-sepia canvas {
+  filter: sepia(0.35) contrast(1.1) brightness(0.95);
+}
+
 @media (max-width: 768px) {
-  .reader-content-area {
-    padding: 20px 16px !important;
+  .kindle-tap-zone.zone-left {
+    width: 20%;
   }
-  .reader-tap-zone {
-    width: 18%; /* wider zone on mobile */
+  .kindle-tap-zone.zone-right {
+    width: 20%;
   }
-  .reader-toolbar {
-    flex-direction: column;
-    align-items: stretch;
+  .kindle-tap-zone.zone-center {
+    left: 20%;
+    right: 20%;
   }
-  .toolbar-left {
-    justify-content: space-between;
+  .kindle-drawer {
+    width: 270px;
   }
-  .reader-book-select {
-    flex: 1;
+  .hud-header-title {
+    padding: 0 10px;
+  }
+  .bookshelf-grid {
+    grid-template-columns: 1fr;
   }
 }
+

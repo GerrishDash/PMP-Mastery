@@ -780,116 +780,89 @@
         <p>A Kindle-like reading experience for PMBOK 6th and 7th Editions. Highlight your stop point and customize theme and typography for comfortable reading.</p>
       </div>
 
-      <div class="card reader-card">
-        <div class="reader-toolbar">
-          <div class="toolbar-left">
-            <select id="readerBookSelect" class="notif-select reader-book-select" style="width:auto; margin:0;">
-              <option value="pmbok7">PMBOK 7th Edition</option>
-              <option value="pmbok6">PMBOK 6th Edition</option>
-              <option value="custom">Upload Custom PDF...</option>
-            </select>
-            <input type="file" id="pdfFileInput" accept="application/pdf" class="hidden">
-            <button id="btnToggleTOC" class="btn btn-secondary" style="padding:8px 14px; font-size:0.85rem;"><span class="emoji">📖</span> TOC</button>
-            <button id="btnToggleReaderSettings" class="btn btn-secondary" style="padding:8px 14px; font-size:0.85rem;"><span class="emoji">⚙️</span> Settings</button>
+      <div class="bookshelf-grid">
+        <!-- Book Card: PMBOK 7 -->
+        <div class="book-card" data-book="pmbok7" id="bookCard-pmbok7">
+          <div class="book-cover agile-cover">
+            <div class="cover-accent"></div>
+            <div class="cover-logo">PMBOK</div>
+            <div class="cover-title">PMBOK Guide</div>
+            <div class="cover-subtitle">7th Edition</div>
+            <div class="cover-tag tag-agile">Agile &amp; Standard</div>
           </div>
-          <div class="toolbar-right">
-            <button id="btnSaveBookmark" class="btn btn-primary" style="padding:8px 16px; font-size:0.85rem;"><span class="emoji">🔖</span> Save Progress</button>
-          </div>
-        </div>
-
-        <!-- Collapsible Reader Settings Panel -->
-        <div id="readerSettingsPanel" class="reader-settings-panel hidden" style="margin-bottom:15px; padding:15px; background:var(--bg-secondary); border-radius:var(--radius-md); border:1px solid var(--border-subtle);">
-          <h4 style="font-size:0.85rem; text-transform:uppercase; color:var(--text-muted); margin-bottom:12px; letter-spacing:0.05em;">Display Settings</h4>
-          <div class="settings-grid" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:18px;">
-            <div class="setting-item">
-              <span style="font-size:0.8rem; color:var(--text-secondary); display:block; margin-bottom:6px;">Reading Theme</span>
-              <div class="theme-buttons" style="display:flex; gap:8px;">
-                <button class="btn btn-secondary btn-theme active" data-theme="dark" style="flex:1; font-size:0.75rem; padding:6px;">Dark</button>
-                <button class="btn btn-secondary btn-theme" data-theme="light" style="flex:1; font-size:0.75rem; padding:6px; background:#fff; color:#333;">Light</button>
-                <button class="btn btn-secondary btn-theme" data-theme="sepia" style="flex:1; font-size:0.75rem; padding:6px; background:#f4ecd8; color:#5b4636;">Sepia</button>
-                <button class="btn btn-secondary btn-theme" data-theme="system" style="flex:1; font-size:0.75rem; padding:6px;">OS Theme</button>
-              </div>
+          <div class="book-info">
+            <h3>PMBOK 7th Edition</h3>
+            <p class="book-author">Project Management Institute</p>
+            <div class="book-progress-box">
+              <div class="progress-bar-bg"><div class="progress-bar-fill" id="progressFill-pmbok7" style="width:0%;"></div></div>
+              <span class="progress-txt" id="progressTxt-pmbok7">Checking database...</span>
             </div>
-            <div class="setting-item">
-              <span style="font-size:0.8rem; color:var(--text-secondary); display:block; margin-bottom:6px;">Page Zoom</span>
-              <div class="font-size-controls" style="display:flex; gap:8px; align-items:center;">
-                <button id="btnZoomDec" class="btn btn-secondary" style="flex:1; font-size:0.85rem; padding:6px;">Zoom −</button>
-                <span id="lblZoomScale" style="font-family:var(--font-mono); font-size:0.85rem; min-width:45px; text-align:center;">100%</span>
-                <button id="btnZoomInc" class="btn btn-secondary" style="flex:1; font-size:0.85rem; padding:6px;">Zoom +</button>
-              </div>
-            </div>
-            <div class="setting-item">
-              <span style="font-size:0.8rem; color:var(--text-secondary); display:block; margin-bottom:6px;">Page Fitting</span>
-              <div class="fit-controls" style="display:flex; gap:8px;">
-                <button id="btnFitWidth" class="btn btn-secondary" style="flex:1; font-size:0.75rem; padding:6px;">Fit Width</button>
-                <button id="btnFitPage" class="btn btn-secondary" style="flex:1; font-size:0.75rem; padding:6px;">Fit Page</button>
-              </div>
+            <div class="book-actions">
+              <button class="btn btn-primary btn-read-book hidden" data-book="pmbok7" id="btnRead-pmbok7">Read Book</button>
+              <button class="btn btn-secondary btn-upload-book hidden" data-book="pmbok7" id="btnUpload-pmbok7">Upload PDF</button>
+              <button class="btn-delete-book hidden" data-book="pmbok7" id="btnDelete-pmbok7" title="Delete PDF offline cache">🗑️</button>
             </div>
           </div>
         </div>
 
-        <!-- Collapsible Table of Contents Panel -->
-        <div id="readerTOCPanel" class="reader-toc-panel hidden" style="margin-bottom:15px; padding:15px; background:var(--bg-secondary); border-radius:var(--radius-md); border:1px solid var(--border-subtle); max-height:240px; overflow-y:auto;">
-          <h4 style="font-size:0.85rem; text-transform:uppercase; color:var(--text-muted); margin-bottom:10px; letter-spacing:0.05em;">Table of Contents</h4>
-          <ul id="readerTOCList" class="reader-toc-list" style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:6px;">
-            <!-- Populated dynamically by JS -->
-          </ul>
-        </div>
-
-        <!-- Kindle Viewport -->
-        <div class="reader-viewport-container" style="position:relative; width:100%; border-radius:var(--radius-lg); overflow:hidden; margin-bottom:15px; border:1px solid var(--border-subtle);">
-          
-          <!-- Tap overlays for mobile page turns -->
-          <div class="reader-tap-zone zone-left" id="readerZoneLeft" title="Previous Page"></div>
-          <div class="reader-tap-zone zone-right" id="readerZoneRight" title="Next Page"></div>
-          
-          <!-- Viewport Box -->
-          <div id="readerContentArea" class="reader-content-area reader-theme-dark" style="padding:15px; min-height:480px; max-height:750px; overflow:auto; transition: all var(--transition-medium); display:flex; justify-content:center; align-items:flex-start;">
-            <!-- Loading Indicator -->
-            <div id="readerLoader" class="reader-loader" style="display:flex; flex-direction:column; justify-content:center; align-items:center; height:400px; gap:14px; width:100%;">
-              <span class="spinner" style="font-size:2.5rem; animation:spin 2s linear infinite; display:inline-block;">🔄</span>
-              <span style="font-weight:600; color:var(--text-secondary);">Loading PDF document...</span>
+        <!-- Book Card: PMBOK 6 -->
+        <div class="book-card" data-book="pmbok6" id="bookCard-pmbok6">
+          <div class="book-cover predictive-cover">
+            <div class="cover-accent"></div>
+            <div class="cover-logo">PMBOK</div>
+            <div class="cover-title">PMBOK Guide</div>
+            <div class="cover-subtitle">6th Edition</div>
+            <div class="cover-tag tag-predictive">Predictive Processes</div>
+          </div>
+          <div class="book-info">
+            <h3>PMBOK 6th Edition</h3>
+            <p class="book-author">Project Management Institute</p>
+            <div class="book-progress-box">
+              <div class="progress-bar-bg"><div class="progress-bar-fill" id="progressFill-pmbok6" style="width:0%;"></div></div>
+              <span class="progress-txt" id="progressTxt-pmbok6">Checking database...</span>
             </div>
-            
-            <!-- Upload Dropzone (if not stored offline) -->
-            <div id="readerUploadZone" class="reader-upload-zone hidden" style="display:flex; flex-direction:column; justify-content:center; align-items:center; height:400px; padding:32px; text-align:center; gap:20px; border:2px dashed var(--border-subtle); border-radius:var(--radius-lg); margin:15px; cursor:pointer; width:100%; box-sizing:border-box;">
-              <span class="upload-icon" style="font-size:3rem; filter:drop-shadow(0 4px 10px rgba(123,97,255,0.3));">📤</span>
-              <h3 style="font-size:1.15rem; font-weight:700; color:var(--text-primary);">Library Offline PDF Import</h3>
-              <p style="font-size:0.85rem; color:var(--text-secondary); max-width:400px; line-height:1.55;">
-                Drag &amp; drop the PDF file here, or click to choose from your device. The book will be saved locally inside your browser's database for instant offline access.
-              </p>
-              <button id="btnTriggerUpload" class="btn btn-primary" style="padding:10px 24px; font-weight:600; font-size:0.85rem;">Select PDF File</button>
-            </div>
-
-            <!-- PDF Page Canvas Wrapper -->
-            <div id="readerPageWrapper" class="reader-page-wrapper hidden" style="max-width:100%; display:flex; justify-content:center;">
-              <canvas id="pdfCanvas" style="box-shadow: 0 10px 30px rgba(0,0,0,0.4); border-radius:4px; max-width:100%; transition: transform var(--transition-fast);"></canvas>
-            </div>
-
-            <!-- Fallback warning for load errors -->
-            <div id="readerErrorMsg" class="reader-error-msg hidden" style="display:flex; flex-direction:column; justify-content:center; align-items:center; height:400px; padding:20px; text-align:center; gap:16px; width:100%;">
-              <span style="font-size:2.5rem;">⚠️</span>
-              <h4 style="color:var(--accent-orange); font-size:1rem; font-weight:700;">Error Loading Document</h4>
-              <p id="lblReaderErrorDetails" style="font-size:0.85rem; color:var(--text-secondary); max-width:500px; line-height:1.5;">
-                An error occurred while loading or parsing the PDF file. It might be corrupted or incompatible.
-              </p>
+            <div class="book-actions">
+              <button class="btn btn-primary btn-read-book hidden" data-book="pmbok6" id="btnRead-pmbok6">Read Book</button>
+              <button class="btn btn-secondary btn-upload-book hidden" data-book="pmbok6" id="btnUpload-pmbok6">Upload PDF</button>
+              <button class="btn-delete-book hidden" data-book="pmbok6" id="btnDelete-pmbok6" title="Delete PDF offline cache">🗑️</button>
             </div>
           </div>
         </div>
 
-        <!-- Reader Navigation & Progress Bar -->
-        <div class="reader-footer-nav" style="display:flex; flex-direction:column; gap:12px; align-items:center; padding-top:8px; border-top:1px solid var(--border-subtle);">
-          <div class="reader-nav-buttons" style="display:flex; justify-content:space-between; width:100%; align-items:center;">
-            <button id="btnReaderPrev" class="btn btn-secondary" style="padding:8px 18px; font-size:0.85rem;">◄ Previous</button>
-            <span id="lblReaderPageStatus" class="reader-page-status" style="font-family:var(--font-mono); font-size:0.82rem; color:var(--text-secondary); font-weight:600;">Page 0 of 0 (0%)</span>
-            <button id="btnReaderNext" class="btn btn-secondary" style="padding:8px 18px; font-size:0.85rem;">Next ►</button>
+        <!-- Book Card: Custom Guide -->
+        <div class="book-card" data-book="custom" id="bookCard-custom">
+          <div class="book-cover custom-cover">
+            <div class="cover-accent"></div>
+            <div class="cover-logo">STUDY</div>
+            <div class="cover-title">Custom Guide</div>
+            <div class="cover-subtitle">PMP Materials</div>
+            <div class="cover-tag tag-hybrid">User Upload</div>
           </div>
-          <input type="range" id="readerProgressSlider" min="0" max="100" value="0" style="width:100%; cursor:pointer; height:6px; outline:none; border-radius:3px;">
-          <div id="readerBookmarkInfo" class="reader-bookmark-info" style="font-size:0.75rem; color:var(--text-muted); text-align:center;">
-            No active bookmark saved for this book.
+          <div class="book-info">
+            <h3>Custom Study Guide</h3>
+            <p class="book-author">Uploaded Materials</p>
+            <div class="book-progress-box">
+              <div class="progress-bar-bg"><div class="progress-bar-fill" id="progressFill-custom" style="width:0%;"></div></div>
+              <span class="progress-txt" id="progressTxt-custom">Checking database...</span>
+            </div>
+            <div class="book-actions">
+              <button class="btn btn-primary btn-read-book hidden" data-book="custom" id="btnRead-custom">Read Book</button>
+              <button class="btn btn-secondary btn-upload-book hidden" data-book="custom" id="btnUpload-custom">Upload PDF</button>
+              <button class="btn-delete-book hidden" data-book="custom" id="btnDelete-custom" title="Delete PDF offline cache">🗑️</button>
+            </div>
           </div>
         </div>
       </div>
+
+      <!-- Hidden dropzone for uploader interaction -->
+      <div id="bookshelfUploadZone" class="bookshelf-upload-zone hidden">
+        <span class="upload-icon" style="font-size:3rem; display:block; margin-bottom:12px; filter:drop-shadow(0 4px 10px rgba(123,97,255,0.3));">📤</span>
+        <h4 id="lblUploadBookTitle" style="font-weight:700; color:var(--text-primary); margin-bottom:6px; font-size:1.1rem;">Upload PMBOK PDF</h4>
+        <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:16px; max-width:400px; margin-left:auto; margin-right:auto; line-height:1.5;">Select or drop your PDF study file here to store it securely inside this device for offline reading.</p>
+        <button class="btn btn-primary" id="btnSelectUploadFile" style="padding:10px 24px; font-size:0.85rem; font-weight:600;">Select PDF File</button>
+      </div>
+
+      <input type="file" id="pdfFileInput" accept="application/pdf" class="hidden">
     </section>
 
     <!-- ──── MOCK EXAM ──── -->
@@ -985,8 +958,163 @@
           </tr>
         </tbody>
       </table>
+</div>
+
+<!-- Kindle Full-Screen Reader Overlay -->
+<div id="kindleReaderOverlay" class="kindle-reader-overlay hidden">
+  <!-- Tap Zones for margins (Prev / Next) -->
+  <div class="kindle-tap-zone zone-left" id="kindleZoneLeft" title="Previous Page"></div>
+  <div class="kindle-tap-zone zone-right" id="kindleZoneRight" title="Next Page"></div>
+  <div class="kindle-tap-zone zone-center" id="kindleZoneCenter" title="Toggle HUD Options"></div>
+
+  <!-- Top HUD Bar -->
+  <div class="kindle-hud-header" id="kindleHUDHeader">
+    <div class="hud-header-top">
+      <button class="hud-btn" id="kindleBtnBack" aria-label="Close Reader">
+        <svg class="icon" viewBox="0 0 24 24" style="width:24px; height:24px;"><path fill="currentColor" d="M20,11H7.83L13.41,5.41L12,4L4,12L12,20L13.41,18.59L7.83,13H20V11Z"/></svg>
+      </button>
+      <div class="hud-header-actions">
+        <button class="hud-btn" id="kindleBtnTOC" aria-label="Table of Contents">
+          <svg class="icon" viewBox="0 0 24 24" style="width:24px; height:24px;"><path fill="currentColor" d="M3,4H21V6H3V4M3,9H21V11H3V9M3,14H21V16H3V14M3,19H21V21H3V19Z"/></svg>
+        </button>
+        <button class="hud-btn" id="kindleBtnSearch" aria-label="Search Book">
+          <svg class="icon" viewBox="0 0 24 24" style="width:24px; height:24px;"><path fill="currentColor" d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L22,21.27L20.57,22.7L13,15.15C11.86,16.12 10.38,16.7 8.5,16.7A8.2,8.2 0 0,1 3,8.5A8.2,8.2 0 0,1 8.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"/></svg>
+        </button>
+        <button class="hud-btn" id="kindleBtnBookmark" aria-label="Bookmark Current Page">
+          <svg class="icon" id="kindleBookmarkIcon" viewBox="0 0 24 24" style="width:24px; height:24px;"><path fill="currentColor" d="M17,3H7A2,2 0 0,0 5,5V21L12,18L19,21V5C19,3.89 18.1,3 17,3Z"/></svg>
+        </button>
+        <button class="hud-btn text-aa" id="kindleBtnAa" aria-label="Display Settings" style="font-weight:700; font-size:1.1rem; line-height:1; font-family:var(--font-sans);">Aa</button>
+        <button class="hud-btn" id="kindleBtnMore" aria-label="More Options">
+          <svg class="icon" viewBox="0 0 24 24" style="width:24px; height:24px;"><path fill="currentColor" d="M12,16A2,2 0 0,1 14,18A2,2 0 0,1 12,20A2,2 0 0,1 10,18A2,2 0 0,1 12,16M12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12A2,2 0 0,1 12,10M12,4A2,2 0 0,1 14,6A2,2 0 0,1 12,8A2,2 0 0,1 10,6A2,2 0 0,1 12,4Z"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="hud-header-title" id="kindleBookTitle">PMBOK 7th Edition</div>
+  </div>
+
+  <!-- Bottom HUD Bar -->
+  <div class="kindle-hud-footer" id="kindleHUDFooter">
+    <div class="hud-footer-row">
+      <button class="hud-btn" id="kindleBtnGridView" aria-label="Page Preview Grid">
+        <svg class="icon" viewBox="0 0 24 24" style="width:22px; height:22px;"><path fill="currentColor" d="M4,4H10V10H4V4M20,4V10H14V4H20M14,15H20V21H14V15M4,15H10V21H4V15M6,6V8H8V6H6M16,6V8H18V6H16M16,17V19H18V17H16M6,17V19H8V17H6Z"/></svg>
+      </button>
+      <div class="hud-progress-wrapper">
+        <input type="range" id="kindleProgressSlider" min="0" max="100" value="0" style="cursor:pointer; width:100%; height:6px; outline:none; border-radius:3px;">
+      </div>
+      <div style="width:24px;"></div>
+    </div>
+    <div class="hud-footer-status" id="kindleProgressStatus">Location 0 of 0 · 0%</div>
+  </div>
+
+  <!-- Sidebar Drawer: Table of Contents -->
+  <div class="kindle-drawer" id="kindleTOCDrawer">
+    <div class="drawer-header">
+      <h3>Table of Contents</h3>
+      <button class="drawer-close" id="kindleBtnCloseTOC">&times;</button>
+    </div>
+    <ul class="drawer-list" id="kindleTOCList">
+      <!-- Outlines populated by JS -->
+    </ul>
+  </div>
+
+  <!-- Sidebar Drawer: Bookmarks (Annotations) -->
+  <div class="kindle-drawer" id="kindleBookmarksDrawer">
+    <div class="drawer-header">
+      <h3>Bookmarks</h3>
+      <button class="drawer-close" id="kindleBtnCloseBookmarks">&times;</button>
+    </div>
+    <ul class="drawer-list" id="kindleBookmarksList">
+      <!-- Bookmarks populated by JS -->
+    </ul>
+  </div>
+
+  <!-- Search Panel Overlay -->
+  <div class="kindle-drawer" id="kindleSearchDrawer">
+    <div class="drawer-header" style="flex-direction:column; gap:10px; align-items:stretch; padding-bottom:12px; border-bottom:1px solid var(--border-subtle);">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <h3 style="margin:0; font-size:1.1rem;">Search Book</h3>
+        <button class="drawer-close" id="kindleBtnCloseSearch" style="font-size:1.5rem; background:none; border:none; color:var(--text-muted); cursor:pointer;">&times;</button>
+      </div>
+      <div class="search-input-wrapper" style="display:flex; gap:8px; margin-top:8px;">
+        <input type="text" id="txtKindleSearch" placeholder="Search keyword..." style="flex:1; padding:8px 12px; background:var(--bg-input); border:1px solid var(--border-subtle); border-radius:6px; color:var(--text-primary); font-size:0.85rem;">
+        <button class="btn btn-primary" id="btnKindleSearchGo" style="padding:8px 16px; font-size:0.8rem; font-weight:600;">Find</button>
+      </div>
+    </div>
+    <div class="search-results-info" id="lblKindleSearchCount" style="padding: 12px 16px; font-size: 0.75rem; color: var(--text-muted);">
+      Enter keyword above to search text.
+    </div>
+    <ul class="drawer-list search-results-list" id="kindleSearchResults" style="overflow-y:auto; flex:1; list-style:none; padding:0 12px; margin:0; display:flex; flex-direction:column; gap:8px;">
+      <!-- Results populated dynamically -->
+    </ul>
+  </div>
+
+  <!-- Popover Panel: Aa settings -->
+  <div class="kindle-popover" id="kindleAaPopover">
+    <h4 style="font-size:0.78rem; text-transform:uppercase; color:var(--text-muted); margin-bottom:12px; letter-spacing:0.05em; border-bottom:1px solid var(--border-subtle); padding-bottom:6px; font-weight:700;">Display Settings</h4>
+    <div class="popover-setting-item">
+      <label style="font-size:0.75rem; color:var(--text-secondary); display:block; margin-bottom:6px;">Reading Theme</label>
+      <div class="theme-buttons" style="display:flex; gap:6px; margin-top:4px;">
+        <button class="btn-theme-hud active" data-theme="dark" style="background:#121212; color:#fff; border:1px solid #333; flex:1; font-size:0.7rem; padding:6px 0; border-radius:4px; text-align:center; cursor:pointer;">Dark</button>
+        <button class="btn-theme-hud" data-theme="light" style="background:#faf8f5; color:#1a1a1a; border:1px solid #ccc; flex:1; font-size:0.7rem; padding:6px 0; border-radius:4px; text-align:center; cursor:pointer;">Light</button>
+        <button class="btn-theme-hud" data-theme="sepia" style="background:#f4ecd8; color:#5b4636; border:1px solid #dbcdab; flex:1; font-size:0.7rem; padding:6px 0; border-radius:4px; text-align:center; cursor:pointer;">Sepia</button>
+        <button class="btn-theme-hud" data-theme="system" style="background:#222; color:#888; flex:1; font-size:0.7rem; padding:6px 0; border-radius:4px; text-align:center; cursor:pointer;">OS</button>
+      </div>
+    </div>
+    <div class="popover-setting-item" style="margin-top:14px;">
+      <label style="font-size:0.75rem; color:var(--text-secondary); display:block; margin-bottom:6px;">Zoom Level</label>
+      <div style="display:flex; gap:6px; align-items:center; margin-top:4px;">
+        <button id="btnKindleZoomDec" class="hud-btn-sm" style="flex:1; font-size:0.75rem; padding:4px 8px; border:1px solid var(--border-medium); border-radius:4px; background:var(--bg-secondary); color:var(--text-primary); cursor:pointer;">Zoom −</button>
+        <span id="lblKindleZoomScale" style="font-size:0.78rem; font-family:var(--font-mono); min-width:40px; text-align:center;">100%</span>
+        <button id="btnKindleZoomInc" class="hud-btn-sm" style="flex:1; font-size:0.75rem; padding:4px 8px; border:1px solid var(--border-medium); border-radius:4px; background:var(--bg-secondary); color:var(--text-primary); cursor:pointer;">Zoom +</button>
+      </div>
+    </div>
+    <div class="popover-setting-item" style="margin-top:14px;">
+      <label style="font-size:0.75rem; color:var(--text-secondary); display:block; margin-bottom:6px;">Fitting Option</label>
+      <div style="display:flex; gap:6px; margin-top:4px;">
+        <button id="btnKindleFitWidth" class="hud-btn-sm active" style="flex:1; font-size:0.7rem; padding:4px 0; border:1px solid var(--border-medium); border-radius:4px; background:var(--bg-secondary); color:var(--text-primary); cursor:pointer;">Fit Width</button>
+        <button id="btnKindleFitPage" class="hud-btn-sm" style="flex:1; font-size:0.7rem; padding:4px 0; border:1px solid var(--border-medium); border-radius:4px; background:var(--bg-secondary); color:var(--text-primary); cursor:pointer;">Fit Page</button>
+      </div>
     </div>
   </div>
+
+  <!-- Cover Slide Info Overlay (Sliding drawer) -->
+  <div class="kindle-drawer drawer-right" id="kindleAboutDrawer">
+    <div class="drawer-header">
+      <h3>About this Book</h3>
+      <button class="drawer-close" id="kindleBtnCloseAbout">&times;</button>
+    </div>
+    <div style="padding:20px; text-align:center; display:flex; flex-direction:column; gap:16px; align-items:center;">
+      <div id="kindleAboutCover" class="kindle-about-cover"></div>
+      <div>
+        <h4 id="kindleAboutTitle" style="font-size:1.1rem; font-weight:700; color:var(--text-primary);">Book Title</h4>
+        <p id="kindleAboutAuthor" style="font-size:0.8rem; color:var(--text-secondary); margin-top:4px;">Project Management Institute</p>
+      </div>
+      <div style="width:100%; border-top:1px solid var(--border-subtle); padding-top:16px; display:flex; flex-direction:column; gap:10px; text-align:left;">
+        <button class="about-option-btn" id="btnKindleSyncFurthest" style="width:100%; text-align:left; padding:10px 14px; background:var(--bg-secondary); border:1px solid var(--border-subtle); border-radius:8px; color:var(--text-primary); font-size:0.82rem; cursor:pointer;">Sync to furthest page read</button>
+        <button class="about-option-btn" id="btnKindleAnnotations" style="width:100%; text-align:left; padding:10px 14px; background:var(--bg-secondary); border:1px solid var(--border-subtle); border-radius:8px; color:var(--text-primary); font-size:0.82rem; cursor:pointer;">Annotations</button>
+        <button class="about-option-btn" id="btnKindleDeleteFromReader" style="width:100%; text-align:left; padding:10px 14px; background:var(--bg-secondary); border:1px solid var(--border-subtle); border-radius:8px; color:var(--accent-warm); font-size:0.82rem; font-weight:600; cursor:pointer;">Delete book from device</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading State -->
+  <div id="kindleLoader" class="kindle-loader">
+    <span class="spinner" style="font-size:2.5rem; animation:spin 2s linear infinite; display:inline-block;">🔄</span>
+    <span id="lblKindleLoaderText" style="font-weight:600; color:var(--text-primary); margin-top:10px;">Loading PDF Document...</span>
+  </div>
+
+  <!-- Reading Viewport -->
+  <div class="kindle-viewport" id="kindleViewport">
+    <div class="kindle-canvas-container" id="kindleCanvasContainer">
+      <canvas id="kindleCanvas"></canvas>
+      <!-- Bookmark ribbon indicator -->
+      <div class="kindle-bookmark-ribbon" id="kindleBookmarkRibbon" title="Bookmark Page">
+        <svg viewBox="0 0 24 24" style="width:100%; height:100%;"><path fill="currentColor" d="M17,3H7A2,2 0 0,0 5,5V21L12,18L19,21V5C19,3.89 18.1,3 17,3Z"/></svg>
+      </div>
+    </div>
+  </div>
+</div>
+
 </div>
 
 <script src="app.js"></script>

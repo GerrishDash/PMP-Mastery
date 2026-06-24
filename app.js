@@ -112,33 +112,44 @@ document.addEventListener('DOMContentLoaded', () => {
   let readerTheme = safeLS.getItem('pmp_reader_theme') || 'dark';
   let readerFitMode = safeLS.getItem('pmp_reader_fit') || 'width'; // 'width' or 'page'
 
-  const readerBookSelect = document.getElementById('readerBookSelect');
+  // Kindle Overlay Elements
+  const kindleReaderOverlay = document.getElementById('kindleReaderOverlay');
+  const kindleBtnBack = document.getElementById('kindleBtnBack');
+  const kindleBtnTOC = document.getElementById('kindleBtnTOC');
+  const kindleBtnSearch = document.getElementById('kindleBtnSearch');
+  const kindleBtnBookmark = document.getElementById('kindleBtnBookmark');
+  const kindleBookmarkIcon = document.getElementById('kindleBookmarkIcon');
+  const kindleBtnAa = document.getElementById('kindleBtnAa');
+  const kindleBtnMore = document.getElementById('kindleBtnMore');
+  const kindleBookTitle = document.getElementById('kindleBookTitle');
+  const kindleHUDFooter = document.getElementById('kindleHUDFooter');
+  const kindleHUDHeader = document.getElementById('kindleHUDHeader');
+  const kindleProgressSlider = document.getElementById('kindleProgressSlider');
+  const kindleProgressStatus = document.getElementById('kindleProgressStatus');
+  const kindleTOCDrawer = document.getElementById('kindleTOCDrawer');
+  const kindleTOCList = document.getElementById('kindleTOCList');
+  const kindleBookmarksDrawer = document.getElementById('kindleBookmarksDrawer');
+  const kindleBookmarksList = document.getElementById('kindleBookmarksList');
+  const kindleSearchDrawer = document.getElementById('kindleSearchDrawer');
+  const txtKindleSearch = document.getElementById('txtKindleSearch');
+  const btnKindleSearchGo = document.getElementById('btnKindleSearchGo');
+  const lblKindleSearchCount = document.getElementById('lblKindleSearchCount');
+  const kindleSearchResults = document.getElementById('kindleSearchResults');
+  const kindleAaPopover = document.getElementById('kindleAaPopover');
+  const kindleAboutDrawer = document.getElementById('kindleAboutDrawer');
+  const kindleAboutCover = document.getElementById('kindleAboutCover');
+  const kindleAboutTitle = document.getElementById('kindleAboutTitle');
+  const kindleAboutAuthor = document.getElementById('kindleAboutAuthor');
+  const btnKindleSyncFurthest = document.getElementById('btnKindleSyncFurthest');
+  const btnKindleAnnotations = document.getElementById('btnKindleAnnotations');
+  const btnKindleDeleteFromReader = document.getElementById('btnKindleDeleteFromReader');
+  const kindleLoader = document.getElementById('kindleLoader');
+  const lblKindleLoaderText = document.getElementById('lblKindleLoaderText');
+  const kindleViewport = document.getElementById('kindleViewport');
+  const kindleCanvasContainer = document.getElementById('kindleCanvasContainer');
+  const kindleCanvas = document.getElementById('kindleCanvas');
+  const kindleBookmarkRibbon = document.getElementById('kindleBookmarkRibbon');
   const pdfFileInput = document.getElementById('pdfFileInput');
-  const btnToggleTOC = document.getElementById('btnToggleTOC');
-  const btnToggleReaderSettings = document.getElementById('btnToggleReaderSettings');
-  const btnSaveBookmark = document.getElementById('btnSaveBookmark');
-  const readerSettingsPanel = document.getElementById('readerSettingsPanel');
-  const readerTOCPanel = document.getElementById('readerTOCPanel');
-  const readerTOCList = document.getElementById('readerTOCList');
-  const readerContentArea = document.getElementById('readerContentArea');
-  const readerUploadZone = document.getElementById('readerUploadZone');
-  const readerPageWrapper = document.getElementById('readerPageWrapper');
-  const readerLoader = document.getElementById('readerLoader');
-  const readerErrorMsg = document.getElementById('readerErrorMsg');
-  const lblReaderErrorDetails = document.getElementById('lblReaderErrorDetails');
-  const pdfCanvas = document.getElementById('pdfCanvas');
-  
-  const btnReaderPrev = document.getElementById('btnReaderPrev');
-  const btnReaderNext = document.getElementById('btnReaderNext');
-  const lblReaderPageStatus = document.getElementById('lblReaderPageStatus');
-  const readerProgressSlider = document.getElementById('readerProgressSlider');
-  const readerBookmarkInfo = document.getElementById('readerBookmarkInfo');
-
-  const btnZoomDec = document.getElementById('btnZoomDec');
-  const btnZoomInc = document.getElementById('btnZoomInc');
-  const lblZoomScale = document.getElementById('lblZoomScale');
-  const btnFitWidth = document.getElementById('btnFitWidth');
-  const btnFitPage = document.getElementById('btnFitPage');
 
   // ══════════════════════════════════════════════
   //  DATA: 12 PRINCIPLES (PMBOK 7)
@@ -511,6 +522,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const sections = document.querySelectorAll('.section');
 
   function navigateTo(sectionId) {
+    if (typeof closeKindleReader === 'function') {
+      closeKindleReader();
+    }
     sections.forEach(s => s.classList.remove('active'));
     navItems.forEach(n => n.classList.remove('active'));
     const target = document.getElementById('section-' + sectionId);
@@ -521,9 +535,8 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('sidebar').classList.remove('open');
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    // Lazy load the bookshelf reader if selected
-    if (sectionId === 'reader' && typeof loadBook === 'function' && !currentPdfDoc) {
-      loadBook(readerBookSelect.value || 'pmbok7');
+    if (sectionId === 'reader') {
+      updateBookshelfUI();
     }
   }
 
@@ -2197,185 +2210,114 @@ document.addEventListener('DOMContentLoaded', () => {
   //  PMP BOOKSHELF & E-READER (PDF EXPERIENCE)
   // ══════════════════════════════════════════════
 
-  // 1. Zoom & Fit Controls
-  function updateZoomDisplay() {
-    lblZoomScale.textContent = `${Math.round(readerZoomScale * 100)}%`;
-    safeLS.setItem('pmp_reader_zoom', readerZoomScale);
-    safeLS.setItem('pmp_reader_fit', readerFitMode);
-  }
+  // 1. Bookshelf Dashboard UI Updater
+  async function updateBookshelfUI() {
+    const books = ['pmbok7', 'pmbok6', 'custom'];
+    for (const bookId of books) {
+      const btnRead = document.getElementById(`btnRead-${bookId}`);
+      const btnUpload = document.getElementById(`btnUpload-${bookId}`);
+      const btnDelete = document.getElementById(`btnDelete-${bookId}`);
+      const progressFill = document.getElementById(`progressFill-${bookId}`);
+      const progressTxt = document.getElementById(`progressTxt-${bookId}`);
 
-  btnZoomDec.addEventListener('click', () => {
-    if (readerZoomScale > 0.3) {
-      readerFitMode = 'custom';
-      readerZoomScale = Math.max(0.3, readerZoomScale - 0.15);
-      updateZoomDisplay();
-      renderReaderPage();
-    }
-  });
+      if (!progressTxt) continue;
 
-  btnZoomInc.addEventListener('click', () => {
-    if (readerZoomScale < 3.0) {
-      readerFitMode = 'custom';
-      readerZoomScale = Math.min(3.0, readerZoomScale + 0.15);
-      updateZoomDisplay();
-      renderReaderPage();
-    }
-  });
-
-  btnFitWidth.addEventListener('click', () => {
-    readerFitMode = 'width';
-    updateZoomDisplay();
-    renderReaderPage();
-  });
-
-  btnFitPage.addEventListener('click', () => {
-    readerFitMode = 'page';
-    updateZoomDisplay();
-    renderReaderPage();
-  });
-
-  // 2. Theme Configuration Controls
-  document.querySelectorAll('.theme-buttons .btn-theme').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.theme-buttons .btn-theme').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      readerTheme = btn.dataset.theme;
-      safeLS.setItem('pmp_reader_theme', readerTheme);
-      applyReaderTheme();
-    });
-  });
-
-  function applyReaderTheme() {
-    readerContentArea.classList.remove('reader-theme-dark', 'reader-theme-light', 'reader-theme-sepia');
-    document.querySelectorAll('.theme-buttons .btn-theme').forEach(b => {
-      b.classList.toggle('active', b.dataset.theme === readerTheme);
-    });
-
-    if (readerTheme === 'system') {
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      readerContentArea.classList.add(prefersDark ? 'reader-theme-dark' : 'reader-theme-light');
-    } else {
-      readerContentArea.classList.add('reader-theme-' + readerTheme);
-    }
-  }
-
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-    if (readerTheme === 'system') {
-      applyReaderTheme();
-    }
-  });
-
-  // 3. Panel Toggles
-  btnToggleTOC.addEventListener('click', () => {
-    readerTOCPanel.classList.toggle('hidden');
-    readerSettingsPanel.classList.add('hidden');
-  });
-
-  btnToggleReaderSettings.addEventListener('click', () => {
-    readerSettingsPanel.classList.toggle('hidden');
-    readerTOCPanel.classList.add('hidden');
-  });
-
-  // 4. File Uploader Handler
-  async function handleFileUpload(file) {
-    if (!file || file.type !== 'application/pdf') {
-      alert('Please upload a valid PDF document.');
-      return;
-    }
-
-    readerLoader.querySelector('span:last-child').textContent = 'Saving file offline...';
-    readerLoader.classList.remove('hidden');
-    readerUploadZone.classList.add('hidden');
-    readerPageWrapper.classList.add('hidden');
-    readerErrorMsg.classList.add('hidden');
-
-    try {
-      await dbSaveBook(currentBookId, file);
-      loadBook(currentBookId);
-    } catch (err) {
-      console.error('Error saving book:', err);
-      alert('Failed to save the PDF file offline. Make sure your browser has enough disk space.');
-      loadBook(currentBookId);
-    }
-  }
-
-  // Bind Upload Triggers
-  if (btnTriggerUpload) {
-    btnTriggerUpload.addEventListener('click', (e) => {
-      e.stopPropagation();
-      pdfFileInput.click();
-    });
-  }
-
-  if (readerUploadZone) {
-    readerUploadZone.addEventListener('click', () => {
-      pdfFileInput.click();
-    });
-
-    // Drag and Drop support
-    readerUploadZone.addEventListener('dragover', (e) => {
-      e.preventDefault();
-      readerUploadZone.classList.add('dragover');
-    });
-
-    readerUploadZone.addEventListener('dragenter', (e) => {
-      e.preventDefault();
-      readerUploadZone.classList.add('dragover');
-    });
-
-    readerUploadZone.addEventListener('dragleave', () => {
-      readerUploadZone.classList.remove('dragover');
-    });
-
-    readerUploadZone.addEventListener('drop', (e) => {
-      e.preventDefault();
-      readerUploadZone.classList.remove('dragover');
-      if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-        handleFileUpload(e.dataTransfer.files[0]);
-      }
-    });
-  }
-
-  if (pdfFileInput) {
-    pdfFileInput.addEventListener('change', (e) => {
-      if (e.target.files && e.target.files[0]) {
-        handleFileUpload(e.target.files[0]);
-      }
-    });
-  }
-
-  // 5. PDF Loader
-  async function loadBook(bookId) {
-    currentBookId = bookId;
-    
-    // Reset document state
-    if (currentPdfDoc) {
       try {
-        currentPdfDoc.cleanup();
-      } catch (e) {}
-      currentPdfDoc = null;
-    }
+        const fileBlob = await dbGetBook(bookId);
+        if (fileBlob) {
+          btnRead.classList.remove('hidden');
+          btnDelete.classList.remove('hidden');
+          btnUpload.classList.add('hidden');
 
-    readerLoader.querySelector('span:last-child').textContent = 'Searching browser database...';
-    readerLoader.classList.remove('hidden');
-    readerUploadZone.classList.add('hidden');
-    readerPageWrapper.classList.add('hidden');
-    readerErrorMsg.classList.add('hidden');
-    readerTOCList.innerHTML = '';
+          const savedPage = safeLS.getItem(`pmp_bookmark_${bookId}`);
+          const totalPages = safeLS.getItem(`pmp_total_pages_${bookId}`) || 1;
+          if (savedPage !== null) {
+            const pageNum = parseInt(savedPage) + 1;
+            const pct = Math.min(100, Math.round((parseInt(savedPage) / (parseInt(totalPages) - 1 || 1)) * 100));
+            progressTxt.textContent = `Page ${pageNum} of ${totalPages} (${pct}%)`;
+            progressFill.style.width = `${pct}%`;
+          } else {
+            progressTxt.textContent = 'Not started (Ready)';
+            progressFill.style.width = '0%';
+          }
+        } else {
+          btnRead.classList.add('hidden');
+          btnDelete.classList.add('hidden');
+          btnUpload.classList.remove('hidden');
+          progressTxt.textContent = 'PDF not imported';
+          progressFill.style.width = '0%';
+        }
+      } catch (err) {
+        console.error('Error scanning bookshelf book:', bookId, err);
+      }
+    }
+  }
+
+  // 2. Kindle Reader Overlay Controls & HUD Triggering
+  let isHudVisible = true;
+  let isRendering = false;
+  let renderPendingIndex = null;
+  let activeSearchQuery = '';
+
+  function toggleHUD(forceState) {
+    isHudVisible = (forceState !== undefined) ? forceState : !isHudVisible;
+    kindleHUDHeader.classList.toggle('visible', isHudVisible);
+    kindleHUDFooter.classList.toggle('visible', isHudVisible);
     
-    bookTOC = [];
+    // Close popover and drawers if HUD is hidden
+    if (!isHudVisible) {
+      kindleAaPopover.classList.remove('visible');
+      closeAllDrawers();
+    }
+  }
+
+  function closeAllDrawers() {
+    kindleTOCDrawer.classList.remove('visible');
+    kindleBookmarksDrawer.classList.remove('visible');
+    kindleSearchDrawer.classList.remove('visible');
+    kindleAboutDrawer.classList.remove('visible');
+  }
+
+  // Bind Overlay Toggles
+  kindleZoneCenter.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleHUD();
+  });
+
+  kindleBtnBack.addEventListener('click', (e) => {
+    e.stopPropagation();
+    closeKindleReader();
+  });
+
+  // Kindle Launch & Close Engine
+  async function openKindleReader(bookId) {
+    currentBookId = bookId;
+    closeAllDrawers();
+    toggleHUD(true);
+
+    kindleLoader.querySelector('#lblKindleLoaderText').textContent = 'Searching browser database...';
+    kindleLoader.classList.remove('hidden');
+    kindleReaderOverlay.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+
+    // Update title
+    let titleStr = 'PMBOK 7th Edition';
+    if (bookId === 'pmbok6') titleStr = 'PMBOK 6th Edition';
+    else if (bookId === 'custom') titleStr = 'Custom Study Guide';
+    kindleBookTitle.textContent = titleStr;
 
     try {
       const fileBlob = await dbGetBook(bookId);
       if (!fileBlob) {
-        // Not uploaded yet, show dropzone
-        readerLoader.classList.add('hidden');
-        readerUploadZone.classList.remove('hidden');
+        closeKindleReader();
+        // Trigger upload flow
+        lblUploadBookTitle.textContent = `Upload ${titleStr}`;
+        bookshelfUploadZone.classList.remove('hidden');
+        window.scrollTo({ top: bookshelfUploadZone.offsetTop - 50, behavior: 'smooth' });
         return;
       }
 
-      readerLoader.querySelector('span:last-child').textContent = 'Opening PDF document...';
-      
+      kindleLoader.querySelector('#lblKindleLoaderText').textContent = 'Opening PDF document...';
       const fileReader = new FileReader();
       fileReader.onload = async function() {
         try {
@@ -2386,10 +2328,11 @@ document.addEventListener('DOMContentLoaded', () => {
             cMapPacked: true
           });
           currentPdfDoc = await loadingTask.promise;
-          
-          await buildTOC();
+          safeLS.setItem(`pmp_total_pages_${currentBookId}`, currentPdfDoc.numPages);
 
-          // Retrieve saved progress
+          await buildKindleTOC();
+
+          // Restore bookmark
           const savedBookmark = safeLS.getItem(`pmp_bookmark_${currentBookId}`);
           if (savedBookmark !== null) {
             currentPageIndex = Math.min(parseInt(savedBookmark), currentPdfDoc.numPages - 1);
@@ -2397,107 +2340,41 @@ document.addEventListener('DOMContentLoaded', () => {
             currentPageIndex = 0;
           }
 
-          renderReaderPage();
-          updateBookmarkInfo();
-
-          readerLoader.classList.add('hidden');
-          readerPageWrapper.classList.remove('hidden');
+          // Initial Render
+          await renderKindlePage();
+          kindleLoader.classList.add('hidden');
         } catch (err) {
-          console.error('Error rendering PDF:', err);
-          showReaderError('The PDF format could not be parsed. The file might be corrupted or in an unsupported PDF version.');
+          console.error('Error parsing PDF:', err);
+          alert('Failed to parse PDF document. It might be corrupted or encrypted.');
+          closeKindleReader();
         }
-      };
-      fileReader.onerror = function() {
-        showReaderError('Failed to read file from browser database.');
       };
       fileReader.readAsArrayBuffer(fileBlob);
     } catch (err) {
-      console.error('Error loading book:', err);
-      showReaderError('Database access failed. Please ensure cookies and storage permissions are enabled.');
+      console.error('Database read error:', err);
+      alert('Failed to load document from IndexedDB database.');
+      closeKindleReader();
     }
   }
 
-  function showReaderError(message) {
-    lblReaderErrorDetails.textContent = message;
-    readerLoader.classList.add('hidden');
-    readerUploadZone.classList.add('hidden');
-    readerPageWrapper.classList.add('hidden');
-    readerErrorMsg.classList.remove('hidden');
-  }
-
-  // 6. Dynamic Table of Contents builder
-  async function buildTOC() {
-    readerTOCList.innerHTML = '';
-    bookTOC = [];
-
-    try {
-      const outline = await currentPdfDoc.getOutline();
-      if (outline && outline.length > 0) {
-        // Recursive outline parser
-        async function processOutlineNode(nodes) {
-          for (const node of nodes) {
-            let pageIndex = -1;
-            if (node.dest) {
-              try {
-                let dest = node.dest;
-                if (typeof dest === 'string') {
-                  dest = await currentPdfDoc.getDestination(dest);
-                }
-                if (Array.isArray(dest)) {
-                  const ref = dest[0];
-                  pageIndex = await currentPdfDoc.getPageIndex(ref);
-                }
-              } catch (e) {
-                console.warn('Destination resolution failed for node:', node.title, e);
-              }
-            }
-            if (pageIndex >= 0) {
-              bookTOC.push({ title: node.title, pageIndex });
-            }
-            if (node.items && node.items.length > 0 && bookTOC.length < 50) {
-              await processOutlineNode(node.items);
-            }
-          }
-        }
-        await processOutlineNode(outline);
-      }
-    } catch (e) {
-      console.warn('Outline fetch failed, falling back:', e);
-    }
-
-    // Fallback partitions if no TOC outlines are embedded
-    if (bookTOC.length === 0) {
-      const pageCount = currentPdfDoc.numPages;
-      const step = Math.max(1, Math.round(pageCount / 20));
-      for (let i = 0; i < pageCount; i += step) {
-        bookTOC.push({ title: `Section — Page ${i + 1}`, pageIndex: i });
-      }
-    }
-
-    bookTOC.forEach(item => {
-      const li = document.createElement('li');
-      li.textContent = item.title;
-      li.dataset.page = item.pageIndex;
-      li.addEventListener('click', () => {
-        currentPageIndex = item.pageIndex;
-        renderReaderPage();
-        readerTOCPanel.classList.add('hidden');
-      });
-      readerTOCList.appendChild(li);
-    });
-  }
-
-  // 7. Viewport Render Page
-  let isRendering = false;
-  let renderPendingIndex = null;
-
-  async function renderReaderPage() {
-    if (!currentPdfDoc) return;
+  function closeKindleReader() {
+    kindleReaderOverlay.classList.add('hidden');
+    document.body.style.overflow = '';
     
+    if (currentPdfDoc) {
+      try { currentPdfDoc.cleanup(); } catch(e){}
+      currentPdfDoc = null;
+    }
+    updateBookshelfUI();
+  }
+
+  // 3. Viewport Render Page with Scale & Fitting calculations
+  async function renderKindlePage() {
+    if (!currentPdfDoc) return;
+
     if (currentPageIndex < 0) currentPageIndex = 0;
     if (currentPageIndex >= currentPdfDoc.numPages) currentPageIndex = currentPdfDoc.numPages - 1;
 
-    // Queue page rendering if already in progress
     if (isRendering) {
       renderPendingIndex = currentPageIndex;
       return;
@@ -2507,30 +2384,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     try {
       const page = await currentPdfDoc.getPage(currentPageIndex + 1);
-      
+
+      // Compute Fitting scales
+      const viewWidth = kindleViewport.clientWidth - 48; // adjusted padding
+      const viewHeight = kindleViewport.clientHeight - 48;
       let viewport = page.getViewport({ scale: readerZoomScale });
 
-      // Apply fitting modes
-      const containerWidth = readerContentArea.clientWidth - 30; // padding adjusted
-      const containerHeight = readerContentArea.clientHeight - 30 || 600;
-
       if (readerFitMode === 'width') {
-        const scale = containerWidth / page.getViewport({ scale: 1.0 }).width;
+        const scale = viewWidth / page.getViewport({ scale: 1.0 }).width;
         viewport = page.getViewport({ scale });
         readerZoomScale = scale;
         updateZoomDisplay();
       } else if (readerFitMode === 'page') {
-        const scale = containerHeight / page.getViewport({ scale: 1.0 }).height;
+        const scale = viewHeight / page.getViewport({ scale: 1.0 }).height;
         viewport = page.getViewport({ scale });
         readerZoomScale = scale;
         updateZoomDisplay();
       }
 
-      pdfCanvas.width = viewport.width;
-      pdfCanvas.height = viewport.height;
+      kindleCanvas.width = viewport.width;
+      kindleCanvas.height = viewport.height;
 
-      const canvasContext = pdfCanvas.getContext('2d');
-      canvasContext.clearRect(0, 0, pdfCanvas.width, pdfCanvas.height);
+      const canvasContext = kindleCanvas.getContext('2d');
+      canvasContext.clearRect(0, 0, kindleCanvas.width, kindleCanvas.height);
 
       const renderContext = {
         canvasContext,
@@ -2538,130 +2414,610 @@ document.addEventListener('DOMContentLoaded', () => {
       };
 
       await page.render(renderContext).promise;
-      
-      // Update UI Progress Metrics
+
+      // Update HUD Metrics
       const total = currentPdfDoc.numPages;
       const current = currentPageIndex + 1;
       const pct = Math.round((currentPageIndex / (total - 1 || 1)) * 100);
 
-      lblReaderPageStatus.textContent = `Page ${current} of ${total} (${pct}%)`;
-      readerProgressSlider.value = pct;
+      kindleProgressStatus.textContent = `Location ${current} of ${total} · ${pct}%`;
+      kindleProgressSlider.value = pct;
 
-      document.querySelectorAll('.reader-toc-list li').forEach(li => {
-        const nodePage = parseInt(li.dataset.page);
-        li.classList.toggle('active', nodePage === currentPageIndex);
+      // Auto-save progress
+      safeLS.setItem(`pmp_bookmark_${currentBookId}`, currentPageIndex);
+      const dateStr = new Date().toLocaleString('en-US', { hour12: true, month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+      safeLS.setItem(`pmp_bookmark_time_${currentBookId}`, dateStr);
+
+      // Bookmark ribbon checks
+      updateBookmarkRibbonUI();
+
+      // Update TOC Highlight
+      document.querySelectorAll('#kindleTOCList li').forEach(li => {
+        const pageIdx = parseInt(li.dataset.page);
+        li.classList.toggle('active', pageIdx === currentPageIndex);
       });
 
     } catch (err) {
-      console.error('Render page error:', err);
+      console.error('Page render error:', err);
     } finally {
       isRendering = false;
       if (renderPendingIndex !== null) {
-        const indexToRender = renderPendingIndex;
+        const nextIndex = renderPendingIndex;
         renderPendingIndex = null;
-        currentPageIndex = indexToRender;
-        renderReaderPage();
+        currentPageIndex = nextIndex;
+        renderKindlePage();
       }
     }
   }
 
-  // 8. Input & Control listeners
-  readerProgressSlider.addEventListener('input', () => {
-    if (!currentPdfDoc) return;
-    const pct = parseInt(readerProgressSlider.value);
-    currentPageIndex = Math.round((pct / 100) * (currentPdfDoc.numPages - 1));
-    renderReaderPage();
-  });
+  function updateZoomDisplay() {
+    lblKindleZoomScale.textContent = `${Math.round(readerZoomScale * 100)}%`;
+    safeLS.setItem('pmp_reader_zoom', readerZoomScale);
+    safeLS.setItem('pmp_reader_fit', readerFitMode);
+  }
 
-  btnReaderPrev.addEventListener('click', () => {
-    if (currentPageIndex > 0) {
-      currentPageIndex--;
-      renderReaderPage();
-    }
-  });
-
-  btnReaderNext.addEventListener('click', () => {
-    if (currentPdfDoc && currentPageIndex < currentPdfDoc.numPages - 1) {
-      currentPageIndex++;
-      renderReaderPage();
-    }
-  });
-
-  document.getElementById('readerZoneLeft').addEventListener('click', (e) => {
+  // 4. Margin Tap Navigation & Gestures
+  kindleZoneLeft.addEventListener('click', (e) => {
     e.stopPropagation();
     if (currentPageIndex > 0) {
       currentPageIndex--;
-      renderReaderPage();
+      renderKindlePage();
     }
   });
 
-  document.getElementById('readerZoneRight').addEventListener('click', (e) => {
+  kindleZoneRight.addEventListener('click', (e) => {
     e.stopPropagation();
     if (currentPdfDoc && currentPageIndex < currentPdfDoc.numPages - 1) {
       currentPageIndex++;
-      renderReaderPage();
+      renderKindlePage();
     }
   });
 
-  // 9. Swipe gestures support for phone screens
+  // Swipe gestures
   let touchStartX = 0;
   let touchEndX = 0;
-  
-  readerContentArea.addEventListener('touchstart', (e) => {
+  kindleViewport.addEventListener('touchstart', (e) => {
     touchStartX = e.changedTouches[0].screenX;
   }, { passive: true });
-  
-  readerContentArea.addEventListener('touchend', (e) => {
+
+  kindleViewport.addEventListener('touchend', (e) => {
     touchEndX = e.changedTouches[0].screenX;
-    const threshold = 55;
+    const threshold = 60;
     if (touchStartX - touchEndX > threshold) {
-      btnReaderNext.click(); // Next page
+      // Swipe Left -> Next Page
+      if (currentPdfDoc && currentPageIndex < currentPdfDoc.numPages - 1) {
+        currentPageIndex++;
+        renderKindlePage();
+      }
     } else if (touchEndX - touchStartX > threshold) {
-      btnReaderPrev.click(); // Previous page
+      // Swipe Right -> Prev Page
+      if (currentPageIndex > 0) {
+        currentPageIndex--;
+        renderKindlePage();
+      }
     }
   }, { passive: true });
 
-  // Keyboard navigation inside reader
+  // Keyboard navigation
   document.addEventListener('keydown', (e) => {
-    const readerSection = document.getElementById('section-reader');
-    if (!readerSection.classList.contains('active')) return;
-    if (e.key === 'ArrowLeft') btnReaderPrev.click();
-    if (e.key === 'ArrowRight') btnReaderNext.click();
+    if (kindleReaderOverlay.classList.contains('hidden')) return;
+    if (e.key === 'ArrowLeft') {
+      if (currentPageIndex > 0) {
+        currentPageIndex--;
+        renderKindlePage();
+      }
+    }
+    if (e.key === 'ArrowRight') {
+      if (currentPdfDoc && currentPageIndex < currentPdfDoc.numPages - 1) {
+        currentPageIndex++;
+        renderKindlePage();
+      }
+    }
+    if (e.key === 'Escape') {
+      closeKindleReader();
+    }
   });
 
-  // 10. Bookmarking and Progress persistence
-  btnSaveBookmark.addEventListener('click', () => {
-    safeLS.setItem(`pmp_bookmark_${currentBookId}`, currentPageIndex);
-    const dateStr = new Date().toLocaleString('en-US', { hour12: true, month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
-    safeLS.setItem(`pmp_bookmark_time_${currentBookId}`, dateStr);
-    updateBookmarkInfo();
-
-    const originalText = btnSaveBookmark.textContent;
-    btnSaveBookmark.textContent = '✅ Saved!';
-    btnSaveBookmark.style.background = 'var(--accent-primary)';
-    setTimeout(() => {
-      btnSaveBookmark.textContent = originalText;
-      btnSaveBookmark.style.background = '';
-    }, 1500);
+  // Footer range progress slider scrub
+  kindleProgressSlider.addEventListener('input', () => {
+    if (!currentPdfDoc) return;
+    const pct = parseInt(kindleProgressSlider.value);
+    currentPageIndex = Math.round((pct / 100) * (currentPdfDoc.numPages - 1));
+    renderKindlePage();
   });
 
-  function updateBookmarkInfo() {
-    const savedPage = safeLS.getItem(`pmp_bookmark_${currentBookId}`);
-    const savedTime = safeLS.getItem(`pmp_bookmark_time_${currentBookId}`);
-    if (savedPage !== null && savedTime) {
-      readerBookmarkInfo.innerHTML = `📚 Stopped at <strong>Page ${parseInt(savedPage) + 1}</strong> on ${savedTime}`;
+  // 5. Bookmark Ribbon Logic (Visual ribbon + HUD toggle)
+  function getBookmarkedPages() {
+    const listJson = safeLS.getItem(`pmp_bookmarks_list_${currentBookId}`);
+    return listJson ? JSON.parse(listJson) : [];
+  }
+
+  function saveBookmarkedPages(pagesArr) {
+    safeLS.setItem(`pmp_bookmarks_list_${currentBookId}`, JSON.stringify(pagesArr));
+  }
+
+  function updateBookmarkRibbonUI() {
+    const pages = getBookmarkedPages();
+    const isBookmarked = pages.includes(currentPageIndex);
+    kindleBookmarkRibbon.classList.toggle('active', isBookmarked);
+    kindleBookmarkIcon.classList.toggle('active', isBookmarked);
+    
+    // Toggle color in SVG
+    if (isBookmarked) {
+      kindleBookmarkRibbon.style.color = '#3b82f6';
+      kindleBookmarkIcon.style.color = '#3b82f6';
     } else {
-      readerBookmarkInfo.textContent = 'No active bookmark saved for this book.';
+      kindleBookmarkRibbon.style.color = '';
+      kindleBookmarkIcon.style.color = '';
     }
   }
 
-  readerBookSelect.addEventListener('change', () => {
-    loadBook(readerBookSelect.value);
+  function toggleCurrentPageBookmark() {
+    if (!currentPdfDoc) return;
+    let pages = getBookmarkedPages();
+    const index = pages.indexOf(currentPageIndex);
+    if (index >= 0) {
+      pages.splice(index, 1);
+    } else {
+      pages.push(currentPageIndex);
+      pages.sort((a, b) => a - b);
+    }
+    saveBookmarkedPages(pages);
+    updateBookmarkRibbonUI();
+    if (kindleBookmarksDrawer.classList.contains('visible')) {
+      buildBookmarksList();
+    }
+  }
+
+  kindleBookmarkRibbon.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleCurrentPageBookmark();
   });
 
-  // 11. Initialize Display settings on start
+  kindleBtnBookmark.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleCurrentPageBookmark();
+  });
+
+  // 6. Drawers & Menus (TOC, Settings, Search, About, Bookmarks list)
+  // Table of Contents Drawer
+  kindleBtnTOC.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const wasVisible = kindleTOCDrawer.classList.contains('visible');
+    closeAllDrawers();
+    if (!wasVisible) kindleTOCDrawer.classList.add('visible');
+  });
+
+  document.getElementById('kindleBtnCloseTOC').addEventListener('click', () => {
+    kindleTOCDrawer.classList.remove('visible');
+  });
+
+  async function buildKindleTOC() {
+    kindleTOCList.innerHTML = '';
+    bookTOC = [];
+
+    try {
+      const outline = await currentPdfDoc.getOutline();
+      if (outline && outline.length > 0) {
+        async function processNode(nodes, depth = 0) {
+          for (const node of nodes) {
+            let pageIndex = -1;
+            if (node.dest) {
+              try {
+                let dest = node.dest;
+                if (typeof dest === 'string') {
+                  dest = await currentPdfDoc.getDestination(dest);
+                }
+                if (Array.isArray(dest)) {
+                  pageIndex = await currentPdfDoc.getPageIndex(dest[0]);
+                }
+              } catch (e) {
+                console.warn('Dest resolution error:', node.title, e);
+              }
+            }
+            if (pageIndex >= 0) {
+              bookTOC.push({ title: node.title, pageIndex, depth });
+            }
+            if (node.items && node.items.length > 0 && bookTOC.length < 60) {
+              await processNode(node.items, depth + 1);
+            }
+          }
+        }
+        await processNode(outline);
+      }
+    } catch (e) {
+      console.warn('Outline fetch failed:', e);
+    }
+
+    if (bookTOC.length === 0) {
+      // Fallback page partitions
+      const pageCount = currentPdfDoc.numPages;
+      const step = Math.max(1, Math.round(pageCount / 20));
+      for (let i = 0; i < pageCount; i += step) {
+        bookTOC.push({ title: `Section — Page ${i + 1}`, pageIndex: i, depth: 0 });
+      }
+    }
+
+    bookTOC.forEach(item => {
+      const li = document.createElement('li');
+      li.textContent = item.title;
+      li.dataset.page = item.pageIndex;
+      li.style.paddingLeft = `${10 + item.depth * 14}px`;
+      li.addEventListener('click', () => {
+        currentPageIndex = item.pageIndex;
+        renderKindlePage();
+        kindleTOCDrawer.classList.remove('visible');
+      });
+      kindleTOCList.appendChild(li);
+    });
+  }
+
+  // Display Settings Aa Panel
+  kindleBtnAa.addEventListener('click', (e) => {
+    e.stopPropagation();
+    kindleAaPopover.classList.toggle('visible');
+  });
+
+  // Bind theme clicks in popover
+  document.querySelectorAll('#kindleAaPopover .btn-theme-hud').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      document.querySelectorAll('#kindleAaPopover .btn-theme-hud').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      readerTheme = btn.dataset.theme;
+      safeLS.setItem('pmp_reader_theme', readerTheme);
+      applyKindleTheme();
+    });
+  });
+
+  function applyKindleTheme() {
+    kindleReaderOverlay.classList.remove('theme-dark', 'theme-light', 'theme-sepia');
+    document.querySelectorAll('#kindleAaPopover .btn-theme-hud').forEach(b => {
+      b.classList.toggle('active', b.dataset.theme === readerTheme);
+    });
+
+    let activeTheme = readerTheme;
+    if (readerTheme === 'system') {
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      activeTheme = prefersDark ? 'dark' : 'light';
+    }
+    kindleReaderOverlay.classList.add('theme-' + activeTheme);
+  }
+
+  // Bind Fit controls
+  document.getElementById('btnKindleFitWidth').addEventListener('click', (e) => {
+    e.stopPropagation();
+    document.getElementById('btnKindleFitWidth').classList.add('active');
+    document.getElementById('btnKindleFitPage').classList.remove('active');
+    readerFitMode = 'width';
+    renderKindlePage();
+  });
+
+  document.getElementById('btnKindleFitPage').addEventListener('click', (e) => {
+    e.stopPropagation();
+    document.getElementById('btnKindleFitPage').classList.add('active');
+    document.getElementById('btnKindleFitWidth').classList.remove('active');
+    readerFitMode = 'page';
+    renderKindlePage();
+  });
+
+  // Bind zoom buttons
+  document.getElementById('btnKindleZoomDec').addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (readerZoomScale > 0.3) {
+      readerFitMode = 'custom';
+      document.getElementById('btnKindleFitWidth').classList.remove('active');
+      document.getElementById('btnKindleFitPage').classList.remove('active');
+      readerZoomScale = Math.max(0.3, readerZoomScale - 0.15);
+      updateZoomDisplay();
+      renderKindlePage();
+    }
+  });
+
+  document.getElementById('btnKindleZoomInc').addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (readerZoomScale < 3.0) {
+      readerFitMode = 'custom';
+      document.getElementById('btnKindleFitWidth').classList.remove('active');
+      document.getElementById('btnKindleFitPage').classList.remove('active');
+      readerZoomScale = Math.min(3.0, readerZoomScale + 0.15);
+      updateZoomDisplay();
+      renderKindlePage();
+    }
+  });
+
+  // Annotations / Bookmarks List Drawer (via Grid button in footer HUD or More menu option)
+  kindleBtnGridView.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const wasVisible = kindleBookmarksDrawer.classList.contains('visible');
+    closeAllDrawers();
+    if (!wasVisible) {
+      buildBookmarksList();
+      kindleBookmarksDrawer.classList.add('visible');
+    }
+  });
+
+  document.getElementById('kindleBtnCloseBookmarks').addEventListener('click', () => {
+    kindleBookmarksDrawer.classList.remove('visible');
+  });
+
+  function buildBookmarksList() {
+    kindleBookmarksList.innerHTML = '';
+    const pages = getBookmarkedPages();
+    
+    if (pages.length === 0) {
+      const li = document.createElement('li');
+      li.textContent = 'No pages bookmarked yet.';
+      li.style.fontStyle = 'italic';
+      li.style.color = 'var(--text-muted)';
+      kindleBookmarksList.appendChild(li);
+      return;
+    }
+
+    pages.forEach(pageIdx => {
+      const li = document.createElement('li');
+      li.innerHTML = `<span style="font-weight:700; color:var(--accent-primary);">Page ${pageIdx + 1}</span>`;
+      li.addEventListener('click', () => {
+        currentPageIndex = pageIdx;
+        renderKindlePage();
+        kindleBookmarksDrawer.classList.remove('visible');
+      });
+      kindleBookmarksList.appendChild(li);
+    });
+  }
+
+  // Text Search Drawer
+  kindleBtnSearch.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const wasVisible = kindleSearchDrawer.classList.contains('visible');
+    closeAllDrawers();
+    if (!wasVisible) {
+      kindleSearchDrawer.classList.add('visible');
+      txtKindleSearch.focus();
+    }
+  });
+
+  document.getElementById('kindleBtnCloseSearch').addEventListener('click', () => {
+    kindleSearchDrawer.classList.remove('visible');
+    activeSearchQuery = '';
+  });
+
+  btnKindleSearchGo.addEventListener('click', (e) => {
+    e.stopPropagation();
+    performKindleSearch(txtKindleSearch.value.trim());
+  });
+
+  txtKindleSearch.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      performKindleSearch(txtKindleSearch.value.trim());
+    }
+  });
+
+  // PDF Text Search Engine (Async cross-page scanning)
+  async function performKindleSearch(query) {
+    kindleSearchResults.innerHTML = '';
+    lblKindleSearchCount.textContent = 'Searching...';
+
+    if (!currentPdfDoc || !query) {
+      lblKindleSearchCount.textContent = 'Enter keyword to search.';
+      return;
+    }
+
+    let matchCount = 0;
+    activeSearchQuery = query;
+
+    for (let i = 0; i < currentPdfDoc.numPages; i++) {
+      if (activeSearchQuery !== query) return; // query changed, abort
+      try {
+        const page = await currentPdfDoc.getPage(i + 1);
+        const textContent = await page.getTextContent();
+        const textItems = textContent.items.map(item => item.str).join(' ');
+        const index = textItems.toLowerCase().indexOf(query.toLowerCase());
+        
+        if (index >= 0) {
+          matchCount++;
+          lblKindleSearchCount.textContent = `Found ${matchCount} matches...`;
+
+          const start = Math.max(0, index - 25);
+          const end = Math.min(textItems.length, index + query.length + 35);
+          let snippet = textItems.substring(start, end);
+          if (start > 0) snippet = '...' + snippet;
+          if (end < textItems.length) snippet = snippet + '...';
+
+          const li = document.createElement('li');
+          li.style.cursor = 'pointer';
+          li.innerHTML = `<div style="font-weight:700; color:var(--accent-tertiary); font-size:0.75rem;">Page ${i + 1}</div><div style="font-size:0.72rem; color:var(--text-secondary); white-space:normal; overflow:visible; text-overflow:clip; line-height:1.45;">${escapeHTML(snippet)}</div>`;
+          li.dataset.page = i;
+          li.addEventListener('click', () => {
+            currentPageIndex = i;
+            renderKindlePage();
+            kindleSearchDrawer.classList.remove('visible');
+          });
+          kindleSearchResults.appendChild(li);
+        }
+      } catch (err) {
+        console.warn('Search error page:', i + 1, err);
+      }
+    }
+
+    if (matchCount === 0) {
+      lblKindleSearchCount.textContent = 'No matches found.';
+    } else {
+      lblKindleSearchCount.textContent = `Search completed. Found ${matchCount} matches.`;
+    }
+  }
+
+  function escapeHTML(str) {
+    return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  // More Options Drawer
+  kindleBtnMore.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const wasVisible = kindleAboutDrawer.classList.contains('visible');
+    closeAllDrawers();
+    if (!wasVisible) {
+      let titleStr = 'PMBOK 7th Edition';
+      if (currentBookId === 'pmbok6') titleStr = 'PMBOK 6th Edition';
+      else if (currentBookId === 'custom') titleStr = 'Custom Study Guide';
+
+      kindleAboutTitle.textContent = titleStr;
+      
+      const coverDiv = document.getElementById('kindleAboutCover');
+      coverDiv.className = `kindle-about-cover ${currentBookId === 'pmbok7' ? 'agile-cover' : currentBookId === 'pmbok6' ? 'predictive-cover' : 'custom-cover'}`;
+      coverDiv.innerHTML = `<div style="padding:15px; color:#fff; display:flex; flex-direction:column; justify-content:space-between; height:100%;"><div style="font-size:0.5rem; font-weight:800; opacity:0.6; text-align:right;">PMBOK</div><div style="font-size:0.8rem; font-weight:800; line-height:1.2;">${titleStr}</div></div>`;
+
+      kindleAboutDrawer.classList.add('visible');
+    }
+  });
+
+  document.getElementById('kindleBtnCloseAbout').addEventListener('click', () => {
+    kindleAboutDrawer.classList.remove('visible');
+  });
+
+  btnKindleSyncFurthest.addEventListener('click', (e) => {
+    e.stopPropagation();
+    alert('Progress is already synchronized with this device.');
+  });
+
+  btnKindleAnnotations.addEventListener('click', (e) => {
+    e.stopPropagation();
+    closeAllDrawers();
+    buildBookmarksList();
+    kindleBookmarksDrawer.classList.add('visible');
+  });
+
+  btnKindleDeleteFromReader.addEventListener('click', async (e) => {
+    e.stopPropagation();
+    if (confirm('Are you sure you want to delete this book from browser storage? You will need to upload it again to read it.')) {
+      try {
+        await dbDeleteBook(currentBookId);
+        safeLS.removeItem(`pmp_bookmark_${currentBookId}`);
+        safeLS.removeItem(`pmp_bookmark_time_${currentBookId}`);
+        safeLS.removeItem(`pmp_bookmarks_list_${currentBookId}`);
+        alert('Book deleted successfully.');
+        closeKindleReader();
+      } catch (err) {
+        console.error('Delete error:', err);
+        alert('Failed to delete book.');
+      }
+    }
+  });
+
+  // 7. Bookshelf Dashboard Triggers
+  document.querySelectorAll('.btn-read-book').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      openKindleReader(btn.dataset.book);
+    });
+  });
+
+  document.querySelectorAll('.btn-upload-book').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      currentBookId = btn.dataset.book;
+      let titleStr = 'PMBOK 7th Edition';
+      if (currentBookId === 'pmbok6') titleStr = 'PMBOK 6th Edition';
+      else if (currentBookId === 'custom') titleStr = 'Custom Study Guide';
+      lblUploadBookTitle.textContent = `Upload ${titleStr}`;
+      bookshelfUploadZone.classList.remove('hidden');
+      window.scrollTo({ top: bookshelfUploadZone.offsetTop - 50, behavior: 'smooth' });
+    });
+  });
+
+  document.querySelectorAll('.btn-delete-book').forEach(btn => {
+    btn.addEventListener('click', async (e) => {
+      e.stopPropagation();
+      const bookId = btn.dataset.book;
+      if (confirm('Delete this book from local browser memory?')) {
+        try {
+          await dbDeleteBook(bookId);
+          safeLS.removeItem(`pmp_bookmark_${bookId}`);
+          safeLS.removeItem(`pmp_bookmark_time_${bookId}`);
+          safeLS.removeItem(`pmp_bookmarks_list_${bookId}`);
+          updateBookshelfUI();
+        } catch (err) {
+          alert('Delete failed.');
+        }
+      }
+    });
+  });
+
+  // Bookshelf Dropzone Events
+  const bookshelfUploadZone = document.getElementById('bookshelfUploadZone');
+  const btnSelectUploadFile = document.getElementById('btnSelectUploadFile');
+
+  btnSelectUploadFile.addEventListener('click', (e) => {
+    e.stopPropagation();
+    pdfFileInput.click();
+  });
+
+  bookshelfUploadZone.addEventListener('click', () => {
+    pdfFileInput.click();
+  });
+
+  bookshelfUploadZone.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    bookshelfUploadZone.style.borderColor = 'var(--accent-primary)';
+  });
+
+  bookshelfUploadZone.addEventListener('dragleave', () => {
+    bookshelfUploadZone.style.borderColor = '';
+  });
+
+  bookshelfUploadZone.addEventListener('drop', (e) => {
+    e.preventDefault();
+    bookshelfUploadZone.style.borderColor = '';
+    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+      handleBookshelfUpload(e.dataTransfer.files[0]);
+    }
+  });
+
+  pdfFileInput.addEventListener('change', (e) => {
+    if (e.target.files && e.target.files[0]) {
+      handleBookshelfUpload(e.target.files[0]);
+    }
+  });
+
+  async function handleBookshelfUpload(file) {
+    if (!file || file.type !== 'application/pdf') {
+      alert('Please select a valid PDF file.');
+      return;
+    }
+
+    bookshelfUploadZone.classList.add('hidden');
+    
+    // Open loader overlay
+    kindleLoader.querySelector('#lblKindleLoaderText').textContent = 'Saving PDF document offline...';
+    kindleLoader.classList.remove('hidden');
+    kindleReaderOverlay.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+
+    try {
+      await dbSaveBook(currentBookId, file);
+      // Immediately open the loaded book
+      await openKindleReader(currentBookId);
+    } catch (err) {
+      console.error('Save error:', err);
+      alert('Failed to cache book offline. Make sure storage is enabled.');
+      closeKindleReader();
+    }
+  }
+
+  // Dynamic Popover close handlers
+  document.addEventListener('click', (e) => {
+    if (kindleReaderOverlay.classList.contains('hidden')) return;
+    
+    // If click is outside popover and AA button, hide popover
+    if (!kindleAaPopover.contains(e.target) && e.target !== kindleBtnAa && !kindleBtnAa.contains(e.target)) {
+      kindleAaPopover.classList.remove('visible');
+    }
+  });
+
+  // Initialize display settings
+  applyKindleTheme();
   updateZoomDisplay();
-  applyReaderTheme();
+  updateBookshelfUI();
 
 
   // Load Saved Settings from LocalStorage
