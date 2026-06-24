@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pmp-mastery-v7';
+const CACHE_NAME = 'pmp-mastery-v8';
 const ASSETS = [
   './index.html',
   './styles.css',
@@ -6,7 +6,8 @@ const ASSETS = [
   './manifest.json',
   './pmp_logo.png',
   'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js',
-  'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js'
+  'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js',
+  'https://cdn.jsdelivr.net/npm/marked/marked.min.js'
 ];
 
 // Install Event - Caching Assets

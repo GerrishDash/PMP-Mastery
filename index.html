@@ -782,6 +782,19 @@
         <p>A Kindle-like reading experience for PMBOK 6th and 7th Editions. Highlight your stop point and customize theme and typography for comfortable reading.</p>
       </div>
 
+      <!-- Browser Security Protocol Alert -->
+      <div id="fileProtocolAlert" class="upload-feedback-alert error hidden" style="margin-bottom: 24px; max-width: 100%; display: flex; gap: 12px; align-items: center; border-radius: 8px;">
+        <span style="font-size: 1.8rem; line-height: 1;">⚠️</span>
+        <div>
+          <strong style="display:block; margin-bottom:4px; font-size:0.9rem; color: #ef476f;">Browser Security Restriction Detected (file:// protocol)</strong>
+          <span style="font-size:0.8rem; color:var(--text-secondary); line-height:1.4;">
+            Your browser blocks loading book pages over the local file system. 
+            Please start your local server by running <code>python -m http.server 8080</code> in your terminal and visit 
+            <a href="http://localhost:8080/index.html" style="color:var(--accent-secondary); text-decoration:underline; font-weight:600;">http://localhost:8080/index.html</a> to read the books.
+          </span>
+        </div>
+      </div>
+
       <div class="bookshelf-grid">
         <!-- Book Card: PMBOK 7 -->
         <div class="book-card" data-book="pmbok7" id="bookCard-pmbok7">

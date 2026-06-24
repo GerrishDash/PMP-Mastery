@@ -2487,7 +2487,7 @@ const initApp = () => {
         // Local Markdown Book reflow rendering
         const bookInfo = localBooks[currentBookId];
         const pageNum = currentPageIndex + 1;
-        const pageUrl = `${bookInfo.folder}/pages/page-${pageNum}/markdown.md`;
+        const pageUrl = encodeURI(`${bookInfo.folder}/pages/page-${pageNum}/markdown.md`);
 
         kindleLoader.querySelector('#lblKindleLoaderText').textContent = `Loading Page ${pageNum}...`;
         kindleLoader.classList.remove('hidden');
@@ -2505,7 +2505,7 @@ const initApp = () => {
         tempDiv.querySelectorAll('img').forEach(img => {
           const src = img.getAttribute('src');
           if (src && !src.startsWith('http') && !src.startsWith('data:')) {
-            img.src = `${bookInfo.folder}/pages/page-${pageNum}/${src}`;
+            img.src = encodeURI(`${bookInfo.folder}/pages/page-${pageNum}/${src}`);
           }
         });
 
@@ -2595,6 +2595,9 @@ const initApp = () => {
       }
     } catch (err) {
       console.error('Page render error:', err);
+      alert('Error: Failed to load book content. ' + err.message);
+      kindleLoader.classList.add('hidden');
+      closeKindleReader();
     } finally {
       isRendering = false;
       if (renderPendingIndex !== null) {
@@ -2994,7 +2997,7 @@ const initApp = () => {
         const limit = Math.min(total, i + chunkSize);
         for (let p = i; p < limit; p++) {
           const pageNum = p + 1;
-          const pageUrl = `${folder}/pages/page-${pageNum}/markdown.md`;
+          const pageUrl = encodeURI(`${folder}/pages/page-${pageNum}/markdown.md`);
           promises.push(
             fetch(pageUrl)
               .then(res => res.text())
@@ -3327,6 +3330,13 @@ const initApp = () => {
   applyKindleTheme();
   updateZoomDisplay();
   updateBookshelfUI();
+
+  if (window.location.protocol === 'file:') {
+    const alertEl = document.getElementById('fileProtocolAlert');
+    if (alertEl) {
+      alertEl.classList.remove('hidden');
+    }
+  }
 
 
   // Load Saved Settings from LocalStorage
