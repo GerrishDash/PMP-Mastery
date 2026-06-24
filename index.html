@@ -11,6 +11,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="apple-touch-icon" href="pmp_logo.png">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 </head>
 <body>
 
@@ -785,7 +786,9 @@
             <select id="readerBookSelect" class="notif-select reader-book-select" style="width:auto; margin:0;">
               <option value="pmbok7">PMBOK 7th Edition</option>
               <option value="pmbok6">PMBOK 6th Edition</option>
+              <option value="custom">Upload Custom PDF...</option>
             </select>
+            <input type="file" id="pdfFileInput" accept="application/pdf" class="hidden">
             <button id="btnToggleTOC" class="btn btn-secondary" style="padding:8px 14px; font-size:0.85rem;"><span class="emoji">📖</span> TOC</button>
             <button id="btnToggleReaderSettings" class="btn btn-secondary" style="padding:8px 14px; font-size:0.85rem;"><span class="emoji">⚙️</span> Settings</button>
           </div>
@@ -808,19 +811,18 @@
               </div>
             </div>
             <div class="setting-item">
-              <span style="font-size:0.8rem; color:var(--text-secondary); display:block; margin-bottom:6px;">Font Size</span>
+              <span style="font-size:0.8rem; color:var(--text-secondary); display:block; margin-bottom:6px;">Page Zoom</span>
               <div class="font-size-controls" style="display:flex; gap:8px; align-items:center;">
-                <button id="btnFontDec" class="btn btn-secondary" style="flex:1; font-size:0.85rem; padding:6px;">A −</button>
-                <span id="lblFontSize" style="font-family:var(--font-mono); font-size:0.85rem; min-width:35px; text-align:center;">18px</span>
-                <button id="btnFontInc" class="btn btn-secondary" style="flex:1; font-size:0.85rem; padding:6px;">A +</button>
+                <button id="btnZoomDec" class="btn btn-secondary" style="flex:1; font-size:0.85rem; padding:6px;">Zoom −</button>
+                <span id="lblZoomScale" style="font-family:var(--font-mono); font-size:0.85rem; min-width:45px; text-align:center;">100%</span>
+                <button id="btnZoomInc" class="btn btn-secondary" style="flex:1; font-size:0.85rem; padding:6px;">Zoom +</button>
               </div>
             </div>
             <div class="setting-item">
-              <span style="font-size:0.8rem; color:var(--text-secondary); display:block; margin-bottom:6px;">Font Family</span>
-              <div class="font-family-controls" style="display:flex; gap:8px;">
-                <button class="btn btn-secondary btn-font active" data-font="serif" style="flex:1; font-size:0.75rem; padding:6px; font-family:Georgia, serif;">Serif</button>
-                <button class="btn btn-secondary btn-font" data-font="sans" style="flex:1; font-size:0.75rem; padding:6px; font-family:system-ui, sans-serif;">Sans</button>
-                <button class="btn btn-secondary btn-font" data-font="mono" style="flex:1; font-size:0.75rem; padding:6px; font-family:var(--font-mono);">Mono</button>
+              <span style="font-size:0.8rem; color:var(--text-secondary); display:block; margin-bottom:6px;">Page Fitting</span>
+              <div class="fit-controls" style="display:flex; gap:8px;">
+                <button id="btnFitWidth" class="btn btn-secondary" style="flex:1; font-size:0.75rem; padding:6px;">Fit Width</button>
+                <button id="btnFitPage" class="btn btn-secondary" style="flex:1; font-size:0.75rem; padding:6px;">Fit Page</button>
               </div>
             </div>
           </div>
@@ -842,27 +844,35 @@
           <div class="reader-tap-zone zone-right" id="readerZoneRight" title="Next Page"></div>
           
           <!-- Viewport Box -->
-          <div id="readerContentArea" class="reader-content-area reader-theme-dark font-serif" style="padding:32px; min-height:480px; max-height:640px; overflow-y:auto; transition: all var(--transition-medium); line-height:1.7;">
-            <div id="readerLoader" class="reader-loader" style="display:flex; flex-direction:column; justify-content:center; align-items:center; height:400px; gap:14px;">
+          <div id="readerContentArea" class="reader-content-area reader-theme-dark" style="padding:15px; min-height:480px; max-height:750px; overflow:auto; transition: all var(--transition-medium); display:flex; justify-content:center; align-items:flex-start;">
+            <!-- Loading Indicator -->
+            <div id="readerLoader" class="reader-loader" style="display:flex; flex-direction:column; justify-content:center; align-items:center; height:400px; gap:14px; width:100%;">
               <span class="spinner" style="font-size:2.5rem; animation:spin 2s linear infinite; display:inline-block;">🔄</span>
-              <span style="font-weight:600; color:var(--text-secondary);">Pre-caching and loading PMBOK book...</span>
+              <span style="font-weight:600; color:var(--text-secondary);">Loading PDF document...</span>
             </div>
             
-            <div id="readerPageWrapper" class="reader-page-wrapper hidden" style="max-width:680px; margin:0 auto;">
-              <!-- Markdown text render target -->
-              <div id="readerText" class="reader-text" style="font-size:18px;"></div>
+            <!-- Upload Dropzone (if not stored offline) -->
+            <div id="readerUploadZone" class="reader-upload-zone hidden" style="display:flex; flex-direction:column; justify-content:center; align-items:center; height:400px; padding:32px; text-align:center; gap:20px; border:2px dashed var(--border-subtle); border-radius:var(--radius-lg); margin:15px; cursor:pointer; width:100%; box-sizing:border-box;">
+              <span class="upload-icon" style="font-size:3rem; filter:drop-shadow(0 4px 10px rgba(123,97,255,0.3));">📤</span>
+              <h3 style="font-size:1.15rem; font-weight:700; color:var(--text-primary);">Library Offline PDF Import</h3>
+              <p style="font-size:0.85rem; color:var(--text-secondary); max-width:400px; line-height:1.55;">
+                Drag &amp; drop the PDF file here, or click to choose from your device. The book will be saved locally inside your browser's database for instant offline access.
+              </p>
+              <button id="btnTriggerUpload" class="btn btn-primary" style="padding:10px 24px; font-weight:600; font-size:0.85rem;">Select PDF File</button>
             </div>
 
-            <!-- Fallback warning for CORS or load errors -->
-            <div id="readerErrorMsg" class="reader-error-msg hidden" style="display:flex; flex-direction:column; justify-content:center; align-items:center; height:400px; padding:20px; text-align:center; gap:16px;">
+            <!-- PDF Page Canvas Wrapper -->
+            <div id="readerPageWrapper" class="reader-page-wrapper hidden" style="max-width:100%; display:flex; justify-content:center;">
+              <canvas id="pdfCanvas" style="box-shadow: 0 10px 30px rgba(0,0,0,0.4); border-radius:4px; max-width:100%; transition: transform var(--transition-fast);"></canvas>
+            </div>
+
+            <!-- Fallback warning for load errors -->
+            <div id="readerErrorMsg" class="reader-error-msg hidden" style="display:flex; flex-direction:column; justify-content:center; align-items:center; height:400px; padding:20px; text-align:center; gap:16px; width:100%;">
               <span style="font-size:2.5rem;">⚠️</span>
-              <h4 style="color:var(--accent-orange); font-size:1rem; font-weight:700;">Local CORS Security Policy Restriction</h4>
-              <p style="font-size:0.85rem; color:var(--text-secondary); max-width:500px; line-height:1.5;">
-                Browsers block fetching local text files directly via the <code>file:///</code> protocol. To view the books, please run the app using a local development server (such as Live Server in VS Code, or by running <code>npx serve</code> in the project directory), or access your hosted GitHub Pages site.
+              <h4 style="color:var(--accent-orange); font-size:1rem; font-weight:700;">Error Loading Document</h4>
+              <p id="lblReaderErrorDetails" style="font-size:0.85rem; color:var(--text-secondary); max-width:500px; line-height:1.5;">
+                An error occurred while loading or parsing the PDF file. It might be corrupted or incompatible.
               </p>
-              <div class="host-info-card" style="padding:12px; background:rgba(255, 159, 28, 0.08); border:1px dashed var(--accent-orange); border-radius:var(--radius-md); font-family:var(--font-mono); font-size:0.75rem;">
-                npx serve .
-              </div>
             </div>
           </div>
         </div>

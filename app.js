@@ -27,20 +27,93 @@ document.addEventListener('DOMContentLoaded', () => {
   // ══════════════════════════════════════════════
   //  PMP BOOKSHELF & E-READER SHARED VARIABLES (DECLARED AT TOP TO PREVENT TDZ IN NAVIGATETO)
   // ══════════════════════════════════════════════
-  const bookPaths = {
-    pmbok7: './Project-Management-Institute-A-Guide-to-the-Project-Management-Body-of-Knowledge-PMBOK-R-Guide-PMBOK®️-Guide-Project-Management-Institute-2021 (1).md',
-    pmbok6: './Project-Management-Institute-A-Guide-to-the-Project-Management-Body-of-Knowledge-PMBOK®-Guide–Sixth-Edition-Project-Management-Institute-2017.md'
+  // PDF.js worker setup
+  if (window.pdfjsLib) {
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+  }
+
+  // IndexedDB Setup for PDF storage
+  let db = null;
+  const dbRequest = indexedDB.open('pmp_reader_db', 1);
+  dbRequest.onupgradeneeded = (e) => {
+    const database = e.target.result;
+    if (!database.objectStoreNames.contains('books')) {
+      database.createObjectStore('books', { keyPath: 'id' });
+    }
+  };
+  dbRequest.onsuccess = (e) => {
+    db = e.target.result;
+    // Auto-load book once DB is ready and we are on the reader view
+    const activeSection = document.querySelector('.section.active');
+    if (activeSection && activeSection.id === 'section-reader') {
+      loadBook(readerBookSelect.value || 'pmbok7');
+    }
+  };
+  dbRequest.onerror = (e) => {
+    console.error('IndexedDB open error:', e);
   };
 
-  let bookPages = [];
+  function dbGetBook(bookId) {
+    return new Promise((resolve, reject) => {
+      if (!db) {
+        setTimeout(() => {
+          if (!db) reject(new Error('Database not initialized'));
+          else dbGetBook(bookId).then(resolve).catch(reject);
+        }, 150);
+        return;
+      }
+      try {
+        const transaction = db.transaction(['books'], 'readonly');
+        const store = transaction.objectStore('books');
+        const request = store.get(bookId);
+        request.onsuccess = () => resolve(request.result ? request.result.file : null);
+        request.onerror = () => reject(request.error);
+      } catch (err) {
+        reject(err);
+      }
+    });
+  }
+
+  function dbSaveBook(bookId, fileBlob) {
+    return new Promise((resolve, reject) => {
+      if (!db) return reject(new Error('Database not initialized'));
+      try {
+        const transaction = db.transaction(['books'], 'readwrite');
+        const store = transaction.objectStore('books');
+        const request = store.put({ id: bookId, file: fileBlob, updated: Date.now() });
+        request.onsuccess = () => resolve();
+        request.onerror = () => reject(request.error);
+      } catch (err) {
+        reject(err);
+      }
+    });
+  }
+
+  function dbDeleteBook(bookId) {
+    return new Promise((resolve, reject) => {
+      if (!db) return reject(new Error('Database not initialized'));
+      try {
+        const transaction = db.transaction(['books'], 'readwrite');
+        const store = transaction.objectStore('books');
+        const request = store.delete(bookId);
+        request.onsuccess = () => resolve();
+        request.onerror = () => reject(request.error);
+      } catch (err) {
+        reject(err);
+      }
+    });
+  }
+
+  let currentPdfDoc = null;
   let bookTOC = [];
   let currentBookId = 'pmbok7';
-  let currentPageIndex = 0;
-  let readerFontSize = parseInt(safeLS.getItem('pmp_reader_font_size')) || 18;
+  let currentPageIndex = 0; // 0-based page index
+  let readerZoomScale = parseFloat(safeLS.getItem('pmp_reader_zoom')) || 1.0;
   let readerTheme = safeLS.getItem('pmp_reader_theme') || 'dark';
-  let readerFontFamily = safeLS.getItem('pmp_reader_font_family') || 'serif';
+  let readerFitMode = safeLS.getItem('pmp_reader_fit') || 'width'; // 'width' or 'page'
 
   const readerBookSelect = document.getElementById('readerBookSelect');
+  const pdfFileInput = document.getElementById('pdfFileInput');
   const btnToggleTOC = document.getElementById('btnToggleTOC');
   const btnToggleReaderSettings = document.getElementById('btnToggleReaderSettings');
   const btnSaveBookmark = document.getElementById('btnSaveBookmark');
@@ -48,10 +121,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const readerTOCPanel = document.getElementById('readerTOCPanel');
   const readerTOCList = document.getElementById('readerTOCList');
   const readerContentArea = document.getElementById('readerContentArea');
+  const readerUploadZone = document.getElementById('readerUploadZone');
   const readerPageWrapper = document.getElementById('readerPageWrapper');
   const readerLoader = document.getElementById('readerLoader');
   const readerErrorMsg = document.getElementById('readerErrorMsg');
-  const readerText = document.getElementById('readerText');
+  const lblReaderErrorDetails = document.getElementById('lblReaderErrorDetails');
+  const pdfCanvas = document.getElementById('pdfCanvas');
   
   const btnReaderPrev = document.getElementById('btnReaderPrev');
   const btnReaderNext = document.getElementById('btnReaderNext');
@@ -59,9 +134,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const readerProgressSlider = document.getElementById('readerProgressSlider');
   const readerBookmarkInfo = document.getElementById('readerBookmarkInfo');
 
-  const btnFontDec = document.getElementById('btnFontDec');
-  const btnFontInc = document.getElementById('btnFontInc');
-  const lblFontSize = document.getElementById('lblFontSize');
+  const btnZoomDec = document.getElementById('btnZoomDec');
+  const btnZoomInc = document.getElementById('btnZoomInc');
+  const lblZoomScale = document.getElementById('lblZoomScale');
+  const btnFitWidth = document.getElementById('btnFitWidth');
+  const btnFitPage = document.getElementById('btnFitPage');
 
   // ══════════════════════════════════════════════
   //  DATA: 12 PRINCIPLES (PMBOK 7)
@@ -445,7 +522,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
     // Lazy load the bookshelf reader if selected
-    if (sectionId === 'reader' && typeof loadBook === 'function' && bookPages.length === 0) {
+    if (sectionId === 'reader' && typeof loadBook === 'function' && !currentPdfDoc) {
       loadBook(readerBookSelect.value || 'pmbok7');
     }
   }
@@ -2117,50 +2194,47 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // ══════════════════════════════════════════════
-  //  PMP BOOKSHELF & E-READER (KINDLE EXPERIENCE)
+  //  PMP BOOKSHELF & E-READER (PDF EXPERIENCE)
   // ══════════════════════════════════════════════
 
-  // 1. Font Display Controls
-  function updateFontSizeDisplay() {
-    lblFontSize.textContent = `${readerFontSize}px`;
-    readerText.style.fontSize = `${readerFontSize}px`;
-    safeLS.setItem('pmp_reader_font_size', readerFontSize);
+  // 1. Zoom & Fit Controls
+  function updateZoomDisplay() {
+    lblZoomScale.textContent = `${Math.round(readerZoomScale * 100)}%`;
+    safeLS.setItem('pmp_reader_zoom', readerZoomScale);
+    safeLS.setItem('pmp_reader_fit', readerFitMode);
   }
 
-  btnFontDec.addEventListener('click', () => {
-    if (readerFontSize > 12) {
-      readerFontSize -= 2;
-      updateFontSizeDisplay();
+  btnZoomDec.addEventListener('click', () => {
+    if (readerZoomScale > 0.3) {
+      readerFitMode = 'custom';
+      readerZoomScale = Math.max(0.3, readerZoomScale - 0.15);
+      updateZoomDisplay();
+      renderReaderPage();
     }
   });
 
-  btnFontInc.addEventListener('click', () => {
-    if (readerFontSize < 32) {
-      readerFontSize += 2;
-      updateFontSizeDisplay();
+  btnZoomInc.addEventListener('click', () => {
+    if (readerZoomScale < 3.0) {
+      readerFitMode = 'custom';
+      readerZoomScale = Math.min(3.0, readerZoomScale + 0.15);
+      updateZoomDisplay();
+      renderReaderPage();
     }
   });
 
-  // 2. Font Family Controls
-  document.querySelectorAll('.font-family-controls .btn-font').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.font-family-controls .btn-font').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      readerFontFamily = btn.dataset.font;
-      safeLS.setItem('pmp_reader_font_family', readerFontFamily);
-      applyFontFamily();
-    });
+  btnFitWidth.addEventListener('click', () => {
+    readerFitMode = 'width';
+    updateZoomDisplay();
+    renderReaderPage();
   });
 
-  function applyFontFamily() {
-    readerContentArea.classList.remove('font-serif', 'font-sans', 'font-mono');
-    readerContentArea.classList.add('font-' + readerFontFamily);
-    document.querySelectorAll('.font-family-controls .btn-font').forEach(b => {
-      b.classList.toggle('active', b.dataset.font === readerFontFamily);
-    });
-  }
+  btnFitPage.addEventListener('click', () => {
+    readerFitMode = 'page';
+    updateZoomDisplay();
+    renderReaderPage();
+  });
 
-  // 3. Theme Configuration Controls
+  // 2. Theme Configuration Controls
   document.querySelectorAll('.theme-buttons .btn-theme').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.theme-buttons .btn-theme').forEach(b => b.classList.remove('active'));
@@ -2191,7 +2265,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 4. Panel Toggles
+  // 3. Panel Toggles
   btnToggleTOC.addEventListener('click', () => {
     readerTOCPanel.classList.toggle('hidden');
     readerSettingsPanel.classList.add('hidden');
@@ -2202,78 +2276,201 @@ document.addEventListener('DOMContentLoaded', () => {
     readerTOCPanel.classList.add('hidden');
   });
 
-  // 5. Book Loader
+  // 4. File Uploader Handler
+  async function handleFileUpload(file) {
+    if (!file || file.type !== 'application/pdf') {
+      alert('Please upload a valid PDF document.');
+      return;
+    }
+
+    readerLoader.querySelector('span:last-child').textContent = 'Saving file offline...';
+    readerLoader.classList.remove('hidden');
+    readerUploadZone.classList.add('hidden');
+    readerPageWrapper.classList.add('hidden');
+    readerErrorMsg.classList.add('hidden');
+
+    try {
+      await dbSaveBook(currentBookId, file);
+      loadBook(currentBookId);
+    } catch (err) {
+      console.error('Error saving book:', err);
+      alert('Failed to save the PDF file offline. Make sure your browser has enough disk space.');
+      loadBook(currentBookId);
+    }
+  }
+
+  // Bind Upload Triggers
+  if (btnTriggerUpload) {
+    btnTriggerUpload.addEventListener('click', (e) => {
+      e.stopPropagation();
+      pdfFileInput.click();
+    });
+  }
+
+  if (readerUploadZone) {
+    readerUploadZone.addEventListener('click', () => {
+      pdfFileInput.click();
+    });
+
+    // Drag and Drop support
+    readerUploadZone.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      readerUploadZone.classList.add('dragover');
+    });
+
+    readerUploadZone.addEventListener('dragenter', (e) => {
+      e.preventDefault();
+      readerUploadZone.classList.add('dragover');
+    });
+
+    readerUploadZone.addEventListener('dragleave', () => {
+      readerUploadZone.classList.remove('dragover');
+    });
+
+    readerUploadZone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      readerUploadZone.classList.remove('dragover');
+      if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+        handleFileUpload(e.dataTransfer.files[0]);
+      }
+    });
+  }
+
+  if (pdfFileInput) {
+    pdfFileInput.addEventListener('change', (e) => {
+      if (e.target.files && e.target.files[0]) {
+        handleFileUpload(e.target.files[0]);
+      }
+    });
+  }
+
+  // 5. PDF Loader
   async function loadBook(bookId) {
     currentBookId = bookId;
+    
+    // Reset document state
+    if (currentPdfDoc) {
+      try {
+        currentPdfDoc.cleanup();
+      } catch (e) {}
+      currentPdfDoc = null;
+    }
+
+    readerLoader.querySelector('span:last-child').textContent = 'Searching browser database...';
     readerLoader.classList.remove('hidden');
+    readerUploadZone.classList.add('hidden');
     readerPageWrapper.classList.add('hidden');
     readerErrorMsg.classList.add('hidden');
     readerTOCList.innerHTML = '';
     
-    bookPages = [];
     bookTOC = [];
 
-    const path = bookPaths[bookId];
     try {
-      const response = await fetch(path);
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+      const fileBlob = await dbGetBook(bookId);
+      if (!fileBlob) {
+        // Not uploaded yet, show dropzone
+        readerLoader.classList.add('hidden');
+        readerUploadZone.classList.remove('hidden');
+        return;
       }
-      const text = await response.text();
+
+      readerLoader.querySelector('span:last-child').textContent = 'Opening PDF document...';
       
-      // Parse pages by splitting on form feed character
-      bookPages = text.split(/\f|\x0c|\u000c/);
-      bookPages = bookPages.map(page => page.trim()).filter(page => page.length > 0);
+      const fileReader = new FileReader();
+      fileReader.onload = async function() {
+        try {
+          const typedArray = new Uint8Array(this.result);
+          const loadingTask = pdfjsLib.getDocument({
+            data: typedArray,
+            cMapUrl: 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/cmaps/',
+            cMapPacked: true
+          });
+          currentPdfDoc = await loadingTask.promise;
+          
+          await buildTOC();
 
-      if (bookPages.length === 0) {
-        // Fallback boundary split if form feed is absent
-        bookPages = text.split(/\n\s*\n\s*\n/);
-      }
+          // Retrieve saved progress
+          const savedBookmark = safeLS.getItem(`pmp_bookmark_${currentBookId}`);
+          if (savedBookmark !== null) {
+            currentPageIndex = Math.min(parseInt(savedBookmark), currentPdfDoc.numPages - 1);
+          } else {
+            currentPageIndex = 0;
+          }
 
-      buildTOC();
+          renderReaderPage();
+          updateBookmarkInfo();
 
-      // Retrieve saved progress
-      const savedBookmark = safeLS.getItem(`pmp_bookmark_${currentBookId}`);
-      if (savedBookmark !== null) {
-        currentPageIndex = parseInt(savedBookmark);
-      } else {
-        currentPageIndex = 0;
-      }
-
-      renderReaderPage();
-      updateBookmarkInfo();
-
-      readerLoader.classList.add('hidden');
-      readerPageWrapper.classList.remove('hidden');
+          readerLoader.classList.add('hidden');
+          readerPageWrapper.classList.remove('hidden');
+        } catch (err) {
+          console.error('Error rendering PDF:', err);
+          showReaderError('The PDF format could not be parsed. The file might be corrupted or in an unsupported PDF version.');
+        }
+      };
+      fileReader.onerror = function() {
+        showReaderError('Failed to read file from browser database.');
+      };
+      fileReader.readAsArrayBuffer(fileBlob);
     } catch (err) {
       console.error('Error loading book:', err);
-      readerLoader.classList.add('hidden');
-      readerErrorMsg.classList.remove('hidden');
+      showReaderError('Database access failed. Please ensure cookies and storage permissions are enabled.');
     }
   }
 
+  function showReaderError(message) {
+    lblReaderErrorDetails.textContent = message;
+    readerLoader.classList.add('hidden');
+    readerUploadZone.classList.add('hidden');
+    readerPageWrapper.classList.add('hidden');
+    readerErrorMsg.classList.remove('hidden');
+  }
+
   // 6. Dynamic Table of Contents builder
-  function buildTOC() {
-    bookPages.forEach((page, index) => {
-      const lines = page.split('\n');
-      for (let line of lines) {
-        line = line.trim();
-        // Catch major Markdown header blocks as TOC anchors
-        const headerMatch = line.match(/^(?:#|##|###)\s+(.+)$/);
-        if (headerMatch) {
-          let title = headerMatch[1].trim();
-          title = title.replace(/[\*_`#]/g, '');
-          if (title.length > 0 && title.length < 60) {
-            bookTOC.push({ title, pageIndex: index });
-            break;
+  async function buildTOC() {
+    readerTOCList.innerHTML = '';
+    bookTOC = [];
+
+    try {
+      const outline = await currentPdfDoc.getOutline();
+      if (outline && outline.length > 0) {
+        // Recursive outline parser
+        async function processOutlineNode(nodes) {
+          for (const node of nodes) {
+            let pageIndex = -1;
+            if (node.dest) {
+              try {
+                let dest = node.dest;
+                if (typeof dest === 'string') {
+                  dest = await currentPdfDoc.getDestination(dest);
+                }
+                if (Array.isArray(dest)) {
+                  const ref = dest[0];
+                  pageIndex = await currentPdfDoc.getPageIndex(ref);
+                }
+              } catch (e) {
+                console.warn('Destination resolution failed for node:', node.title, e);
+              }
+            }
+            if (pageIndex >= 0) {
+              bookTOC.push({ title: node.title, pageIndex });
+            }
+            if (node.items && node.items.length > 0 && bookTOC.length < 50) {
+              await processOutlineNode(node.items);
+            }
           }
         }
+        await processOutlineNode(outline);
       }
-    });
+    } catch (e) {
+      console.warn('Outline fetch failed, falling back:', e);
+    }
 
+    // Fallback partitions if no TOC outlines are embedded
     if (bookTOC.length === 0) {
-      for (let i = 0; i < bookPages.length; i += 20) {
-        bookTOC.push({ title: `Page ${i + 1}`, pageIndex: i });
+      const pageCount = currentPdfDoc.numPages;
+      const step = Math.max(1, Math.round(pageCount / 20));
+      for (let i = 0; i < pageCount; i += step) {
+        bookTOC.push({ title: `Section — Page ${i + 1}`, pageIndex: i });
       }
     }
 
@@ -2290,72 +2487,89 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 7. Mini Markdown Formatter
-  function renderMarkdownToHTML(markdown) {
-    let html = markdown
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;');
+  // 7. Viewport Render Page
+  let isRendering = false;
+  let renderPendingIndex = null;
 
-    html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
-    html = html.replace(/^## (.*$)/gim, '<h2>$1</h2>');
-    html = html.replace(/^# (.*$)/gim, '<h1>$1</h1>');
-
-    html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-    html = html.replace(/__(.*?)__/g, '<strong>$1</strong>');
-    html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
-    html = html.replace(/_(.*?)_/g, '<em>$1</em>');
-
-    const blocks = html.split(/\n\s*\n/);
-    const formattedBlocks = blocks.map(block => {
-      block = block.trim();
-      if (!block) return '';
-      if (block.startsWith('<h1') || block.startsWith('<h2') || block.startsWith('<h3')) {
-        return block;
-      }
-      if (block.startsWith('&gt;')) {
-        return `<blockquote>${block.substring(4).trim()}</blockquote>`;
-      }
-      if (block.startsWith('•') || block.startsWith('*') || block.startsWith('-')) {
-        const items = block.split(/\n[•\*\-]\s*/);
-        return '<ul>' + items.map(item => {
-          item = item.replace(/^[•\*\-]\s*/, '').trim();
-          return item ? `<li>${item}</li>` : '';
-        }).filter(li => li).join('') + '</ul>';
-      }
-      return `<p>${block.replace(/\n/g, '<br>')}</p>`;
-    });
-
-    return formattedBlocks.join('\n');
-  }
-
-  // 8. Viewport Render Page
-  function renderReaderPage() {
-    if (bookPages.length === 0) return;
+  async function renderReaderPage() {
+    if (!currentPdfDoc) return;
     
     if (currentPageIndex < 0) currentPageIndex = 0;
-    if (currentPageIndex >= bookPages.length) currentPageIndex = bookPages.length - 1;
+    if (currentPageIndex >= currentPdfDoc.numPages) currentPageIndex = currentPdfDoc.numPages - 1;
 
-    const rawText = bookPages[currentPageIndex];
-    readerText.innerHTML = renderMarkdownToHTML(rawText);
-    readerContentArea.scrollTop = 0;
+    // Queue page rendering if already in progress
+    if (isRendering) {
+      renderPendingIndex = currentPageIndex;
+      return;
+    }
 
-    const total = bookPages.length;
-    const current = currentPageIndex + 1;
-    const pct = Math.round((currentPageIndex / (total - 1 || 1)) * 100);
+    isRendering = true;
 
-    lblReaderPageStatus.textContent = `Page ${current} of ${total} (${pct}%)`;
-    readerProgressSlider.value = pct;
+    try {
+      const page = await currentPdfDoc.getPage(currentPageIndex + 1);
+      
+      let viewport = page.getViewport({ scale: readerZoomScale });
 
-    document.querySelectorAll('.reader-toc-list li').forEach(li => {
-      li.classList.toggle('active', parseInt(li.dataset.page) === currentPageIndex);
-    });
+      // Apply fitting modes
+      const containerWidth = readerContentArea.clientWidth - 30; // padding adjusted
+      const containerHeight = readerContentArea.clientHeight - 30 || 600;
+
+      if (readerFitMode === 'width') {
+        const scale = containerWidth / page.getViewport({ scale: 1.0 }).width;
+        viewport = page.getViewport({ scale });
+        readerZoomScale = scale;
+        updateZoomDisplay();
+      } else if (readerFitMode === 'page') {
+        const scale = containerHeight / page.getViewport({ scale: 1.0 }).height;
+        viewport = page.getViewport({ scale });
+        readerZoomScale = scale;
+        updateZoomDisplay();
+      }
+
+      pdfCanvas.width = viewport.width;
+      pdfCanvas.height = viewport.height;
+
+      const canvasContext = pdfCanvas.getContext('2d');
+      canvasContext.clearRect(0, 0, pdfCanvas.width, pdfCanvas.height);
+
+      const renderContext = {
+        canvasContext,
+        viewport
+      };
+
+      await page.render(renderContext).promise;
+      
+      // Update UI Progress Metrics
+      const total = currentPdfDoc.numPages;
+      const current = currentPageIndex + 1;
+      const pct = Math.round((currentPageIndex / (total - 1 || 1)) * 100);
+
+      lblReaderPageStatus.textContent = `Page ${current} of ${total} (${pct}%)`;
+      readerProgressSlider.value = pct;
+
+      document.querySelectorAll('.reader-toc-list li').forEach(li => {
+        const nodePage = parseInt(li.dataset.page);
+        li.classList.toggle('active', nodePage === currentPageIndex);
+      });
+
+    } catch (err) {
+      console.error('Render page error:', err);
+    } finally {
+      isRendering = false;
+      if (renderPendingIndex !== null) {
+        const indexToRender = renderPendingIndex;
+        renderPendingIndex = null;
+        currentPageIndex = indexToRender;
+        renderReaderPage();
+      }
+    }
   }
 
-  // 9. Input & Control listeners
+  // 8. Input & Control listeners
   readerProgressSlider.addEventListener('input', () => {
+    if (!currentPdfDoc) return;
     const pct = parseInt(readerProgressSlider.value);
-    currentPageIndex = Math.round((pct / 100) * (bookPages.length - 1));
+    currentPageIndex = Math.round((pct / 100) * (currentPdfDoc.numPages - 1));
     renderReaderPage();
   });
 
@@ -2367,7 +2581,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   btnReaderNext.addEventListener('click', () => {
-    if (currentPageIndex < bookPages.length - 1) {
+    if (currentPdfDoc && currentPageIndex < currentPdfDoc.numPages - 1) {
       currentPageIndex++;
       renderReaderPage();
     }
@@ -2383,13 +2597,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.getElementById('readerZoneRight').addEventListener('click', (e) => {
     e.stopPropagation();
-    if (currentPageIndex < bookPages.length - 1) {
+    if (currentPdfDoc && currentPageIndex < currentPdfDoc.numPages - 1) {
       currentPageIndex++;
       renderReaderPage();
     }
   });
 
-  // 10. Swipe gestures support for phone screens
+  // 9. Swipe gestures support for phone screens
   let touchStartX = 0;
   let touchEndX = 0;
   
@@ -2415,7 +2629,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'ArrowRight') btnReaderNext.click();
   });
 
-  // 11. Bookmarking and Progress persistence
+  // 10. Bookmarking and Progress persistence
   btnSaveBookmark.addEventListener('click', () => {
     safeLS.setItem(`pmp_bookmark_${currentBookId}`, currentPageIndex);
     const dateStr = new Date().toLocaleString('en-US', { hour12: true, month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
@@ -2445,9 +2659,8 @@ document.addEventListener('DOMContentLoaded', () => {
     loadBook(readerBookSelect.value);
   });
 
-  // 12. Initialize Display settings on start
-  updateFontSizeDisplay();
-  applyFontFamily();
+  // 11. Initialize Display settings on start
+  updateZoomDisplay();
   applyReaderTheme();
 
 
