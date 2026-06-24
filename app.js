@@ -3,7 +3,7 @@
    PMBOK 6th & 7th Edition Study Tool
    ============================================ */
 
-document.addEventListener('DOMContentLoaded', () => {
+const initApp = () => {
 
   // Safe LocalStorage wrapper
   const safeLS = {
@@ -43,11 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
   dbRequest.onsuccess = (e) => {
     db = e.target.result;
-    // Auto-load book once DB is ready and we are on the reader view
-    const activeSection = document.querySelector('.section.active');
-    if (activeSection && activeSection.id === 'section-reader') {
-      loadBook(readerBookSelect.value || 'pmbok7');
-    }
+    updateBookshelfUI();
   };
   dbRequest.onerror = (e) => {
     console.error('IndexedDB open error:', e);
@@ -111,6 +107,25 @@ document.addEventListener('DOMContentLoaded', () => {
   let readerZoomScale = parseFloat(safeLS.getItem('pmp_reader_zoom')) || 1.0;
   let readerTheme = safeLS.getItem('pmp_reader_theme') || 'dark';
   let readerFitMode = safeLS.getItem('pmp_reader_fit') || 'width'; // 'width' or 'page'
+  let isRendering = false;
+  let renderPendingIndex = null;
+
+  function closeAllDrawers() {
+    document.querySelectorAll('.kindle-drawer').forEach(d => d.classList.remove('visible'));
+  }
+
+  function toggleHUD(visible) {
+    const kindleHUDHeader = document.getElementById('kindleHUDHeader');
+    const kindleHUDFooter = document.getElementById('kindleHUDFooter');
+    if (!kindleHUDHeader || !kindleHUDFooter) return;
+    if (visible) {
+      kindleHUDHeader.classList.add('visible');
+      kindleHUDFooter.classList.add('visible');
+    } else {
+      kindleHUDHeader.classList.remove('visible');
+      kindleHUDFooter.classList.remove('visible');
+    }
+  }
 
   // Kindle Overlay Elements
   const kindleReaderOverlay = document.getElementById('kindleReaderOverlay');
@@ -2210,149 +2225,233 @@ document.addEventListener('DOMContentLoaded', () => {
   //  PMP BOOKSHELF & E-READER (PDF EXPERIENCE)
   // ══════════════════════════════════════════════
 
+  // Local Markdown Books Config Database
+  const localBooks = {
+    'pmbok7': {
+      title: 'PMBOK 7th Edition',
+      folder: 'Project-Management-Institute-A-Guide-to-the-Project-Management-Body-of-Knowledge-PMBOK-R-Guide-PMBOK®️-Guide-Project-Management-Institute-2021 (1).pdf',
+      pages: 370,
+      author: 'Project Management Institute',
+      tag: 'Agile & Standard',
+      coverClass: 'agile-cover',
+      toc: [
+        { title: 'Title Page', page: 0, depth: 0 },
+        { title: 'Notice & Disclaimer', page: 2, depth: 0 },
+        { title: 'Table of Contents', page: 4, depth: 0 },
+        { title: 'Part 1: The Standard for Project Management', page: 9, depth: 0 },
+        { title: '1. Introduction', page: 11, depth: 1 },
+        { title: '2. A System for Value Delivery', page: 17, depth: 1 },
+        { title: '3. Project Management Principles', page: 29, depth: 1 },
+        { title: 'Part 2: Guide to the PMBOK', page: 64, depth: 0 },
+        { title: '1. Introduction', page: 65, depth: 1 },
+        { title: '2. Project Performance Domains', page: 66, depth: 1 },
+        { title: '3. Tailoring', page: 129, depth: 1 },
+        { title: '4. Models, Methods, and Artifacts', page: 159, depth: 1 },
+        { title: 'Appendix / Index', page: 219, depth: 0 }
+      ]
+    },
+    'pmbok6': {
+      title: 'PMBOK 6th Edition',
+      folder: 'Project-Management-Institute-A-Guide-to-the-Project-Management-Body-of-Knowledge-PMBOK®-Guide–Sixth-Edition-Project-Management-Institute-2017.pdf',
+      pages: 711,
+      author: 'Project Management Institute',
+      tag: 'Predictive Processes',
+      coverClass: 'predictive-cover',
+      toc: [
+        { title: 'Title Page', page: 0, depth: 0 },
+        { title: 'Table of Contents', page: 5, depth: 0 },
+        { title: 'Part 1: Guide to the PMBOK', page: 14, depth: 0 },
+        { title: '1. Introduction', page: 16, depth: 1 },
+        { title: '2. Project Environment', page: 34, depth: 1 },
+        { title: '3. Role of the Project Manager', page: 58, depth: 1 },
+        { title: '4. Project Integration Management', page: 78, depth: 1 },
+        { title: '5. Project Scope Management', page: 138, depth: 1 },
+        { title: '6. Project Schedule Management', page: 182, depth: 1 },
+        { title: '7. Project Cost Management', page: 240, depth: 1 },
+        { title: '8. Project Quality Management', page: 280, depth: 1 },
+        { title: '9. Project Resource Management', page: 318, depth: 1 },
+        { title: '10. Project Communications Management', page: 370, depth: 1 },
+        { title: '11. Project Risk Management', page: 406, depth: 1 },
+        { title: '12. Project Procurement Management', page: 468, depth: 1 },
+        { title: '13. Project Stakeholder Management', page: 514, depth: 1 },
+        { title: 'Part 2: The Standard for Project Management', page: 550, depth: 0 }
+      ]
+    },
+    'processgroups': {
+      title: 'Process Groups Practice Guide',
+      folder: 'ProcessGroupsPracticeGuide.pdf',
+      pages: 367,
+      author: 'Project Management Institute',
+      tag: 'Processes',
+      coverClass: 'custom-cover',
+      toc: [
+        { title: 'Title Page', page: 0, depth: 0 },
+        { title: 'Table of Contents', page: 5, depth: 0 },
+        { title: '1. Introduction', page: 21, depth: 0 },
+        { title: '2. The Project Environment', page: 33, depth: 0 },
+        { title: '3. Role of the Project Manager', page: 43, depth: 0 },
+        { title: '4. Initiating Process Group', page: 49, depth: 0 },
+        { title: '5. Planning Process Group', page: 57, depth: 0 },
+        { title: '6. Executing Process Group', page: 153, depth: 0 },
+        { title: '7. Monitoring and Controlling Process Group', page: 185, depth: 0 },
+        { title: '8. Closing Process Group', page: 223, depth: 0 },
+        { title: '9. Inputs and Outputs', page: 229, depth: 0 },
+        { title: '10. Tools and Techniques', page: 273, depth: 0 },
+        { title: 'Appendix & Glossary', page: 319, depth: 0 }
+      ]
+    }
+  };
+
   // 1. Bookshelf Dashboard UI Updater
   async function updateBookshelfUI() {
-    const books = ['pmbok7', 'pmbok6', 'custom'];
+    const books = ['pmbok7', 'pmbok6', 'processgroups', 'custom'];
     for (const bookId of books) {
-      const btnRead = document.getElementById(`btnRead-${bookId}`);
-      const btnUpload = document.getElementById(`btnUpload-${bookId}`);
-      const btnDelete = document.getElementById(`btnDelete-${bookId}`);
-      const progressFill = document.getElementById(`progressFill-${bookId}`);
-      const progressTxt = document.getElementById(`progressTxt-${bookId}`);
-
-      if (!progressTxt) continue;
-
-      try {
+      const isLocal = (bookId in localBooks);
+      let hasBook = isLocal;
+      if (!isLocal) {
         const fileBlob = await dbGetBook(bookId);
-        if (fileBlob) {
-          btnRead.classList.remove('hidden');
-          btnDelete.classList.remove('hidden');
-          btnUpload.classList.add('hidden');
-
-          const savedPage = safeLS.getItem(`pmp_bookmark_${bookId}`);
-          const totalPages = safeLS.getItem(`pmp_total_pages_${bookId}`) || 1;
-          if (savedPage !== null) {
-            const pageNum = parseInt(savedPage) + 1;
-            const pct = Math.min(100, Math.round((parseInt(savedPage) / (parseInt(totalPages) - 1 || 1)) * 100));
-            progressTxt.textContent = `Page ${pageNum} of ${totalPages} (${pct}%)`;
-            progressFill.style.width = `${pct}%`;
-          } else {
-            progressTxt.textContent = 'Not started (Ready)';
-            progressFill.style.width = '0%';
-          }
-        } else {
-          btnRead.classList.add('hidden');
-          btnDelete.classList.add('hidden');
-          btnUpload.classList.remove('hidden');
-          progressTxt.textContent = 'PDF not imported';
-          progressFill.style.width = '0%';
+        hasBook = !!fileBlob;
+      }
+      
+      const progressFill = document.getElementById('progressFill-' + bookId);
+      const progressTxt = document.getElementById('progressTxt-' + bookId);
+      
+      if (hasBook) {
+        const savedBookmark = safeLS.getItem(`pmp_bookmark_${bookId}`);
+        const totalPages = isLocal ? localBooks[bookId].pages : (parseInt(safeLS.getItem(`pmp_total_pages_${bookId}`)) || 1);
+        const pageVal = savedBookmark !== null ? parseInt(savedBookmark) : 0;
+        const pct = totalPages > 1 ? Math.round((pageVal / (totalPages - 1)) * 100) : 0;
+        
+        if (progressFill) progressFill.style.width = pct + '%';
+        if (progressTxt) progressTxt.textContent = savedBookmark !== null ? `Page ${pageVal + 1} of ${totalPages} (${pct}%)` : `Not started (0%)`;
+        
+        if (bookId === 'custom') {
+          const btnRead = document.getElementById('btnRead-custom');
+          const btnUpload = document.getElementById('btnUpload-custom');
+          const btnDelete = document.getElementById('btnDelete-custom');
+          const customTitleEl = document.querySelector('#bookCard-custom h3');
+          if (btnRead) btnRead.classList.remove('hidden');
+          if (btnUpload) btnUpload.classList.add('hidden');
+          if (btnDelete) btnDelete.classList.remove('hidden');
+          if (customTitleEl) customTitleEl.textContent = safeLS.getItem('pmp_custom_filename') || 'Other PDF Study Guide';
         }
-      } catch (err) {
-        console.error('Error scanning bookshelf book:', bookId, err);
+      } else {
+        if (progressFill) progressFill.style.width = '0%';
+        if (progressTxt) progressTxt.textContent = 'Upload PDF to start reading';
+        
+        if (bookId === 'custom') {
+          const btnRead = document.getElementById('btnRead-custom');
+          const btnUpload = document.getElementById('btnUpload-custom');
+          const btnDelete = document.getElementById('btnDelete-custom');
+          const customTitleEl = document.querySelector('#bookCard-custom h3');
+          if (btnRead) btnRead.classList.add('hidden');
+          if (btnUpload) btnUpload.classList.remove('hidden');
+          if (btnDelete) btnDelete.classList.add('hidden');
+          if (customTitleEl) customTitleEl.textContent = 'Other PDF Study Guide';
+        }
       }
     }
   }
 
-  // 2. Kindle Reader Overlay Controls & HUD Triggering
-  let isHudVisible = true;
-  let isRendering = false;
-  let renderPendingIndex = null;
-  let activeSearchQuery = '';
-
-  function toggleHUD(forceState) {
-    isHudVisible = (forceState !== undefined) ? forceState : !isHudVisible;
-    kindleHUDHeader.classList.toggle('visible', isHudVisible);
-    kindleHUDFooter.classList.toggle('visible', isHudVisible);
-    
-    // Close popover and drawers if HUD is hidden
-    if (!isHudVisible) {
-      kindleAaPopover.classList.remove('visible');
-      closeAllDrawers();
-    }
-  }
-
-  function closeAllDrawers() {
-    kindleTOCDrawer.classList.remove('visible');
-    kindleBookmarksDrawer.classList.remove('visible');
-    kindleSearchDrawer.classList.remove('visible');
-    kindleAboutDrawer.classList.remove('visible');
-  }
-
-  // Bind Overlay Toggles
-  kindleZoneCenter.addEventListener('click', (e) => {
-    e.stopPropagation();
-    toggleHUD();
-  });
-
-  kindleBtnBack.addEventListener('click', (e) => {
-    e.stopPropagation();
-    closeKindleReader();
-  });
-
-  // Kindle Launch & Close Engine
+  // 2. Kindle Launch & Close Engine
   async function openKindleReader(bookId) {
     currentBookId = bookId;
     closeAllDrawers();
     toggleHUD(true);
 
-    kindleLoader.querySelector('#lblKindleLoaderText').textContent = 'Searching browser database...';
+    kindleLoader.querySelector('#lblKindleLoaderText').textContent = 'Opening book reader...';
     kindleLoader.classList.remove('hidden');
     kindleReaderOverlay.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
 
+    // Toggle viewport HTML container classes
+    const isLocal = (bookId in localBooks);
+    const kindleTextContent = document.getElementById('kindleTextContent');
+    if (isLocal) {
+      kindleCanvas.classList.add('hidden');
+      kindleTextContent.classList.remove('hidden');
+      kindleCanvasContainer.classList.add('kindle-text-mode');
+    } else {
+      kindleCanvas.classList.remove('hidden');
+      kindleTextContent.classList.add('hidden');
+      kindleCanvasContainer.classList.remove('kindle-text-mode');
+    }
+
     // Update title
     let titleStr = 'PMBOK 7th Edition';
-    if (bookId === 'pmbok6') titleStr = 'PMBOK 6th Edition';
-    else if (bookId === 'custom') titleStr = 'Custom Study Guide';
+    if (bookId in localBooks) {
+      titleStr = localBooks[bookId].title;
+    } else if (bookId === 'custom') {
+      titleStr = safeLS.getItem('pmp_custom_filename') || 'Custom Study Guide';
+    }
     kindleBookTitle.textContent = titleStr;
 
     try {
-      const fileBlob = await dbGetBook(bookId);
-      if (!fileBlob) {
-        closeKindleReader();
-        // Trigger upload flow
-        lblUploadBookTitle.textContent = `Upload ${titleStr}`;
-        bookshelfUploadZone.classList.remove('hidden');
-        window.scrollTo({ top: bookshelfUploadZone.offsetTop - 50, behavior: 'smooth' });
-        return;
-      }
+      if (isLocal) {
+        currentPdfDoc = null;
+        const total = localBooks[bookId].pages;
 
-      kindleLoader.querySelector('#lblKindleLoaderText').textContent = 'Opening PDF document...';
-      const fileReader = new FileReader();
-      fileReader.onload = async function() {
-        try {
-          const typedArray = new Uint8Array(this.result);
-          const loadingTask = pdfjsLib.getDocument({
-            data: typedArray,
-            cMapUrl: 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/cmaps/',
-            cMapPacked: true
-          });
-          currentPdfDoc = await loadingTask.promise;
-          safeLS.setItem(`pmp_total_pages_${currentBookId}`, currentPdfDoc.numPages);
+        await buildKindleTOC();
 
-          await buildKindleTOC();
-
-          // Restore bookmark
-          const savedBookmark = safeLS.getItem(`pmp_bookmark_${currentBookId}`);
-          if (savedBookmark !== null) {
-            currentPageIndex = Math.min(parseInt(savedBookmark), currentPdfDoc.numPages - 1);
-          } else {
-            currentPageIndex = 0;
-          }
-
-          // Initial Render
-          await renderKindlePage();
-          kindleLoader.classList.add('hidden');
-        } catch (err) {
-          console.error('Error parsing PDF:', err);
-          alert('Failed to parse PDF document. It might be corrupted or encrypted.');
-          closeKindleReader();
+        // Restore bookmark
+        const savedBookmark = safeLS.getItem(`pmp_bookmark_${currentBookId}`);
+        if (savedBookmark !== null) {
+          currentPageIndex = Math.min(parseInt(savedBookmark), total - 1);
+        } else {
+          currentPageIndex = 0;
         }
-      };
-      fileReader.readAsArrayBuffer(fileBlob);
+
+        // Initial Render
+        await renderKindlePage();
+        kindleLoader.classList.add('hidden');
+      } else {
+        const fileBlob = await dbGetBook(bookId);
+        if (!fileBlob) {
+          closeKindleReader();
+          // Trigger upload flow
+          lblUploadBookTitle.textContent = `Upload ${titleStr}`;
+          bookshelfUploadZone.classList.remove('hidden');
+          window.scrollTo({ top: bookshelfUploadZone.offsetTop - 50, behavior: 'smooth' });
+          return;
+        }
+
+        kindleLoader.querySelector('#lblKindleLoaderText').textContent = 'Opening PDF document...';
+        const fileReader = new FileReader();
+        fileReader.onload = async function() {
+          try {
+            const typedArray = new Uint8Array(this.result);
+            const loadingTask = pdfjsLib.getDocument({
+              data: typedArray,
+              cMapUrl: 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/cmaps/',
+              cMapPacked: true
+            });
+            currentPdfDoc = await loadingTask.promise;
+            safeLS.setItem(`pmp_total_pages_${currentBookId}`, currentPdfDoc.numPages);
+
+            await buildKindleTOC();
+
+            // Restore bookmark
+            const savedBookmark = safeLS.getItem(`pmp_bookmark_${currentBookId}`);
+            if (savedBookmark !== null) {
+              currentPageIndex = Math.min(parseInt(savedBookmark), currentPdfDoc.numPages - 1);
+            } else {
+              currentPageIndex = 0;
+            }
+
+            // Initial Render
+            await renderKindlePage();
+            kindleLoader.classList.add('hidden');
+          } catch (err) {
+            console.error('Error parsing PDF:', err);
+            alert('Failed to parse PDF document. It might be corrupted or encrypted.');
+            closeKindleReader();
+          }
+        };
+        fileReader.readAsArrayBuffer(fileBlob);
+      }
     } catch (err) {
       console.error('Database read error:', err);
-      alert('Failed to load document from IndexedDB database.');
+      alert('Failed to load document.');
       closeKindleReader();
     }
   }
@@ -2370,10 +2469,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 3. Viewport Render Page with Scale & Fitting calculations
   async function renderKindlePage() {
-    if (!currentPdfDoc) return;
+    const isLocal = (currentBookId in localBooks);
+    const totalPages = isLocal ? localBooks[currentBookId].pages : (currentPdfDoc ? currentPdfDoc.numPages : 1);
 
     if (currentPageIndex < 0) currentPageIndex = 0;
-    if (currentPageIndex >= currentPdfDoc.numPages) currentPageIndex = currentPdfDoc.numPages - 1;
+    if (currentPageIndex >= totalPages) currentPageIndex = totalPages - 1;
 
     if (isRendering) {
       renderPendingIndex = currentPageIndex;
@@ -2383,60 +2483,116 @@ document.addEventListener('DOMContentLoaded', () => {
     isRendering = true;
 
     try {
-      const page = await currentPdfDoc.getPage(currentPageIndex + 1);
+      if (isLocal) {
+        // Local Markdown Book reflow rendering
+        const bookInfo = localBooks[currentBookId];
+        const pageNum = currentPageIndex + 1;
+        const pageUrl = `${bookInfo.folder}/pages/page-${pageNum}/markdown.md`;
 
-      // Compute Fitting scales
-      const viewWidth = kindleViewport.clientWidth - 48; // adjusted padding
-      const viewHeight = kindleViewport.clientHeight - 48;
-      let viewport = page.getViewport({ scale: readerZoomScale });
+        kindleLoader.querySelector('#lblKindleLoaderText').textContent = `Loading Page ${pageNum}...`;
+        kindleLoader.classList.remove('hidden');
 
-      if (readerFitMode === 'width') {
-        const scale = viewWidth / page.getViewport({ scale: 1.0 }).width;
-        viewport = page.getViewport({ scale });
-        readerZoomScale = scale;
-        updateZoomDisplay();
-      } else if (readerFitMode === 'page') {
-        const scale = viewHeight / page.getViewport({ scale: 1.0 }).height;
-        viewport = page.getViewport({ scale });
-        readerZoomScale = scale;
-        updateZoomDisplay();
+        const response = await fetch(pageUrl);
+        if (!response.ok) throw new Error('Page markdown file not found.');
+        const md = await response.text();
+
+        // Convert to HTML via marked.parse
+        let htmlContent = marked.parse(md);
+
+        // Adjust relative image source links
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = htmlContent;
+        tempDiv.querySelectorAll('img').forEach(img => {
+          const src = img.getAttribute('src');
+          if (src && !src.startsWith('http') && !src.startsWith('data:')) {
+            img.src = `${bookInfo.folder}/pages/page-${pageNum}/${src}`;
+          }
+        });
+
+        // Set content and zoom font scale
+        const kindleTextContent = document.getElementById('kindleTextContent');
+        kindleTextContent.innerHTML = tempDiv.innerHTML;
+
+        if (readerFitMode === 'width' || readerFitMode === 'page') {
+          readerZoomScale = 1.0;
+          updateZoomDisplay();
+        }
+        kindleTextContent.style.fontSize = `${1.12 * readerZoomScale}rem`;
+
+        // Update HUD Metrics
+        const pct = Math.round((currentPageIndex / (totalPages - 1 || 1)) * 100);
+        kindleProgressStatus.textContent = `Location ${pageNum} of ${totalPages} · ${pct}%`;
+        kindleProgressSlider.value = pct;
+
+        // Auto-save progress
+        safeLS.setItem(`pmp_bookmark_${currentBookId}`, currentPageIndex);
+        const dateStr = new Date().toLocaleString('en-US', { hour12: true, month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+        safeLS.setItem(`pmp_bookmark_time_${currentBookId}`, dateStr);
+
+        // Bookmark ribbon checks
+        updateBookmarkRibbonUI();
+
+        // Update TOC Highlight
+        document.querySelectorAll('#kindleTOCList li').forEach(li => {
+          const pageIdx = parseInt(li.dataset.page);
+          li.classList.toggle('active', pageIdx === currentPageIndex);
+        });
+
+        kindleLoader.classList.add('hidden');
+      } else {
+        // PDF Canvas rendering (for custom uploaded PDF)
+        if (!currentPdfDoc) return;
+        const page = await currentPdfDoc.getPage(currentPageIndex + 1);
+
+        // Compute Fitting scales
+        const viewWidth = kindleViewport.clientWidth - 48; // adjusted padding
+        const viewHeight = kindleViewport.clientHeight - 48;
+        let viewport = page.getViewport({ scale: readerZoomScale });
+
+        if (readerFitMode === 'width') {
+          const scale = viewWidth / page.getViewport({ scale: 1.0 }).width;
+          viewport = page.getViewport({ scale });
+          readerZoomScale = scale;
+          updateZoomDisplay();
+        } else if (readerFitMode === 'page') {
+          const scale = viewHeight / page.getViewport({ scale: 1.0 }).height;
+          viewport = page.getViewport({ scale });
+          readerZoomScale = scale;
+          updateZoomDisplay();
+        }
+
+        kindleCanvas.width = viewport.width;
+        kindleCanvas.height = viewport.height;
+
+        const canvasContext = kindleCanvas.getContext('2d');
+        canvasContext.clearRect(0, 0, kindleCanvas.width, kindleCanvas.height);
+
+        const renderContext = {
+          canvasContext,
+          viewport
+        };
+
+        await page.render(renderContext).promise;
+
+        // Update HUD Metrics
+        const pct = Math.round((currentPageIndex / (totalPages - 1 || 1)) * 100);
+        kindleProgressStatus.textContent = `Location ${currentPageIndex + 1} of ${totalPages} · ${pct}%`;
+        kindleProgressSlider.value = pct;
+
+        // Auto-save progress
+        safeLS.setItem(`pmp_bookmark_${currentBookId}`, currentPageIndex);
+        const dateStr = new Date().toLocaleString('en-US', { hour12: true, month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+        safeLS.setItem(`pmp_bookmark_time_${currentBookId}`, dateStr);
+
+        // Bookmark ribbon checks
+        updateBookmarkRibbonUI();
+
+        // Update TOC Highlight
+        document.querySelectorAll('#kindleTOCList li').forEach(li => {
+          const pageIdx = parseInt(li.dataset.page);
+          li.classList.toggle('active', pageIdx === currentPageIndex);
+        });
       }
-
-      kindleCanvas.width = viewport.width;
-      kindleCanvas.height = viewport.height;
-
-      const canvasContext = kindleCanvas.getContext('2d');
-      canvasContext.clearRect(0, 0, kindleCanvas.width, kindleCanvas.height);
-
-      const renderContext = {
-        canvasContext,
-        viewport
-      };
-
-      await page.render(renderContext).promise;
-
-      // Update HUD Metrics
-      const total = currentPdfDoc.numPages;
-      const current = currentPageIndex + 1;
-      const pct = Math.round((currentPageIndex / (total - 1 || 1)) * 100);
-
-      kindleProgressStatus.textContent = `Location ${current} of ${total} · ${pct}%`;
-      kindleProgressSlider.value = pct;
-
-      // Auto-save progress
-      safeLS.setItem(`pmp_bookmark_${currentBookId}`, currentPageIndex);
-      const dateStr = new Date().toLocaleString('en-US', { hour12: true, month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
-      safeLS.setItem(`pmp_bookmark_time_${currentBookId}`, dateStr);
-
-      // Bookmark ribbon checks
-      updateBookmarkRibbonUI();
-
-      // Update TOC Highlight
-      document.querySelectorAll('#kindleTOCList li').forEach(li => {
-        const pageIdx = parseInt(li.dataset.page);
-        li.classList.toggle('active', pageIdx === currentPageIndex);
-      });
-
     } catch (err) {
       console.error('Page render error:', err);
     } finally {
@@ -2467,11 +2623,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   kindleZoneRight.addEventListener('click', (e) => {
     e.stopPropagation();
-    if (currentPdfDoc && currentPageIndex < currentPdfDoc.numPages - 1) {
+    const total = getTotalPages();
+    if (currentPageIndex < total - 1) {
       currentPageIndex++;
       renderKindlePage();
     }
   });
+
+  function getTotalPages() {
+    return (currentBookId in localBooks) ? localBooks[currentBookId].pages : (currentPdfDoc ? currentPdfDoc.numPages : 1);
+  }
 
   // Swipe gestures
   let touchStartX = 0;
@@ -2483,9 +2644,10 @@ document.addEventListener('DOMContentLoaded', () => {
   kindleViewport.addEventListener('touchend', (e) => {
     touchEndX = e.changedTouches[0].screenX;
     const threshold = 60;
+    const total = getTotalPages();
     if (touchStartX - touchEndX > threshold) {
       // Swipe Left -> Next Page
-      if (currentPdfDoc && currentPageIndex < currentPdfDoc.numPages - 1) {
+      if (currentPageIndex < total - 1) {
         currentPageIndex++;
         renderKindlePage();
       }
@@ -2501,6 +2663,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Keyboard navigation
   document.addEventListener('keydown', (e) => {
     if (kindleReaderOverlay.classList.contains('hidden')) return;
+    const total = getTotalPages();
     if (e.key === 'ArrowLeft') {
       if (currentPageIndex > 0) {
         currentPageIndex--;
@@ -2508,7 +2671,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
     if (e.key === 'ArrowRight') {
-      if (currentPdfDoc && currentPageIndex < currentPdfDoc.numPages - 1) {
+      if (currentPageIndex < total - 1) {
         currentPageIndex++;
         renderKindlePage();
       }
@@ -2520,9 +2683,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Footer range progress slider scrub
   kindleProgressSlider.addEventListener('input', () => {
-    if (!currentPdfDoc) return;
+    const total = getTotalPages();
     const pct = parseInt(kindleProgressSlider.value);
-    currentPageIndex = Math.round((pct / 100) * (currentPdfDoc.numPages - 1));
+    currentPageIndex = Math.round((pct / 100) * (total - 1));
     renderKindlePage();
   });
 
@@ -2553,7 +2716,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function toggleCurrentPageBookmark() {
-    if (!currentPdfDoc) return;
+    if (!currentBookId) return;
     let pages = getBookmarkedPages();
     const index = pages.indexOf(currentPageIndex);
     if (index >= 0) {
@@ -2596,45 +2759,56 @@ document.addEventListener('DOMContentLoaded', () => {
     kindleTOCList.innerHTML = '';
     bookTOC = [];
 
-    try {
-      const outline = await currentPdfDoc.getOutline();
-      if (outline && outline.length > 0) {
-        async function processNode(nodes, depth = 0) {
-          for (const node of nodes) {
-            let pageIndex = -1;
-            if (node.dest) {
-              try {
-                let dest = node.dest;
-                if (typeof dest === 'string') {
-                  dest = await currentPdfDoc.getDestination(dest);
+    const isLocal = (currentBookId in localBooks);
+
+    if (isLocal) {
+      const bookTOCConfig = localBooks[currentBookId].toc;
+      bookTOCConfig.forEach(item => {
+        bookTOC.push({ title: item.title, pageIndex: item.page, depth: item.depth });
+      });
+    } else {
+      try {
+        if (currentPdfDoc) {
+          const outline = await currentPdfDoc.getOutline();
+          if (outline && outline.length > 0) {
+            async function processNode(nodes, depth = 0) {
+              for (const node of nodes) {
+                let pageIndex = -1;
+                if (node.dest) {
+                  try {
+                    let dest = node.dest;
+                    if (typeof dest === 'string') {
+                      dest = await currentPdfDoc.getDestination(dest);
+                    }
+                    if (Array.isArray(dest)) {
+                      pageIndex = await currentPdfDoc.getPageIndex(dest[0]);
+                    }
+                  } catch (e) {
+                    console.warn('Dest resolution error:', node.title, e);
+                  }
                 }
-                if (Array.isArray(dest)) {
-                  pageIndex = await currentPdfDoc.getPageIndex(dest[0]);
+                if (pageIndex >= 0) {
+                  bookTOC.push({ title: node.title, pageIndex, depth });
                 }
-              } catch (e) {
-                console.warn('Dest resolution error:', node.title, e);
+                if (node.items && node.items.length > 0 && bookTOC.length < 60) {
+                  await processNode(node.items, depth + 1);
+                }
               }
             }
-            if (pageIndex >= 0) {
-              bookTOC.push({ title: node.title, pageIndex, depth });
-            }
-            if (node.items && node.items.length > 0 && bookTOC.length < 60) {
-              await processNode(node.items, depth + 1);
-            }
+            await processNode(outline);
           }
         }
-        await processNode(outline);
+      } catch (e) {
+        console.warn('Outline fetch failed:', e);
       }
-    } catch (e) {
-      console.warn('Outline fetch failed:', e);
-    }
 
-    if (bookTOC.length === 0) {
-      // Fallback page partitions
-      const pageCount = currentPdfDoc.numPages;
-      const step = Math.max(1, Math.round(pageCount / 20));
-      for (let i = 0; i < pageCount; i += step) {
-        bookTOC.push({ title: `Section — Page ${i + 1}`, pageIndex: i, depth: 0 });
+      if (bookTOC.length === 0 && currentPdfDoc) {
+        // Fallback page partitions
+        const pageCount = currentPdfDoc.numPages;
+        const step = Math.max(1, Math.round(pageCount / 20));
+        for (let i = 0; i < pageCount; i += step) {
+          bookTOC.push({ title: `Section — Page ${i + 1}`, pageIndex: i, depth: 0 });
+        }
       }
     }
 
@@ -2793,50 +2967,107 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // PDF Text Search Engine (Async cross-page scanning)
+  // PDF and Markdown Text Search Engine (Async cross-page scanning)
   async function performKindleSearch(query) {
     kindleSearchResults.innerHTML = '';
     lblKindleSearchCount.textContent = 'Searching...';
 
-    if (!currentPdfDoc || !query) {
+    if (!query) {
       lblKindleSearchCount.textContent = 'Enter keyword to search.';
       return;
     }
 
+    const isLocal = (currentBookId in localBooks);
     let matchCount = 0;
     activeSearchQuery = query;
 
-    for (let i = 0; i < currentPdfDoc.numPages; i++) {
-      if (activeSearchQuery !== query) return; // query changed, abort
-      try {
-        const page = await currentPdfDoc.getPage(i + 1);
-        const textContent = await page.getTextContent();
-        const textItems = textContent.items.map(item => item.str).join(' ');
-        const index = textItems.toLowerCase().indexOf(query.toLowerCase());
-        
-        if (index >= 0) {
-          matchCount++;
-          lblKindleSearchCount.textContent = `Found ${matchCount} matches...`;
+    if (isLocal) {
+      const bookInfo = localBooks[currentBookId];
+      const total = bookInfo.pages;
+      const folder = bookInfo.folder;
+      const chunkSize = 30;
 
-          const start = Math.max(0, index - 25);
-          const end = Math.min(textItems.length, index + query.length + 35);
-          let snippet = textItems.substring(start, end);
-          if (start > 0) snippet = '...' + snippet;
-          if (end < textItems.length) snippet = snippet + '...';
+      for (let i = 0; i < total; i += chunkSize) {
+        if (activeSearchQuery !== query) return; // query changed, abort
 
-          const li = document.createElement('li');
-          li.style.cursor = 'pointer';
-          li.innerHTML = `<div style="font-weight:700; color:var(--accent-tertiary); font-size:0.75rem;">Page ${i + 1}</div><div style="font-size:0.72rem; color:var(--text-secondary); white-space:normal; overflow:visible; text-overflow:clip; line-height:1.45;">${escapeHTML(snippet)}</div>`;
-          li.dataset.page = i;
-          li.addEventListener('click', () => {
-            currentPageIndex = i;
-            renderKindlePage();
-            kindleSearchDrawer.classList.remove('visible');
-          });
-          kindleSearchResults.appendChild(li);
+        const promises = [];
+        const limit = Math.min(total, i + chunkSize);
+        for (let p = i; p < limit; p++) {
+          const pageNum = p + 1;
+          const pageUrl = `${folder}/pages/page-${pageNum}/markdown.md`;
+          promises.push(
+            fetch(pageUrl)
+              .then(res => res.text())
+              .then(text => ({ pageIndex: p, text }))
+              .catch(() => ({ pageIndex: p, text: '' }))
+          );
         }
-      } catch (err) {
-        console.warn('Search error page:', i + 1, err);
+
+        const results = await Promise.all(promises);
+        for (const res of results) {
+          if (activeSearchQuery !== query) return;
+          const index = res.text.toLowerCase().indexOf(query.toLowerCase());
+          if (index >= 0) {
+            matchCount++;
+            lblKindleSearchCount.textContent = `Found ${matchCount} matches...`;
+
+            const start = Math.max(0, index - 25);
+            const end = Math.min(res.text.length, index + query.length + 35);
+            let snippet = res.text.substring(start, end).replace(/[\r\n]+/g, ' ');
+            if (start > 0) snippet = '...' + snippet;
+            if (end < res.text.length) snippet = snippet + '...';
+
+            const li = document.createElement('li');
+            li.style.cursor = 'pointer';
+            li.innerHTML = `<div style="font-weight:700; color:var(--accent-tertiary); font-size:0.75rem;">Page ${res.pageIndex + 1}</div><div style="font-size:0.72rem; color:var(--text-secondary); white-space:normal; overflow:visible; text-overflow:clip; line-height:1.45;">${escapeHTML(snippet)}</div>`;
+            li.dataset.page = res.pageIndex;
+            li.addEventListener('click', () => {
+              currentPageIndex = res.pageIndex;
+              renderKindlePage();
+              kindleSearchDrawer.classList.remove('visible');
+            });
+            kindleSearchResults.appendChild(li);
+          }
+        }
+      }
+    } else {
+      if (!currentPdfDoc) {
+        lblKindleSearchCount.textContent = 'No active document to search.';
+        return;
+      }
+
+      for (let i = 0; i < currentPdfDoc.numPages; i++) {
+        if (activeSearchQuery !== query) return; // query changed, abort
+        try {
+          const page = await currentPdfDoc.getPage(i + 1);
+          const textContent = await page.getTextContent();
+          const textItems = textContent.items.map(item => item.str).join(' ');
+          const index = textItems.toLowerCase().indexOf(query.toLowerCase());
+          
+          if (index >= 0) {
+            matchCount++;
+            lblKindleSearchCount.textContent = `Found ${matchCount} matches...`;
+
+            const start = Math.max(0, index - 25);
+            const end = Math.min(textItems.length, index + query.length + 35);
+            let snippet = textItems.substring(start, end);
+            if (start > 0) snippet = '...' + snippet;
+            if (end < textItems.length) snippet = snippet + '...';
+
+            const li = document.createElement('li');
+            li.style.cursor = 'pointer';
+            li.innerHTML = `<div style="font-weight:700; color:var(--accent-tertiary); font-size:0.75rem;">Page ${i + 1}</div><div style="font-size:0.72rem; color:var(--text-secondary); white-space:normal; overflow:visible; text-overflow:clip; line-height:1.45;">${escapeHTML(snippet)}</div>`;
+            li.dataset.page = i;
+            li.addEventListener('click', () => {
+              currentPageIndex = i;
+              renderKindlePage();
+              kindleSearchDrawer.classList.remove('visible');
+            });
+            kindleSearchResults.appendChild(li);
+          }
+        } catch (err) {
+          console.warn('Search error page:', i + 1, err);
+        }
       }
     }
 
@@ -2859,13 +3090,21 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!wasVisible) {
       let titleStr = 'PMBOK 7th Edition';
       if (currentBookId === 'pmbok6') titleStr = 'PMBOK 6th Edition';
-      else if (currentBookId === 'custom') titleStr = 'Custom Study Guide';
+      else if (currentBookId === 'processgroups') titleStr = 'Process Groups Practice Guide';
+      else if (currentBookId === 'custom') titleStr = safeLS.getItem('pmp_custom_filename') || 'Custom Study Guide';
 
       kindleAboutTitle.textContent = titleStr;
       
       const coverDiv = document.getElementById('kindleAboutCover');
       coverDiv.className = `kindle-about-cover ${currentBookId === 'pmbok7' ? 'agile-cover' : currentBookId === 'pmbok6' ? 'predictive-cover' : 'custom-cover'}`;
-      coverDiv.innerHTML = `<div style="padding:15px; color:#fff; display:flex; flex-direction:column; justify-content:space-between; height:100%;"><div style="font-size:0.5rem; font-weight:800; opacity:0.6; text-align:right;">PMBOK</div><div style="font-size:0.8rem; font-weight:800; line-height:1.2;">${titleStr}</div></div>`;
+      coverDiv.innerHTML = `<div style="padding:15px; color:#fff; display:flex; flex-direction:column; justify-content:space-between; height:100%;"><div style="font-size:0.5rem; font-weight:800; opacity:0.6; text-align:right;">PMP</div><div style="font-size:0.8rem; font-weight:800; line-height:1.2;">${titleStr}</div></div>`;
+
+      // Predefined books are local files, so hide delete button in about menu
+      if (currentBookId in localBooks) {
+        btnKindleDeleteFromReader.classList.add('hidden');
+      } else {
+        btnKindleDeleteFromReader.classList.remove('hidden');
+      }
 
       kindleAboutDrawer.classList.add('visible');
     }
@@ -2946,15 +3185,24 @@ document.addEventListener('DOMContentLoaded', () => {
   // Bookshelf Dropzone Events
   const bookshelfUploadZone = document.getElementById('bookshelfUploadZone');
   const btnSelectUploadFile = document.getElementById('btnSelectUploadFile');
+  const btnCancelUpload = document.getElementById('btnCancelUpload');
 
-  btnSelectUploadFile.addEventListener('click', (e) => {
-    e.stopPropagation();
-    pdfFileInput.click();
+  bookshelfUploadZone.addEventListener('click', (e) => {
+    // Only trigger input if clicking elements in the initial upload state
+    if (e.target.closest('#uploadInitialState') || e.target === bookshelfUploadZone) {
+      pdfFileInput.click();
+    }
   });
 
-  bookshelfUploadZone.addEventListener('click', () => {
-    pdfFileInput.click();
-  });
+  if (btnCancelUpload) {
+    btnCancelUpload.addEventListener('click', (e) => {
+      e.stopPropagation();
+      document.getElementById('uploadProgressState').classList.add('hidden');
+      document.getElementById('uploadInitialState').classList.remove('hidden');
+      document.getElementById('uploadFeedbackAlert').classList.add('hidden');
+      btnCancelUpload.classList.add('hidden');
+    });
+  }
 
   bookshelfUploadZone.addEventListener('dragover', (e) => {
     e.preventDefault();
@@ -2968,8 +3216,11 @@ document.addEventListener('DOMContentLoaded', () => {
   bookshelfUploadZone.addEventListener('drop', (e) => {
     e.preventDefault();
     bookshelfUploadZone.style.borderColor = '';
-    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-      handleBookshelfUpload(e.dataTransfer.files[0]);
+    // Only drop if in initial state
+    if (document.getElementById('uploadProgressState').classList.contains('hidden')) {
+      if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+        handleBookshelfUpload(e.dataTransfer.files[0]);
+      }
     }
   });
 
@@ -2985,23 +3236,81 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    bookshelfUploadZone.classList.add('hidden');
+    // Toggle states
+    document.getElementById('uploadInitialState').classList.add('hidden');
+    document.getElementById('uploadProgressState').classList.remove('hidden');
     
-    // Open loader overlay
-    kindleLoader.querySelector('#lblKindleLoaderText').textContent = 'Saving PDF document offline...';
-    kindleLoader.classList.remove('hidden');
-    kindleReaderOverlay.classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
+    const progressPercent = document.getElementById('uploadProgressPercent');
+    const progressBarFill = document.getElementById('uploadProgressBarFill');
+    const progressMsg = document.getElementById('uploadProgressMsg');
+    const feedbackAlert = document.getElementById('uploadFeedbackAlert');
 
-    try {
-      await dbSaveBook(currentBookId, file);
-      // Immediately open the loaded book
-      await openKindleReader(currentBookId);
-    } catch (err) {
-      console.error('Save error:', err);
-      alert('Failed to cache book offline. Make sure storage is enabled.');
-      closeKindleReader();
-    }
+    progressPercent.textContent = '0%';
+    progressBarFill.style.width = '0%';
+    progressMsg.textContent = 'Reading PDF file...';
+    feedbackAlert.classList.add('hidden');
+    if (btnCancelUpload) btnCancelUpload.classList.add('hidden');
+
+    const fileReader = new FileReader();
+
+    fileReader.onprogress = (e) => {
+      if (e.lengthComputable) {
+        const pct = Math.round((e.loaded / e.total) * 100);
+        progressPercent.textContent = `${pct}%`;
+        progressBarFill.style.width = `${pct}%`;
+        progressMsg.textContent = `Reading PDF (${Math.round(e.loaded / 1024)} KB / ${Math.round(e.total / 1024)} KB)...`;
+      }
+    };
+
+    fileReader.onload = async function() {
+      progressPercent.textContent = '100%';
+      progressBarFill.style.width = '100%';
+      progressMsg.textContent = 'Caching file to offline storage...';
+
+      try {
+        await dbSaveBook(currentBookId, file);
+        safeLS.setItem('pmp_custom_filename', file.name);
+
+        feedbackAlert.className = 'upload-feedback-alert success';
+        feedbackAlert.style.background = 'rgba(6, 214, 160, 0.1)';
+        feedbackAlert.style.color = 'var(--accent-primary)';
+        feedbackAlert.style.border = '1px solid rgba(6, 214, 160, 0.3)';
+        feedbackAlert.innerHTML = `<strong>Success!</strong> "${file.name}" has been cached locally. Launching reader...`;
+        feedbackAlert.classList.remove('hidden');
+
+        setTimeout(async () => {
+          // Reset status
+          document.getElementById('uploadProgressState').classList.add('hidden');
+          document.getElementById('uploadInitialState').classList.remove('hidden');
+          feedbackAlert.classList.add('hidden');
+          bookshelfUploadZone.classList.add('hidden');
+          
+          await openKindleReader(currentBookId);
+        }, 1500);
+
+      } catch (err) {
+        console.error('Save error:', err);
+        feedbackAlert.className = 'upload-feedback-alert error';
+        feedbackAlert.style.background = 'rgba(239, 71, 111, 0.1)';
+        feedbackAlert.style.color = 'var(--accent-warm)';
+        feedbackAlert.style.border = '1px solid rgba(239, 71, 111, 0.3)';
+        feedbackAlert.innerHTML = `<strong>Write Failed!</strong> Failed to save PDF to IndexedDB offline cache.`;
+        feedbackAlert.classList.remove('hidden');
+        if (btnCancelUpload) btnCancelUpload.classList.remove('hidden');
+      }
+    };
+
+    fileReader.onerror = () => {
+      feedbackAlert.className = 'upload-feedback-alert error';
+      feedbackAlert.style.background = 'rgba(239, 71, 111, 0.1)';
+      feedbackAlert.style.color = 'var(--accent-warm)';
+      feedbackAlert.style.border = '1px solid rgba(239, 71, 111, 0.3)';
+      feedbackAlert.innerHTML = `<strong>Read Failed!</strong> FileReader failed to parse document.`;
+      feedbackAlert.classList.remove('hidden');
+      if (btnCancelUpload) btnCancelUpload.classList.remove('hidden');
+    };
+
+    fileReader.readAsArrayBuffer(file);
   }
 
   // Dynamic Popover close handlers
@@ -3033,4 +3342,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize quiz
   startQuiz();
 
-});
+};
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initApp);
+} else {
+  initApp();
+}

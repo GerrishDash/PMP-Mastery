@@ -13,6 +13,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="apple-touch-icon" href="pmp_logo.png">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
 
@@ -796,12 +797,10 @@
             <p class="book-author">Project Management Institute</p>
             <div class="book-progress-box">
               <div class="progress-bar-bg"><div class="progress-bar-fill" id="progressFill-pmbok7" style="width:0%;"></div></div>
-              <span class="progress-txt" id="progressTxt-pmbok7">Checking database...</span>
+              <span class="progress-txt" id="progressTxt-pmbok7">Loading...</span>
             </div>
             <div class="book-actions">
-              <button class="btn btn-primary btn-read-book hidden" data-book="pmbok7" id="btnRead-pmbok7">Read Book</button>
-              <button class="btn btn-secondary btn-upload-book hidden" data-book="pmbok7" id="btnUpload-pmbok7">Upload PDF</button>
-              <button class="btn-delete-book hidden" data-book="pmbok7" id="btnDelete-pmbok7" title="Delete PDF offline cache">🗑️</button>
+              <button class="btn btn-primary btn-read-book" data-book="pmbok7" id="btnRead-pmbok7">Read Book</button>
             </div>
           </div>
         </div>
@@ -820,12 +819,32 @@
             <p class="book-author">Project Management Institute</p>
             <div class="book-progress-box">
               <div class="progress-bar-bg"><div class="progress-bar-fill" id="progressFill-pmbok6" style="width:0%;"></div></div>
-              <span class="progress-txt" id="progressTxt-pmbok6">Checking database...</span>
+              <span class="progress-txt" id="progressTxt-pmbok6">Loading...</span>
             </div>
             <div class="book-actions">
-              <button class="btn btn-primary btn-read-book hidden" data-book="pmbok6" id="btnRead-pmbok6">Read Book</button>
-              <button class="btn btn-secondary btn-upload-book hidden" data-book="pmbok6" id="btnUpload-pmbok6">Upload PDF</button>
-              <button class="btn-delete-book hidden" data-book="pmbok6" id="btnDelete-pmbok6" title="Delete PDF offline cache">🗑️</button>
+              <button class="btn btn-primary btn-read-book" data-book="pmbok6" id="btnRead-pmbok6">Read Book</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Book Card: Process Groups Practice Guide -->
+        <div class="book-card" data-book="processgroups" id="bookCard-processgroups">
+          <div class="book-cover custom-cover" style="background: linear-gradient(135deg, #1b1b4f 0%, #3f3f9f 100%);">
+            <div class="cover-accent"></div>
+            <div class="cover-logo">PMP</div>
+            <div class="cover-title">Process Groups</div>
+            <div class="cover-subtitle">Practice Guide</div>
+            <div class="cover-tag tag-hybrid">Processes</div>
+          </div>
+          <div class="book-info">
+            <h3>Process Groups Practice Guide</h3>
+            <p class="book-author">Project Management Institute</p>
+            <div class="book-progress-box">
+              <div class="progress-bar-bg"><div class="progress-bar-fill" id="progressFill-processgroups" style="width:0%;"></div></div>
+              <span class="progress-txt" id="progressTxt-processgroups">Loading...</span>
+            </div>
+            <div class="book-actions">
+              <button class="btn btn-primary btn-read-book" data-book="processgroups" id="btnRead-processgroups">Read Book</button>
             </div>
           </div>
         </div>
@@ -835,13 +854,13 @@
           <div class="book-cover custom-cover">
             <div class="cover-accent"></div>
             <div class="cover-logo">STUDY</div>
-            <div class="cover-title">Custom Guide</div>
-            <div class="cover-subtitle">PMP Materials</div>
-            <div class="cover-tag tag-hybrid">User Upload</div>
+            <div class="cover-title">Upload PDF</div>
+            <div class="cover-subtitle">Other Document</div>
+            <div class="cover-tag tag-hybrid">User PDF</div>
           </div>
           <div class="book-info">
-            <h3>Custom Study Guide</h3>
-            <p class="book-author">Uploaded Materials</p>
+            <h3>Other PDF Study Guide</h3>
+            <p class="book-author" id="customBookName">Offline PDF File</p>
             <div class="book-progress-box">
               <div class="progress-bar-bg"><div class="progress-bar-fill" id="progressFill-custom" style="width:0%;"></div></div>
               <span class="progress-txt" id="progressTxt-custom">Checking database...</span>
@@ -857,10 +876,27 @@
 
       <!-- Hidden dropzone for uploader interaction -->
       <div id="bookshelfUploadZone" class="bookshelf-upload-zone hidden">
-        <span class="upload-icon" style="font-size:3rem; display:block; margin-bottom:12px; filter:drop-shadow(0 4px 10px rgba(123,97,255,0.3));">📤</span>
-        <h4 id="lblUploadBookTitle" style="font-weight:700; color:var(--text-primary); margin-bottom:6px; font-size:1.1rem;">Upload PMBOK PDF</h4>
-        <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:16px; max-width:400px; margin-left:auto; margin-right:auto; line-height:1.5;">Select or drop your PDF study file here to store it securely inside this device for offline reading.</p>
-        <button class="btn btn-primary" id="btnSelectUploadFile" style="padding:10px 24px; font-size:0.85rem; font-weight:600;">Select PDF File</button>
+        <!-- Initial Upload Content -->
+        <div id="uploadInitialState" style="width: 100%;">
+          <span class="upload-icon" style="font-size:3rem; display:block; margin-bottom:12px; filter:drop-shadow(0 4px 10px rgba(123,97,255,0.3));">📤</span>
+          <h4 id="lblUploadBookTitle" style="font-weight:700; color:var(--text-primary); margin-bottom:6px; font-size:1.1rem;">Upload PDF Document</h4>
+          <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:16px; max-width:400px; margin-left:auto; margin-right:auto; line-height:1.5;">Select or drop your PDF study file here to store it securely inside this device for offline reading.</p>
+          <button class="btn btn-primary" id="btnSelectUploadFile" style="padding:10px 24px; font-size:0.85rem; font-weight:600;">Select PDF File</button>
+        </div>
+
+        <!-- Upload Progress & Status Content -->
+        <div id="uploadProgressState" class="hidden" style="width: 100%; max-width: 400px; padding: 10px 0;">
+          <h4 style="font-weight:700; color:var(--text-primary); margin-bottom:12px; font-size:1.1rem;">Uploading Document...</h4>
+          <div style="display:flex; justify-content:space-between; margin-bottom:8px; font-size:0.82rem; font-family:var(--font-mono); color:var(--text-secondary);">
+            <span id="uploadProgressMsg">Reading file...</span>
+            <span id="uploadProgressPercent">0%</span>
+          </div>
+          <div class="progress-bar-bg" style="height:8px; background:var(--bg-input); border-radius:4px; overflow:hidden; margin-bottom:16px;">
+            <div class="progress-bar-fill" id="uploadProgressBarFill" style="width:0%; background:linear-gradient(90deg, var(--accent-primary), var(--accent-secondary)); height:100%; transition:width 0.1s ease;"></div>
+          </div>
+          <div id="uploadFeedbackAlert" class="hidden" style="padding:12px; border-radius:6px; font-size:0.85rem; text-align:left; line-height:1.5; margin-bottom:16px;"></div>
+          <button class="btn btn-secondary hidden" id="btnCancelUpload" style="padding:6px 16px; font-size:0.8rem; margin:0 auto;">Close</button>
+        </div>
       </div>
 
       <input type="file" id="pdfFileInput" accept="application/pdf" class="hidden">
@@ -1108,6 +1144,7 @@
   <div class="kindle-viewport" id="kindleViewport">
     <div class="kindle-canvas-container" id="kindleCanvasContainer">
       <canvas id="kindleCanvas"></canvas>
+      <div id="kindleTextContent" class="kindle-text-content hidden"></div>
       <!-- Bookmark ribbon indicator -->
       <div class="kindle-bookmark-ribbon" id="kindleBookmarkRibbon" title="Bookmark Page">
         <svg viewBox="0 0 24 24" style="width:100%; height:100%;"><path fill="currentColor" d="M17,3H7A2,2 0 0,0 5,5V21L12,18L19,21V5C19,3.89 18.1,3 17,3Z"/></svg>

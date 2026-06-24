@@ -2662,3 +2662,141 @@ body {
   }
 }
 
+/* ── Kindle Reflowable Text Content Styles ── */
+.kindle-text-content {
+  padding: 40px 30px;
+  width: 100%;
+  max-width: 780px;
+  margin: 0 auto;
+  line-height: 1.85;
+  font-size: 1.12rem;
+  font-family: 'Lora', Georgia, 'Times New Roman', serif;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: #1a1a1a;
+  min-height: 100%;
+  box-sizing: border-box;
+  overflow-y: auto;
+  user-select: text; /* Allow highlighting and search matching */
+  transition: background-color 0.3s ease, color 0.3s ease, font-size 0.2s ease;
+}
+
+/* Clear card shadow/bg on container when in text mode to let the kindle-text-content card style shine */
+.kindle-canvas-container.kindle-text-mode {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Book reader themes overrides for text content card */
+.kindle-reader-overlay.theme-dark .kindle-text-content {
+  background-color: #1e1e1e !important;
+  color: #e2e8f0 !important;
+  border: 1px solid #2d2d2d;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.65);
+}
+
+.kindle-reader-overlay.theme-light .kindle-text-content {
+  background-color: #ffffff !important;
+  color: #1a1a1a !important;
+  border: 1px solid #e5e7eb;
+}
+
+.kindle-reader-overlay.theme-sepia .kindle-text-content {
+  background-color: #FAF3E0 !important;
+  color: #4b3621 !important;
+  border: 1px solid #e8dcb9;
+  box-shadow: 0 10px 35px rgba(91, 70, 54, 0.15);
+}
+
+/* Style child tags within reflow reader */
+.kindle-text-content h1,
+.kindle-text-content h2,
+.kindle-text-content h3,
+.kindle-text-content h4 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  line-height: 1.35;
+  margin-top: 1.6em;
+  margin-bottom: 0.6em;
+  color: inherit;
+}
+
+.kindle-text-content h1 { font-size: 1.65rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 8px; }
+.kindle-text-content h2 { font-size: 1.35rem; }
+.kindle-text-content h3 { font-size: 1.15rem; }
+
+.kindle-text-content p {
+  margin-top: 0;
+  margin-bottom: 1.3em;
+  text-align: justify;
+}
+
+.kindle-text-content ul,
+.kindle-text-content ol {
+  margin-top: 0;
+  margin-bottom: 1.3em;
+  padding-left: 24px;
+}
+
+.kindle-text-content li {
+  margin-bottom: 6px;
+}
+
+.kindle-text-content blockquote {
+  border-left: 4px solid var(--accent-primary);
+  margin: 20px 0;
+  padding: 10px 20px;
+  background: rgba(6, 214, 160, 0.05);
+  font-style: italic;
+  color: inherit;
+}
+
+.kindle-text-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 24px auto;
+  border-radius: 6px;
+  box-shadow: var(--shadow-md);
+  background: #ffffff;
+  padding: 4px;
+}
+
+/* Upload Feedback Alerts styling */
+.upload-feedback-alert {
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  text-align: left;
+  border: 1px solid transparent;
+  animation: fadeIn 0.3s ease;
+}
+
+.upload-feedback-alert.success {
+  background-color: rgba(6, 214, 160, 0.1) !important;
+  color: var(--accent-primary) !important;
+  border-color: rgba(6, 214, 160, 0.25) !important;
+}
+
+.upload-feedback-alert.error {
+  background-color: rgba(239, 71, 111, 0.1) !important;
+  color: var(--accent-warm) !important;
+  border-color: rgba(239, 71, 111, 0.25) !important;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+  .kindle-text-content {
+    padding: 24px 16px;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+}
+
+
