@@ -5,6 +5,64 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // Safe LocalStorage wrapper
+  const safeLS = {
+    getItem(key) {
+      try {
+        return localStorage.getItem(key);
+      } catch (e) {
+        console.warn('localStorage is blocked or unavailable:', e);
+        return null;
+      }
+    },
+    setItem(key, value) {
+      try {
+        localStorage.setItem(key, value);
+      } catch (e) {
+        console.warn('localStorage is blocked or unavailable:', e);
+      }
+    }
+  };
+
+  // ══════════════════════════════════════════════
+  //  PMP BOOKSHELF & E-READER SHARED VARIABLES (DECLARED AT TOP TO PREVENT TDZ IN NAVIGATETO)
+  // ══════════════════════════════════════════════
+  const bookPaths = {
+    pmbok7: './Project-Management-Institute-A-Guide-to-the-Project-Management-Body-of-Knowledge-PMBOK-R-Guide-PMBOK®️-Guide-Project-Management-Institute-2021 (1).md',
+    pmbok6: './Project-Management-Institute-A-Guide-to-the-Project-Management-Body-of-Knowledge-PMBOK®-Guide–Sixth-Edition-Project-Management-Institute-2017.md'
+  };
+
+  let bookPages = [];
+  let bookTOC = [];
+  let currentBookId = 'pmbok7';
+  let currentPageIndex = 0;
+  let readerFontSize = parseInt(safeLS.getItem('pmp_reader_font_size')) || 18;
+  let readerTheme = safeLS.getItem('pmp_reader_theme') || 'dark';
+  let readerFontFamily = safeLS.getItem('pmp_reader_font_family') || 'serif';
+
+  const readerBookSelect = document.getElementById('readerBookSelect');
+  const btnToggleTOC = document.getElementById('btnToggleTOC');
+  const btnToggleReaderSettings = document.getElementById('btnToggleReaderSettings');
+  const btnSaveBookmark = document.getElementById('btnSaveBookmark');
+  const readerSettingsPanel = document.getElementById('readerSettingsPanel');
+  const readerTOCPanel = document.getElementById('readerTOCPanel');
+  const readerTOCList = document.getElementById('readerTOCList');
+  const readerContentArea = document.getElementById('readerContentArea');
+  const readerPageWrapper = document.getElementById('readerPageWrapper');
+  const readerLoader = document.getElementById('readerLoader');
+  const readerErrorMsg = document.getElementById('readerErrorMsg');
+  const readerText = document.getElementById('readerText');
+  
+  const btnReaderPrev = document.getElementById('btnReaderPrev');
+  const btnReaderNext = document.getElementById('btnReaderNext');
+  const lblReaderPageStatus = document.getElementById('lblReaderPageStatus');
+  const readerProgressSlider = document.getElementById('readerProgressSlider');
+  const readerBookmarkInfo = document.getElementById('readerBookmarkInfo');
+
+  const btnFontDec = document.getElementById('btnFontDec');
+  const btnFontInc = document.getElementById('btnFontInc');
+  const lblFontSize = document.getElementById('lblFontSize');
+
   // ══════════════════════════════════════════════
   //  DATA: 12 PRINCIPLES (PMBOK 7)
   // ══════════════════════════════════════════════
@@ -455,7 +513,12 @@ document.addEventListener('DOMContentLoaded', () => {
   let historyPointer = -1;
 
   // Load Leitner boxes from LocalStorage
-  let cardBoxes = JSON.parse(localStorage.getItem('pmp_card_boxes')) || {};
+  let cardBoxes = {};
+  try {
+    cardBoxes = JSON.parse(safeLS.getItem('pmp_card_boxes')) || {};
+  } catch (e) {
+    console.error('Failed to parse card boxes:', e);
+  }
   
   // Default all cards to Box 1 (Hard/Review Soon)
   allFlashcards.forEach((card, idx) => {
@@ -463,7 +526,7 @@ document.addEventListener('DOMContentLoaded', () => {
       cardBoxes[idx] = 1;
     }
   });
-  localStorage.setItem('pmp_card_boxes', JSON.stringify(cardBoxes));
+  safeLS.setItem('pmp_card_boxes', JSON.stringify(cardBoxes));
 
   const flashcard = document.getElementById('flashcard');
   const fcCategory = document.getElementById('fcCategory');
@@ -609,7 +672,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const card = filtered[currentCardIndex];
     cardBoxes[card.originalIdx] = boxNum;
-    localStorage.setItem('pmp_card_boxes', JSON.stringify(cardBoxes));
+    safeLS.setItem('pmp_card_boxes', JSON.stringify(cardBoxes));
     
     if (activeBoxFilter === 'all') {
       // Draw a new card using Leitner frequency probabilities
@@ -1571,7 +1634,7 @@ document.addEventListener('DOMContentLoaded', () => {
       notifTestBtn.disabled = true;
       notifScheduleInfo.classList.add('hidden');
     } else if (permission === 'granted') {
-      const isEnabled = localStorage.getItem('pmp_notif_enabled') === 'true';
+      const isEnabled = safeLS.getItem('pmp_notif_enabled') === 'true';
       if (isEnabled) {
         notifStatusBadge.textContent = 'Active';
         notifStatusBadge.className = 'status-badge active';
@@ -1601,14 +1664,14 @@ document.addEventListener('DOMContentLoaded', () => {
   function startScheduler() {
     stopScheduler(); // Clear existing
 
-    const isEnabled = localStorage.getItem('pmp_notif_enabled') === 'true';
+    const isEnabled = safeLS.getItem('pmp_notif_enabled') === 'true';
     if (!isEnabled || Notification.permission !== 'granted') return;
 
     const intervalSec = parseInt(notifIntervalSelect.value);
     secondsRemaining = intervalSec;
 
     // Local Storage persistence of last interval setting
-    localStorage.setItem('pmp_notif_interval', intervalSec);
+    safeLS.setItem('pmp_notif_interval', intervalSec);
 
     // Update Countdown display
     updateCountdownDisplay();
@@ -1642,14 +1705,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (Notification.permission === 'default') {
       Notification.requestPermission().then(permission => {
         if (permission === 'granted') {
-          localStorage.setItem('pmp_notif_enabled', 'true');
+          safeLS.setItem('pmp_notif_enabled', 'true');
           startScheduler();
         }
         updateNotifUI();
       });
     } else {
-      const isEnabled = localStorage.getItem('pmp_notif_enabled') === 'true';
-      localStorage.setItem('pmp_notif_enabled', !isEnabled);
+      const isEnabled = safeLS.getItem('pmp_notif_enabled') === 'true';
+      safeLS.setItem('pmp_notif_enabled', !isEnabled);
       if (!isEnabled) {
         startScheduler();
       } else {
@@ -1668,12 +1731,12 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Load Saved Settings from LocalStorage
-  if (localStorage.getItem('pmp_notif_interval')) {
-    notifIntervalSelect.value = localStorage.getItem('pmp_notif_interval');
+  if (safeLS.getItem('pmp_notif_interval')) {
+    notifIntervalSelect.value = safeLS.getItem('pmp_notif_interval');
   }
   
   updateNotifUI();
-  if (localStorage.getItem('pmp_notif_enabled') === 'true') {
+  if (safeLS.getItem('pmp_notif_enabled') === 'true') {
     startScheduler();
   }
 
@@ -2056,47 +2119,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // ══════════════════════════════════════════════
   //  PMP BOOKSHELF & E-READER (KINDLE EXPERIENCE)
   // ══════════════════════════════════════════════
-  const bookPaths = {
-    pmbok7: './Project-Management-Institute-A-Guide-to-the-Project-Management-Body-of-Knowledge-PMBOK-R-Guide-PMBOK®️-Guide-Project-Management-Institute-2021 (1).md',
-    pmbok6: './Project-Management-Institute-A-Guide-to-the-Project-Management-Body-of-Knowledge-PMBOK®-Guide–Sixth-Edition-Project-Management-Institute-2017.md'
-  };
-
-  let bookPages = [];
-  let bookTOC = [];
-  let currentBookId = 'pmbok7';
-  let currentPageIndex = 0;
-  let readerFontSize = parseInt(localStorage.getItem('pmp_reader_font_size')) || 18;
-  let readerTheme = localStorage.getItem('pmp_reader_theme') || 'dark';
-  let readerFontFamily = localStorage.getItem('pmp_reader_font_family') || 'serif';
-
-  const readerBookSelect = document.getElementById('readerBookSelect');
-  const btnToggleTOC = document.getElementById('btnToggleTOC');
-  const btnToggleReaderSettings = document.getElementById('btnToggleReaderSettings');
-  const btnSaveBookmark = document.getElementById('btnSaveBookmark');
-  const readerSettingsPanel = document.getElementById('readerSettingsPanel');
-  const readerTOCPanel = document.getElementById('readerTOCPanel');
-  const readerTOCList = document.getElementById('readerTOCList');
-  const readerContentArea = document.getElementById('readerContentArea');
-  const readerPageWrapper = document.getElementById('readerPageWrapper');
-  const readerLoader = document.getElementById('readerLoader');
-  const readerErrorMsg = document.getElementById('readerErrorMsg');
-  const readerText = document.getElementById('readerText');
-  
-  const btnReaderPrev = document.getElementById('btnReaderPrev');
-  const btnReaderNext = document.getElementById('btnReaderNext');
-  const lblReaderPageStatus = document.getElementById('lblReaderPageStatus');
-  const readerProgressSlider = document.getElementById('readerProgressSlider');
-  const readerBookmarkInfo = document.getElementById('readerBookmarkInfo');
-
-  const btnFontDec = document.getElementById('btnFontDec');
-  const btnFontInc = document.getElementById('btnFontInc');
-  const lblFontSize = document.getElementById('lblFontSize');
 
   // 1. Font Display Controls
   function updateFontSizeDisplay() {
     lblFontSize.textContent = `${readerFontSize}px`;
     readerText.style.fontSize = `${readerFontSize}px`;
-    localStorage.setItem('pmp_reader_font_size', readerFontSize);
+    safeLS.setItem('pmp_reader_font_size', readerFontSize);
   }
 
   btnFontDec.addEventListener('click', () => {
@@ -2119,7 +2147,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.querySelectorAll('.font-family-controls .btn-font').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       readerFontFamily = btn.dataset.font;
-      localStorage.setItem('pmp_reader_font_family', readerFontFamily);
+      safeLS.setItem('pmp_reader_font_family', readerFontFamily);
       applyFontFamily();
     });
   });
@@ -2138,7 +2166,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.querySelectorAll('.theme-buttons .btn-theme').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       readerTheme = btn.dataset.theme;
-      localStorage.setItem('pmp_reader_theme', readerTheme);
+      safeLS.setItem('pmp_reader_theme', readerTheme);
       applyReaderTheme();
     });
   });
@@ -2205,7 +2233,7 @@ document.addEventListener('DOMContentLoaded', () => {
       buildTOC();
 
       // Retrieve saved progress
-      const savedBookmark = localStorage.getItem(`pmp_bookmark_${currentBookId}`);
+      const savedBookmark = safeLS.getItem(`pmp_bookmark_${currentBookId}`);
       if (savedBookmark !== null) {
         currentPageIndex = parseInt(savedBookmark);
       } else {
@@ -2389,9 +2417,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 11. Bookmarking and Progress persistence
   btnSaveBookmark.addEventListener('click', () => {
-    localStorage.setItem(`pmp_bookmark_${currentBookId}`, currentPageIndex);
+    safeLS.setItem(`pmp_bookmark_${currentBookId}`, currentPageIndex);
     const dateStr = new Date().toLocaleString('en-US', { hour12: true, month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
-    localStorage.setItem(`pmp_bookmark_time_${currentBookId}`, dateStr);
+    safeLS.setItem(`pmp_bookmark_time_${currentBookId}`, dateStr);
     updateBookmarkInfo();
 
     const originalText = btnSaveBookmark.textContent;
@@ -2404,8 +2432,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   function updateBookmarkInfo() {
-    const savedPage = localStorage.getItem(`pmp_bookmark_${currentBookId}`);
-    const savedTime = localStorage.getItem(`pmp_bookmark_time_${currentBookId}`);
+    const savedPage = safeLS.getItem(`pmp_bookmark_${currentBookId}`);
+    const savedTime = safeLS.getItem(`pmp_bookmark_time_${currentBookId}`);
     if (savedPage !== null && savedTime) {
       readerBookmarkInfo.innerHTML = `📚 Stopped at <strong>Page ${parseInt(savedPage) + 1}</strong> on ${savedTime}`;
     } else {
@@ -2424,12 +2452,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // Load Saved Settings from LocalStorage
-  if (localStorage.getItem('pmp_notif_interval')) {
-    notifIntervalSelect.value = localStorage.getItem('pmp_notif_interval');
+  if (safeLS.getItem('pmp_notif_interval')) {
+    notifIntervalSelect.value = safeLS.getItem('pmp_notif_interval');
   }
   
   updateNotifUI();
-  if (localStorage.getItem('pmp_notif_enabled') === 'true') {
+  if (safeLS.getItem('pmp_notif_enabled') === 'true') {
     startScheduler();
   }
 
