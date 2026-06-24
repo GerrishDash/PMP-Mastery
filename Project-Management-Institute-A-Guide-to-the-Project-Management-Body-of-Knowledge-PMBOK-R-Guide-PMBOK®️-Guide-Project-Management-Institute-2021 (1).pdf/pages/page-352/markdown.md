@@ -1,0 +1,94 @@
+- Change models, 160–164
+  - 8-Step Process for Leading Change, 162
+  - ADKAR® Model, 161
+  - Transition Model, 164
+  - Virginia Satir Change Model, 163
+- Change request(s), 77
+- Chaos, 163
+- Character, win-win perspective and, 170
+- Chart(s)
+  - big visible charts (BVCs), 108
+  - burn, 108, 109
+  - burndown, 108
+  - burnup, 108
+  - types of, other, 109
+- Check, sponsor and, 209
+- Checking outcomes
+  - Delivery Performance Domain, 92
+  - Development Approach and Life Cycle Performance Domain, 50
+  - Measurement Performance Domain, 115
+  - Planning Performance Domain, 68
+  - Project Work Performance Domain, 79
+  - Stakeholder Performance Domain, 15
+  - Team Performance Domain, 31
+  - Uncertainty Performance Domain, 129
+- Checklists, 174
+- Check sheet, 175
+- Close phase, 47
+- Closing Process Group, 171
+- Collaboration
+  - distributed project teams and, 30
+  - high-performing project teams and, 22
+- Colocated teams, 135, 142, 147
+- Combined burn chart, 108
+- Common situations, tailoring and, 151
+- Communication
+  - channels, 157
+  - conversation, 14, 156, 192
+  - cross-cultural, 157
+  - discourse, positive, 21
+  - engagement and, 73
+  - high-performing project teams and, 22
+  - interactive, 13
+  - nonverbal, 26
+  - open, 22
+  - Planning Performance Domain, 64
+  - Project Work Performance Domain, 73
+  - sponsors and, 209
+  - styles, 157
+  - types of, 13
+  - written, 72, 73
+- Communication artifacts, 79
+- Communication models, 157–158
+  - communication channels, effectiveness of, 157
+  - cross-cultural communication, 157
+  - gulf of evaluation, 158
+  - gulf of execution, 158
+- Communication planning, 64
+- Communications management plan, 79, 186
+- Community action patrol (CAP) training, 45
+- Community center
+  - development approaches, 36, 38, 39
+  - life cycle, 48
+- Competence, 156, 213
+- Complaints, 89
+- Completion, moving targets of, 85–87
+- Completion criteria, 85
+- Complexity, 120–121
+  - definition, 117
+  - process-based, 121
+  - reframing, 121
+  - systems-based, 121
+  - Uncertainty Performance Domain, 120–121
+- Complexity models, 164–165
+  - Cynefin framework, 164–165
+  - Stacey matrix, 165
+- Compliance
+  - product/deliverable and, 142
+- Conceptual ambiguity, 120
+- Confidence, 55
+- Confirmation bias, 112
+- Conflict management, 29
+- Conflict model, 168–169
+- Conformance
+  - appraisal and, 88
+  - cost of quality and, 81, 175
+  - process, 71
+- Constraints, balancing competing, 72
+- Contingency plans, 119, 123
+- Contingency reserve, 62, 63, 127. *See also*
+  - Reserve analysis
+
+Index
+
+257

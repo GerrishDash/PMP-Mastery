@@ -1,0 +1,5 @@
+# A GUIDE TO THE PROJECT MANAGEMENT BODY OF KNOWLEDGE
+
+*(PMBOK® GUIDE)*
+
+The information contained in the *PMBOK® Guide* is not an American National Standard (ANS) and has not been processed in accordance with ANSI's requirements for an ANS. As such, the information in the *PMBOK® Guide* may contain material that has not been subjected to public review or a consensus process. In addition, it does not contain requirements necessary for conformance to an ANS standard.

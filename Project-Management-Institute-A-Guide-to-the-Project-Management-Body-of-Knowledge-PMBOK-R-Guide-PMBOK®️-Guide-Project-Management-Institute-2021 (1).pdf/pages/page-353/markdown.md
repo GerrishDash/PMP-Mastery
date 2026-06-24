@@ -1,0 +1,94 @@
+- Continuous delivery
+  - description of, 34
+  - supporting strategies for, 222
+- Continuous development, 218
+- Continuous digital approach, 34
+- Continuous improvement, 139, 213, 214
+- Contracting processes, 75–76
+- Contractor conferences. See Bidder conferences
+- Contracts, 191. See also Agreements
+- Control chart, 106
+- Controlling, monitoring and, 171
+- Conversation, 14, 156, 192
+- COQ. See Cost of quality
+- Corrective action, 190
+- Correlation versus causation, 112
+- Cost(s)
+  - actual, 100
+  - appraisal, 88
+  - change and, 90–91
+  - external failure, 89
+  - failure, 88, 89
+  - internal failure, 89
+  - prevention, 88
+- Cost baseline, 62, 63, 188
+- Cost-benefit analysis, 175
+- Cost-benefit ratio, 102
+- Cost estimates, 62, 63, 105
+- Cost management plan, 186
+- Cost of change, 90–91
+- Cost of quality (COQ), 88–89
+  - appraisal, 88
+  - data gathering and analysis, 175
+  - definition, 81
+  - Delivery Performance Domain, 88–89
+  - external failure, 89
+  - internal failure, 89
+  - prevention, 88
+- Cost performance index (CPI), 100, 104
+- Cost plus award fee (CPAF), 191
+- Cost plus fixed fee (CPFF), 191
+- Cost plus incentive fee (CPIF), 191
+- Cost-reimbursable contracts, 191
+- Cost reserve, 122
+- Cost variance (CV), 80
+- Courage, 21
+- CPAF. See Cost plus award fee
+- CPFF. See Cost plus fixed fee
+- CPI. See Cost performance index
+- CPIF. See Cost plus incentive fee
+- Crashing, 52
+- Criteria
+  - acceptance, 42, 82, 85
+  - completion, 85
+  - entry, 46
+  - exit, 42, 46, 50
+  - requirements elicitation and, 83
+- Critical path, 100
+- Critical success factor, 207
+- Critical thinking, 24
+- Cross-cultural communication model, 157
+- Culture
+  - organization and, 41, 143
+  - tailoring for project, 143
+  - team, 20
+- Cumulative flow diagram (CFD), 188
+- Customer centricity, 131, 219, 225
+- Customer-centric organizations, 225
+- Customer focus, 208
+- Customer requests, 66
+- Customer satisfaction, 95, 112
+- CV. See Cost variance
+- Cycle time chart, 189
+- Cynefin framework, 164–165
+
+## D
+
+- Daily scrum, 179
+- Daily standup, 127, 179
+- Dashboards, 106–107
+  - definition, 93,
+  - visual data and, 189
+- Data analysis, outputs of, 174
+- Data gathering and analysis, 174–177
+- Decision making, 27–28
+  - group-based, 28
+  - sponsors and, 208
+- Decision tree analysis, 175
+- Decomposition. See also Work breakdown
+  - structure (WBS)
+  - scope, 84
+
+258
+
+PMBOK® Guide

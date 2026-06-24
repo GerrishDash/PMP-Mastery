@@ -1,0 +1,11 @@
+### 2.6.2.2 Scope Definition
+
+As requirements are identified, the scope that will meet them is defined. Scope is the sum of the products, services, and results to be provided as a project. As scope is defined, it creates the need for more requirements identification. Therefore, like requirements, scope can be well defined up front, it can evolve over time, or it can be discovered.
+
+- **Scope decomposition.** Scope can be elaborated using a scope statement to identify the major deliverables associated with the project and the acceptance criteria for each deliverable. Scope can also be elaborated by decomposing it into lower levels of detail using a work breakdown structure (WBS). A WBS is a hierarchical decomposition of the total scope of work to be carried out by the project team to accomplish the project objectives and create the required deliverables. Each level down in the hierarchy represents a greater level of detail of the deliverable and work required to produce it.
+
+Another way to elaborate scope is by identifying the themes of the project in an agile charter, roadmap, or as part of the product hierarchy. Themes represent large groups of customer value reflected as user stories associated by a common factor, such as functionality, data source, or security level. To accomplish themes, the project team develops epics, which are logical containers for a large user story that is too big to complete within an iteration. Epics may be decomposed into features, a set of related requirements typically described as a short phrase or function, which represent specific behaviors of a product. Each feature will have multiple user stories. A user story is a brief description of an outcome for a specific user, which is a promise for a conversation to clarify details. The project team defines story details at the last responsible moment to avoid wasteful planning should the scope change. The story is a clear and concise representation of a requirement written from the end user's perspective.
+
+84
+
+PMBOK® Guide

@@ -1,0 +1,12 @@
+- ○ *Withdraw/avoid.* Retreating from an actual or potential conflict situation; postponing the issue to be better prepared or to be resolved by others.
+- ○ *Smooth/accommodate.* Emphasizing areas of agreement rather than areas of difference; conceding one's position to the needs of others to maintain harmony and relationships.
+- ○ *Compromise/reconcile.* Searching for solutions that bring some degree of satisfaction to all parties in order to temporarily or partially resolve the conflict. This approach occasionally results in a lose-lose situation.
+- ○ *Force/direct.* Pushing one's viewpoint at the expense of others; offering only win-lose solutions, usually enforced through a power position to resolve an emergency. This approach often results to a win-lose situation.
+- ○ *Collaborate/problem solve.* Incorporating multiple viewpoints and insights from differing perspectives; requires a cooperative attitude and open dialogue that typically leads to consensus and commitment. This approach can result in a win-win situation.◆ Decision making. Decision making, in this context, involves the ability to negotiate and influence the organization and the project management team, rather than the set of tools described in the decision making tool set. Some guidelines for decision making include:- ■ Focus on goals to be served,
+- ■ Follow a decision-making process,
+- ■ Study the environmental factors,
+- ■ Analyze available information,
+- ■ Stimulate team creativity, and
+- ■ Account for risk.◆ Emotional intelligence. Emotional intelligence is the ability to identify, assess, and manage the personal emotions of oneself and other people, as well as the collective emotions of groups of people. The team can use emotional intelligence to reduce tension and increase cooperation by identifying, assessing, and controlling the sentiments of project team members, anticipating their actions, acknowledging their concerns, and following up on their issues.◆ Influencing. Because project managers often have little or no direct authority over team members in a matrix environment, their ability to influence stakeholders on a timely basis is critical to project success. Key influencing skills include:- ■ Ability to be persuasive;
+
+349

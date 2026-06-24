@@ -1,0 +1,13 @@
+The formation of any type of PMO or VDO is based on organizational needs. Key influencers that help to shape the PMO or VDO include the types of projects being delivered, the size of the organization, its structure(s), the degree of centralized/decentralized decision making, and corporate culture. As organizational needs change over time, PMOs and VDOs evolve in response. For example, a PMO may transform into a VDO or the PMO may be closed after fulfilling its charter.
+
+### X3.3 KEY PMO CAPABILITIES
+
+*The Standard for Project Management* states that projects are part of a system for value delivery within organizations. PMOs can support that system and are a part of the system. Just as project teams need specific capabilities to deliver results, so do PMOs. Effective PMOs make three key contributions that support value delivery:
+
+- ▶ **Fostering delivery and outcomes-oriented capabilities.** PMOs foster project management capabilities. They ensure that employees, contractors, partners, etc., who are within and outside of the PMO, understand, develop, apply, and value a range of project management skills and competencies. They focus on right-sizing processes and governance, based on the unique characteristics of each project to produce high-quality results efficiently, quickly, and effectively.
+- ▶ **Keeping the “big picture” perspective.** Staying true to the goals of a project remains a key element of success. Scope creep and new priorities not aligned to strategic or business goals can allow projects to drift off course. Strong PMOs evaluate the performance of projects with an eye toward continuous improvement. They evaluate work in the context of the organization’s overall success rather than maximizing a specific project’s results. They provide project teams, senior management, and business leaders with information and guidance that help them understand current circumstances and options in support of decision making.
+- ▶ **Continuous improvement, knowledge transfer, and change management.** Strong PMOs regularly share project results across the organization to transfer valuable knowledge gained from each project. Learning and sharing activities inform strategic and business objectives while improving activities that strengthen future project delivery. Effective organizational change management builds and sustains alignment with process updates, capability enhancements, and new skills that support project management.
+
+Appendix X3
+
+213

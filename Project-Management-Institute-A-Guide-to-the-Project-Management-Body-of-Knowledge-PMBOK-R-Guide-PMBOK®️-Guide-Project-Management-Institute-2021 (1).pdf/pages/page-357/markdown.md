@@ -1,0 +1,83 @@
+- Indefinite delivery indefinite quantity (IDIQ), 191
+- Indicators. See Key performance indicators (KPIs)
+- Individual project risk, 177, 190
+- Industry/industries
+  - market and, 142
+  - traditional product, 224
+- Influence
+  - development approach and, 39, 40, 41
+  - leadership and, 29
+  - sponsors and, 209
+- Influence diagram, 176
+- Information
+  - gathering, 119
+  - historical, 149
+  - Measurement Performance Domain, 106–111
+  - presenting, 106–111
+- Information radiator, 108, 109
+- Initiating Process Group, 171
+- Initiatives, critical, 214
+- Innovation
+  - degree of, 39
+- Input(s)
+  - flow of deliveries and, 45
+  - Process Groups and, 171
+- Inputs, tools/techniques, and outputs (ITTOs), 6
+- Inspection, 42, 47, 88, 89
+- Integration
+  - practice and, 163
+  - tailoring engagement and, 136
+- Integrity, 20
+- Intellectual property, 75
+- Interactions, performance domains
+  - Delivery Performance Domain, 91
+  - Development Approach and Life Cycle Performance Domain, 49–50
+  - Measurement Performance Domain, 114–115
+  - Planning Performance Domain, 67
+  - Project Work Performance Domain, 78
+  - Stakeholder Performance Domain, 14
+  - Team Performance Domain, 31
+  - Uncertainty Performance Domain, 128
+- Internal dependency, 60
+- Internal failure costs, 89
+- Internal rate of return (IRR), 175
+- Interpersonal skills, 25–29
+  - soft skills, 12
+  - stakeholder engagement and, 12
+  - types of, 23–29
+- Intrinsic motivation, 159
+- IRR. See Internal rate of return
+- Issue log, 185
+- Iterate, 121
+- Iteration, 44–45, 53
+- Iteration plan, 61, 186
+- Iteration planning meeting, 179
+- Iteration review, 179
+- Iterative development, 37
+- Iterative process, 120
+- ITTOs. See Inputs, tools/techniques, and outputs
+- J
+- Job shadowing, 78
+- Judgment. See Expert judgment
+- Just-in-time scheduling approach, 45
+- K
+- Kanban boards, 109, 110
+- Kanban scheduling system, 45
+- Key performance indicators (KPIs), 95–96
+- Key stakeholders, 11, 23, 44, 167, 179
+- Kickoff meeting, 179, 183
+- Knowledge
+  - explicit, 70, 77–78
+  - tacit, 77–78
+- Knowledge management, 77
+- Knowledge management repository, 149
+- Knowledge transfer, 213
+- KPIs. See Key performance indicators
+- L
+- Lagging indicators, 96
+- Lags, leads and, 59
+- Late start and finish dates, 100
+
+262
+
+PMBOK® Guide

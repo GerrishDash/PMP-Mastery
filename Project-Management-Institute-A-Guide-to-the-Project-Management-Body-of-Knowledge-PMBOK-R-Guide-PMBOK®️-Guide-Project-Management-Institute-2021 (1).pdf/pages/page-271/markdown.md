@@ -1,0 +1,13 @@
+- ▶ **Earned value analysis.** Earned value analysis is a method that utilizes a set of measures associated with scope, schedule, and cost to determine the cost and schedule performance of a project.
+- ▶ **Expected monetary value (EMV).** The expected monetary value is the estimated value of an outcome expressed in monetary terms. It is used to quantify the value of uncertainty, such as a risk, or compare the value of alternatives that are not necessarily equivalent. The EMV is calculated by multiplying the probability that an event will occur and the economic impact the event would have should it occur.
+- ▶ **Forecast.** A forecast is an estimate or prediction of conditions and events in the project's future, based on information and knowledge available at the time of the forecast. Qualitative forecasting methods use the opinions and judgments of subject matter experts. Quantitative forecasting uses models where past information is used to predict future performance. Causal or econometric forecasting, such as regression analysis, identifies variables that can have significant impact on future outcomes.
+- ▶ **Influence diagram.** This diagram is a graphical representation of situations showing causal influences, time ordering of events, and other relationships among variables and outcomes.
+- ▶ **Life cycle assessment.** This assessment is a tool used to evaluate the total environmental impact of a product, process, or system. It includes all aspects of producing a project deliverable, from the origin of materials used in the deliverable to its distribution and ultimate disposal.
+- ▶ **Make-or-buy analysis.** A make-or-buy analysis is the process of gathering and organizing data about product requirements and analyzing them against available alternatives such as the purchase versus internal manufacture of the product.
+- ▶ **Probability and impact matrix.** A probability and impact matrix is a grid for mapping the probability of occurrence of each risk and its impact on project objectives if that risk occurs.
+- ▶ **Process analysis.** This analysis is a systematic review of the steps and procedures to perform an activity.
+- ▶ **Regression analysis.** A regression analysis is an analytical technique where a series of input variables are examined in relation to their corresponding output results in order to develop a mathematical or statistical relationship.
+
+176
+
+PMBOK® Guide

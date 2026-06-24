@@ -1,0 +1,6 @@
+- ◆ Seller performance evaluation documentation. Seller performance evaluation documentation is prepared by the buyer and documents the seller's ability to continue to perform work on the current contract, indicates whether the seller can be allowed to perform work on future projects, or rates how well the seller is performing the project work or has performed in the past.
+- ◆ Prequalified seller lists updates. Prequalified seller lists are lists of potential sellers who are previously qualified (approved). These lists will be updated according to the Procurement Control process outcomes because sellers could be disqualified and removed from the lists based on poor performance.
+- ◆ Lessons learned repository. Lessons learned should be archived in the lessons learned repository to improve procurements on future projects. At the end of a contract, the actual results of the procurement are compared with the projected results in the original procurement management plan. These lessons learned state whether the project objectives were achieved and, if not, provides the reasons they were not.
+- ◆ Procurement file. A complete set of indexed contract documentation, including the closed contract, is prepared for inclusion with the final project files.
+
+486

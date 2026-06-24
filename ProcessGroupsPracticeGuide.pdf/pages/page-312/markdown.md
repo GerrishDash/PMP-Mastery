@@ -1,0 +1,16 @@
+**Reserve analysis.** Reserve analysis is an analytical technique to determine the essential features and relationships of components in the project management plan in order to establish a reserve for the schedule duration, budget, estimated cost, or funds for a project.
+
+Cost estimates may include contingency reserves (sometimes called contingency allowances) to account for cost uncertainty. Contingency reserves are the budget within the cost baseline that is allocated for identified risks. Contingency reserves are often viewed as the part of the budget intended to address the known-unknowns that can affect a project. For example, rework for some project deliverables could be anticipated, while the amount of this rework is unknown. Contingency reserves may be estimated to account for this unknown amount of rework. Contingency reserves can be provided at any level from the specific activity to the entire project. The contingency reserve may be a percentage of the estimated cost, a fixed number, or may be developed by using quantitative analysis methods.
+
+As more precise information about the project becomes available, the contingency reserve may be used, reduced, or eliminated. Contingency should be clearly identified in the cost documentation. Contingency reserves are part of the cost baseline and the overall funding requirements for the project.
+
+**Resource optimization.** Resource optimization is used to adjust the start and finish dates of activities to adjust planned resource use to be equal to or less than resource availability. Examples of resource optimization techniques that can be used to adjust the schedule model due to demand and supply of resources include but are not limited to:
+
+- ▶ **Resource leveling.** A technique in which start and finish dates are adjusted based on resource constraints with the goal of balancing the demand for resources with the available supply. Resource leveling can be used when shared or critically required resources are available only at certain times or in limited quantities, or are overallocated, such as when a resource has been assigned to two or more activities during the same time period (as shown in Figure 10-17), or there is a need to keep resource usage at a constant level. Resource leveling can often cause the original critical path to change. Available float is used for leveling resources. Consequently, the critical path through the project schedule may change.
+- ▶ **Resource smoothing.** A technique that adjusts the activities of a schedule model such that the requirements for resources on the project do not exceed certain predefined resource limits. In resource smoothing, as opposed to resource leveling, the project's critical path is not changed, and the completion date may not be delayed. In other words, activities may only be delayed within their free and total float. Resource smoothing may not be able to optimize all resources.
+
+Tools and Techniques
+
+PMI Member benefit licensed to: Segun Fatoki - 4510107. Not for distribution, sale, or reproduction.
+
+291

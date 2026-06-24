@@ -1,0 +1,13 @@
+Together with the PMO and considering governance, project teams discuss and decide on the delivery approach and resources required for producing outcomes on a project-by-project basis. This includes the selection of the processes to use, development approach, methods, and artifacts needed to deliver the project outcomes. Tailoring decisions can be an implicit action of accepting an established methodology. Conversely, tailoring can be an explicit action of selecting and mixing specific elements to suit the unique characteristics of the project and the project environment. Tailoring is necessary to some degree in every project, because each project exists in a particular context.
+
+Projects are often unique, even when the deliverable of the project does not seem unique. This is because project contexts differ in that the organization, its customers, its channels, and its environment are dynamic elements. Those changes and ongoing learning may cause project teams to use or develop different methods or approaches in pursuit of success. The project team should examine the unique set of conditions for each project, so that they can determine the most appropriate methods of producing the desired outcomes.
+
+An existing methodology or common way of working can inform the way in which a project is tailored. A methodology is a system of practices, techniques, procedures, and rules used by those who work in a discipline. Project teams may be required to assume the methodology of the parent organization. That is, the project team adopts a system of processes, governance, methods, and templates that provide guidance on how to run the project. While this provides a degree of consistency to projects within an organization, the methodology itself may still need tailoring to suit each project. Organizational policies and procedures prescribe authorized boundaries within which the project team can tailor.
+
+Project teams can also factor in the time and cost of project management processes. Processes that are not tailored may add little value to the project or its outcomes while increasing cost and lengthening schedule. Tailoring the approach along with appropriate processes, methods, and artifacts can help project teams make decisions about process-related costs and the related value contribution to project outcomes.
+
+In addition to deciding on how to tailor an approach, project teams communicate the tailoring decisions to stakeholders associated with that approach. Each member of the project team is aware of the chosen methods and processes that relate to those stakeholders and their role.
+
+Section 3 – Project Management Principles
+
+45

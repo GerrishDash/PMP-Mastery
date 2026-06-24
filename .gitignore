@@ -1,12 +1,19 @@
-# Exclude large PMBOK source markdown files
+# Exclude all markdown files by default
 *.md
+!README.md
 
-# Keep the walkthrough and task files if needed, but since they are in the appDataDir brain directory, they won't be in this folder anyway.
-# We only want to deploy index.html, styles.css, app.js, manifest.json, sw.js, and pmp_logo.png.
+# Exclude actual PDF document files by default
+*.pdf
+
+# Allow book folders and their markdown/image contents
+!*.pdf/
+!**/*.pdf/
+!**/*.pdf/**/*.md
+!**/*.pdf/**/*.jpeg
+!**/*.pdf/**/*.jpg
+!**/*.pdf/**/*.png
 
 # Exclude SSH Keys
 Key1
 Key1.pub
 Key/
-*.pdf
-*.pdf/

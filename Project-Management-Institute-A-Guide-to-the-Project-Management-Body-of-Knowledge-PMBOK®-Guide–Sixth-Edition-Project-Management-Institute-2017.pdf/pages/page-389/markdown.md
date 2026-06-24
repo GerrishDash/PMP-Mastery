@@ -1,0 +1,25 @@
+11---
+
+## PROJECT RISK MANAGEMENT
+
+Project Risk Management includes the processes of conducting risk management planning, identification, analysis, response planning, response implementation, and monitoring risk on a project. The objectives of project risk management are to increase the probability and/or impact of positive risks and to decrease the probability and/or impact of negative risks, in order to optimize the chances of project success.
+
+The Project Risk Management processes are:
+
+11.1 Plan Risk Management—The process of defining how to conduct risk management activities for a project.
+
+11.2 Identify Risks—The process of identifying individual project risks as well as sources of overall project risk, and documenting their characteristics.
+
+11.3 Perform Qualitative Risk Analysis—The process of prioritizing individual project risks for further analysis or action by assessing their probability of occurrence and impact as well as other characteristics.
+
+11.4 Perform Quantitative Risk Analysis—The process of numerically analyzing the combined effect of identified individual project risks and other sources of uncertainty on overall project objectives.
+
+11.5 Plan Risk Responses—The process of developing options, selecting strategies, and agreeing on actions to address overall project risk exposure, as well as to treat individual project risks.
+
+11.6 Implement Risk Responses—The process of implementing agreed-upon risk response plans.
+
+11.7 Monitor Risks—The process of monitoring the implementation of agreed-upon risk response plans, tracking identified risks, identifying and analyzing new risks, and evaluating risk process effectiveness throughout the project.
+
+Figure 11-1 provides an overview of the Project Risk Management processes. The Project Management Risk processes are presented as discrete processes with defined interfaces while, in practice, they overlap and interact in ways that cannot be completely detailed in this *PMBOK® Guide*.
+
+389

@@ -1,0 +1,12 @@
+### 2.7.2.5 Business Value
+
+Business value measurements are used to ensure the project deliverable stays aligned to the business case and the benefits realization plans. Business value has many aspects—both financial and nonfinancial. Metrics that measure financial business value include:
+
+- ▶ **Cost-benefit ratio.** This is a measure of the expected present value of an investment with the initial cost. The cost-benefit ratio is used to determine if the costs of a project outweigh its benefits. If the costs are greater than the benefits, the result will be greater than 1.0. In this case, the project should not be considered unless there are regulatory, social good, or other reasons to do the project. A similar measure is a benefit-cost ratio. The same measures are used, but the benefits are in the numerator and the costs are in the denominator. For this measure, if the ratio is greater than 1.0, the project should be considered.
+- ▶ **Planned benefits delivery compared to actual benefits delivery.** As part of a business case, organizations may identify value as the benefit that will be delivered as a result of doing the project. For projects that expect to deliver benefits during the project life cycle, measuring the benefits delivered and the value of those benefits, then comparing that information to the business case, provides information that can justify the continuation of the project, or in some cases, the cancellation of the project.
+- ▶ **Return on investment (ROI).** A measure of the amount of financial return compared to the cost, ROI is generally developed as an input to the decision to undertake a project. There may be estimates of ROI at different points in time across the project life cycle. By measuring ROI throughout the project, the project team can determine if it makes sense to continue the investment of organizational resources.
+- ▶ **Net present value (NPV).** The difference between the present value of inflows of capital and the present value of outflows of capital over a period of time, NPV is generally developed when deciding to undertake a project. By measuring the NPV throughout the project, the project team can determine if it makes sense to continue the investment of organizational resources.
+
+102
+
+PMBOK® Guide

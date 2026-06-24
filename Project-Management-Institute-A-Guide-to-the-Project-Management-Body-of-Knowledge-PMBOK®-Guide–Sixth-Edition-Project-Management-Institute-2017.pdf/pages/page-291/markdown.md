@@ -1,0 +1,7 @@
+nonconformance work required to deliver the expected conforming output. When flowcharts are used to represent the steps in a process, they are sometimes called process flows or process flow diagrams and they can be used for process improvement as well as identifying where quality defects can occur or where to incorporate quality checks.
+
+- Logical data model. Logical data models are a visual representation of an organization's data, described in business language and independent of any specific technology. The logical data model can be used to identify where data integrity or other quality issues can arise.
+- Matrix diagrams. Matrix diagrams help find the strength of relationships among different factors, causes, and objectives that exist between the rows and columns that form the matrix. Depending on how many factors may be compared, the project manager can use different shapes of matrix diagrams; for example, L, T, Y, X, C, and roof-shaped. In this process they facilitate identifying the key quality metrics that are important for the success of the project.
+- Mind mapping. Described in Section 5.2.2.3. Mind mapping is a diagrammatic method used to visually organizing information. A mind map in quality is often created around a single quality concept, drawn as an image in the center of a blank landscape page, to which associated representations of ideas such as images, words, and parts of words are added. The mind-mapping technique may help in the rapid gathering of project quality requirements, constraints, dependencies, and relationships.
+
+291

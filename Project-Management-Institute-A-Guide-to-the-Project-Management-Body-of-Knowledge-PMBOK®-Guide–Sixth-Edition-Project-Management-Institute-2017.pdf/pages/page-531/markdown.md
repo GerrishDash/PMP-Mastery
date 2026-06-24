@@ -1,0 +1,14 @@
+The Project Management Knowledge Areas are fields or areas of specialization that are commonly employed when managing projects. A Knowledge Area is a set of processes associated with a particular topic in project management. These 10 Knowledge Areas are used on most projects most of the time. The needs of a specific project may require additional Knowledge Areas. The 10 Knowledge Areas are:
+
+- ◆ Project Integration Management. Project Integration Management includes the processes and activities to identify, define, combine, unify, and coordinate the various processes and project management activities within the Project Management Process Groups.
+- ◆ Project Scope Management. Project Scope Management includes the processes required to ensure that the project includes all the work required, and only the work required, to complete the project successfully.
+- ◆ Project Schedule Management. Project Schedule Management includes the processes required to manage the timely completion of the project.
+- ◆ Project Cost Management. Project Cost Management includes the processes involved in planning, estimating, budgeting, financing, funding, managing, and controlling costs so the project can be completed within the approved budget.
+- ◆ Project Quality Management. Project Quality Management includes the processes for incorporating the organization's quality policy regarding planning, managing, and controlling project and product quality requirements, in order to meet stakeholders' expectations.
+- ◆ Project Resource Management. Project Resource Management includes the processes to identify, acquire, and manage the resources needed for the successful completion of the project.
+- ◆ Project Communications Management. Project Communications Management includes the processes required to ensure timely and appropriate planning, collection, creation, distribution, storage, retrieval, management, control, monitoring, and ultimate disposition of project information.
+- ◆ Project Risk Management. Project Risk Management includes the processes of conducting risk management planning, identification, analysis, response planning, response implementation, and monitoring risk on a project.
+- ◆ Project Procurement Management. Project Procurement Management includes the processes necessary to purchase or acquire products, services, or results needed from outside the project team.
+- ◆ Project Stakeholder Management. Project Stakeholder Management includes the processes required to identify the people, groups, or organizations that could impact or be impacted by the project, to analyze stakeholder expectations
+
+531

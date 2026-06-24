@@ -1,0 +1,13 @@
+The Perform Integrated Change Control process is conducted from project start through completion and is the ultimate responsibility of the project manager. Change requests can impact the project scope and the product scope, as well as any project management plan component or any project document. Changes may be requested by any stakeholder involved with the project and may occur at any time throughout the project life cycle. The applied level of change control is dependent upon the application area, complexity of the specific project, contract requirements, and the context and environment in which the project is performed.
+
+Before the baselines are established, changes are not required to be formally controlled by the Perform Integrated Change Control process. Once the project is baselined, change requests go through this process. As a general rule, each project's configuration management plan should define which project artifacts need to be placed under configuration control. Any change in a configuration element should be formally controlled and will require a change request.
+
+Although changes may be initiated verbally, they should be recorded in written form and entered into the change management and/or configuration management system. Change requests may require information on estimated schedule impacts and estimated cost impacts prior to approval. Whenever a change request may impact any of the project baselines, a formal integrated change control process is always required. Every documented change request needs to be either approved, deferred, or rejected by a responsible individual, usually the project sponsor or project manager. The responsible individual will be identified in the project management plan or by organizational procedures. When required, the Perform Integrated Change Control process includes a change control board (CCB), which is a formally chartered group responsible for reviewing, evaluating, approving, deferring, or rejecting changes to the project and for recording and communicating such decisions.
+
+Approved change requests can require new or revised cost estimates, activity sequences, schedule dates, resource requirements, and/or analysis of risk response alternatives. These changes can require adjustments to the project management plan and other project documents. Customer or sponsor approval may be required for certain change requests after CCB approval, unless they are part of the CCB.
+
+168
+
+*Process Groups: A Practice Guide*
+
+PMI Member benefit licensed to: Segun Fatoki - 4510107. Not for distribution, sale, or reproduction.

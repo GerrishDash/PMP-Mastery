@@ -1,0 +1,15 @@
+vision, mission, values, beliefs, cultural norms, hierarchy, and authority relationships.
+
+OPAs are internal to the enterprise. These may arise from the enterprise itself, a portfolio, a program, another project, or a combination of these. OPAs are the plans, processes, policies, procedures, and knowledge bases specific to and used by the performing organization. These assets influence the management of the project. Examples include but are not limited to: change control procedures, templates, information from previous projects, and lessons learned repositories. (Refer to Section 2.3 in the *PMBOK® Guide* for additional information on OPAs).
+
+## 1.11 TAILORING THE PROJECT ARTIFACTS
+
+The term artifact in this context includes project management processes, inputs, tools, techniques, outputs, EEFs, and OPAs. The project manager and the project management team select and adapt the appropriate artifacts for use on their specific project. This selection and adaptation activity is known as tailoring. Tailoring is necessary because each project is unique; therefore, not every process, input, tool, technique, or output is required on every project.
+
+The project management plan is the most prevalent artifact. It has many components, such as the subsidiary management plans, baselines, and a description of the project life cycle. Subsidiary management plans are plans associated with a specific aspect or Knowledge Area of the project, for example, a schedule management plan, risk management plan and change management plan. Part of tailoring is identifying the project management plan components needed for a particular project. The project management plan is an input and project management plan updates are an output of many processes in this standard. Rather than listing the individual project management plan components in the input/output tables, examples of the components that *may* be inputs or *may* be updated as outputs are listed beneath the input/output tables for each process. The possible components are listed as examples only. These inputs and outputs are not required and are not the only inputs or updates to the project management plan that a project manager may use in that particular process.
+
+The project management plan is one of the primary project artifacts, but there are other documents that are not part of the project management plan that are used to manage the project. These other documents are called project documents. Similar to project management plan components, project documents needed for a process will depend on the individual project. The project manager is accountable for identifying the project documents needed for a process and the project documents that will be updated as an output of a process. The project documents listed beneath the input/output tables throughout this standard are possible examples of project documents, not a comprehensive list.
+
+Table 1-2 is a representative list of project management plan components and project
+
+535

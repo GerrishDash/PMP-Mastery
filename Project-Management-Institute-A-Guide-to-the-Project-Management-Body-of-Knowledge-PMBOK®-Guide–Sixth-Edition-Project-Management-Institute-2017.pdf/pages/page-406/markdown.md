@@ -1,0 +1,13 @@
+### 11.2.2.1 EXPERT JUDGMENT
+
+Described in Section 4.1.2.1. Expertise should be considered from individuals or groups with specialized knowledge of similar projects or business areas. Such experts should be identified by the project manager and invited to consider all aspects of individual project risks as well as sources of overall project risk, based on their previous experience and areas of expertise. The experts' bias should be taken into account in this process.
+
+### 11.2.2.2 DATA GATHERING
+
+Data-gathering techniques that can be used for this process include but are not limited to:
+
+- ◆ Brainstorming. The goal of brainstorming (see Section 4.1.2.2) is to obtain a comprehensive list of individual project risks and sources of overall project risk. The project team usually performs brainstorming, often with a multidisciplinary set of experts who are not part of the team. Ideas are generated under the guidance of a facilitator, either in a free-form brainstorm session or one that uses more structured techniques. Categories of risk, such as in a risk breakdown structure, can be used as a framework. Particular attention should be paid to ensuring that risks identified through brainstorming are clearly described, since the technique can result in ideas that are not fully formed.
+- ◆ Checklists. A checklist is a list of items, actions, or points to be considered. It is often used as a reminder. Risk checklists are developed based on historical information and knowledge that has been accumulated from similar projects and from other sources of information. They are an effective way to capture lessons learned from similar completed projects, listing specific individual project risks that have occurred previously and that may be relevant to this project. The organization may maintain a risk checklist based on its own completed projects or may use generic risk checklists from the industry. While a checklist may be quick and simple to use, it is impossible to build an exhaustive one, and care should be taken to ensure the checklist is not used to avoid the effort of proper risk identification. The project team should also explore items that do not appear on the checklist. Additionally, the checklist should be reviewed from time to time to update new information as well as remove or archive obsolete information.
+- ◆ Interviews. Individual project risks and sources of overall project risk can be identified by interviewing experienced project participants, stakeholders, and subject matter experts. Interviews (see Section 5.2.2.2) should be conducted in an environment of trust and confidentiality to encourage honest and unbiased contributions.
+
+406

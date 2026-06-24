@@ -1,0 +1,12 @@
+## 2.8.1 GENERAL UNCERTAINTY
+
+Uncertainty is inherent in all projects. For this reason, the effects of any activity cannot be predicted precisely, and a range of outcomes can occur. Potential outcomes that benefit the project objectives are known as opportunities; potential outcomes that have a negative effect on objectives are called threats. Together, the set of opportunities and threats comprise the set of project risks. There are several options for responding to uncertainty:
+
+- **Gather information.** Sometimes uncertainty can be reduced by finding out more information, such as conducting research, engaging experts, or performing a market analysis. It is also important to recognize when further information collection and analysis exceed the benefit of having the additional information.
+- **Prepare for multiple outcomes.** In situations where there are only a few possible outcomes from an area of uncertainty, the project team can prepare for each of those outcomes. This entails having a primary solution available, as well as having backup or contingency plans in case the initial solution is not viable or effective. Where there is a large set of potential outcomes, the project team can categorize and assess the potential causes to estimate their likelihood of occurrence. This allows the project team to identify the most likely potential outcomes on which to focus.
+- **Set-based design.** Multiple designs or alternatives can be investigated early in the project to reduce uncertainty. This allows the project team to look at trade-offs, such as time versus cost, quality versus cost, risk versus schedule, or schedule versus quality. The intention is to explore options so the project team can learn from working with the various alternatives. Ineffective or suboptimal alternatives are discarded throughout the process.
+- **Build in resilience.** Resilience is the ability to adapt and respond quickly to unexpected changes. Resilience applies to both project team members and organizational processes. If the initial approach to product design or a prototype is not effective, the project team and the organization need to be able to learn, adapt, and respond quickly.
+
+Section 2 – Project Performance Domains
+
+119

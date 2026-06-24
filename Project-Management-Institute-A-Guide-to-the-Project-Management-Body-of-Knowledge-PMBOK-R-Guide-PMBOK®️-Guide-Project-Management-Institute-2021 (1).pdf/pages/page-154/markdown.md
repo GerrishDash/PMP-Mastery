@@ -1,0 +1,9 @@
+If the schedule model does not meet the initial desired end date, schedule compression methods are applied. Crashing is a schedule compression method that seeks to shorten the duration for the least incremental cost. Crashing can include adding people to activities, working overtime, or paying to expedite deliveries.
+
+Fast tracking is a schedule compression method in which activities or tasks that are normally done in sequence are performed in parallel, at least for a portion of their duration. Fast tracking often entails applying leads and lags along a network path. A *lead* is where the work of a successor activity is accelerated, such as starting a successor activity before the predecessor has finished. In Figure 2-16, there is a lead between the finish of Task 2 and the start of Task 4.
+
+A *lag* is a delay of a successor activity. An example of using a lag would be changing the type of relationship between activities, and then applying a lag. For example, rather than waiting for an activity to finish before the next one starts (a finish-to-start relationship), change the relationship to have the end of the successor activity finish a determined amount of time after the end of the predecessor (a finish-to-finish relationship). The network logic would show a lag between the finish of the predecessor and the finish of the successor activities. There is an example of a finish-to-finish relationship with a lag in Figure 2-16 between Task 8 and Task 7. A lag can also be applied between the start of one activity and the start of another activity (a start-to-start relationship).
+
+Section 2 – Project Performance Domains
+
+59

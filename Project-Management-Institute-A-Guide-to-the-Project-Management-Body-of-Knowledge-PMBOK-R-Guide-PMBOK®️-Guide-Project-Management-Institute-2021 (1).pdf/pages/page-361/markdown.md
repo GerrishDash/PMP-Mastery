@@ -1,0 +1,91 @@
+- Planned benefits delivery compared to actual benefits delivery, 102
+- Planned resource cost compared to actual resource cost, 101
+- Planned resource utilization compared to actual resource utilization, 101
+- Planned value (PV), 100, 101
+- Planning
+  - high-level, 52
+  - negotiation models and, 170
+- Planning meeting, 180
+- Planning Performance Domain, 51–68
+  - alignment, 67
+  - changes, 66
+  - checking results, 68
+  - communication, 64
+  - definitions relevant to, 52
+  - interactions with other performance domains, 67
+  - metrics, 66
+  - outcomes, checking, 68
+  - outcomes, desired, 51
+  - physical resources, 65
+  - planning overview, 52–53
+  - planning variables, 53–63
+  - procurement, 65
+  - project team composition and structure, 63–64
+  - tailoring considerations, 148
+- Planning Process Group, 171
+- Planning overview, 52–53
+- Planning variables, 53–63
+  - budget, 62–63
+  - delivery and, 54
+  - estimating and, 55–58
+  - schedules, 58–62
+- PM. See Project manager
+- PMIstandards+, 6, 174
+- PMO. See Project management office (PMO)
+- Portfolio leaders, 95
+- Positive risks (opportunities), 122
+- Power, theory of needs and, 159
+- Pre-bid conferences, 70, 179
+- Precision
+  - definition, 52
+  - description of, 55
+  - level of, 56
+- Predecessor, 59
+- Predictive developmental approach, 35–36
+- Predictive life cycle, 43, 49
+- Presentations, 73
+- Presenting information, 106–111
+  - dashboards, 106–107
+  - information radiators, 108
+  - visual controls, 109–111
+- Prevention costs, 88
+- Prioritization matrix, 189
+- Prioritization schema, 181
+- Prioritize, stakeholder engagement, 12
+- Probabilistic estimating, 57
+- Probability and impact matrix, 176
+- Probability distributions, 57, 177
+- Problem solving, 21, 29, 168
+- Process analysis, 176
+- Process-based approach, 171
+- Process-based complexity, 121
+- Process(es)
+  - adding, removing and changing, 144
+  - conformance and, 71
+  - environment and, 53
+  - groups of, 170
+  - project, 71–72
+  - smart and simple, 214
+  - tailoring, 137–145
+- Process Groups, negotiation models and, 170
+- Process tailoring, 71, 135
+- Procurement(s)
+  - bid process, 75
+  - contracting, 75–76
+  - Planning Performance Domain, 65
+  - Project Work Performance Domain, 74–76
+  - working with, 74–76
+- Procurement audit, 79
+- Procurement management plan, 186
+- Procurement strategy, 46
+- Product(s)
+  - definition, 218
+  - development approach and, 39–40
+  - digital, 34
+  - final, 82
+  - global market shifts, 219–221
+  - organizational considerations and, 221–225
+
+266
+
+PMBOK® Guide

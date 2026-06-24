@@ -1,0 +1,14 @@
+### 11.2.2.3 DATA ANALYSIS
+
+Data analysis techniques that can be used for this process include but are not limited to:
+
+- ◆ Root cause analysis. Root cause analysis (see Section 8.2.2.2) is typically used to discover the underlying causes that lead to a problem, and develop preventive action. It can be used to identify threats by starting with a problem statement (for example, the project might be delayed or over budget) and exploring which threats might result in that problem occurring. The same technique can be used to find opportunities by starting with a benefit statement (for example, early delivery or under budget) and exploring which opportunities might result in that benefit being realized.
+- ◆ Assumption and constraint analysis. Every project and its project management plan are conceived and developed based on a set of assumptions and within a series of constraints. These are often already incorporated in the scope baseline and project estimates. Assumption and constraint analysis explores the validity of assumptions and constraints to determine which pose a risk to the project. Threats may be identified from the inaccuracy, instability, inconsistency, or incompleteness of assumptions. Constraints may give rise to opportunities through removing or relaxing a limiting factor that affects the execution of a project or process.
+- ◆ SWOT analysis. This technique examines the project from each of the strengths, weaknesses, opportunities, and threats (SWOT) perspectives. For risk identification, it is used to increase the breadth of identified risks by including internally generated risks. The technique starts with the identification of strengths and weaknesses of the organization, focusing on either the project, organization, or the business area in general. SWOT analysis then identifies any opportunities for the project that may arise from strengths, and any threats resulting from weaknesses. The analysis also examines the degree to which organizational strengths may offset threats and determines if weaknesses might hinder opportunities.
+- ◆ Document analysis. Described in Section 5.2.2.3. Risks may be identified from a structured review of project documents, including, but not limited to, plans, assumptions, constraints, previous project files, contracts, agreements, and technical documentation. Uncertainty or ambiguity in project documents, as well as inconsistencies within a document or between different documents, may be indicators of risk on the project.
+
+### 11.2.2.4 INTERPERSONAL AND TEAM SKILLS
+
+Interpersonal and team skills that can be used for this process includes but are not limited to facilitation (see Section 4.1.2.3). Facilitation improves the effectiveness of many
+
+407

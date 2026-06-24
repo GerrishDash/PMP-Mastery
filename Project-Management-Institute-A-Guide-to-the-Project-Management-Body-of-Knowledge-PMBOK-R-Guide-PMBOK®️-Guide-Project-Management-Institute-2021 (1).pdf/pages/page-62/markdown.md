@@ -1,0 +1,13 @@
+- ▶ **Business need.** Business provides the rationale for the project, explaining why the project is undertaken. It originates with the preliminary business requirements, which are reflected in the project charter or other authorizing document. It provides details about the business goals and objectives. The business need may be intended for the performing organization, a client organization, a partnership of organizations, or public welfare. A clear statement of the business need helps the project team understand the business drivers for the future state and allows the project team to identify opportunities or problems to increase the potential value from the project outcome.
+- ▶ **Project justification.** Project justification is connected to business need. It explains why the business need is worth the investment and why it should be addressed at this time. The project justification is accompanied by a cost-benefit analysis and assumptions.
+- ▶ **Business strategy.** Business strategy is the reason for the project and all needs are related to the strategy to achieve the value.
+
+Together, the business need, project justification, and business strategy, in addition to benefits and possible agreements, provide the project team with information that allows them to make informed decisions to meet or exceed the intended business value.
+
+Desired outcomes should be clearly described, iteratively assessed, and updated throughout the project. During its life cycle, a project may undergo change and the project team then adapts in response. The project team continuously evaluates project progress and direction against the desired outputs, baselines, and business case to confirm that the project remains aligned to the need and will deliver its intended outcomes. Alternatively, the business case is updated to capture an opportunity or minimize a problem identified by the project team and other stakeholders. If the project or its stakeholders are no longer aligned with the business need or if the project seems unlikely to provide the intended value, the organization may choose to terminate the effort.
+
+Value is the worth, importance, or usefulness of something. Value is subjective, in the sense that the same concept can have different values for different people and organizations. This occurs because what is considered a benefit depends on organizational strategies, ranging from short-term financial gains, long-term gains, and even nonfinancial elements. Because all projects have a range of stakeholders, different values generated for each group of stakeholders have to be considered and balanced with the whole, while placing a priority on the customer perspective.
+
+Section 3 – Project Management Principles
+
+35

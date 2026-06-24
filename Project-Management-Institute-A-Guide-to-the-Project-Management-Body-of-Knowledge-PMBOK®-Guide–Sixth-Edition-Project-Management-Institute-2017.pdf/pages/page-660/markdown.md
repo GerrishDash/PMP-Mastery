@@ -1,0 +1,3 @@
+The Closing processes are the processes performed to formally complete or close a project, phase, or contract. Work on iterative, adaptive, and agile projects is prioritized to undertake the highest business value items first. So, if the Closing Process Group prematurely closes a project or phase, there is a high chance that some useful business value will already have been generated. This allows premature closure to be less of a failure due to sunk costs and more of an early benefits realization, quick win, or proof of concept for the business.
+
+660

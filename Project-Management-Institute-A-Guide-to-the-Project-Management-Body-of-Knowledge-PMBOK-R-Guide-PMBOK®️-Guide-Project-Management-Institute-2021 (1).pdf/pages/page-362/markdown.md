@@ -1,0 +1,90 @@
+- project delivery practices and, 221
+- software addition to more, 225
+- tailoring for project, 142
+- transition, views and, 217–218
+- unique characteristics of, 224
+- value views and, 217
+- Product backlog, 76, 185
+- Product breakdown structure, 187
+- Product environment, continuous value delivery and, 222
+- Product life cycle
+  - definition, 218
+- Product management
+  - definition, 218
+  - global business trends and, 219
+  - organizational considerations, 221–225
+  - views of, 218
+- Product owner, 76
+- Product requirements
+  - elicitation of, 50
+  - make-or-buy analysis and, 176
+  - requirements documentation and, 192
+  - requirements traceability matrix and, 189
+- Product reviews, 14
+- Product roadmap, 61
+- Product scope, 54
+- Product vision, 61
+- Program management
+  - continuous value delivery and, 222
+  - plans and, 186–187
+  - structures, utilization of, 223–225
+- Program manager, 14
+- Programs, unique characteristics of, 224
+  - ongoing improvement and, 144
+- Project(s)
+  - development approach and, 40–41
+  - Development Approach and Life Cycle
+    - Performance Domain, 40–41
+  - experience with type of, 30
+  - learning throughout, 77–78
+  - performance domains and, 7
+  - process-based approach, 171
+  - tailoring for, 141–144
+  - uniqueness and, 224
+- Project-authorizing documents, 82
+- Project brief, as strategy artifact, 184
+- Project budget component, 62, 63
+- Project calendar, 192
+- Project charter
+  - close phase and, 47
+  - start up and, 46
+  - as strategy artifact, 184
+- Project closeout meeting, 180
+- Project communications, engagement and, 73
+- Project communications management plan, 79, 186
+- Project context, tailoring to fit, 146, 154
+- Project deliverables, 54
+- Project delivery practices, 221
+- Project documents, 52
+- Project execution. See Executing Process Group
+- Project factors, tailoring and, 140
+- Project life cycle
+  - business value and, 102
+  - definition, 33
+  - deliverables and, 81
+  - developmental approaches and, 32, 35, 148
+  - outcomes, checking, 50
+  - Process Groups and, 170
+  - products extending beyond, 218
+  - project phases and, 42
+  - tailoring and, 131
+- Project management office (PMO), 211–215
+  - benefits realization and, 214
+  - key capabilities of, 213
+  - learning more about, 215
+  - value delivery office (VDO), and, 140
+  - value proposition for, 211–213
+- Project management plan
+  - definition, 186
+  - executing process and, 171
+  - integrated, large projects and, 67
+  - as overarching plan, 186
+  - progressive elaboration and, 120
+- Project management principles
+  - performance domains and, 4
+  - tailoring to fit project, 154
+- Project management team, 16. See also Project team(s)
+
+Index
+
+267

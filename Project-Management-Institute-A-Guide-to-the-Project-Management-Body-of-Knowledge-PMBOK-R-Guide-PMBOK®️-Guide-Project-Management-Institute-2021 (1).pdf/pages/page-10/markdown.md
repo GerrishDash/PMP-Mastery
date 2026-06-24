@@ -1,0 +1,9 @@
+### Evolution of Key Changes in the PMBOK® Guide
+
+|  PMBOK® Guide Edition | Key Evolutionary Changes  |
+| --- | --- |
+|  **1996** | - Distinguished as “a guide to the body of knowledge,” rather than the body of knowledge for project management. - Reflected the subset of the project management body of knowledge that is “generally accepted,” meaning applicable to most projects most of the time with widespread consensus that practices have value and usefulness. - Defined project management as “the application of knowledge, skills, tools, and techniques to project activities **in order to meet or exceed stakeholder needs and expectations** [emphasis added] from a project.” - Specific decision to shift to a process-based standard driven by a desire to show interactions among Knowledge Areas; create a robust and flexible structure; and recognize that ISO and other standards organizations were establishing process-based standards.  |
+|  **Third (2004)** | - First edition to incorporate the “ANSI Standard” logo on the cover. - First edition to formally designate *The Standard for Project Management of a Project* separate and distinct from the Project Management Framework and Body of Knowledge. - Included material “generally recognized as good practice on most projects most of the time.” - Defined project management as “the application of knowledge, skills, tools, and techniques to project activities **to meet the project requirements**.”  |
+|  **Sixth (2017)** | - First edition to make a distinct separation between the ANSI standard and the guide. - First time “agile” content is incorporated into the text, not just referenced in examples. - Expansion of Knowledge Area front material, including key concepts, trends and emerging practices, tailoring considerations, and considerations for agile/adaptive environments.  |
+
+ix

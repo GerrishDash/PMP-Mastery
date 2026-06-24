@@ -1,0 +1,13 @@
+# 1
+
+## INTRODUCTION
+
+A standard is a document established by an authority, custom, or general consent as a model or example. This standard was developed using a process based on the concepts of consensus, openness, due process, and balance. This standard describes the processes considered to be good practice on most projects most of the time. These processes are organized by Process Group. It further defines key project management concepts including the relationship of project management to organizational strategy and objectives, governance, portfolio management, program management, the project environment, and project success. It also covers information on project life cycles, project stakeholders, and the role of the project manager. Section 1 discusses key concepts and provides contextual information about project management. Sections 2 through 6 provide definitions for each of the five Process Groups and describe the processes within those Process Groups. Sections 2 through 6 also describe the key benefits, inputs, and outputs for each project management process. This standard serves as the foundation and framework for *A Guide to the Project Management Body of Knowledge (PMBOK® Guide)*.1 *PMBOK® Guide* expands on the information in this standard by providing a more in-depth description of the context, environment and influences on project management. In addition, the *PMBOK® Guide* provides descriptions of the project management process inputs and outputs, identifies tools and techniques, and discusses key concepts and emerging trends associated with each Knowledge Area.
+
+### 1.1 PROJECTS AND PROJECT MANAGEMENT
+
+A project is a temporary endeavor undertaken to create a unique product, service, or result. The temporary nature of projects indicates a definite beginning and end. Temporary does not necessarily mean a project has a short duration. A project's end is reached when the objectives have been achieved or when the project is terminated because its objectives will not or cannot be met, or when the need for the project no longer exists. The decision to terminate a project requires approval and authorization by an appropriate authority.
+
+Project management is the application of knowledge, skills, tools, and techniques to project activities to meet project requirements. Project management is accomplished through the appropriate application and integration of the project management processes identified for the project.
+
+521

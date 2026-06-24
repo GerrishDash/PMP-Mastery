@@ -1,0 +1,16 @@
+**Rolling wave planning.** Rolling wave planning is an iterative planning technique in which the work to be accomplished in the near term is planned in detail, while work further in the future is planned at a higher level. It is a form of progressive elaboration applicable to work packages, planning packages, and release planning when using an agile or waterfall approach. Therefore, work can exist at various levels of detail depending on where it is in the project life cycle. During early strategic planning when information is less defined, work packages may be decomposed to the known level of detail. As more is known about the upcoming events in the near term, work packages can be decomposed into activities.
+
+**Root cause analysis.** Root cause analysis is an analytical technique used to determine the basic underlying reason that causes a variance, defect, or risk. A root cause may underlie more than one variance, defect, or risk. It may also be used as a technique for identifying root causes of a problem and solving them. When all root causes for a problem are removed, the problem does not recur.
+
+**Scatter diagrams.** A scatter diagram is a graph that shows the relationship between two variables. Scatter diagrams can demonstrate a relationship between any element of a process, environment, or activity on one axis and a quality defect on the other axis.
+
+**Schedule compression.** Schedule compression techniques are used to shorten or accelerate the schedule duration without reducing the project scope in order to meet schedule constraints, imposed dates, or other schedule objectives. A helpful technique is the negative float analysis. The critical path is the one with the least float. Due to violating a constraint or imposed date, the total float can become negative. Schedule compression techniques are compared in Figure 10-19 and include:
+
+- ▶ **Crashing.** A technique used to shorten the schedule duration for the least incremental cost by adding resources. Examples of crashing include approving overtime, bringing in additional resources, or paying to expedite delivery to activities on the critical path. Crashing works only for activities on the critical path where additional resources will shorten the activity's duration. Crashing does not always produce a viable alternative and may result in increased risk and/or cost.
+- ▶ **Fast tracking.** A schedule compression technique in which activities or phases normally done in sequence are performed in parallel for at least a portion of their duration. An example is constructing the foundation for a building before completing all of the architectural drawings. Fast tracking may result in rework and increased risk. Fast tracking only works when activities can be overlapped to shorten the project duration on the critical path. Using leads in case of schedule acceleration usually increases coordination efforts between the activities concerned and increases quality risk. Fast tracking may also increase project costs.
+
+Tools and Techniques
+
+PMI Member benefit licensed to: Segun Fatoki - 4510107. Not for distribution, sale, or reproduction.
+
+295

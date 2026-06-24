@@ -1,0 +1,36 @@
+- 4.1.2 Project Documents Examples
+  - 4.1.3 Project Management Plan Updates
+  - 4.1.4 Project Documents Updates
+- 4.2 Manage Project Knowledge
+  - 4.2.1 Project Management Plan Components
+  - 4.2.2 Project Documents
+  - 4.2.3 Project Management Plan Updates
+- 4.3 Manage Quality
+  - 4.3.1 Project Management Plan Components
+  - 4.3.2 Project Documents Examples
+  - 4.3.3 Project Management Plan Updates
+  - 4.3.4 Project Documents Updates
+- 4.4 Acquire Resources
+  - 4.4.1 Project Management Plan Components
+  - 4.4.2 Project Documents Examples
+  - 4.4.3 Project Management Plan Updates
+  - 4.4.4 Project Documents Updates
+- 4.5 Develop Team
+  - 4.5.1 Project Management Plan Components
+  - 4.5.2 Project Documents Examples
+  - 4.5.3 Project Management Plan Updates
+  - 4.5.4 Project Documents Updates
+- 4.6 Manage Team
+  - 4.6.1 Project Management Plan Components
+  - 4.6.2 Project Documents Examples
+  - 4.6.3 Project Management Plan Updates
+  - 4.6.4 Project Documents Updates
+- 4.7 Manage Communications
+  - 4.7.1 Project Management Plan Components
+  - 4.7.2 Project Documents Example
+  - 4.7.3 Project Management Plan Updates
+  - 4.7.4 Project Documents Updates
+- 4.8 Implement Risk Responses
+  - 4.8.1 Project Management Plan Components
+
+17

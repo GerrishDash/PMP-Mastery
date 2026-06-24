@@ -1,0 +1,13 @@
+Systems thinking also considers timing elements of systems, such as what the project delivers or enables over time. For example, if project deliverables are released incrementally, each increment expands the cumulative outcomes or capabilities of previous versions. Project teams should think beyond the end of the project to the operational state of the project's deliverable, so that intended outcomes are realized.
+
+As projects unfold, internal and external conditions are continuously changing. A single change can create several impacts. For example, on a large construction project, a change in requirements can cause contractual changes with the primary contractor, subcontractors, suppliers, or others. In turn, those changes can create an impact on project cost, schedule, scope, and performance. Subsequently, these changes could invoke a change control protocol for obtaining approvals from entities in external systems, such as the service providers, regulators, financiers, and government authorities.
+
+While it is possible to predict some of the changes in advance, many of the changes that can impact the project during its life cycle emerge in real time. With systems thinking, including constant attention to internal and external conditions, the project team can navigate a wide spectrum of changes and impacts to keep the project in agreement with the relevant stakeholders.
+
+Systems thinking also applies to how the project team views itself and its interactions within the project system. The project system often brings together a diverse project team engaged in working for a common objective. This diversity brings value to project teams, but they need to consider how to leverage those differences effectively, so that the project team works cohesively. For example, if a government agency contracts with a private company for development of a new technology, the development team may consist of project team members from both organizations. Those project team members may have assumptions, ways of working, and mental models related to how they function within their home organization. In this new project system, which combines the cultures of a private company and a government agency, the project team members can establish a synthesized team culture that creates a common vision, language, and toolset. This can help project team members to engage and contribute effectively and help to increase the probability that the project system works.
+
+Because of the interactivity among systems, project teams should operate with awareness of, and vigilance toward, changing system dynamics. The following skills support a systems view of the project:
+
+38
+
+The Standard for Project Management

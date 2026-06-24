@@ -1,0 +1,87 @@
+- Decoupling, 121
+- Defect(s)
+  - external failure costs and, 89
+  - integrity and, 20
+  - internal failure costs and, 89
+  - metrics and, 97, 98
+  - prevention of, 68
+  - reputation and, 69
+- Definition of done (DoD), 81, 85
+- Deliverable(s)
+  - completion of, 85
+  - definition, 33, 82
+  - degree of innovation and, 39
+- Delivery Performance Domain, 82–87
+  - development approach for, 50
+  - hybrid approach and, 36
+  - lagging indicators and, 96
+  - project, 54
+  - requirements, 82–83
+  - tailoring for project, 142
+- Delivery cadence, 32–34, 46–50
+  - Development Approach and Life Cycle Performance Domain, 46–48
+- Delivery/deliveries
+  - continuous, 34
+  - measurements of, 99
+  - models, 221
+  - multiple, 34
+  - ongoing delivery model and, 221
+  - options for, 40
+  - periodic, 34
+  - Planning Performance Domain, 54
+  - project management office (PMO) and, 213
+  - single delivery, 34
+- Delivery Performance Domain, 80–92
+  - definitions relevant to, 81
+  - deliverables, 82–87
+  - interactions with other performance domains, 91
+  - outcomes, checking, 92
+  - outcomes, desired, 80
+  - outcomes, suboptimal, 91
+  - overview, 80–81
+  - quality, 87–91
+  - tailoring considerations, 149
+  - value, delivery of, 81–82
+- Demoralization, 112
+- Dependencies, types of, 60
+- Deploy phase, 47
+- Design, set-based, 119
+- Design reviews, 127
+- Desired outcomes
+  - Measurement Performance Domain, 93
+  - Uncertainty Performance Domain, 116
+- Development and delivery approach, tailoring and, 137
+- Development Approach and Life Cycle Performance Domain, 32–50
+  - aligning delivery cadence, development approach, and life cycle, 46–49
+  - definitions relevant to, 33
+  - delivery cadence, 33–34
+  - development, cadence, and life cycle relationship, 33
+  - development approaches, 35–41
+  - interactions with other performance domains, 49–50
+  - life cycle and phase definitions, 42–45
+  - outcomes and, 32, 50
+  - overview, 32
+  - tailoring and, 148, 150
+- Development approaches, 35–39
+  - adaptive approach, 38
+  - community center and, 36, 38, 39
+  - considerations for selection of, 39–41
+  - hybrid approach, 36
+  - incremental development, 37
+  - iterative development, 37
+  - planning variables and, 53
+  - predictive approach, 35–36
+  - spectrum view of, 35
+  - tailoring process and, 138
+- Development life cycle, 89
+- Development phase, 47
+- DevOps approach, 34
+- Diagnostics, tailoring and, 151
+- Discourse, positive, 21
+- Discretionary dependency, 60
+- Diversion shield, 18
+- Diversity, reframing and, 121
+
+Index
+
+259

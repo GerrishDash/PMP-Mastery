@@ -1,0 +1,7 @@
+required to be achieved with the remaining resources in order to meet a specified management goal, expressed as the ratio of the cost to finish the outstanding work to the remaining budget. TCPI is the calculated cost performance index that is achieved on the remaining work to meet a specified management goal, such as the BAC or the EAC. If it becomes obvious that the BAC is no longer viable, the project manager should consider the forecasted EAC. Once approved, the EAC may replace the BAC in the TCPI calculation. The equation for the TCPI based on the BAC: (BAC – EV) / (BAC – AC).
+
+The TCPI is conceptually displayed in Figure 7-13. The equation for the TCPI is shown in the lower left as the work remaining (defined as the BAC minus the EV) divided by the funds remaining (which can be either the BAC minus the AC, or the EAC minus the AC).
+
+If the cumulative CPI falls below the baseline (as shown in Figure 7-13), all future work of the project will need to be performed immediately in the range of the TCPI (BAC) (as reflected in the top line of Figure 7-13) to stay within the authorized BAC. Whether this level of performance is achievable is a judgment call based on a number of considerations, including risk, time remaining in the project, and technical performance. This level of performance is displayed as the TCPI (EAC) line. The equation for the TCPI is based on the EAC: (BAC – EV) / (EAC – AC). The EVM formulas are provided in Table 7-1.
+
+274

@@ -1,0 +1,11 @@
+2
+
+## INITIATING PROCESS GROUP
+
+The Initiating Process Group consists of those processes performed to define a new project or a new phase of an existing project by obtaining authorization to start the project or phase. The purpose of the Initiating Process Group is to align the stakeholders' expectations and the project purpose, inform stakeholders of the scope and objectives, and discuss how their participation in the project and its associated phases can help to ensure their expectations are met. Within the Initiating processes, the initial scope is defined and initial financial resources are committed. Stakeholders who will interact and influence the overall outcome of the project are identified. If not already assigned, the project manager is appointed. This information is captured in the project charter and stakeholder register. When the project charter is approved, the project is officially authorized, and the project manager is authorized to apply organizational resources to project activities.
+
+The key benefits of this Process Group are that only projects that are aligned with the organization's strategic objectives are authorized and that the business case, benefits, and stakeholders are considered from the start of the project. In some organizations, the project manager is involved in developing the business case and defining the benefits. In those organizations, the project manager generally helps write the project charter; in other organizations, the pre-project work is done by the project sponsor, project management office (PMO), portfolio steering committee, or other stakeholder group. This standard assumes the project has been approved by the sponsor or other governing body and they have reviewed the business documents prior to authorizing the project.
+
+Business documents are documents that are generally originated outside of the project, but are used as input to the project. Examples of business documents include the business case, and benefits management plan. Figure 2-1 shows the sponsor and the business documents in relation to the Initiating Processes.
+
+538

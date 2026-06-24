@@ -1,0 +1,18 @@
+limited to the risk report described in Section 11.2.3.2. The risk report will be updated to reflect the results of the quantitative risk analysis. This will typically include:
+
+- ◆ Assessment of overall project risk exposure. Overall project risk is reflected in two key measures:
+  - ■ Chances of project success, indicated by the probability that the project will achieve its key objectives (e.g., required end date or interim milestones, required cost target, etc.) given the identified individual project risks and other sources of uncertainty; and
+  - ■ Degree of inherent variability remaining within the project at the time the analysis was conducted, indicated by the range of possible project outcomes.
+- ◆ Detailed probabilistic analysis of the project. Key outputs from the quantitative risk analysis are presented, such as S-curves, tornado diagrams, and criticality analysis, together with a narrative interpretation of the results. Possible detailed results of a quantitative risk analysis may include:
+  - ■ Amount of contingency reserve needed to provide a specified level of confidence;
+  - ■ Identification of individual project risks or other sources of uncertainty that have the greatest effect on the project critical path; and
+  - ■ Major drivers of overall project risk, with the greatest influence on uncertainty in project outcomes.
+- ◆ Prioritized list of individual project risks. This list includes those individual project risks that pose the greatest threat or present the greatest opportunity to the project, as indicated by sensitivity analysis.
+- ◆ Trends in quantitative risk analysis results. As the analysis is repeated at different times during the project life cycle, trends may become apparent that inform the planning of risk responses.
+- ◆ Recommended risk responses. The risk report may present suggested responses to the level of overall project risk exposure or key individual project risks, based on the results of the quantitative risk analysis. These recommendations will form inputs to the Plan Risk Responses process.
+
+## 11.5 PLAN RISK RESPONSES
+
+Plan Risk Responses is the process of developing options, selecting strategies, and agreeing on actions to address overall project risk exposure, as well as to treat individual project risks. The key benefit of this process is that it identifies appropriate ways to address overall project risk and individual project risks. This process also allocates resources and
+
+426
