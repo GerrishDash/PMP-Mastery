@@ -2147,13 +2147,14 @@ body {
   overflow: hidden;
   user-select: none;
   transition: background-color 0.3s ease;
+  /* Bottom nav bar space handled by kindle-viewport padding */
 }
 
-/* Tap Zones */
+/* Tap Zones — stop above the nav bar (64px) */
 .kindle-tap-zone {
   position: absolute;
   top: 0;
-  bottom: 0;
+  bottom: 64px;
   z-index: 20;
 }
 
@@ -2435,12 +2436,14 @@ body {
 /* Reading Viewport & Canvas Layout */
 .kindle-viewport {
   width: 100%;
-  height: 100%;
+  flex: 1;
   display: flex;
   justify-content: center;
-  align-items: center;
-  overflow: auto;
-  padding: 24px;
+  align-items: flex-start;  /* top-align for vertical scroll */
+  overflow-y: scroll;       /* always show scrollbar track */
+  overflow-x: hidden;
+  padding: 24px 24px 32px;  /* bottom padding inside viewport */
+  scroll-behavior: smooth;
 }
 
 .kindle-canvas-container {
@@ -2450,6 +2453,108 @@ body {
   background: #ffffff;
   box-shadow: 0 10px 35px rgba(0,0,0,0.35);
   border-radius: 3px;
+  /* Allows content to be taller than viewport — scroll shows bottom/top of adjacent pages */
+  min-height: min-content;
+}
+
+/* ── Always-Visible Navigation Bar ── */
+.kindle-nav-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  z-index: 35;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  background: rgba(10, 14, 26, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  gap: 12px;
+}
+
+.kindle-nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 10px;
+  color: #e2e8f0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  min-width: 90px;
+  justify-content: center;
+  letter-spacing: 0.02em;
+  font-family: var(--font-sans);
+}
+
+.kindle-nav-btn:hover:not(:disabled) {
+  background: rgba(255,255,255,0.14);
+  border-color: rgba(255,255,255,0.25);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.kindle-nav-btn:active:not(:disabled) {
+  transform: translateY(0);
+  background: rgba(255,255,255,0.1);
+}
+
+.kindle-nav-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.kindle-nav-page-info {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.7);
+  font-family: var(--font-mono);
+  text-align: center;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Theme variants for nav bar */
+.kindle-reader-overlay.theme-light .kindle-nav-bar {
+  background: rgba(240, 238, 232, 0.92);
+  border-top-color: rgba(0,0,0,0.1);
+}
+.kindle-reader-overlay.theme-light .kindle-nav-btn {
+  background: rgba(0,0,0,0.06);
+  border-color: rgba(0,0,0,0.12);
+  color: #1a1a1a;
+}
+.kindle-reader-overlay.theme-light .kindle-nav-btn:hover:not(:disabled) {
+  background: rgba(0,0,0,0.12);
+}
+.kindle-reader-overlay.theme-light .kindle-nav-page-info {
+  color: rgba(0,0,0,0.6);
+}
+
+.kindle-reader-overlay.theme-sepia .kindle-nav-bar {
+  background: rgba(244, 236, 216, 0.92);
+  border-top-color: rgba(91,70,54,0.15);
+}
+.kindle-reader-overlay.theme-sepia .kindle-nav-btn {
+  background: rgba(91,70,54,0.08);
+  border-color: rgba(91,70,54,0.2);
+  color: #5b4636;
+}
+.kindle-reader-overlay.theme-sepia .kindle-nav-btn:hover:not(:disabled) {
+  background: rgba(91,70,54,0.15);
+}
+.kindle-reader-overlay.theme-sepia .kindle-nav-page-info {
+  color: rgba(91,70,54,0.7);
 }
 
 .kindle-canvas-container canvas {

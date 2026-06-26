@@ -179,6 +179,10 @@ const initApp = () => {
   const kindleBtnGridView = document.getElementById('kindleBtnGridView');
   const lblKindleZoomScale = document.getElementById('lblKindleZoomScale');
   const lblUploadBookTitle = document.getElementById('lblUploadBookTitle');
+  // Nav bar elements
+  const kindleBtnPrev = document.getElementById('kindleBtnPrev');
+  const kindleBtnNext = document.getElementById('kindleBtnNext');
+  const kindleNavPageInfo = document.getElementById('kindleNavPageInfo');
 
   // ══════════════════════════════════════════════
   //  DATA: 12 PRINCIPLES (PMBOK 7)
@@ -2493,6 +2497,12 @@ const initApp = () => {
       const pageIdx = parseInt(li.dataset.page);
       li.classList.toggle('active', pageIdx === currentPageIndex);
     });
+    // Sync nav bar
+    if (kindleNavPageInfo) {
+      kindleNavPageInfo.textContent = `Page ${currentPageIndex + 1} of ${totalPages}`;
+    }
+    if (kindleBtnPrev) kindleBtnPrev.disabled = currentPageIndex <= 0;
+    if (kindleBtnNext) kindleBtnNext.disabled = currentPageIndex >= totalPages - 1;
   }
 
   // 3. Viewport Render Page with Scale & Fitting calculations
@@ -2519,6 +2529,8 @@ const initApp = () => {
 
         kindleLoader.querySelector('#lblKindleLoaderText').textContent = `Loading Page ${pageNum}...`;
         kindleLoader.classList.remove('hidden');
+        // Reset scroll to top on new page load
+        if (kindleViewport) kindleViewport.scrollTop = 0;
 
         // Fetch bypassing SW cache to avoid ERR_FAILED on special-char folder names
         const controller = new AbortController();
@@ -2556,6 +2568,8 @@ const initApp = () => {
       } else {
         // PDF Canvas rendering (for custom uploaded PDF)
         if (!currentPdfDoc) return;
+        // Reset scroll to top on new page load
+        if (kindleViewport) kindleViewport.scrollTop = 0;
         const page = await currentPdfDoc.getPage(currentPageIndex + 1);
 
         // Compute Fitting scales
@@ -2617,7 +2631,28 @@ const initApp = () => {
     safeLS.setItem('pmp_reader_fit', readerFitMode);
   }
 
-  // 4. Margin Tap Navigation & Gestures
+  // 4. Back Button → close reader and return to dashboard
+  kindleBtnBack.addEventListener('click', () => {
+    closeKindleReader();
+  });
+
+  // 5. Persistent Prev / Next Navigation Buttons
+  kindleBtnPrev.addEventListener('click', () => {
+    if (currentPageIndex > 0) {
+      currentPageIndex--;
+      renderKindlePage();
+    }
+  });
+
+  kindleBtnNext.addEventListener('click', () => {
+    const total = getTotalPages();
+    if (currentPageIndex < total - 1) {
+      currentPageIndex++;
+      renderKindlePage();
+    }
+  });
+
+  // 6. Margin Tap Navigation & Gestures
   kindleZoneLeft.addEventListener('click', (e) => {
     e.stopPropagation();
     if (currentPageIndex > 0) {
