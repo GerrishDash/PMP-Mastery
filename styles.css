@@ -2141,6 +2141,8 @@ body {
 .kindle-reader-overlay {
   position: fixed;
   inset: 0;
+  /* Use dynamic viewport height to account for mobile browser chrome */
+  height: 100dvh;
   z-index: 100000;
   display: flex;
   flex-direction: column;
@@ -2446,6 +2448,14 @@ body {
   scroll-behavior: smooth;
 }
 
+/* On mobile: remove all padding so content fills edge-to-edge */
+@media (max-width: 768px) {
+  .kindle-viewport {
+    padding: 0;
+    align-items: stretch;
+  }
+}
+
 .kindle-canvas-container {
   position: relative;
   display: flex;
@@ -2457,18 +2467,33 @@ body {
   min-height: min-content;
 }
 
+/* On mobile: fill the full width edge-to-edge, no radius */
+@media (max-width: 768px) {
+  .kindle-canvas-container {
+    width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .kindle-canvas-container canvas {
+    width: 100% !important; /* override inline width set by pdf.js */
+    height: auto !important;
+    display: block;
+  }
+}
+
 /* ── Always-Visible Navigation Bar ── */
 .kindle-nav-bar {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 64px;
+  height: calc(64px + env(safe-area-inset-bottom, 0px));
   z-index: 35;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 16px;
+  padding: 0 16px env(safe-area-inset-bottom, 0px);
   background: rgba(10, 14, 26, 0.88);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -2873,9 +2898,50 @@ body {
 
 @media (max-width: 600px) {
   .kindle-text-content {
-    padding: 24px 16px;
+    padding: 16px 14px 24px; /* Compact mobile padding */
     font-size: 1rem;
     line-height: 1.7;
+    max-width: 100%;         /* Fill full width on mobile */
+    border-radius: 0;        /* Edge-to-edge */
+    box-shadow: none;
+    min-height: 100%;
+  }
+}
+
+/* Ensure the whole reader fills true mobile screen height */
+@media (max-width: 768px) {
+  .kindle-reader-overlay {
+    height: 100dvh;
+    height: 100vh; /* Fallback for browsers without dvh support */
+  }
+
+  .kindle-text-content {
+    max-width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 20px 16px 24px;
+    min-height: 100%;
+  }
+
+  /* Nav bar slightly smaller on mobile */
+  .kindle-nav-bar {
+    height: 56px;
+    padding: 0 10px;
+  }
+
+  .kindle-nav-btn {
+    min-width: 72px;
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+
+  .kindle-nav-page-info {
+    font-size: 0.72rem;
+  }
+
+  /* Adjust tap zones for smaller nav bar */
+  .kindle-tap-zone {
+    bottom: 56px;
   }
 }
 

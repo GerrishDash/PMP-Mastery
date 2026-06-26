@@ -2572,9 +2572,9 @@ const initApp = () => {
         if (kindleViewport) kindleViewport.scrollTop = 0;
         const page = await currentPdfDoc.getPage(currentPageIndex + 1);
 
-        // Compute Fitting scales
-        const viewWidth = kindleViewport.clientWidth - 48; // adjusted padding
-        const viewHeight = kindleViewport.clientHeight - 48;
+        // Compute Fitting scales — use actual viewport size (no assumed padding on mobile)
+        const viewWidth = kindleViewport.clientWidth;
+        const viewHeight = kindleViewport.clientHeight;
         let viewport = page.getViewport({ scale: readerZoomScale });
 
         if (readerFitMode === 'width') {
@@ -2683,6 +2683,18 @@ const initApp = () => {
   function getTotalPages() {
     return (currentBookId in localBooks) ? localBooks[currentBookId].pages : (currentPdfDoc ? currentPdfDoc.numPages : 1);
   }
+
+  // Re-render on resize (handles orientation changes & mobile browser bar show/hide)
+  let resizeRenderTimer = null;
+  const viewportResizeObserver = new ResizeObserver(() => {
+    clearTimeout(resizeRenderTimer);
+    resizeRenderTimer = setTimeout(() => {
+      if (!kindleReaderOverlay.classList.contains('hidden') && !isRendering) {
+        renderKindlePage();
+      }
+    }, 200);
+  });
+  viewportResizeObserver.observe(kindleViewport);
 
   // Swipe gestures
   let touchStartX = 0;
