@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pmp-mastery-v10';
+const CACHE_NAME = 'pmp-mastery-v11';
 const ASSETS = [
   './index.html',
   './styles.css',
@@ -42,6 +42,23 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   // Only handle GET requests and local scope
   if (event.request.method !== 'GET') return;
+
+  const url = event.request.url;
+
+  // For dynamic book page content (markdown files), bypass cache entirely
+  // This avoids ERR_FAILED crashes on folder names with special characters (®, –, etc.)
+  if (url.includes('/pages/page-') && url.includes('/markdown.md')) {
+    event.respondWith(
+      fetch(event.request, { cache: 'no-store' }).catch(() => {
+        return new Response('Page content offline', {
+          status: 503,
+          statusText: 'Service Unavailable',
+          headers: new Headers({ 'Content-Type': 'text/plain' })
+        });
+      })
+    );
+    return;
+  }
 
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {

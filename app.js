@@ -2520,10 +2520,10 @@ const initApp = () => {
         kindleLoader.querySelector('#lblKindleLoaderText').textContent = `Loading Page ${pageNum}...`;
         kindleLoader.classList.remove('hidden');
 
-        // Fetch with timeout to avoid hanging on stale service worker cache
+        // Fetch bypassing SW cache to avoid ERR_FAILED on special-char folder names
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 10000);
-        const response = await fetch(pageUrl, { signal: controller.signal });
+        const response = await fetch(pageUrl, { signal: controller.signal, cache: 'no-store' });
         clearTimeout(timeoutId);
         if (!response.ok) throw new Error(`Page markdown file not found (HTTP ${response.status}).`);
         const md = await response.text();
@@ -2592,9 +2592,14 @@ const initApp = () => {
       }
     } catch (err) {
       console.error('Page render error:', err);
-      alert('Error: Failed to load book content. ' + err.message);
       kindleLoader.classList.add('hidden');
-      closeKindleReader();
+      // Show error inline instead of closing reader - lets user try navigating
+      const kindleTextContent = document.getElementById('kindleTextContent');
+      if (kindleTextContent && !kindleTextContent.classList.contains('hidden')) {
+        kindleTextContent.innerHTML = `<div style="padding:2rem;text-align:center;color:#e74c3c;"><h3>⚠️ Failed to load page ${currentPageIndex + 1}</h3><p style="color:#aaa">${err.message}</p><p style="color:#aaa">Try navigating to another page.</p></div>`;
+      } else {
+        alert('Error: Failed to load page ' + (currentPageIndex + 1) + '. ' + err.message);
+      }
     } finally {
       isRendering = false;
       if (renderPendingIndex !== null) {

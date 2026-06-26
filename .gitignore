@@ -17,3 +17,7 @@
 Key1
 Key1.pub
 Key/
+
+# Exclude dependencies and test files
+node_modules/
+test_click.js
