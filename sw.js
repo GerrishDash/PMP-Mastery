@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pmp-mastery-v8';
+const CACHE_NAME = 'pmp-mastery-v10';
 const ASSETS = [
   './index.html',
   './styles.css',
@@ -62,8 +62,13 @@ self.addEventListener('fetch', (event) => {
 
         return networkResponse;
       }).catch(() => {
-        // If offline and request fails (and isn't cached), could return an offline page if it existed
+        // If offline and request fails (and isn't cached), return a proper error response
         console.error('[Service Worker] Fetch failed offline for:', event.request.url);
+        return new Response('Offline - resource not cached', {
+          status: 503,
+          statusText: 'Service Unavailable',
+          headers: new Headers({ 'Content-Type': 'text/plain' })
+        });
       });
     })
   );

@@ -21,6 +21,13 @@ const initApp = () => {
       } catch (e) {
         console.warn('localStorage is blocked or unavailable:', e);
       }
+    },
+    removeItem(key) {
+      try {
+        localStorage.removeItem(key);
+      } catch (e) {
+        console.warn('localStorage is blocked or unavailable:', e);
+      }
     }
   };
 
@@ -109,6 +116,7 @@ const initApp = () => {
   let readerFitMode = safeLS.getItem('pmp_reader_fit') || 'width'; // 'width' or 'page'
   let isRendering = false;
   let renderPendingIndex = null;
+  let activeSearchQuery = '';
 
   function closeAllDrawers() {
     document.querySelectorAll('.kindle-drawer').forEach(d => d.classList.remove('visible'));
@@ -165,6 +173,12 @@ const initApp = () => {
   const kindleCanvas = document.getElementById('kindleCanvas');
   const kindleBookmarkRibbon = document.getElementById('kindleBookmarkRibbon');
   const pdfFileInput = document.getElementById('pdfFileInput');
+  const kindleZoneLeft = document.getElementById('kindleZoneLeft');
+  const kindleZoneRight = document.getElementById('kindleZoneRight');
+  const kindleZoneCenter = document.getElementById('kindleZoneCenter');
+  const kindleBtnGridView = document.getElementById('kindleBtnGridView');
+  const lblKindleZoomScale = document.getElementById('lblKindleZoomScale');
+  const lblUploadBookTitle = document.getElementById('lblUploadBookTitle');
 
   // ══════════════════════════════════════════════
   //  DATA: 12 PRINCIPLES (PMBOK 7)
@@ -603,9 +617,6 @@ const initApp = () => {
     domainsGrid.appendChild(card);
   });
 
-  // ══════════════════════════════════════════════
-  //  FLASHCARDS
-  // ══════════════════════════════════════════════
   // ══════════════════════════════════════════════
   //  FLASHCARDS (SPACED REPETITION / LEITNER SYSTEM)
   // ══════════════════════════════════════════════
@@ -2378,12 +2389,7 @@ const initApp = () => {
     }
 
     // Update title
-    let titleStr = 'PMBOK 7th Edition';
-    if (bookId in localBooks) {
-      titleStr = localBooks[bookId].title;
-    } else if (bookId === 'custom') {
-      titleStr = safeLS.getItem('pmp_custom_filename') || 'Custom Study Guide';
-    }
+    const titleStr = getBookTitle(bookId);
     kindleBookTitle.textContent = titleStr;
 
     try {
@@ -2467,6 +2473,28 @@ const initApp = () => {
     updateBookshelfUI();
   }
 
+  // Helper: Resolve a book title from its bookId
+  function getBookTitle(bookId) {
+    if (bookId in localBooks) return localBooks[bookId].title;
+    if (bookId === 'custom') return safeLS.getItem('pmp_custom_filename') || 'Custom Study Guide';
+    return 'PMBOK 7th Edition';
+  }
+
+  // Helper: Shared post-render UI update for the reader
+  function updateReaderUI(totalPages) {
+    const pct = Math.round((currentPageIndex / (totalPages - 1 || 1)) * 100);
+    kindleProgressStatus.textContent = `Location ${currentPageIndex + 1} of ${totalPages} · ${pct}%`;
+    kindleProgressSlider.value = pct;
+    safeLS.setItem(`pmp_bookmark_${currentBookId}`, currentPageIndex);
+    const dateStr = new Date().toLocaleString('en-US', { hour12: true, month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+    safeLS.setItem(`pmp_bookmark_time_${currentBookId}`, dateStr);
+    updateBookmarkRibbonUI();
+    document.querySelectorAll('#kindleTOCList li').forEach(li => {
+      const pageIdx = parseInt(li.dataset.page);
+      li.classList.toggle('active', pageIdx === currentPageIndex);
+    });
+  }
+
   // 3. Viewport Render Page with Scale & Fitting calculations
   async function renderKindlePage() {
     const isLocal = (currentBookId in localBooks);
@@ -2492,8 +2520,12 @@ const initApp = () => {
         kindleLoader.querySelector('#lblKindleLoaderText').textContent = `Loading Page ${pageNum}...`;
         kindleLoader.classList.remove('hidden');
 
-        const response = await fetch(pageUrl);
-        if (!response.ok) throw new Error('Page markdown file not found.');
+        // Fetch with timeout to avoid hanging on stale service worker cache
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 10000);
+        const response = await fetch(pageUrl, { signal: controller.signal });
+        clearTimeout(timeoutId);
+        if (!response.ok) throw new Error(`Page markdown file not found (HTTP ${response.status}).`);
         const md = await response.text();
 
         // Convert to HTML via marked.parse
@@ -2519,25 +2551,7 @@ const initApp = () => {
         }
         kindleTextContent.style.fontSize = `${1.12 * readerZoomScale}rem`;
 
-        // Update HUD Metrics
-        const pct = Math.round((currentPageIndex / (totalPages - 1 || 1)) * 100);
-        kindleProgressStatus.textContent = `Location ${pageNum} of ${totalPages} · ${pct}%`;
-        kindleProgressSlider.value = pct;
-
-        // Auto-save progress
-        safeLS.setItem(`pmp_bookmark_${currentBookId}`, currentPageIndex);
-        const dateStr = new Date().toLocaleString('en-US', { hour12: true, month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
-        safeLS.setItem(`pmp_bookmark_time_${currentBookId}`, dateStr);
-
-        // Bookmark ribbon checks
-        updateBookmarkRibbonUI();
-
-        // Update TOC Highlight
-        document.querySelectorAll('#kindleTOCList li').forEach(li => {
-          const pageIdx = parseInt(li.dataset.page);
-          li.classList.toggle('active', pageIdx === currentPageIndex);
-        });
-
+        updateReaderUI(totalPages);
         kindleLoader.classList.add('hidden');
       } else {
         // PDF Canvas rendering (for custom uploaded PDF)
@@ -2574,24 +2588,7 @@ const initApp = () => {
 
         await page.render(renderContext).promise;
 
-        // Update HUD Metrics
-        const pct = Math.round((currentPageIndex / (totalPages - 1 || 1)) * 100);
-        kindleProgressStatus.textContent = `Location ${currentPageIndex + 1} of ${totalPages} · ${pct}%`;
-        kindleProgressSlider.value = pct;
-
-        // Auto-save progress
-        safeLS.setItem(`pmp_bookmark_${currentBookId}`, currentPageIndex);
-        const dateStr = new Date().toLocaleString('en-US', { hour12: true, month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
-        safeLS.setItem(`pmp_bookmark_time_${currentBookId}`, dateStr);
-
-        // Bookmark ribbon checks
-        updateBookmarkRibbonUI();
-
-        // Update TOC Highlight
-        document.querySelectorAll('#kindleTOCList li').forEach(li => {
-          const pageIdx = parseInt(li.dataset.page);
-          li.classList.toggle('active', pageIdx === currentPageIndex);
-        });
+        updateReaderUI(totalPages);
       }
     } catch (err) {
       console.error('Page render error:', err);
@@ -2631,6 +2628,16 @@ const initApp = () => {
       currentPageIndex++;
       renderKindlePage();
     }
+  });
+
+  // Center tap zone toggles HUD visibility
+  kindleZoneCenter.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isVisible = kindleHUDHeader.classList.contains('visible');
+    toggleHUD(!isVisible);
+    // Close any open popovers/drawers when toggling HUD
+    kindleAaPopover.classList.remove('visible');
+    closeAllDrawers();
   });
 
   function getTotalPages() {
@@ -2684,12 +2691,19 @@ const initApp = () => {
     }
   });
 
-  // Footer range progress slider scrub
+  // Footer range progress slider scrub (debounced to prevent excessive renders)
+  let sliderDebounceTimer = null;
   kindleProgressSlider.addEventListener('input', () => {
     const total = getTotalPages();
     const pct = parseInt(kindleProgressSlider.value);
     currentPageIndex = Math.round((pct / 100) * (total - 1));
-    renderKindlePage();
+    // Update status text immediately for responsiveness
+    kindleProgressStatus.textContent = `Location ${currentPageIndex + 1} of ${total} · ${pct}%`;
+    // Debounce the expensive page render
+    if (sliderDebounceTimer) clearTimeout(sliderDebounceTimer);
+    sliderDebounceTimer = setTimeout(() => {
+      renderKindlePage();
+    }, 150);
   });
 
   // 5. Bookmark Ribbon Logic (Visual ribbon + HUD toggle)
@@ -2862,41 +2876,46 @@ const initApp = () => {
   }
 
   // Bind Fit controls
-  document.getElementById('btnKindleFitWidth').addEventListener('click', (e) => {
+  const btnKindleFitWidth = document.getElementById('btnKindleFitWidth');
+  const btnKindleFitPage = document.getElementById('btnKindleFitPage');
+  const btnKindleZoomDec = document.getElementById('btnKindleZoomDec');
+  const btnKindleZoomInc = document.getElementById('btnKindleZoomInc');
+
+  btnKindleFitWidth.addEventListener('click', (e) => {
     e.stopPropagation();
-    document.getElementById('btnKindleFitWidth').classList.add('active');
-    document.getElementById('btnKindleFitPage').classList.remove('active');
+    btnKindleFitWidth.classList.add('active');
+    btnKindleFitPage.classList.remove('active');
     readerFitMode = 'width';
     renderKindlePage();
   });
 
-  document.getElementById('btnKindleFitPage').addEventListener('click', (e) => {
+  btnKindleFitPage.addEventListener('click', (e) => {
     e.stopPropagation();
-    document.getElementById('btnKindleFitPage').classList.add('active');
-    document.getElementById('btnKindleFitWidth').classList.remove('active');
+    btnKindleFitPage.classList.add('active');
+    btnKindleFitWidth.classList.remove('active');
     readerFitMode = 'page';
     renderKindlePage();
   });
 
   // Bind zoom buttons
-  document.getElementById('btnKindleZoomDec').addEventListener('click', (e) => {
+  btnKindleZoomDec.addEventListener('click', (e) => {
     e.stopPropagation();
     if (readerZoomScale > 0.3) {
       readerFitMode = 'custom';
-      document.getElementById('btnKindleFitWidth').classList.remove('active');
-      document.getElementById('btnKindleFitPage').classList.remove('active');
+      btnKindleFitWidth.classList.remove('active');
+      btnKindleFitPage.classList.remove('active');
       readerZoomScale = Math.max(0.3, readerZoomScale - 0.15);
       updateZoomDisplay();
       renderKindlePage();
     }
   });
 
-  document.getElementById('btnKindleZoomInc').addEventListener('click', (e) => {
+  btnKindleZoomInc.addEventListener('click', (e) => {
     e.stopPropagation();
     if (readerZoomScale < 3.0) {
       readerFitMode = 'custom';
-      document.getElementById('btnKindleFitWidth').classList.remove('active');
-      document.getElementById('btnKindleFitPage').classList.remove('active');
+      btnKindleFitWidth.classList.remove('active');
+      btnKindleFitPage.classList.remove('active');
       readerZoomScale = Math.min(3.0, readerZoomScale + 0.15);
       updateZoomDisplay();
       renderKindlePage();
@@ -3091,10 +3110,7 @@ const initApp = () => {
     const wasVisible = kindleAboutDrawer.classList.contains('visible');
     closeAllDrawers();
     if (!wasVisible) {
-      let titleStr = 'PMBOK 7th Edition';
-      if (currentBookId === 'pmbok6') titleStr = 'PMBOK 6th Edition';
-      else if (currentBookId === 'processgroups') titleStr = 'Process Groups Practice Guide';
-      else if (currentBookId === 'custom') titleStr = safeLS.getItem('pmp_custom_filename') || 'Custom Study Guide';
+      const titleStr = getBookTitle(currentBookId);
 
       kindleAboutTitle.textContent = titleStr;
       
@@ -3158,10 +3174,7 @@ const initApp = () => {
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
       currentBookId = btn.dataset.book;
-      let titleStr = 'PMBOK 7th Edition';
-      if (currentBookId === 'pmbok6') titleStr = 'PMBOK 6th Edition';
-      else if (currentBookId === 'custom') titleStr = 'Custom Study Guide';
-      lblUploadBookTitle.textContent = `Upload ${titleStr}`;
+      lblUploadBookTitle.textContent = `Upload ${getBookTitle(currentBookId)}`;
       bookshelfUploadZone.classList.remove('hidden');
       window.scrollTo({ top: bookshelfUploadZone.offsetTop - 50, behavior: 'smooth' });
     });
@@ -3336,17 +3349,6 @@ const initApp = () => {
     if (alertEl) {
       alertEl.classList.remove('hidden');
     }
-  }
-
-
-  // Load Saved Settings from LocalStorage
-  if (safeLS.getItem('pmp_notif_interval')) {
-    notifIntervalSelect.value = safeLS.getItem('pmp_notif_interval');
-  }
-  
-  updateNotifUI();
-  if (safeLS.getItem('pmp_notif_enabled') === 'true') {
-    startScheduler();
   }
 
   // Initialize quiz
