@@ -3526,7 +3526,8 @@ const initApp = () => {
       summary: "A new study by PMI reveals that 62% of high-performing organizations are adopting generative AI tools to automate scope verification and schedule risk forecasting.",
       content: "AI-driven predictive scheduling is changing how PMOs work. By analyzing historical project performance, team velocities, and dependency patterns, AI tools can predict potential bottlenecks weeks in advance. PMI's latest research highlights that organizations combining predictive governance with agile execution (hybrid framework) realize 15% higher value outcomes when leveraging Generative AI for risk identification and tailwind analysis. PMs are encouraged to upskill in prompt engineering and data analytics to remain competitive.",
       readTime: "4 min",
-      daysAgo: 2
+      daysAgo: 2,
+      link: "https://www.pmi.org/learning/thought-leadership/pulse"
     },
     {
       id: 2,
@@ -3536,7 +3537,8 @@ const initApp = () => {
       summary: "SpaceTech teams have successfully scaled Scrum to hardware manufacturing by using iterative testing cycles and modular design principles.",
       content: "Traditional hardware development has long been considered purely predictive. However, SpaceTech startups are demonstrating that agile scaling frameworks (like SAFe or LeSS) can be adapted to rocket manufacturing and satellite engineering. By utilizing 3D printing and digital twin simulations, engineers can run weekly sprint reviews on actual physical hardware components, decreasing design-to-manufacture cycles by 40%.",
       readTime: "5 min",
-      daysAgo: 4
+      daysAgo: 4,
+      link: "https://www.scrumalliance.org/about-scrum/stories/scrum-in-hardware"
     },
     {
       id: 3,
@@ -3546,7 +3548,8 @@ const initApp = () => {
       summary: "This paper outlines practical methodologies for tailoring project life cycles by combining PMBOK 7th edition principles with Kanban boards.",
       content: "Tailoring is the key performance driver in PMBOK 7. Rather than choosing between Waterfall and Scrum, project leaders are mixing development life cycles. For example, a software-enabled medical device project might use predictive milestones for regulatory approvals while utilizing a Scrum framework for software sprints. This hybrid setup requires strong governance combined with operational agility.",
       readTime: "6 min",
-      daysAgo: 6
+      daysAgo: 6,
+      link: "https://www.projectmanagement.com/articles/hybrid-project-management-in-practice"
     },
     {
       id: 4,
@@ -3556,7 +3559,8 @@ const initApp = () => {
       summary: "PMI has released an official framework detailing the ethical use of LLMs in drafting project charters, stakeholder registers, and risk matrices.",
       content: "As Generative AI becomes ubiquitous, PMI has established guidelines to ensure data privacy, intellectual property protection, and human oversight. The guidelines emphasize that while LLMs are excellent for bootstrapping drafts of project charters and requirements documents, the project manager remains solely accountable for validation and stakeholder alignment.",
       readTime: "3 min",
-      daysAgo: 8
+      daysAgo: 8,
+      link: "https://www.pmi.org/learning/library/generative-ai-project-management"
     },
     {
       id: 5,
@@ -3566,7 +3570,8 @@ const initApp = () => {
       summary: "Modern PMOs are shifting from administrative compliance centers to strategic centers of excellence focused on Agile business transformation.",
       content: "According to HBR, the traditional PMO focused on monitoring budgets and schedules is dying. The next-generation PMO acts as a strategic business partner, coaching organizational change management, driving enterprise-wide agility, and ensuring project portfolio alignment with quarterly objectives.",
       readTime: "7 min",
-      daysAgo: 11
+      daysAgo: 11,
+      link: "https://hbr.org/2023/07/why-your-pmo-should-be-a-strategic-advisor"
     },
     {
       id: 6,
@@ -3576,7 +3581,8 @@ const initApp = () => {
       summary: "Velocity is a planning metric, not a performance metric. Scrum guides suggest shifting to cycle time and customer value metrics.",
       content: "Many organizations fall into the trap of using velocity to compare Scrum teams. Experts advise looking at cycle time (time from start to finish of an item) and throughput, alongside employee engagement and customer feedback, to capture a true picture of team productivity.",
       readTime: "5 min",
-      daysAgo: 14
+      daysAgo: 14,
+      link: "https://www.scrumalliance.org/about-scrum/stories/agile-metrics-beyond-velocity"
     },
     {
       id: 7,
@@ -3586,7 +3592,8 @@ const initApp = () => {
       summary: "A step-by-step framework to link high-level risk registers with low-level Scrum sprints and backlog refinement.",
       content: "In hybrid projects, Waterfall risk logs often sit isolated from Scrum sprint planning. A modern approach involves mapping risk register entries to specific backlog user stories, ensuring risk response strategies are actively refined and executed during sprints.",
       readTime: "5 min",
-      daysAgo: 18
+      daysAgo: 18,
+      link: "https://www.projectmanagement.com/articles/hybrid-risk-management-agile-backlog"
     },
     {
       id: 8,
@@ -3596,7 +3603,8 @@ const initApp = () => {
       summary: "Tips on using frequent stakeholder demos and value delivery metrics over standard progress reports.",
       content: "In volatile projects, standard status reports quickly become obsolete. PMI suggests utilizing interactive stakeholder demos at the end of sprints and value metrics (like Net Promoter Score or early release feedback) to align expectations and build trust.",
       readTime: "4 min",
-      daysAgo: 3
+      daysAgo: 3,
+      link: "https://www.pmi.org/learning/library/stakeholder-expectations-high-uncertainty"
     },
     {
       id: 9,
@@ -3606,7 +3614,8 @@ const initApp = () => {
       summary: "LinkedIn analysis shows a 22% increase in hiring listings requiring a PMP certification for remote engineering and healthcare roles.",
       content: "A recent analysis of job listings on LinkedIn indicates that the PMP certification remains the gold standard. Remote roles, in particular, demand the PMP to ensure managers have structured communication skills needed to lead distributed teams across time zones.",
       readTime: "3 min",
-      daysAgo: 5
+      daysAgo: 5,
+      link: "https://www.linkedin.com/news/"
     },
     {
       id: 10,
@@ -3616,7 +3625,8 @@ const initApp = () => {
       summary: "Using AI to track developer code output or team sentiment risks serious ethical backlash if transparency and safety are missing.",
       content: "As tools emerge that claim to measure team productivity or burn-out using AI, HR and project leaders must exercise caution. Transparency, team safety, and feedback loops must remain central to avoid developer resistance and culture collapse.",
       readTime: "6 min",
-      daysAgo: 10
+      daysAgo: 10,
+      link: "https://hbr.org/topic/project-management"
     },
     {
       id: 11,
@@ -3626,7 +3636,8 @@ const initApp = () => {
       summary: "Best practices for designing digital Kanban boards to prevent bottlenecks and manage WIP limits remotely.",
       content: "Remote work amplifies workflow bottlenecks. Setting clear WIP (Work In Progress) limits, specifying explicit policies for columns, and conducting daily standups directly around the Kanban board help remote teams stay focused and reduce lead times.",
       readTime: "4 min",
-      daysAgo: 15
+      daysAgo: 15,
+      link: "https://www.scrumalliance.org/resources"
     },
     {
       id: 12,
@@ -3636,7 +3647,8 @@ const initApp = () => {
       summary: "How to integrate ecological impact assessments into project charter templates and risk logs.",
       content: "PMI's focus on social impact is driving project managers to add 'sustainability' as a core project constraint alongside scope, time, cost, and quality. Selecting eco-friendly suppliers and designing energy-efficient delivery life cycles are now crucial steps in modern charters.",
       readTime: "5 min",
-      daysAgo: 19
+      daysAgo: 19,
+      link: "https://www.pmi.org/learning/thought-leadership/sustainability-in-project-management"
     }
   ];
 
@@ -3650,7 +3662,8 @@ const initApp = () => {
       salary: "$130,000 - $160,000/yr",
       requirements: ["PMP Certification required", "7+ years leading software projects", "Experience with hybrid Waterfall/Scrum", "Proficiency in Jira & Confluence"],
       daysAgo: 1,
-      description: "We are seeking a seasoned Remote Senior PM to lead a critical digital transformation initiative. You will coordinate between global stakeholder teams, align program budgets with business cases, and manage scrum masters across three workstreams."
+      description: "We are seeking a seasoned Remote Senior PM to lead a critical digital transformation initiative. You will coordinate between global stakeholder teams, align program budgets with business cases, and manage scrum masters across three workstreams.",
+      link: "https://www.linkedin.com/jobs/search/?keywords=remote%20senior%20project%20manager"
     },
     {
       id: 2,
@@ -3661,7 +3674,8 @@ const initApp = () => {
       salary: "$105,000 - $125,000/yr",
       requirements: ["Active PMP or CAPM", "3+ years technical project management", "Strong understanding of cloud infrastructure (AWS/Azure)", "Agile Scrum Master certification a plus"],
       daysAgo: 2,
-      description: "Join our platform team to manage cloud migration projects. This role requires technical literacy, strong risk analysis capabilities, and excellent cross-functional communication."
+      description: "Join our platform team to manage cloud migration projects. This role requires technical literacy, strong risk analysis capabilities, and excellent cross-functional communication.",
+      link: "https://www.indeed.com/jobs?q=technical+project+manager"
     },
     {
       id: 3,
@@ -3672,7 +3686,8 @@ const initApp = () => {
       salary: "$95,000 - $115,000/yr",
       requirements: ["Certified Scrum Master (CSM)", "3+ years in a dedicated Scrum Master role", "Experience facilitating all Scrum ceremonies", "Strong coaching and impediment resolution skills"],
       daysAgo: 3,
-      description: "Facilitate two remote agile development teams. Remove blockers, guide the product owner on backlog refinement, and help scale scrum practices within the division."
+      description: "Facilitate two remote agile development teams. Remove blockers, guide the product owner on backlog refinement, and help scale scrum practices within the division.",
+      link: "https://www.glassdoor.com/Job/remote-scrum-master-jobs-SRCH_KO0,19.htm"
     },
     {
       id: 4,
@@ -3683,7 +3698,8 @@ const initApp = () => {
       salary: "$60,000 - $75,000/yr",
       requirements: ["CAPM certification is highly preferred", "1-2 years project coordination experience", "Familiarity with Trello or MS Project", "Excellent organization and meeting moderation skills"],
       daysAgo: 5,
-      description: "Support senior project managers with schedule tracking, status report aggregation, and meeting coordination. Great entry-level opportunity for aspiring project managers."
+      description: "Support senior project managers with schedule tracking, status report aggregation, and meeting coordination. Great entry-level opportunity for aspiring project managers.",
+      link: "https://www.indeed.com/jobs?q=junior+project+coordinator"
     },
     {
       id: 5,
@@ -3694,7 +3710,8 @@ const initApp = () => {
       salary: "$180,000 - $210,000/yr",
       requirements: ["PMP & PgMP Certifications", "10+ years running enterprise PMOs", "Experience in healthcare/regulatory compliance", "Mastery of portfolio management (Portfolio Kanban)"],
       daysAgo: 6,
-      description: "Establish governance and standards for our remote PMO. Oversee a portfolio of 40+ active projects, report milestones to executive leadership, and manage program resources."
+      description: "Establish governance and standards for our remote PMO. Oversee a portfolio of 40+ active projects, report milestones to executive leadership, and manage program resources.",
+      link: "https://www.linkedin.com/jobs/search/?keywords=remote%20director%20project%20management"
     },
     {
       id: 6,
@@ -3705,7 +3722,8 @@ const initApp = () => {
       salary: "$90,000 - $110,000/yr",
       requirements: ["PMP Certification preferred", "4+ years software project management", "Experience in retail or e-commerce platforms", "Strong vendor management skills"],
       daysAgo: 7,
-      description: "Lead the migration of our retail operations to a headless commerce architecture. Track release dates, balance team workloads, and report metrics to stakeholders."
+      description: "Lead the migration of our retail operations to a headless commerce architecture. Track release dates, balance team workloads, and report metrics to stakeholders.",
+      link: "https://www.glassdoor.com/Job/remote-ecommerce-project-manager-jobs-SRCH_KO0,32.htm"
     },
     {
       id: 7,
@@ -3716,7 +3734,8 @@ const initApp = () => {
       salary: "$140,000 - $165,000/yr",
       requirements: ["CSM/CSP or PMI-ACP required", "6+ years coaching agile teams", "Experience with scaled agile frameworks (SAFe)", "Background in cybersecurity or DevSecOps"],
       daysAgo: 9,
-      description: "Coach security product teams on agile maturity. Help resolve cross-team dependencies, run agile health checks, and guide developers in self-organization."
+      description: "Coach security product teams on agile maturity. Help resolve cross-team dependencies, run agile health checks, and guide developers in self-organization.",
+      link: "https://www.linkedin.com/jobs/search/?keywords=scrum%20master%20agile%20coach"
     },
     {
       id: 8,
@@ -3727,7 +3746,8 @@ const initApp = () => {
       salary: "$100,000 - $120,000/yr",
       requirements: ["PMP Certification", "4+ years managing IT infrastructure projects", "Experience with network setups and database migrations", "Waterfall methodology governance"],
       daysAgo: 10,
-      description: "Lead infrastructure deployment projects. Create detailed scope statements, manage critical paths, control budgets, and run change control meetings."
+      description: "Lead infrastructure deployment projects. Create detailed scope statements, manage critical paths, control budgets, and run change control meetings.",
+      link: "https://www.indeed.com/jobs?q=it+project+manager"
     },
     {
       id: 9,
@@ -3738,7 +3758,8 @@ const initApp = () => {
       salary: "$70,000 - $85,000/yr",
       requirements: ["PMP or CAPM in progress", "2+ years professional experience", "Strong written and verbal communication", "Agile tool mastery (Jira, Asana)"],
       daysAgo: 12,
-      description: "Work alongside product and engineering teams. Manage sprints, run daily standups, capture retro items, and maintain the team wiki."
+      description: "Work alongside product and engineering teams. Manage sprints, run daily standups, capture retro items, and maintain the team wiki.",
+      link: "https://www.linkedin.com/jobs/search/?keywords=remote%20associate%20project%20manager"
     },
     {
       id: 10,
@@ -3749,7 +3770,8 @@ const initApp = () => {
       salary: "$160,000 - $190,000/yr",
       requirements: ["PMP required", "8+ years in healthcare informatics", "Knowledge of HIPAA compliance and FDA guidelines", "Proven stakeholder management up to C-level"],
       daysAgo: 13,
-      description: "Direct a suite of software implementation projects for top-tier hospitals. Ensure strict compliance, track milestones, and manage a team of 8 remote PMs."
+      description: "Direct a suite of software implementation projects for top-tier hospitals. Ensure strict compliance, track milestones, and manage a team of 8 remote PMs.",
+      link: "https://www.glassdoor.com/Job/remote-healthcare-project-director-jobs-SRCH_KO0,34.htm"
     },
     {
       id: 11,
@@ -3760,7 +3782,8 @@ const initApp = () => {
       salary: "$95,000 - $115,000/yr",
       requirements: ["PMI-ACP or CSM", "3+ years project management in game development", "Experience with Unreal Engine or Unity workflows", "Expertise in Kanban and Scrum"],
       daysAgo: 15,
-      description: "Oversee the core gameplay loop team. Facilitate sprints, balance production velocity with game designer quality goals, and remove creative bottlenecks."
+      description: "Oversee the core gameplay loop team. Facilitate sprints, balance production velocity with game designer quality goals, and remove creative bottlenecks.",
+      link: "https://www.indeed.com/jobs?q=agile+project+manager+gaming"
     },
     {
       id: 12,
@@ -3771,7 +3794,8 @@ const initApp = () => {
       salary: "$110,000 - $130,000/yr",
       requirements: ["PMP and CSM certifications", "5+ years in finance or banking PM", "Experience with secure payment gateway integrations", "Hybrid Scrum/Waterfall expertise"],
       daysAgo: 16,
-      description: "Lead a high-performing team on mobile banking features. Balance Agile velocity for development with Waterfall checkpoints for compliance and audits."
+      description: "Lead a high-performing team on mobile banking features. Balance Agile velocity for development with Waterfall checkpoints for compliance and audits.",
+      link: "https://www.linkedin.com/jobs/search/?keywords=remote%20scrum%20project%20manager"
     },
     {
       id: 13,
@@ -3782,7 +3806,8 @@ const initApp = () => {
       salary: "$65,000 - $80,000/yr",
       requirements: ["1-2 years managing marketing or creative projects", "Knowledge of agile creative processes", "Exceptional multi-tasking skills", "Proficiency in Asana or Monday.com"],
       daysAgo: 17,
-      description: "Coordinate creative campaigns, video production, and copy writing pipelines. Run weekly prioritization sessions and coordinate client feedback loops."
+      description: "Coordinate creative campaigns, video production, and copy writing pipelines. Run weekly prioritization sessions and coordinate client feedback loops.",
+      link: "https://www.glassdoor.com/Job/remote-marketing-project-manager-jobs-SRCH_KO0,30.htm"
     },
     {
       id: 14,
@@ -3793,7 +3818,8 @@ const initApp = () => {
       salary: "$170,000 - $200,000/yr",
       requirements: ["PMP and PgMP required", "8+ years program management", "Mastery of data engineering and analytics platforms", "Strong financial management of program budgets"],
       daysAgo: 19,
-      description: "Manage a program of work focused on enterprise data warehousing. Oversee multiple related project teams, track business value, and align roadmap with corporate strategy."
+      description: "Manage a program of work focused on enterprise data warehousing. Oversee multiple related project teams, track business value, and align roadmap with corporate strategy.",
+      link: "https://www.linkedin.com/jobs/search/?keywords=remote%20senior%20program%20manager"
     },
     {
       id: 15,
@@ -3804,11 +3830,13 @@ const initApp = () => {
       salary: "$120,000 - $140,000/yr",
       requirements: ["Certified Scrum Product Owner (CSPO)", "4+ years software product management", "Experience defining MVP scopes", "Strong backlog prioritization skills"],
       daysAgo: 20,
-      description: "Own the backlog for our mapping division. Define user stories, coordinate release dates, interface with customer success, and drive team focus."
+      description: "Own the backlog for our mapping division. Define user stories, coordinate release dates, interface with customer success, and drive team focus.",
+      link: "https://www.indeed.com/jobs?q=product+owner+project+manager"
     }
   ];
 
   // News Filtering State
+// News Filtering State
   let newsActiveCategory = 'all';
 
   // Jobs Filtering State
@@ -3850,19 +3878,12 @@ const initApp = () => {
             <span>By <strong>${art.source}</strong></span>
             <div style="display:flex; gap:12px; align-items:center;">
               <span class="news-read-time">⏱️ ${art.readTime}</span>
-              <button class="btn btn-secondary btn-read-article" data-id="${art.id}" style="padding:4px 10px; font-size:0.75rem; margin:0; border-radius:4px; height:auto;">Read</button>
+              <a class="btn btn-secondary" href="${art.link}" target="_blank" rel="noopener noreferrer" style="padding:4px 10px; font-size:0.75rem; margin:0; border-radius:4px; height:auto; display:inline-block; text-decoration:none; line-height:1.2;">Read</a>
             </div>
           </div>
         </div>
       `;
     }).join('');
-
-    // Attach listeners
-    container.querySelectorAll('.btn-read-article').forEach(btn => {
-      btn.addEventListener('click', () => {
-        openArticleModal(btn.dataset.id);
-      });
-    });
   }
 
   // 💼 RENDER REMOTE JOBS PAGE
@@ -3910,18 +3931,11 @@ const initApp = () => {
           </ul>
           <div class="job-card-actions">
             <span class="job-post-date">Posted ${getDynamicDate(job.daysAgo)}</span>
-            <button class="btn btn-primary btn-apply-job" data-id="${job.id}" data-title="${job.title}" style="padding: 6px 14px; font-size: 0.8rem; margin:0; border-radius:6px; height:auto;">Apply Now</button>
+            <a class="btn btn-primary" href="${job.link}" target="_blank" rel="noopener noreferrer" style="padding: 6px 14px; font-size: 0.8rem; margin:0; border-radius:6px; height:auto; display:inline-block; text-decoration:none; line-height:1.2;">Apply Now</a>
           </div>
         </div>
       `;
     }).join('');
-
-    // Attach listeners
-    container.querySelectorAll('.btn-apply-job').forEach(btn => {
-      btn.addEventListener('click', () => {
-        openApplyJobModal(btn.dataset.id, btn.dataset.title);
-      });
-    });
   }
 
   // 📊 RENDER DASHBOARD PREVIEWS
@@ -3948,7 +3962,8 @@ const initApp = () => {
     // Add click listeners to dashboard news items
     newsContainer.querySelectorAll('.dash-insight-item').forEach(item => {
       item.addEventListener('click', () => {
-        openArticleModal(item.dataset.id);
+        const art = pmNewsDatabase.find(x => x.id === parseInt(item.dataset.id));
+        if (art) window.open(art.link, '_blank');
       });
     });
 
