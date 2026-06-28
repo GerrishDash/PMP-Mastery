@@ -77,7 +77,7 @@
       <div class="nav-section-label">Exam Prep</div>
       <div class="nav-item" data-section="quiz">
         <span class="nav-icon">🧪</span> Mock Exam
-        <span class="nav-badge">20</span>
+        <span class="nav-badge">180</span>
       </div>
     </nav>
 
@@ -121,7 +121,7 @@
         </div>
         <div class="stat-card pink">
           <div class="stat-icon">🧪</div>
-          <div class="stat-value">20</div>
+          <div class="stat-value">180</div>
           <div class="stat-label">Mock Exam Questions</div>
         </div>
       </div>
@@ -920,16 +920,54 @@
       <div class="page-header">
         <div class="breadcrumb">PMP Mastery <span class="sep">›</span> Exam Prep</div>
         <h2>🧪 PMP Mock Exam Simulator</h2>
-        <p>20 PMP-style scenario questions. Read the scenario carefully, pick the BEST answer, then review the detailed explanation.</p>
+        <p>Prepare under exact exam conditions or practice at your own pace with scenario-based questions.</p>
+      </div>
+
+      <!-- Quiz Setup Screen -->
+      <div id="quizSetup" class="quiz-setup-container">
+        <div class="card setup-card">
+          <div class="setup-welcome" style="text-align: center; margin-bottom: 24px;">
+            <span class="setup-emoji" style="font-size: 3rem; display: block; margin-bottom: 12px;">🎓</span>
+            <h3 style="font-size: 1.4rem; font-weight: 700; color: var(--text-primary);">Choose Your Exam Mode</h3>
+            <p style="color: var(--text-secondary); max-width: 500px; margin: 8px auto 0 auto; line-height: 1.5;">Select the mode that best fits your study goals today. You can practice at your own pace or simulate exact PMP exam conditions.</p>
+          </div>
+          
+          <div class="setup-modes-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+            <div class="setup-mode-option" id="btnModePractice" style="border: 2px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 24px; cursor: pointer; transition: all 0.2s ease; background: var(--bg-card);">
+              <div class="mode-icon" style="font-size: 2.2rem; margin-bottom: 14px;">🧪</div>
+              <div class="mode-info">
+                <h4 style="font-weight: 700; margin-bottom: 6px; font-size: 1.1rem; color: var(--text-primary);">Practice Quiz Mode</h4>
+                <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 16px;">20 random questions from the master question bank. Untimed, with immediate feedback and explanations after each submission.</p>
+                <span class="mode-tag tag-practice" style="display: inline-block; font-size: 0.75rem; font-weight: 600; padding: 4px 10px; border-radius: 4px; background: rgba(6, 214, 160, 0.15); color: var(--accent-primary);">Recommended for Study</span>
+              </div>
+            </div>
+            
+            <div class="setup-mode-option" id="btnModeFull" style="border: 2px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 24px; cursor: pointer; transition: all 0.2s ease; background: var(--bg-card);">
+              <div class="mode-icon" style="font-size: 2.2rem; margin-bottom: 14px;">⏱️</div>
+              <div class="mode-info">
+                <h4 style="font-weight: 700; margin-bottom: 6px; font-size: 1.1rem; color: var(--text-primary);">Full Mock Exam Mode</h4>
+                <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 16px;">Exactly 180 questions matching PMP exam distributions. Timed for 230 minutes. Explanations shown only at the end. Features two optional 10-minute breaks.</p>
+                <span class="mode-tag tag-exam" style="display: inline-block; font-size: 0.75rem; font-weight: 600; padding: 4px 10px; border-radius: 4px; background: rgba(255, 209, 102, 0.15); color: var(--accent-secondary);">Exact Exam Conditions</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- Quiz Active State -->
-      <div id="quizActive">
-        <div class="quiz-header">
+      <div id="quizActive" class="hidden">
+        <div class="quiz-header" style="margin-bottom: 20px;">
+          <div class="quiz-header-top" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap: wrap; gap: 10px;">
+            <div class="quiz-score" style="font-size:0.95rem; font-weight: 500; color: var(--text-secondary);">Question <strong id="quizCurrentNum" style="color:var(--text-primary);">1</strong> of <strong id="quizTotalNum" style="color:var(--text-primary);">20</strong> &nbsp;|&nbsp; Score: <strong id="quizScoreDisplay" style="color:var(--accent-primary);">0</strong></div>
+            <div id="quizTimerWrapper" class="quiz-timer-wrapper hidden" style="display:flex; align-items:center; gap:10px;">
+              <span class="timer-icon" style="font-size:1.1rem;">⏳</span>
+              <span id="quizTimerDisplay" style="font-family:var(--font-mono); font-size:1.15rem; font-weight:700; color:var(--accent-warm);">230:00</span>
+              <button id="quizPauseBtn" class="btn btn-secondary" style="padding:4px 10px; font-size:0.75rem; margin:0; border-radius:4px;">Pause</button>
+            </div>
+          </div>
           <div class="quiz-progress-bar">
             <div class="quiz-progress-fill" id="quizProgressFill" style="width:0%"></div>
           </div>
-          <div class="quiz-score">Question <strong id="quizCurrentNum">1</strong> of <strong>20</strong> &nbsp;|&nbsp; Score: <strong id="quizScoreDisplay">0</strong></div>
         </div>
 
         <div class="question-card" id="questionCard">
@@ -943,9 +981,12 @@
           </div>
         </div>
 
-        <div class="quiz-actions">
-          <button class="btn btn-primary" id="quizSubmitBtn" disabled>Submit Answer</button>
-          <button class="btn btn-primary hidden" id="quizNextBtn">Next Question →</button>
+        <div class="quiz-actions" style="display:flex; justify-content:space-between; align-items:center; margin-top:20px;">
+          <button class="btn btn-secondary" id="quizEndEarlyBtn" style="padding: 10px 20px; font-size: 0.85rem;">Quit Exam</button>
+          <div>
+            <button class="btn btn-primary" id="quizSubmitBtn" disabled style="padding: 10px 24px; font-size: 0.85rem;">Submit Answer</button>
+            <button class="btn btn-primary hidden" id="quizNextBtn" style="padding: 10px 24px; font-size: 0.85rem;">Next Question →</button>
+          </div>
         </div>
       </div>
 
@@ -955,11 +996,11 @@
           <div class="quiz-results">
             <div class="results-score-circle" id="resultsCircle">
               <span class="score-num" id="finalScoreNum">0</span>
-              <span class="score-total">out of 20</span>
+              <span class="score-total">out of <span id="finalTotalNum">20</span></span>
             </div>
             <div class="results-message" id="resultsMessage">Great Job!</div>
             <div class="results-sub" id="resultsSub">You scored above the passing threshold.</div>
-            <div class="quiz-actions">
+            <div class="quiz-actions" style="margin-top: 24px;">
               <button class="btn btn-primary" id="quizRetakeBtn">🔁 Retake Exam</button>
               <button class="btn btn-secondary" id="quizReviewBtn">📋 Review Answers</button>
             </div>
@@ -967,7 +1008,28 @@
         </div>
 
         <!-- Review Section -->
-        <div id="quizReviewSection" class="hidden"></div>
+        <div id="quizReviewSection" class="hidden" style="margin-top: 20px;"></div>
+      </div>
+
+      <!-- Break Overlay -->
+      <div id="breakOverlay" class="modal" style="display:none; justify-content:center; align-items:center; background:rgba(15, 23, 42, 0.85);">
+        <div class="modal-content" style="text-align:center; max-width:420px; padding:32px; background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:var(--radius-xl);">
+          <div style="font-size:3.2rem; margin-bottom:16px;">☕</div>
+          <h3 style="font-weight:700; font-size:1.3rem; margin-bottom:8px; color:var(--text-primary);">PMP Exam Break</h3>
+          <p style="color:var(--text-secondary); line-height:1.5; font-size:0.88rem; margin-bottom:20px;">Take a well-deserved 10-minute break. Your exam timer is paused. Note: you cannot review or modify answers from the previous section after this break.</p>
+          <div style="font-family:var(--font-mono); font-size:2.2rem; font-weight:800; color:var(--accent-primary); margin-bottom:24px;" id="breakTimerDisplay">10:00</div>
+          <button class="btn btn-primary" id="btnResumeFromBreak" style="width:100%; padding:12px; font-weight:600;">Resume Exam Now</button>
+        </div>
+      </div>
+
+      <!-- Pause Overlay -->
+      <div id="pauseOverlay" class="modal" style="display:none; justify-content:center; align-items:center; background:rgba(15, 23, 42, 0.85);">
+        <div class="modal-content" style="text-align:center; max-width:400px; padding:32px; background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:var(--radius-xl);">
+          <div style="font-size:3.2rem; margin-bottom:16px;">⏸️</div>
+          <h3 style="font-weight:700; font-size:1.3rem; margin-bottom:8px; color:var(--text-primary);">Exam Paused</h3>
+          <p style="color:var(--text-secondary); line-height:1.5; font-size:0.88rem; margin-bottom:24px;">Your exam timer is suspended. Take your time, then click resume to continue.</p>
+          <button class="btn btn-primary" id="btnResumeExam" style="width:100%; padding:12px; font-weight:600;">Resume Exam</button>
+        </div>
       </div>
     </section>
 
@@ -1181,6 +1243,7 @@
   </div>
 </div>
 
+<script src="questions.js"></script>
 <script src="app.js"></script>
 <script>
   if ('serviceWorker' in navigator) {

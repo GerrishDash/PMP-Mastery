@@ -2945,4 +2945,50 @@ body {
   }
 }
 
+/* ── Mock Exam Mode Selection & Timer Styles ── */
+.quiz-setup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 24px;
+}
 
+.setup-card {
+  width: 100%;
+  padding: 32px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+}
+
+.setup-mode-option:hover {
+  border-color: var(--accent-primary) !important;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+  background: var(--bg-card-hover) !important;
+}
+
+.mode-tag.tag-practice {
+  background: rgba(6, 214, 160, 0.1) !important;
+  color: var(--accent-primary) !important;
+  border: 1px solid rgba(6, 214, 160, 0.2);
+}
+
+.mode-tag.tag-exam {
+  background: rgba(255, 209, 102, 0.1) !important;
+  color: var(--accent-secondary) !important;
+  border: 1px solid rgba(255, 209, 102, 0.2);
+}
+
+.quiz-timer-wrapper {
+  background: rgba(15, 23, 42, 0.4);
+  padding: 6px 12px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+}
+
+/* Modal overlays */
+#breakOverlay.open, #pauseOverlay.open {
+  display: flex !important;
+}

@@ -302,253 +302,8 @@ const initApp = () => {
   ];
 
   // ══════════════════════════════════════════════
-  //  DATA: 20 PMP MOCK EXAM QUESTIONS
-  // ══════════════════════════════════════════════
-  const quizQuestions = [
-    {
-      scenario: 'A project manager is leading a software development project using an agile approach. During a sprint review, a key stakeholder expresses frustration that a critical feature was not included in the latest increment. The feature was in the product backlog but was not prioritized for this sprint.',
-      question: 'What should the project manager do FIRST?',
-      options: [
-        'Add the feature to the current sprint immediately',
-        'Ask the Product Owner to work with the stakeholder to prioritize the feature for the next sprint',
-        'Escalate the issue to the project sponsor',
-        'Extend the current sprint to include the feature'
-      ],
-      correct: 1,
-      explanation: 'In Scrum, the Product Owner is responsible for managing and prioritizing the product backlog. The PM should facilitate a conversation between the stakeholder and the Product Owner to ensure the feature is properly prioritized for an upcoming sprint. Adding work to a current sprint violates sprint boundaries, and extending a sprint undermines the timebox concept. Escalation is premature — this is a normal backlog prioritization activity.'
-    },
-    {
-      scenario: 'You are managing a construction project using a predictive approach. The project is 60% complete. The EVM metrics show: PV = $600,000, EV = $540,000, AC = $620,000, BAC = $1,000,000.',
-      question: 'What is the project status and what is the EAC?',
-      options: [
-        'Over budget and behind schedule; EAC = $1,148,148',
-        'Under budget and ahead of schedule; EAC = $870,968',
-        'Over budget and ahead of schedule; EAC = $1,148,148',
-        'Over budget and behind schedule; EAC = $1,080,000'
-      ],
-      correct: 0,
-      explanation: 'CV = EV − AC = $540K − $620K = −$80K (OVER BUDGET). SV = EV − PV = $540K − $600K = −$60K (BEHIND SCHEDULE). CPI = EV/AC = 540/620 = 0.871. EAC = BAC/CPI = $1,000,000 / 0.871 = $1,148,148. The project is both over budget AND behind schedule. The CPI < 1 and SPI < 1 confirm poor performance on both dimensions.'
-    },
-    {
-      scenario: 'A project team is working on an innovative product. Requirements are unclear, technology is new, and stakeholders have varying expectations. The project sponsor asks the PM to recommend a development approach.',
-      question: 'Which development approach should the project manager recommend?',
-      options: [
-        'Predictive (Waterfall) with detailed upfront planning',
-        'Agile/Adaptive with iterative sprints and frequent feedback',
-        'A phased approach with gate reviews between each phase',
-        'Focus only on creating a detailed WBS before starting any work'
-      ],
-      correct: 1,
-      explanation: 'When requirements are unclear and technology is new, an Agile/Adaptive approach is most appropriate. Agile embraces uncertainty through iterative development, frequent stakeholder feedback, and the ability to adapt as understanding grows. Predictive approaches require well-understood requirements upfront. This aligns with PMBOK 7 Principle #7 (Tailor Based on Context) and the Development Approach & Life Cycle performance domain.'
-    },
-    {
-      scenario: 'During a project status meeting, a team member privately tells the project manager that another team member has been submitting falsified time reports. The PM has not independently verified this claim.',
-      question: 'What should the project manager do FIRST?',
-      options: [
-        'Immediately terminate the accused team member',
-        'Ignore the claim since it is unverified',
-        'Investigate the claim by reviewing the time reports and relevant data',
-        'Report the claim to upper management right away'
-      ],
-      correct: 2,
-      explanation: 'Per the PMI Code of Ethics (Responsibility & Fairness), the PM should first investigate the facts before taking action. Terminating without investigation is unfair. Ignoring it violates the duty of honesty and integrity. Reporting unverified claims to management is premature and could harm someone unjustly. The PM should gather data, review records, and then take appropriate action based on findings. This aligns with PMBOK 7 Principle #1 — Stewardship (integrity and care).'
-    },
-    {
-      scenario: 'A project manager is managing a large infrastructure project. A critical vendor has informed the team that a key material delivery will be delayed by 3 weeks. This material is on the critical path.',
-      question: 'What should the project manager do NEXT?',
-      options: [
-        'Wait for the vendor to resolve the issue and update the schedule later',
-        'Immediately terminate the vendor contract and find a new supplier',
-        'Evaluate the impact on the project schedule, assess alternatives (crashing, fast-tracking, alternative suppliers), and update the risk register',
-        'Add 3 weeks of buffer to all remaining project activities'
-      ],
-      correct: 2,
-      explanation: 'The PM should assess the full impact on the project schedule and evaluate alternatives. Since the item is on the critical path, a 3-week delay directly extends the project. Options include: crashing (adding resources), fast-tracking (performing activities in parallel), finding alternative suppliers, or negotiating with the vendor. The risk register should be updated. Waiting is passive. Terminating the contract is drastic and may have legal/cost implications. Adding buffer to ALL activities is excessive and unnecessary.'
-    },
-    {
-      scenario: 'An agile team has been performing well for several sprints. The team\'s velocity has been consistent at around 40 story points per sprint. A senior manager asks the Scrum Master to increase the team\'s velocity to 60 story points to meet a deadline.',
-      question: 'What should the Scrum Master do?',
-      options: [
-        'Comply with the manager\'s request and assign more story points to the next sprint',
-        'Explain that velocity is a planning tool and cannot be artificially inflated; discuss alternative solutions like adding team members, reducing scope, or extending the timeline',
-        'Add pressure on the team to work overtime to meet the higher velocity target',
-        'Ignore the manager\'s request and continue as normal'
-      ],
-      correct: 1,
-      explanation: 'Velocity is a diagnostic/planning metric, NOT a target to be mandated. Artificially inflating velocity (by assigning more points) doesn\'t increase actual throughput — it just corrupts the metric. As a Servant Leader, the Scrum Master should educate the manager and facilitate a discussion about realistic alternatives: adding capacity, reducing scope, extending timeline, or removing impediments. This protects the team while addressing the business need.'
-    },
-    {
-      scenario: 'During project planning, the project manager identifies that the project has a high degree of complexity with many interdependent components across multiple departments. Several stakeholders have conflicting requirements.',
-      question: 'Which approach BEST addresses this situation?',
-      options: [
-        'Document all requirements in detail and get formal sign-off from all stakeholders before proceeding',
-        'Use systems thinking to understand interactions, facilitate collaborative workshops to resolve conflicts, and plan iteratively',
-        'Escalate the conflicting requirements to the project sponsor for resolution',
-        'Prioritize requirements from the most senior stakeholder and proceed'
-      ],
-      correct: 1,
-      explanation: 'PMBOK 7 Principle #5 (Recognize, Evaluate, and Respond to System Interactions) and Principle #9 (Navigate Complexity) both apply here. Systems thinking helps understand how components interact. Collaborative workshops bring stakeholders together to resolve conflicts (Principle #3 — Effectively Engage Stakeholders). Iterative planning allows the team to adapt as understanding grows. Escalating is premature, and prioritizing based on seniority doesn\'t address the root issue.'
-    },
-    {
-      scenario: 'A project is using a hybrid approach. The infrastructure components use a predictive approach, while the software components use Scrum. The infrastructure team has completed their phase, but the software team is still in Sprint 4 of 6. A change request comes in that affects both the infrastructure and software.',
-      question: 'How should the change be managed?',
-      options: [
-        'Process it through the Change Control Board (CCB) since infrastructure is predictive',
-        'Add it to the product backlog since the software team is using agile',
-        'Evaluate the change holistically — process through CCB for infrastructure impacts and add to the product backlog for software impacts',
-        'Reject the change since infrastructure is already complete'
-      ],
-      correct: 2,
-      explanation: 'In a hybrid environment, change management must respect both approaches. Infrastructure changes that affect completed work should go through formal change control (CCB). Software changes should follow the agile process — adding to the product backlog for prioritization by the Product Owner. A holistic evaluation ensures both components are properly addressed. Rejecting outright ignores potential value, and using only one approach ignores the hybrid nature of the project.'
-    },
-    {
-      scenario: 'A project team is in the Executing phase. A team member approaches the PM and says they have discovered a way to significantly improve a deliverable\'s functionality, which would require a minor scope change but could greatly increase stakeholder satisfaction.',
-      question: 'What should the project manager do?',
-      options: [
-        'Allow the team member to implement the improvement since it benefits stakeholders',
-        'Tell the team member to focus only on the approved scope',
-        'Have the team member submit a formal change request for evaluation through the Integrated Change Control process',
-        'Present the idea directly to the project sponsor for immediate approval'
-      ],
-      correct: 2,
-      explanation: 'ALL scope changes — even beneficial ones — must go through Perform Integrated Change Control (PMBOK 6 Process 4.6). This ensures the impact on schedule, cost, quality, and risk is properly evaluated before approval. Allowing unauthorized changes is "gold plating" — adding unrequested features, which PMI discourages. The CCB (or PM if delegated authority) makes the decision, not the sponsor unilaterally. This preserves the integrity of the project management plan.'
-    },
-    {
-      scenario: 'A newly assigned project manager takes over a project in mid-execution. After reviewing the project documents, the PM notices that the risk register has not been updated in 3 months, the issue log has unresolved items from weeks ago, and team morale seems low.',
-      question: 'What should the new project manager do FIRST?',
-      options: [
-        'Conduct a team meeting to understand the current project status, challenges, and team concerns',
-        'Update the risk register immediately',
-        'Escalate the poor project management to the PMO',
-        'Create a corrective action plan and present it to the sponsor'
-      ],
-      correct: 0,
-      explanation: 'Before taking any corrective action, the PM must first understand the current situation. A team meeting allows the PM to assess the state of the project holistically — understanding team concerns (addressing morale), identifying current risks and issues, and building trust with the team. This aligns with PMBOK 7 Principle #2 (Collaborative Team Environment) and #6 (Demonstrate Leadership). Updating individual documents or escalating without full understanding could lead to misguided actions.'
-    },
-    {
-      scenario: 'An agile project team is having difficulty with a technical challenge. The Scrum Master notices that team members are hesitant to ask for help or admit they are stuck. The team\'s velocity has dropped for two consecutive sprints.',
-      question: 'What should the Scrum Master do to address this?',
-      options: [
-        'Assign a senior technical lead to solve the problems for the team',
-        'Report the velocity drop to management and request additional resources',
-        'Foster psychological safety by facilitating open discussions, encouraging experimentation, and ensuring team members feel safe to fail and ask for help',
-        'Set individual performance targets to hold team members accountable'
-      ],
-      correct: 2,
-      explanation: 'Psychological safety is essential for high-performing agile teams. When team members fear asking for help or admitting struggles, innovation and collaboration suffer. The Scrum Master should create an environment where vulnerability is safe — through facilitated retrospectives, modeling openness, and separating learning from blame. Individual performance targets and external pressure work against the collaborative, self-organizing nature of agile teams. This aligns with PMBOK 7 Principle #2 (Collaborative Team Environment).'
-    },
-    {
-      scenario: 'A project manager learns that a regulation change will take effect in 6 months that could significantly impact the project\'s deliverables. The project is currently in the planning phase and is scheduled to complete in 8 months.',
-      question: 'What should the project manager do?',
-      options: [
-        'Wait until the regulation takes effect and then assess the impact',
-        'Log it as a risk in the risk register, assess the probability and impact, and develop a risk response strategy',
-        'Immediately change the project scope to comply with the new regulation',
-        'Inform the team but take no action until the regulation is officially published'
-      ],
-      correct: 1,
-      explanation: 'This is a known risk (an identifiable uncertainty with a future trigger). The PM should log it in the risk register with its probability (likely high since it\'s a regulation), impact assessment, and a risk response plan. The response might include proactive compliance planning, engaging legal/compliance experts, or building flexibility into the design. Waiting is too reactive. Immediately changing scope without proper analysis is premature. Logging and planning is the disciplined PMI approach (PMBOK 7 Principle #10 — Optimize Risk Responses).'
-    },
-    {
-      scenario: 'During the closing phase of a project, the project manager discovers that several lessons learned sessions were skipped during the project. The team is eager to move on to new assignments.',
-      question: 'What should the project manager do?',
-      options: [
-        'Skip the lessons learned since they were already missed during execution and close the project',
-        'Conduct a comprehensive lessons learned session now, document findings, and add them to the organizational knowledge base',
-        'Assign one team member to write up lessons learned based on their own perspective',
-        'Close the project and note in the final report that lessons learned were not captured'
-      ],
-      correct: 1,
-      explanation: 'Lessons learned are a critical output of the Close Project or Phase process (PMBOK 6, 4.7). Even though sessions were missed during execution, a comprehensive final lessons learned session captures valuable organizational knowledge for future projects. This is part of responsible stewardship (PMBOK 7 Principle #1) and organizational process asset creation. One person\'s perspective is incomplete. Skipping entirely wastes organizational learning opportunities. PMI strongly emphasizes knowledge transfer.'
-    },
-    {
-      scenario: 'A project manager is working on a project with a fixed budget of $500,000 and a firm deadline of December 31st. The project sponsor requests additional features that would add significant scope.',
-      question: 'What should the project manager do?',
-      options: [
-        'Accept the additional features since the sponsor has authority over the project',
-        'Reject the features to protect the budget and deadline',
-        'Analyze the impact of the additional features on schedule, cost, and quality; present the trade-off analysis to the sponsor for an informed decision',
-        'Ask the team to work overtime to accommodate the features within the current constraints'
-      ],
-      correct: 2,
-      explanation: 'The PM\'s role is to provide objective analysis to enable informed decision-making, not to unilaterally accept or reject scope changes. When scope is added but budget and time are fixed, something must give — this is the Triple Constraint (Scope, Time, Cost + Quality). The PM should present a trade-off analysis: "Adding these features will require X more budget or Y more time, OR we can reduce scope elsewhere." The sponsor then decides with full knowledge of implications. This is Perform Integrated Change Control in action.'
-    },
-    {
-      scenario: 'An agile team is in Sprint 3 of a project. During the Daily Scrum, a developer mentions they found a critical security vulnerability in the code that was deployed in Sprint 1. This could affect current users.',
-      question: 'What should happen NEXT?',
-      options: [
-        'Add the fix to the current sprint backlog without changing the sprint goal',
-        'Log it in the product backlog for the Product Owner to prioritize in the next sprint',
-        'The Product Owner should immediately assess the severity; if critical, it may warrant disrupting the current sprint to address the vulnerability',
-        'The Scrum Master should escalate to management for a decision'
-      ],
-      correct: 2,
-      explanation: 'A critical security vulnerability affecting users is a high-severity issue that requires immediate assessment by the Product Owner (who represents stakeholder/user interests). If it\'s truly critical, the PO may decide to bring it into the current sprint or even cancel the sprint if the sprint goal becomes obsolete. This is one of the rare situations where disrupting a sprint may be justified. Simply logging it for "next sprint" could leave users at risk. The PO has the authority to make this call, not the Scrum Master or management.'
-    },
-    {
-      scenario: 'A project team using a predictive approach has completed 80% of the project work. The customer requests a major scope change that would require reworking 30% of completed deliverables and extending the schedule by 2 months.',
-      question: 'What should the project manager do FIRST?',
-      options: [
-        'Reject the change because the project is 80% complete',
-        'Accept the change to ensure customer satisfaction',
-        'Perform impact analysis and submit the change request through the Integrated Change Control process for CCB review',
-        'Negotiate a new contract to cover the additional work'
-      ],
-      correct: 2,
-      explanation: 'Regardless of project completion percentage, ALL change requests must go through Perform Integrated Change Control. The PM should analyze the full impact on scope, schedule, cost, quality, resources, and risk, then present it to the CCB for decision. The CCB (not the PM alone) decides whether to approve, reject, or defer. If approved, a contract amendment may follow. Outright rejection or acceptance without analysis is inappropriate. The process exists to ensure informed decisions with full awareness of consequences.'
-    },
-    {
-      scenario: 'A PM is managing a multicultural, distributed team across 4 time zones. Team members from one region rarely speak during virtual meetings, and there have been misunderstandings due to communication style differences.',
-      question: 'What is the BEST approach to address this?',
-      options: [
-        'Require all team members to follow the communication style of the headquarters location',
-        'Create a communication management plan that accounts for cultural differences, rotating meeting times, and multiple communication channels',
-        'Have the quiet team members send their updates via email only',
-        'Assign a team lead in each region and communicate only through the leads'
-      ],
-      correct: 1,
-      explanation: 'Effective project communication must account for cultural diversity and geographical distribution (PMBOK 7 Principle #2 — Collaborative Team Environment, and Principle #3 — Engage Stakeholders). A tailored communications plan considers: rotating meeting times for fairness, multiple channels (async + sync), culturally-sensitive facilitation techniques, and encouraging participation from all members. Imposing one culture\'s norms alienates others. Isolating quiet members reduces collaboration. This also aligns with Principle #7 — Tailor Based on Context.'
-    },
-    {
-      scenario: 'During a sprint retrospective, the team identifies that their biggest impediment is constantly changing priorities from multiple stakeholders who each claim their work is the highest priority.',
-      question: 'What is the BEST way to resolve this?',
-      options: [
-        'Let the development team decide which stakeholder\'s work to do first',
-        'Ensure the Product Owner maintains a single, ordered product backlog and is the sole authority on prioritization',
-        'Have each stakeholder submit a formal priority request to the Scrum Master',
-        'Escalate to senior management to determine which stakeholder has highest authority'
-      ],
-      correct: 1,
-      explanation: 'In Scrum, the Product Owner is THE single authority responsible for maximizing the value of the product by managing the product backlog. Multiple stakeholders competing for priority is a classic problem solved by having ONE Product Owner who weighs all inputs and creates a SINGLE ordered backlog. The development team should not be caught between competing stakeholders — that is the PO\'s job. The Scrum Master can coach stakeholders on working through the PO. This is fundamental to the Scrum framework.'
-    },
-    {
-      scenario: 'A project manager calculates the following EVM metrics at the midpoint of a project: CPI = 0.85, SPI = 1.10, BAC = $200,000. The project sponsor wants to know if the project can finish within the original budget.',
-      question: 'What should the project manager report?',
-      options: [
-        'Yes, because the SPI is above 1.0 indicating good progress',
-        'No, the EAC is approximately $235,294 (BAC/CPI) which exceeds the BAC; the project is trending over budget despite being ahead of schedule',
-        'It\'s uncertain; more data is needed before making any forecast',
-        'Yes, because the project is ahead of schedule so the cost will balance out'
-      ],
-      correct: 1,
-      explanation: 'CPI = 0.85 means the project is getting only $0.85 of value for every $1 spent — it is over budget. EAC = BAC/CPI = $200,000/0.85 = $235,294. The project will exceed its budget by approximately $35,294 if current cost trends continue. Being ahead of schedule (SPI = 1.10) does NOT fix cost problems — schedule and cost performance are independent measures. PMI research shows CPI rarely improves by more than 10% after 20% completion. The PM should report the over-budget trend honestly and propose corrective actions.'
-    },
-    {
-      scenario: 'A project is transitioning from waterfall to agile. The team members are used to being told exactly what to do by the project manager. In the first sprint, the team waits for the PM to assign tasks and provide detailed instructions.',
-      question: 'What should the project manager (acting as Scrum Master) do?',
-      options: [
-        'Continue assigning tasks since the team is not yet ready for self-organization',
-        'Immediately stop assigning tasks and let the team figure things out on their own',
-        'Coach the team on self-organization principles, gradually empowering them to pull work and make decisions while providing guidance and support',
-        'Revert to waterfall since the team clearly prefers a predictive approach'
-      ],
-      correct: 2,
-      explanation: 'Transitioning to agile requires a shift in mindset and behavior that doesn\'t happen overnight. The PM/Scrum Master should coach the team on self-organization — explaining WHY it matters, modeling the behaviors, gradually reducing direction, and creating safety for the team to experiment. Immediately removing all guidance could cause the team to fail, destroying confidence. Reverting to waterfall avoids the needed growth. This is Servant Leadership in action — meeting the team where they are and developing them over time (PMBOK 7 Principle #6 — Leadership, and Principle #11 — Adaptability).'
-    },
-  ];
+  // Hardcoded quizQuestions removed. Reading from questions.js instead.
 
-
-  // ══════════════════════════════════════════════
   //  NAVIGATION
   // ══════════════════════════════════════════════
   const navItems = document.querySelectorAll('.nav-item');
@@ -967,15 +722,22 @@ const initApp = () => {
   }
 
   // ══════════════════════════════════════════════
-  //  QUIZ ENGINE
+  // ══════════════════════════════════════════════
+  //  QUIZ ENGINE (ENHANCED WITH PRACTICE & FULL EXAM MODES)
   // ══════════════════════════════════════════════
   let quizState = {
+    mode: 'practice', // 'practice' or 'full'
     currentQ: 0,
     score: 0,
     selectedAnswer: -1,
     answered: false,
     answers: [],
-    questions: []
+    questions: [],
+    timerInterval: null,
+    timeLeft: 0, // in seconds
+    breakInterval: null,
+    breakTimeLeft: 0, // in seconds
+    isPaused: false
   };
 
   function shuffleArray(arr) {
@@ -987,21 +749,146 @@ const initApp = () => {
     return a;
   }
 
-  function startQuiz() {
-    quizState = {
-      currentQ: 0,
-      score: 0,
-      selectedAnswer: -1,
-      answered: false,
-      answers: [],
-      questions: shuffleArray(quizQuestions)
-    };
+  function showQuizSetup() {
+    stopTimer();
+    stopBreakTimer();
+    quizState.timerInterval = null;
+    quizState.breakInterval = null;
+    document.getElementById('quizSetup').classList.remove('hidden');
+    document.getElementById('quizActive').classList.add('hidden');
+    document.getElementById('quizResults').classList.add('hidden');
+    document.getElementById('breakOverlay').style.display = 'none';
+    document.getElementById('pauseOverlay').style.display = 'none';
+  }
+
+  function startQuiz(mode) {
+    quizState.mode = mode;
+    quizState.currentQ = 0;
+    quizState.score = 0;
+    quizState.selectedAnswer = -1;
+    quizState.answered = false;
+    quizState.answers = [];
+    quizState.isPaused = false;
+
+    // Load from questions.js (window.PMP_QUESTION_BANK)
+    const masterBank = window.PMP_QUESTION_BANK || [];
+
+    if (mode === 'practice') {
+      // Practice Quiz: 20 random questions
+      const shuffled = shuffleArray(masterBank);
+      quizState.questions = shuffled.slice(0, Math.min(20, shuffled.length));
+      document.getElementById('quizTimerWrapper').classList.add('hidden');
+      stopTimer();
+    } else {
+      // Full Mock Exam: 180 questions
+      const shuffled = shuffleArray(masterBank);
+      quizState.questions = shuffled.slice(0, Math.min(180, shuffled.length));
+      document.getElementById('quizTimerWrapper').classList.remove('hidden');
+      
+      // 230 minutes = 13800 seconds
+      quizState.timeLeft = 230 * 60;
+      startTimer();
+    }
+
+    document.getElementById('quizSetup').classList.add('hidden');
     document.getElementById('quizActive').classList.remove('hidden');
     document.getElementById('quizResults').classList.add('hidden');
+    
+    // Update total number in active quiz UI
+    document.getElementById('quizTotalNum').textContent = quizState.questions.length;
+
+    renderQuestion();
+  }
+
+  // Timer functions
+  function startTimer() {
+    stopTimer();
+    updateTimerDisplay();
+    quizState.timerInterval = setInterval(() => {
+      if (quizState.isPaused) return;
+      if (quizState.timeLeft > 0) {
+        quizState.timeLeft--;
+        updateTimerDisplay();
+      } else {
+        stopTimer();
+        alert('Time is up! Your exam is being submitted.');
+        showQuizResults();
+      }
+    }, 1000);
+  }
+
+  function stopTimer() {
+    if (quizState.timerInterval) {
+      clearInterval(quizState.timerInterval);
+      quizState.timerInterval = null;
+    }
+  }
+
+  function updateTimerDisplay() {
+    const minutes = Math.floor(quizState.timeLeft / 60);
+    const seconds = quizState.timeLeft % 60;
+    const pad = (num) => num.toString().padStart(2, '0');
+    document.getElementById('quizTimerDisplay').textContent = `${pad(minutes)}:${pad(seconds)}`;
+  }
+
+  function pauseExam() {
+    quizState.isPaused = true;
+    document.getElementById('pauseOverlay').style.display = 'flex';
+  }
+
+  function resumeExam() {
+    quizState.isPaused = false;
+    document.getElementById('pauseOverlay').style.display = 'none';
+  }
+
+  // Break functions
+  function startBreak() {
+    quizState.isPaused = true; // Pause main exam timer
+    quizState.breakTimeLeft = 10 * 60; // 10 minutes
+    updateBreakTimerDisplay();
+    document.getElementById('breakOverlay').style.display = 'flex';
+
+    stopBreakTimer();
+    quizState.breakInterval = setInterval(() => {
+      if (quizState.breakTimeLeft > 0) {
+        quizState.breakTimeLeft--;
+        updateBreakTimerDisplay();
+      } else {
+        resumeFromBreak();
+      }
+    }, 1000);
+  }
+
+  function stopBreakTimer() {
+    if (quizState.breakInterval) {
+      clearInterval(quizState.breakInterval);
+      quizState.breakInterval = null;
+    }
+  }
+
+  function updateBreakTimerDisplay() {
+    const minutes = Math.floor(quizState.breakTimeLeft / 60);
+    const seconds = quizState.breakTimeLeft % 60;
+    const pad = (num) => num.toString().padStart(2, '0');
+    document.getElementById('breakTimerDisplay').textContent = `${pad(minutes)}:${pad(seconds)}`;
+  }
+
+  function resumeFromBreak() {
+    stopBreakTimer();
+    quizState.isPaused = false; // Resume main exam timer
+    document.getElementById('breakOverlay').style.display = 'none';
+    
+    // Proceed to the next question after break
+    quizState.currentQ++;
     renderQuestion();
   }
 
   function renderQuestion() {
+    if (!quizState.questions || quizState.questions.length === 0) {
+      alert('Question database is not loaded yet. Please wait.');
+      return;
+    }
+
     const q = quizState.questions[quizState.currentQ];
     const total = quizState.questions.length;
     const num = quizState.currentQ + 1;
@@ -1026,13 +913,24 @@ const initApp = () => {
       optionsContainer.appendChild(btn);
     });
 
-    // Reset state
+    // Reset UI state for this question
     quizState.selectedAnswer = -1;
     quizState.answered = false;
     document.getElementById('qExplanation').classList.remove('visible');
-    document.getElementById('quizSubmitBtn').classList.remove('hidden');
-    document.getElementById('quizSubmitBtn').disabled = true;
-    document.getElementById('quizNextBtn').classList.add('hidden');
+    
+    // In Full Exam Mode, the Submit button text acts like "Next" or "Finish" directly
+    if (quizState.mode === 'full') {
+      const isLast = quizState.currentQ === total - 1;
+      document.getElementById('quizSubmitBtn').textContent = isLast ? 'Finish Exam 🏁' : 'Submit & Next →';
+      document.getElementById('quizSubmitBtn').classList.remove('hidden');
+      document.getElementById('quizSubmitBtn').disabled = true;
+      document.getElementById('quizNextBtn').classList.add('hidden');
+    } else {
+      document.getElementById('quizSubmitBtn').textContent = 'Submit Answer';
+      document.getElementById('quizSubmitBtn').classList.remove('hidden');
+      document.getElementById('quizSubmitBtn').disabled = true;
+      document.getElementById('quizNextBtn').classList.add('hidden');
+    }
   }
 
   function selectAnswer(index) {
@@ -1046,14 +944,15 @@ const initApp = () => {
     document.getElementById('quizSubmitBtn').disabled = false;
   }
 
-  document.getElementById('quizSubmitBtn').addEventListener('click', () => {
+  // Handles click on Submit button
+  function handleSubmit() {
     if (quizState.selectedAnswer === -1) return;
-    quizState.answered = true;
 
     const q = quizState.questions[quizState.currentQ];
     const isCorrect = quizState.selectedAnswer === q.correct;
     if (isCorrect) quizState.score++;
 
+    // Save answer data
     quizState.answers.push({
       questionIndex: quizState.currentQ,
       selected: quizState.selectedAnswer,
@@ -1061,50 +960,67 @@ const initApp = () => {
       isCorrect
     });
 
-    // Highlight answers
-    const options = document.querySelectorAll('.option-btn');
-    options.forEach((opt, i) => {
-      opt.classList.add('disabled');
-      if (i === q.correct) opt.classList.add('correct');
-      if (i === quizState.selectedAnswer && !isCorrect) opt.classList.add('wrong');
-    });
+    if (quizState.mode === 'practice') {
+      // Practice mode shows feedback immediately
+      quizState.answered = true;
+      const options = document.querySelectorAll('.option-btn');
+      options.forEach((opt, i) => {
+        opt.classList.add('disabled');
+        if (i === q.correct) opt.classList.add('correct');
+        if (i === quizState.selectedAnswer && !isCorrect) opt.classList.add('wrong');
+      });
 
-    // Show explanation
-    document.getElementById('qExplanationText').textContent = q.explanation;
-    document.getElementById('qExplanation').classList.add('visible');
+      document.getElementById('qExplanationText').textContent = q.explanation;
+      document.getElementById('qExplanation').classList.add('visible');
+      document.getElementById('quizSubmitBtn').classList.add('hidden');
 
-    // Update buttons
-    document.getElementById('quizSubmitBtn').classList.add('hidden');
-
-    if (quizState.currentQ < quizState.questions.length - 1) {
+      const isLast = quizState.currentQ === quizState.questions.length - 1;
       document.getElementById('quizNextBtn').classList.remove('hidden');
-      document.getElementById('quizNextBtn').textContent = 'Next Question →';
+      document.getElementById('quizNextBtn').textContent = isLast ? 'View Results →' : 'Next Question →';
+      document.getElementById('quizScoreDisplay').textContent = quizState.score;
     } else {
-      document.getElementById('quizNextBtn').classList.remove('hidden');
-      document.getElementById('quizNextBtn').textContent = 'View Results →';
+      // Full Exam Mode transitions immediately to next question or break without feedback
+      const isLast = quizState.currentQ === quizState.questions.length - 1;
+      if (isLast) {
+        showQuizResults();
+      } else {
+        // Optional Break Check: Break after question 60 (index 59) and question 120 (index 119)
+        const currentNum = quizState.currentQ + 1;
+        if (currentNum === 60 || currentNum === 120) {
+          startBreak();
+        } else {
+          quizState.currentQ++;
+          renderQuestion();
+        }
+      }
     }
-
-    document.getElementById('quizScoreDisplay').textContent = quizState.score;
-  });
-
-  document.getElementById('quizNextBtn').addEventListener('click', () => {
-    if (quizState.currentQ < quizState.questions.length - 1) {
-      quizState.currentQ++;
-      renderQuestion();
-    } else {
-      showQuizResults();
-    }
-  });
+  }
 
   function showQuizResults() {
+    stopTimer();
+    stopBreakTimer();
     document.getElementById('quizActive').classList.add('hidden');
     document.getElementById('quizResults').classList.remove('hidden');
 
     const score = quizState.score;
     const total = quizState.questions.length;
+    
+    // Fill remaining answers in full exam if ended early
+    while (quizState.answers.length < total) {
+      const idx = quizState.answers.length;
+      const q = quizState.questions[idx];
+      quizState.answers.push({
+        questionIndex: idx,
+        selected: -1,
+        correct: q.correct,
+        isCorrect: false
+      });
+    }
+
     const pct = Math.round((score / total) * 100);
 
     document.getElementById('finalScoreNum').textContent = score;
+    document.getElementById('finalTotalNum').textContent = total;
     document.getElementById('resultsCircle').style.setProperty('--score-pct', pct);
 
     let message, sub;
@@ -1125,16 +1041,23 @@ const initApp = () => {
     const reviewSection = document.getElementById('quizReviewSection');
     reviewSection.innerHTML = '';
     reviewSection.classList.add('hidden');
+    document.getElementById('quizReviewBtn').textContent = '📋 Review Answers';
 
+    // Render paginated/organized reviews for large sets to avoid DOM freeze
     quizState.answers.forEach((ans, idx) => {
       const q = quizState.questions[ans.questionIndex];
       const letters = ['A', 'B', 'C', 'D'];
       const card = document.createElement('div');
       card.className = 'question-card';
       card.style.marginBottom = '16px';
+      
+      let selectedText = ans.selected === -1 ? 'None Selected' : `${letters[ans.selected]}. ${q.options[ans.selected]}`;
+      let statusColor = ans.isCorrect ? 'var(--accent-primary)' : 'var(--accent-warm)';
+      let statusSymbol = ans.isCorrect ? '✓' : '✗';
+      
       card.innerHTML = `
-        <div class="question-number" style="color: ${ans.isCorrect ? 'var(--accent-primary)' : 'var(--accent-warm)'}">
-          ${ans.isCorrect ? '✓' : '✗'} Question ${idx + 1}
+        <div class="question-number" style="color: ${statusColor}">
+          ${statusSymbol} Question ${idx + 1} (${q.domain} Domain)
         </div>
         <div class="question-scenario">${q.scenario}</div>
         <div class="question-text">${q.question}</div>
@@ -1146,7 +1069,7 @@ const initApp = () => {
             return `<div style="padding:6px 0; font-size:0.85rem; ${cls}">${letters[i]}. ${opt}</div>`;
           }).join('')}
         </div>
-        <div class="explanation-box visible">
+        <div class="explanation-box visible" style="border-left: 3px solid ${statusColor}">
           <h4>💡 Why ${letters[q.correct]} is the best answer:</h4>
           <p>${q.explanation}</p>
         </div>
@@ -1155,6 +1078,33 @@ const initApp = () => {
     });
   }
 
+  // Setup click listeners for new elements
+  document.getElementById('quizSubmitBtn').addEventListener('click', handleSubmit);
+  
+  document.getElementById('quizNextBtn').addEventListener('click', () => {
+    if (quizState.currentQ < quizState.questions.length - 1) {
+      quizState.currentQ++;
+      renderQuestion();
+    } else {
+      showQuizResults();
+    }
+  });
+
+  document.getElementById('btnModePractice').addEventListener('click', () => startQuiz('practice'));
+  document.getElementById('btnModeFull').addEventListener('click', () => startQuiz('full'));
+  document.getElementById('quizPauseBtn').addEventListener('click', pauseExam);
+  document.getElementById('btnResumeExam').addEventListener('click', resumeExam);
+  document.getElementById('btnResumeFromBreak').addEventListener('click', resumeFromBreak);
+  
+  document.getElementById('quizEndEarlyBtn').addEventListener('click', () => {
+    const msg = quizState.mode === 'full' 
+      ? 'Are you sure you want to quit the exam? Your progress will be graded based on answered questions.'
+      : 'Are you sure you want to end this practice quiz?';
+    if (confirm(msg)) {
+      showQuizResults();
+    }
+  });
+
   document.getElementById('quizReviewBtn').addEventListener('click', () => {
     const reviewSection = document.getElementById('quizReviewSection');
     reviewSection.classList.toggle('hidden');
@@ -1162,7 +1112,10 @@ const initApp = () => {
       reviewSection.classList.contains('hidden') ? '📋 Review Answers' : '📋 Hide Review';
   });
 
-  // ══════════════════════════════════════════════
+  document.getElementById('quizRetakeBtn').addEventListener('click', () => {
+    showQuizSetup();
+  });
+
   //  INTERACTIVE PROCESS MATRIX (ITTO MODAL)
   // ══════════════════════════════════════════════
   const ittoDatabase = {
@@ -3404,7 +3357,7 @@ const initApp = () => {
   }
 
   // Initialize quiz
-  startQuiz();
+  showQuizSetup();
 
 };
 if (document.readyState === 'loading') {
