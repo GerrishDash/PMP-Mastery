@@ -2158,6 +2158,11 @@ body {
   top: 0;
   bottom: 64px;
   z-index: 20;
+  transition: bottom var(--transition-medium);
+}
+
+.kindle-reader-overlay.hud-hidden .kindle-tap-zone {
+  bottom: 0;
 }
 
 .kindle-tap-zone.zone-left {
@@ -2444,15 +2449,24 @@ body {
   align-items: flex-start;  /* top-align for vertical scroll */
   overflow-y: scroll;       /* always show scrollbar track */
   overflow-x: hidden;
-  padding: 24px 24px 32px;  /* bottom padding inside viewport */
+  padding: 24px 24px 96px;  /* bottom padding inside viewport to clear nav bar */
   scroll-behavior: smooth;
+  transition: padding var(--transition-medium);
+}
+
+.kindle-reader-overlay.hud-hidden .kindle-viewport {
+  padding-bottom: 32px;
 }
 
 /* On mobile: remove all padding so content fills edge-to-edge */
 @media (max-width: 768px) {
   .kindle-viewport {
-    padding: 0;
+    padding: 0 0 72px; /* room for smaller 56px nav bar on mobile */
     align-items: stretch;
+    transition: padding var(--transition-medium);
+  }
+  .kindle-reader-overlay.hud-hidden .kindle-viewport {
+    padding-bottom: 0;
   }
 }
 
@@ -2499,6 +2513,12 @@ body {
   -webkit-backdrop-filter: blur(16px);
   border-top: 1px solid rgba(255,255,255,0.08);
   gap: 12px;
+  transform: translateY(0);
+  transition: transform var(--transition-medium);
+}
+
+.kindle-reader-overlay.hud-hidden .kindle-nav-bar {
+  transform: translateY(100%);
 }
 
 .kindle-nav-btn {
@@ -2942,6 +2962,10 @@ body {
   /* Adjust tap zones for smaller nav bar */
   .kindle-tap-zone {
     bottom: 56px;
+    transition: bottom var(--transition-medium);
+  }
+  .kindle-reader-overlay.hud-hidden .kindle-tap-zone {
+    bottom: 0;
   }
 }
 

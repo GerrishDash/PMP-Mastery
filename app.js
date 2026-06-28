@@ -125,13 +125,19 @@ const initApp = () => {
   function toggleHUD(visible) {
     const kindleHUDHeader = document.getElementById('kindleHUDHeader');
     const kindleHUDFooter = document.getElementById('kindleHUDFooter');
+    const kindleNavBar = document.getElementById('kindleNavBar');
+    const kindleReaderOverlay = document.getElementById('kindleReaderOverlay');
     if (!kindleHUDHeader || !kindleHUDFooter) return;
     if (visible) {
       kindleHUDHeader.classList.add('visible');
       kindleHUDFooter.classList.add('visible');
+      if (kindleNavBar) kindleNavBar.classList.add('visible');
+      if (kindleReaderOverlay) kindleReaderOverlay.classList.remove('hud-hidden');
     } else {
       kindleHUDHeader.classList.remove('visible');
       kindleHUDFooter.classList.remove('visible');
+      if (kindleNavBar) kindleNavBar.classList.remove('visible');
+      if (kindleReaderOverlay) kindleReaderOverlay.classList.add('hud-hidden');
     }
   }
 
