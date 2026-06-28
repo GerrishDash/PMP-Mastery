@@ -1,0 +1,42 @@
+name: Update Remote PM Jobs Database
+
+on:
+  schedule:
+    # Runs daily at midnight UTC
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+    # Allows manual trigger from the GitHub Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  update-jobs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          # We don't have package-lock.json, so caching might warn. We can bypass cache if needed or leave it.
+
+      - name: Fetch and Update Job Database
+        run: node update_jobs_db.js
+
+      - name: Commit and Push Database Updates
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add app.js sw.js
+          # Check if there are changes before committing to avoid failing the workflow
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(auto): update remote PM jobs database and bump cache version"
+            git push
+          else
+            echo "No new jobs found; database is already up to date."
+          fi
