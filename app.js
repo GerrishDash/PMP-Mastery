@@ -3524,7 +3524,7 @@ const initApp = () => {
       source: "PMI Network",
       category: "AI",
       summary: "A new study by PMI reveals that 62% of high-performing organizations are adopting generative AI tools to automate scope verification and schedule risk forecasting.",
-      content: "AI-driven predictive scheduling is changing how PMOs work. By analyzing historical project performance, team velocities, and dependency patterns, AI tools can predict potential bottlenecks weeks in advance. PMI's latest research highlights that organizations combining predictive governance with agile execution (hybrid framework) realize 15% higher value outcomes when leveraging Generative AI for risk identification and tailwind analysis. PMs are encouraged to upskill in prompt engineering and data analytics to remain competitive.",
+      content: "AI-driven predictive scheduling is changing how PMOs work. By analyzing historical project performance, team velocities, and dependency patterns, AI tools can predict potential bottlenecks weeks in advance.",
       readTime: "4 min",
       daysAgo: 2,
       link: "https://www.pmi.org/learning/thought-leadership/pulse"
@@ -3535,10 +3535,10 @@ const initApp = () => {
       source: "Scrum Alliance",
       category: "Agile",
       summary: "SpaceTech teams have successfully scaled Scrum to hardware manufacturing by using iterative testing cycles and modular design principles.",
-      content: "Traditional hardware development has long been considered purely predictive. However, SpaceTech startups are demonstrating that agile scaling frameworks (like SAFe or LeSS) can be adapted to rocket manufacturing and satellite engineering. By utilizing 3D printing and digital twin simulations, engineers can run weekly sprint reviews on actual physical hardware components, decreasing design-to-manufacture cycles by 40%.",
+      content: "Traditional hardware development has long been considered purely predictive. However, SpaceTech startups are demonstrating that agile scaling frameworks (like SAFe or LeSS) can be adapted to rocket manufacturing and satellite engineering.",
       readTime: "5 min",
       daysAgo: 4,
-      link: "https://www.scrumalliance.org/about-scrum/stories/scrum-in-hardware"
+      link: "https://www.scrumalliance.org/about-scrum/stories"
     },
     {
       id: 3,
@@ -3546,10 +3546,10 @@ const initApp = () => {
       source: "ProjectManagement.com",
       category: "Hybrid",
       summary: "This paper outlines practical methodologies for tailoring project life cycles by combining PMBOK 7th edition principles with Kanban boards.",
-      content: "Tailoring is the key performance driver in PMBOK 7. Rather than choosing between Waterfall and Scrum, project leaders are mixing development life cycles. For example, a software-enabled medical device project might use predictive milestones for regulatory approvals while utilizing a Scrum framework for software sprints. This hybrid setup requires strong governance combined with operational agility.",
+      content: "Tailoring is the key performance driver in PMBOK 7. Rather than choosing between Waterfall and Scrum, project leaders are mixing development life cycles.",
       readTime: "6 min",
       daysAgo: 6,
-      link: "https://www.projectmanagement.com/articles/hybrid-project-management-in-practice"
+      link: "https://www.projectmanagement.com/articles/"
     },
     {
       id: 4,
@@ -3557,10 +3557,10 @@ const initApp = () => {
       source: "PMI Network",
       category: "AI",
       summary: "PMI has released an official framework detailing the ethical use of LLMs in drafting project charters, stakeholder registers, and risk matrices.",
-      content: "As Generative AI becomes ubiquitous, PMI has established guidelines to ensure data privacy, intellectual property protection, and human oversight. The guidelines emphasize that while LLMs are excellent for bootstrapping drafts of project charters and requirements documents, the project manager remains solely accountable for validation and stakeholder alignment.",
+      content: "As Generative AI becomes ubiquitous, PMI has established guidelines to ensure data privacy, intellectual property protection, and human oversight.",
       readTime: "3 min",
       daysAgo: 8,
-      link: "https://www.pmi.org/learning/library/generative-ai-project-management"
+      link: "https://www.pmi.org/learning/thought-leadership/pulse"
     },
     {
       id: 5,
@@ -3568,10 +3568,10 @@ const initApp = () => {
       source: "Harvard Business Review",
       category: "Agile",
       summary: "Modern PMOs are shifting from administrative compliance centers to strategic centers of excellence focused on Agile business transformation.",
-      content: "According to HBR, the traditional PMO focused on monitoring budgets and schedules is dying. The next-generation PMO acts as a strategic business partner, coaching organizational change management, driving enterprise-wide agility, and ensuring project portfolio alignment with quarterly objectives.",
+      content: "According to HBR, the traditional PMO focused on monitoring budgets and schedules is dying. The next-generation PMO acts as a strategic business partner.",
       readTime: "7 min",
       daysAgo: 11,
-      link: "https://hbr.org/2023/07/why-your-pmo-should-be-a-strategic-advisor"
+      link: "https://hbr.org/topic/project-management"
     },
     {
       id: 6,
@@ -3579,10 +3579,10 @@ const initApp = () => {
       source: "Scrum Alliance",
       category: "Agile",
       summary: "Velocity is a planning metric, not a performance metric. Scrum guides suggest shifting to cycle time and customer value metrics.",
-      content: "Many organizations fall into the trap of using velocity to compare Scrum teams. Experts advise looking at cycle time (time from start to finish of an item) and throughput, alongside employee engagement and customer feedback, to capture a true picture of team productivity.",
+      content: "Many organizations fall into the trap of using velocity to compare Scrum teams. Experts advise looking at cycle time and throughput.",
       readTime: "5 min",
       daysAgo: 14,
-      link: "https://www.scrumalliance.org/about-scrum/stories/agile-metrics-beyond-velocity"
+      link: "https://www.scrumalliance.org/about-scrum/stories"
     },
     {
       id: 7,
@@ -3590,10 +3590,10 @@ const initApp = () => {
       source: "ProjectManagement.com",
       category: "Hybrid",
       summary: "A step-by-step framework to link high-level risk registers with low-level Scrum sprints and backlog refinement.",
-      content: "In hybrid projects, Waterfall risk logs often sit isolated from Scrum sprint planning. A modern approach involves mapping risk register entries to specific backlog user stories, ensuring risk response strategies are actively refined and executed during sprints.",
+      content: "In hybrid projects, Waterfall risk logs often sit isolated from Scrum sprint planning. A modern approach involves mapping risk register entries to specific backlog user stories.",
       readTime: "5 min",
       daysAgo: 18,
-      link: "https://www.projectmanagement.com/articles/hybrid-risk-management-agile-backlog"
+      link: "https://www.projectmanagement.com/blogs/"
     },
     {
       id: 8,
@@ -3601,10 +3601,10 @@ const initApp = () => {
       source: "PMI Network",
       category: "Hybrid",
       summary: "Tips on using frequent stakeholder demos and value delivery metrics over standard progress reports.",
-      content: "In volatile projects, standard status reports quickly become obsolete. PMI suggests utilizing interactive stakeholder demos at the end of sprints and value metrics (like Net Promoter Score or early release feedback) to align expectations and build trust.",
+      content: "In volatile projects, standard status reports quickly become obsolete. PMI suggests utilizing interactive stakeholder demos.",
       readTime: "4 min",
       daysAgo: 3,
-      link: "https://www.pmi.org/learning/library/stakeholder-expectations-high-uncertainty"
+      link: "https://www.pmi.org/learning/thought-leadership/pulse"
     },
     {
       id: 9,
@@ -3612,7 +3612,7 @@ const initApp = () => {
       source: "LinkedIn News",
       category: "Agile",
       summary: "LinkedIn analysis shows a 22% increase in hiring listings requiring a PMP certification for remote engineering and healthcare roles.",
-      content: "A recent analysis of job listings on LinkedIn indicates that the PMP certification remains the gold standard. Remote roles, in particular, demand the PMP to ensure managers have structured communication skills needed to lead distributed teams across time zones.",
+      content: "A recent analysis of job listings on LinkedIn indicates that the PMP certification remains the gold standard.",
       readTime: "3 min",
       daysAgo: 5,
       link: "https://www.linkedin.com/news/"
@@ -3623,7 +3623,7 @@ const initApp = () => {
       source: "Harvard Business Review",
       category: "AI",
       summary: "Using AI to track developer code output or team sentiment risks serious ethical backlash if transparency and safety are missing.",
-      content: "As tools emerge that claim to measure team productivity or burn-out using AI, HR and project leaders must exercise caution. Transparency, team safety, and feedback loops must remain central to avoid developer resistance and culture collapse.",
+      content: "As tools emerge that claim to measure team productivity or burn-out using AI, HR and project leaders must exercise caution.",
       readTime: "6 min",
       daysAgo: 10,
       link: "https://hbr.org/topic/project-management"
@@ -3634,7 +3634,7 @@ const initApp = () => {
       source: "Scrum Alliance",
       category: "Agile",
       summary: "Best practices for designing digital Kanban boards to prevent bottlenecks and manage WIP limits remotely.",
-      content: "Remote work amplifies workflow bottlenecks. Setting clear WIP (Work In Progress) limits, specifying explicit policies for columns, and conducting daily standups directly around the Kanban board help remote teams stay focused and reduce lead times.",
+      content: "Remote work amplifies workflow bottlenecks. Setting clear WIP (Work In Progress) limits helps remote teams stay focused.",
       readTime: "4 min",
       daysAgo: 15,
       link: "https://www.scrumalliance.org/resources"
@@ -3645,10 +3645,10 @@ const initApp = () => {
       source: "PMI Network",
       category: "Hybrid",
       summary: "How to integrate ecological impact assessments into project charter templates and risk logs.",
-      content: "PMI's focus on social impact is driving project managers to add 'sustainability' as a core project constraint alongside scope, time, cost, and quality. Selecting eco-friendly suppliers and designing energy-efficient delivery life cycles are now crucial steps in modern charters.",
+      content: "PMI's focus on social impact is driving project managers to add 'sustainability' as a core project constraint alongside scope, time, cost, and quality.",
       readTime: "5 min",
       daysAgo: 19,
-      link: "https://www.pmi.org/learning/thought-leadership/sustainability-in-project-management"
+      link: "https://www.pmi.org/learning/thought-leadership"
     }
   ];
 
@@ -3675,7 +3675,7 @@ const initApp = () => {
       requirements: ["Active PMP or CAPM", "3+ years technical project management", "Strong understanding of cloud infrastructure (AWS/Azure)", "Agile Scrum Master certification a plus"],
       daysAgo: 2,
       description: "Join our platform team to manage cloud migration projects. This role requires technical literacy, strong risk analysis capabilities, and excellent cross-functional communication.",
-      link: "https://www.indeed.com/jobs?q=technical+project+manager"
+      link: "https://www.indeed.com/jobs?q=remote+technical+project+manager"
     },
     {
       id: 3,
@@ -3699,7 +3699,7 @@ const initApp = () => {
       requirements: ["CAPM certification is highly preferred", "1-2 years project coordination experience", "Familiarity with Trello or MS Project", "Excellent organization and meeting moderation skills"],
       daysAgo: 5,
       description: "Support senior project managers with schedule tracking, status report aggregation, and meeting coordination. Great entry-level opportunity for aspiring project managers.",
-      link: "https://www.indeed.com/jobs?q=junior+project+coordinator"
+      link: "https://www.indeed.com/jobs?q=remote+project+coordinator"
     },
     {
       id: 5,
@@ -3723,7 +3723,7 @@ const initApp = () => {
       requirements: ["PMP Certification preferred", "4+ years software project management", "Experience in retail or e-commerce platforms", "Strong vendor management skills"],
       daysAgo: 7,
       description: "Lead the migration of our retail operations to a headless commerce architecture. Track release dates, balance team workloads, and report metrics to stakeholders.",
-      link: "https://www.glassdoor.com/Job/remote-ecommerce-project-manager-jobs-SRCH_KO0,32.htm"
+      link: "https://www.glassdoor.com/Job/remote-project-manager-jobs-SRCH_KO0,22.htm"
     },
     {
       id: 7,
@@ -3735,7 +3735,7 @@ const initApp = () => {
       requirements: ["CSM/CSP or PMI-ACP required", "6+ years coaching agile teams", "Experience with scaled agile frameworks (SAFe)", "Background in cybersecurity or DevSecOps"],
       daysAgo: 9,
       description: "Coach security product teams on agile maturity. Help resolve cross-team dependencies, run agile health checks, and guide developers in self-organization.",
-      link: "https://www.linkedin.com/jobs/search/?keywords=scrum%20master%20agile%20coach"
+      link: "https://www.linkedin.com/jobs/search/?keywords=remote%20scrum%20master"
     },
     {
       id: 8,
@@ -3747,7 +3747,7 @@ const initApp = () => {
       requirements: ["PMP Certification", "4+ years managing IT infrastructure projects", "Experience with network setups and database migrations", "Waterfall methodology governance"],
       daysAgo: 10,
       description: "Lead infrastructure deployment projects. Create detailed scope statements, manage critical paths, control budgets, and run change control meetings.",
-      link: "https://www.indeed.com/jobs?q=it+project+manager"
+      link: "https://www.indeed.com/jobs?q=remote+it+project+manager"
     },
     {
       id: 9,
@@ -3771,7 +3771,7 @@ const initApp = () => {
       requirements: ["PMP required", "8+ years in healthcare informatics", "Knowledge of HIPAA compliance and FDA guidelines", "Proven stakeholder management up to C-level"],
       daysAgo: 13,
       description: "Direct a suite of software implementation projects for top-tier hospitals. Ensure strict compliance, track milestones, and manage a team of 8 remote PMs.",
-      link: "https://www.glassdoor.com/Job/remote-healthcare-project-director-jobs-SRCH_KO0,34.htm"
+      link: "https://www.glassdoor.com/Job/remote-healthcare-project-manager-jobs-SRCH_KO0,32.htm"
     },
     {
       id: 11,
@@ -3783,7 +3783,7 @@ const initApp = () => {
       requirements: ["PMI-ACP or CSM", "3+ years project management in game development", "Experience with Unreal Engine or Unity workflows", "Expertise in Kanban and Scrum"],
       daysAgo: 15,
       description: "Oversee the core gameplay loop team. Facilitate sprints, balance production velocity with game designer quality goals, and remove creative bottlenecks.",
-      link: "https://www.indeed.com/jobs?q=agile+project+manager+gaming"
+      link: "https://www.indeed.com/jobs?q=remote+agile+project+manager"
     },
     {
       id: 12,
@@ -3831,11 +3831,12 @@ const initApp = () => {
       requirements: ["Certified Scrum Product Owner (CSPO)", "4+ years software product management", "Experience defining MVP scopes", "Strong backlog prioritization skills"],
       daysAgo: 20,
       description: "Own the backlog for our mapping division. Define user stories, coordinate release dates, interface with customer success, and drive team focus.",
-      link: "https://www.indeed.com/jobs?q=product+owner+project+manager"
+      link: "https://www.indeed.com/jobs?q=remote+product+owner+project+manager"
     }
   ];
 
   // News Filtering State
+// News Filtering State
 // News Filtering State
   let newsActiveCategory = 'all';
 
@@ -3844,6 +3845,50 @@ const initApp = () => {
   let jobsActiveExp = 'all';
 
   // 📰 RENDER NEWS PAGE
+  // Secure Link Authentication Protocol (SLAP)
+  // Ensures links are safe (HTTPS), properly formed, and belong to trusted domains.
+  function authenticateLink(url) {
+    try {
+      if (!url) return '#';
+      
+      const parsedUrl = new URL(url);
+      
+      // Enforce secure HTTPS protocol
+      if (parsedUrl.protocol !== 'https:') {
+        console.warn(`[Security Alert] Link rejected due to insecure protocol: ${url}`);
+        return '#';
+      }
+      
+      // Strict list of trusted domain authorities
+      const trustedDomains = [
+        'pmi.org',
+        'projectmanagement.com',
+        'scrumalliance.org',
+        'hbr.org',
+        'linkedin.com',
+        'indeed.com',
+        'glassdoor.com'
+      ];
+      
+      const hostname = parsedUrl.hostname.toLowerCase();
+      
+      // Check if domain is trusted
+      const isTrusted = trustedDomains.some(domain => {
+        return hostname === domain || hostname.endsWith('.' + domain);
+      });
+      
+      if (!isTrusted) {
+        console.warn(`[Security Alert] Link rejected - untrusted domain: ${hostname}`);
+        return '#';
+      }
+      
+      return parsedUrl.href;
+    } catch (e) {
+      console.error(`[Security Alert] Invalid link format: ${url}`);
+      return '#';
+    }
+  }
+
   function renderPMNews() {
     const container = document.getElementById('newsGridContainer');
     const searchVal = document.getElementById('newsSearchInput').value.toLowerCase();
@@ -3878,7 +3923,7 @@ const initApp = () => {
             <span>By <strong>${art.source}</strong></span>
             <div style="display:flex; gap:12px; align-items:center;">
               <span class="news-read-time">⏱️ ${art.readTime}</span>
-              <a class="btn btn-secondary" href="${art.link}" target="_blank" rel="noopener noreferrer" style="padding:4px 10px; font-size:0.75rem; margin:0; border-radius:4px; height:auto; display:inline-block; text-decoration:none; line-height:1.2;">Read</a>
+              <a class="btn btn-secondary" href="${authenticateLink(art.link)}" target="_blank" rel="noopener noreferrer" style="padding:4px 10px; font-size:0.75rem; margin:0; border-radius:4px; height:auto; display:inline-block; text-decoration:none; line-height:1.2;">Read</a>
             </div>
           </div>
         </div>
@@ -3931,7 +3976,7 @@ const initApp = () => {
           </ul>
           <div class="job-card-actions">
             <span class="job-post-date">Posted ${getDynamicDate(job.daysAgo)}</span>
-            <a class="btn btn-primary" href="${job.link}" target="_blank" rel="noopener noreferrer" style="padding: 6px 14px; font-size: 0.8rem; margin:0; border-radius:6px; height:auto; display:inline-block; text-decoration:none; line-height:1.2;">Apply Now</a>
+            <a class="btn btn-primary" href="${authenticateLink(job.link)}" target="_blank" rel="noopener noreferrer" style="padding: 6px 14px; font-size: 0.8rem; margin:0; border-radius:6px; height:auto; display:inline-block; text-decoration:none; line-height:1.2;">Apply Now</a>
           </div>
         </div>
       `;
@@ -3963,7 +4008,7 @@ const initApp = () => {
     newsContainer.querySelectorAll('.dash-insight-item').forEach(item => {
       item.addEventListener('click', () => {
         const art = pmNewsDatabase.find(x => x.id === parseInt(item.dataset.id));
-        if (art) window.open(art.link, '_blank');
+        if (art) window.open(authenticateLink(art.link), '_blank');
       });
     });
 
