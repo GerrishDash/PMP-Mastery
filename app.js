@@ -1529,6 +1529,54 @@ const initApp = () => {
   const modalOutputs = document.getElementById('modalOutputs');
   const modalCloseBtn = document.getElementById('modalCloseBtn');
 
+  const pmpComponentsForProcess = {
+    "4.3": ["Any components"],
+    "4.4": ["All components"],
+    "4.5": ["All components"],
+    "4.6": ["Change management plan", "Configuration management plan", "Scope baseline", "Schedule baseline", "Cost baseline"],
+    "4.7": ["All components"],
+    "5.2": ["Scope management plan", "Requirements management plan", "Stakeholder engagement plan"],
+    "5.3": ["Scope management plan"],
+    "5.4": ["Scope management plan"],
+    "5.5": ["Scope management plan", "Scope baseline"],
+    "5.6": ["Scope management plan", "Scope baseline", "Change management plan", "Configuration management plan", "Performance measurement baseline"],
+    "6.1": ["Scope management plan", "Development approach"],
+    "6.2": ["Schedule management plan", "Scope baseline"],
+    "6.3": ["Schedule management plan", "Scope baseline"],
+    "6.4": ["Schedule management plan", "Scope baseline"],
+    "6.5": ["Schedule management plan", "Scope baseline"],
+    "6.6": ["Schedule management plan", "Schedule baseline", "Scope baseline", "Performance measurement baseline"],
+    "7.1": ["Scope management plan", "Risk management plan"],
+    "7.2": ["Cost management plan", "Quality management plan", "Scope baseline"],
+    "7.3": ["Cost management plan", "Resource management plan", "Scope baseline"],
+    "7.4": ["Cost management plan", "Cost baseline", "Performance measurement baseline"],
+    "8.1": ["Requirements management plan", "Risk management plan", "Stakeholder engagement plan", "Scope baseline"],
+    "8.2": ["Quality management plan"],
+    "8.3": ["Quality management plan"],
+    "9.1": ["Quality management plan", "Scope baseline"],
+    "9.2": ["Resource management plan", "Scope baseline"],
+    "9.3": ["Resource management plan", "Procurement management plan", "Cost baseline"],
+    "9.4": ["Resource management plan"],
+    "9.5": ["Resource management plan"],
+    "9.6": ["Resource management plan"],
+    "10.1": ["Resource management plan", "Stakeholder engagement plan"],
+    "10.2": ["Resource management plan", "Communications management plan", "Stakeholder engagement plan"],
+    "10.3": ["Communications management plan", "Stakeholder engagement plan"],
+    "11.1": ["All components"],
+    "11.2": ["Requirements management plan", "Schedule management plan", "Cost management plan", "Quality management plan", "Resource management plan", "Risk management plan", "Scope baseline", "Schedule baseline", "Cost baseline"],
+    "11.3": ["Risk management plan"],
+    "11.4": ["Risk management plan", "Scope baseline", "Schedule baseline", "Cost baseline"],
+    "11.5": ["Resource management plan", "Risk management plan", "Cost baseline"],
+    "11.6": ["Resource management plan", "Risk management plan"],
+    "11.7": ["Risk management plan"],
+    "12.1": ["Scope management plan", "Quality management plan", "Resource management plan", "Scope baseline"],
+    "12.2": ["Scope management plan", "Requirements management plan", "Communications management plan", "Risk management plan", "Procurement management plan", "Stakeholder engagement plan", "Configuration management plan", "Scope baseline"],
+    "12.3": ["Requirements management plan", "Risk management plan", "Procurement management plan", "Change management plan", "Schedule baseline"],
+    "13.2": ["Resource management plan", "Communications management plan", "Risk management plan"],
+    "13.3": ["Communications management plan", "Risk management plan", "Stakeholder engagement plan", "Change management plan"],
+    "13.4": ["Resource management plan", "Communications management plan", "Stakeholder engagement plan"]
+  };
+
   function openIttoModal(id) {
     const data = ittoDatabase[id];
     if (!data) return;
@@ -1545,8 +1593,20 @@ const initApp = () => {
     else if (data.pg.includes('Monitoring')) modalPgBadge.style.background = 'rgba(255, 159, 28, 0.15)', modalPgBadge.style.color = '#ff9f1c';
     else if (data.pg.includes('Closing')) modalPgBadge.style.background = 'rgba(239, 71, 111, 0.15)', modalPgBadge.style.color = '#ef476f';
 
-    // Populate lists
-    modalInputs.innerHTML = data.inputs.map(item => `<li>${item}</li>`).join('');
+    // Populate lists (with expanded components for Project Management Plan inputs)
+    modalInputs.innerHTML = data.inputs.map(item => {
+      if (item.toLowerCase().includes('project management plan')) {
+        const components = pmpComponentsForProcess[id];
+        if (components && components.length > 0) {
+          const subList = `<ul style="margin-top:6px; padding-left:20px; font-size:0.82rem; color:var(--text-secondary); list-style-type:circle;">` + 
+            components.map(comp => `<li>${comp}</li>`).join('') + 
+            `</ul>`;
+          return `<li><strong>${item}</strong>:${subList}</li>`;
+        }
+      }
+      return `<li>${item}</li>`;
+    }).join('');
+    
     modalTools.innerHTML = data.tools.map(item => `<li>${item}</li>`).join('');
     modalOutputs.innerHTML = data.outputs.map(item => `<li>${item}</li>`).join('');
 
