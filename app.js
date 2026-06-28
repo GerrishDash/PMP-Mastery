@@ -1577,6 +1577,46 @@ const initApp = () => {
     "13.4": ["Resource management plan", "Communications management plan", "Stakeholder engagement plan"]
   };
 
+  const pmpUpdatesForProcess = {
+    "4.3": ["Any component"],
+    "4.4": ["Any component"],
+    "4.5": ["Any component"],
+    "4.6": ["Any component"],
+    "5.2": ["Scope management plan", "Requirements management plan"],
+    "5.3": ["Scope management plan", "Scope baseline"],
+    "5.4": ["Scope management plan", "Scope baseline"],
+    "5.5": ["Scope baseline"],
+    "5.6": ["Scope management plan", "Scope baseline", "Schedule baseline", "Cost baseline"],
+    "6.2": ["Schedule baseline"],
+    "6.4": ["Schedule baseline", "Cost baseline"],
+    "6.5": ["Schedule management plan", "Schedule baseline"],
+    "6.6": ["Schedule management plan", "Schedule baseline", "Cost baseline"],
+    "7.2": ["Cost management plan", "Cost baseline"],
+    "7.3": ["Cost baseline"],
+    "7.4": ["Cost management plan", "Cost baseline"],
+    "8.1": ["Quality management plan"],
+    "8.2": ["Quality management plan"],
+    "8.3": ["Quality management plan"],
+    "9.2": ["Resource management plan"],
+    "9.3": ["Resource management plan", "Cost baseline"],
+    "9.4": ["Resource management plan"],
+    "9.5": ["Resource management plan"],
+    "9.6": ["Resource management plan"],
+    "10.1": ["Communications management plan"],
+    "10.2": ["Communications management plan"],
+    "10.3": ["Communications management plan"],
+    "11.3": ["Risk management plan"],
+    "11.4": ["Risk management plan"],
+    "11.5": ["Resource management plan", "Risk management plan", "Schedule baseline", "Cost baseline"],
+    "11.6": ["Risk management plan"],
+    "11.7": ["Risk management plan"],
+    "12.1": ["Scope management plan", "Quality management plan", "Procurement management plan"],
+    "12.2": ["Requirements management plan", "Quality management plan", "Resource management plan", "Communications management plan", "Risk management plan", "Procurement management plan", "Stakeholder engagement plan", "Scope baseline", "Schedule baseline", "Cost baseline"],
+    "12.3": ["Requirements management plan", "Risk management plan", "Procurement management plan", "Schedule baseline", "Cost baseline"],
+    "13.3": ["Stakeholder engagement plan"],
+    "13.4": ["Resource management plan", "Communications management plan", "Stakeholder engagement plan"]
+  };
+
   function openIttoModal(id) {
     const data = ittoDatabase[id];
     if (!data) return;
@@ -1608,7 +1648,20 @@ const initApp = () => {
     }).join('');
     
     modalTools.innerHTML = data.tools.map(item => `<li>${item}</li>`).join('');
-    modalOutputs.innerHTML = data.outputs.map(item => `<li>${item}</li>`).join('');
+    
+    // Populate outputs (with expanded components for Project Management Plan updates / outputs)
+    modalOutputs.innerHTML = data.outputs.map(item => {
+      if (item.toLowerCase().includes('plan updates')) {
+        const updates = pmpUpdatesForProcess[id];
+        if (updates && updates.length > 0) {
+          const subList = `<ul style="margin-top:6px; padding-left:20px; font-size:0.82rem; color:var(--text-secondary); list-style-type:circle;">` + 
+            updates.map(upd => `<li>${upd}</li>`).join('') + 
+            `</ul>`;
+          return `<li><strong>${item}</strong>:${subList}</li>`;
+        }
+      }
+      return `<li>${item}</li>`;
+    }).join('');
 
     ittoModal.classList.add('open');
   }
