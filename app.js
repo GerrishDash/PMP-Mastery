@@ -332,6 +332,15 @@ const initApp = () => {
     if (sectionId === 'reader') {
       updateBookshelfUI();
     }
+    if (sectionId === 'news') {
+      renderPMNews();
+    }
+    if (sectionId === 'jobs') {
+      renderPMJobs();
+    }
+    if (sectionId === 'dashboard') {
+      renderDashboardPreviews();
+    }
   }
 
   navItems.forEach(item => {
@@ -3497,8 +3506,593 @@ const initApp = () => {
     }
   }
 
+  // ══════════════════════════════════════════════
+  //  PM NEWS & INNOVATIONS & REMOTE JOBS DATABASES
+  // ══════════════════════════════════════════════
+  
+  // Date helper to ensure all dates are within 3 weeks
+  function getDynamicDate(daysAgo) {
+    const d = new Date();
+    d.setDate(d.getDate() - daysAgo);
+    return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  }
+
+  const pmNewsDatabase = [
+    {
+      id: 1,
+      title: "AI-Driven Predictive Scheduling: The Next Frontier in Hybrid Projects",
+      source: "PMI Network",
+      category: "AI",
+      summary: "A new study by PMI reveals that 62% of high-performing organizations are adopting generative AI tools to automate scope verification and schedule risk forecasting.",
+      content: "AI-driven predictive scheduling is changing how PMOs work. By analyzing historical project performance, team velocities, and dependency patterns, AI tools can predict potential bottlenecks weeks in advance. PMI's latest research highlights that organizations combining predictive governance with agile execution (hybrid framework) realize 15% higher value outcomes when leveraging Generative AI for risk identification and tailwind analysis. PMs are encouraged to upskill in prompt engineering and data analytics to remain competitive.",
+      readTime: "4 min",
+      daysAgo: 2
+    },
+    {
+      id: 2,
+      title: "Scaling Agile in Hard Engineering: Lessons from SpaceTech",
+      source: "Scrum Alliance",
+      category: "Agile",
+      summary: "SpaceTech teams have successfully scaled Scrum to hardware manufacturing by using iterative testing cycles and modular design principles.",
+      content: "Traditional hardware development has long been considered purely predictive. However, SpaceTech startups are demonstrating that agile scaling frameworks (like SAFe or LeSS) can be adapted to rocket manufacturing and satellite engineering. By utilizing 3D printing and digital twin simulations, engineers can run weekly sprint reviews on actual physical hardware components, decreasing design-to-manufacture cycles by 40%.",
+      readTime: "5 min",
+      daysAgo: 4
+    },
+    {
+      id: 3,
+      title: "PMBOK 7th Edition: Tailoring the Life Cycle for Hybrid Projects",
+      source: "ProjectManagement.com",
+      category: "Hybrid",
+      summary: "This paper outlines practical methodologies for tailoring project life cycles by combining PMBOK 7th edition principles with Kanban boards.",
+      content: "Tailoring is the key performance driver in PMBOK 7. Rather than choosing between Waterfall and Scrum, project leaders are mixing development life cycles. For example, a software-enabled medical device project might use predictive milestones for regulatory approvals while utilizing a Scrum framework for software sprints. This hybrid setup requires strong governance combined with operational agility.",
+      readTime: "6 min",
+      daysAgo: 6
+    },
+    {
+      id: 4,
+      title: "Generative AI Guidelines Issued by the Project Management Institute",
+      source: "PMI Network",
+      category: "AI",
+      summary: "PMI has released an official framework detailing the ethical use of LLMs in drafting project charters, stakeholder registers, and risk matrices.",
+      content: "As Generative AI becomes ubiquitous, PMI has established guidelines to ensure data privacy, intellectual property protection, and human oversight. The guidelines emphasize that while LLMs are excellent for bootstrapping drafts of project charters and requirements documents, the project manager remains solely accountable for validation and stakeholder alignment.",
+      readTime: "3 min",
+      daysAgo: 8
+    },
+    {
+      id: 5,
+      title: "The Evolution of PMOs: Moving from Value Delivery to Strategic Advisory",
+      source: "Harvard Business Review",
+      category: "Agile",
+      summary: "Modern PMOs are shifting from administrative compliance centers to strategic centers of excellence focused on Agile business transformation.",
+      content: "According to HBR, the traditional PMO focused on monitoring budgets and schedules is dying. The next-generation PMO acts as a strategic business partner, coaching organizational change management, driving enterprise-wide agility, and ensuring project portfolio alignment with quarterly objectives.",
+      readTime: "7 min",
+      daysAgo: 11
+    },
+    {
+      id: 6,
+      title: "Measuring Agile Team Performance: Beyond Velocity",
+      source: "Scrum Alliance",
+      category: "Agile",
+      summary: "Velocity is a planning metric, not a performance metric. Scrum guides suggest shifting to cycle time and customer value metrics.",
+      content: "Many organizations fall into the trap of using velocity to compare Scrum teams. Experts advise looking at cycle time (time from start to finish of an item) and throughput, alongside employee engagement and customer feedback, to capture a true picture of team productivity.",
+      readTime: "5 min",
+      daysAgo: 14
+    },
+    {
+      id: 7,
+      title: "Hybrid Risk Management: Integrating Risk Registers with Agile Backlogs",
+      source: "ProjectManagement.com",
+      category: "Hybrid",
+      summary: "A step-by-step framework to link high-level risk registers with low-level Scrum sprints and backlog refinement.",
+      content: "In hybrid projects, Waterfall risk logs often sit isolated from Scrum sprint planning. A modern approach involves mapping risk register entries to specific backlog user stories, ensuring risk response strategies are actively refined and executed during sprints.",
+      readTime: "5 min",
+      daysAgo: 18
+    },
+    {
+      id: 8,
+      title: "Managing Stakeholder Expectations in High-Uncertainty Environments",
+      source: "PMI Network",
+      category: "Hybrid",
+      summary: "Tips on using frequent stakeholder demos and value delivery metrics over standard progress reports.",
+      content: "In volatile projects, standard status reports quickly become obsolete. PMI suggests utilizing interactive stakeholder demos at the end of sprints and value metrics (like Net Promoter Score or early release feedback) to align expectations and build trust.",
+      readTime: "4 min",
+      daysAgo: 3
+    },
+    {
+      id: 9,
+      title: "The PMP Certification in 2026: Trends and Market Value",
+      source: "LinkedIn News",
+      category: "Agile",
+      summary: "LinkedIn analysis shows a 22% increase in hiring listings requiring a PMP certification for remote engineering and healthcare roles.",
+      content: "A recent analysis of job listings on LinkedIn indicates that the PMP certification remains the gold standard. Remote roles, in particular, demand the PMP to ensure managers have structured communication skills needed to lead distributed teams across time zones.",
+      readTime: "3 min",
+      daysAgo: 5
+    },
+    {
+      id: 10,
+      title: "Ethical Considerations in Project Data Analytics",
+      source: "Harvard Business Review",
+      category: "AI",
+      summary: "Using AI to track developer code output or team sentiment risks serious ethical backlash if transparency and safety are missing.",
+      content: "As tools emerge that claim to measure team productivity or burn-out using AI, HR and project leaders must exercise caution. Transparency, team safety, and feedback loops must remain central to avoid developer resistance and culture collapse.",
+      readTime: "6 min",
+      daysAgo: 10
+    },
+    {
+      id: 11,
+      title: "Kanban for Remote Teams: Optimizing Workflow in 2026",
+      source: "Scrum Alliance",
+      category: "Agile",
+      summary: "Best practices for designing digital Kanban boards to prevent bottlenecks and manage WIP limits remotely.",
+      content: "Remote work amplifies workflow bottlenecks. Setting clear WIP (Work In Progress) limits, specifying explicit policies for columns, and conducting daily standups directly around the Kanban board help remote teams stay focused and reduce lead times.",
+      readTime: "4 min",
+      daysAgo: 15
+    },
+    {
+      id: 12,
+      title: "Green Project Management: Sustainability as a Project Objective",
+      source: "PMI Network",
+      category: "Hybrid",
+      summary: "How to integrate ecological impact assessments into project charter templates and risk logs.",
+      content: "PMI's focus on social impact is driving project managers to add 'sustainability' as a core project constraint alongside scope, time, cost, and quality. Selecting eco-friendly suppliers and designing energy-efficient delivery life cycles are now crucial steps in modern charters.",
+      readTime: "5 min",
+      daysAgo: 19
+    }
+  ];
+
+  const pmJobsDatabase = [
+    {
+      id: 1,
+      title: "Remote Senior Project Manager",
+      company: "TechWave Solutions",
+      board: "LinkedIn",
+      exp: "Senior",
+      salary: "$130,000 - $160,000/yr",
+      requirements: ["PMP Certification required", "7+ years leading software projects", "Experience with hybrid Waterfall/Scrum", "Proficiency in Jira & Confluence"],
+      daysAgo: 1,
+      description: "We are seeking a seasoned Remote Senior PM to lead a critical digital transformation initiative. You will coordinate between global stakeholder teams, align program budgets with business cases, and manage scrum masters across three workstreams."
+    },
+    {
+      id: 2,
+      title: "Technical Project Manager (Remote)",
+      company: "CloudScale Systems",
+      board: "Indeed",
+      exp: "Mid",
+      salary: "$105,000 - $125,000/yr",
+      requirements: ["Active PMP or CAPM", "3+ years technical project management", "Strong understanding of cloud infrastructure (AWS/Azure)", "Agile Scrum Master certification a plus"],
+      daysAgo: 2,
+      description: "Join our platform team to manage cloud migration projects. This role requires technical literacy, strong risk analysis capabilities, and excellent cross-functional communication."
+    },
+    {
+      id: 3,
+      title: "Agile Scrum Master (100% Remote)",
+      company: "FinTech Innovations",
+      board: "Glassdoor",
+      exp: "Mid",
+      salary: "$95,000 - $115,000/yr",
+      requirements: ["Certified Scrum Master (CSM)", "3+ years in a dedicated Scrum Master role", "Experience facilitating all Scrum ceremonies", "Strong coaching and impediment resolution skills"],
+      daysAgo: 3,
+      description: "Facilitate two remote agile development teams. Remove blockers, guide the product owner on backlog refinement, and help scale scrum practices within the division."
+    },
+    {
+      id: 4,
+      title: "Junior Project Coordinator (Remote)",
+      company: "EduTech Global",
+      board: "Indeed",
+      exp: "Entry",
+      salary: "$60,000 - $75,000/yr",
+      requirements: ["CAPM certification is highly preferred", "1-2 years project coordination experience", "Familiarity with Trello or MS Project", "Excellent organization and meeting moderation skills"],
+      daysAgo: 5,
+      description: "Support senior project managers with schedule tracking, status report aggregation, and meeting coordination. Great entry-level opportunity for aspiring project managers."
+    },
+    {
+      id: 5,
+      title: "Remote Director of Project Management (PMO)",
+      company: "HealthCore Digital",
+      board: "LinkedIn",
+      exp: "Senior",
+      salary: "$180,000 - $210,000/yr",
+      requirements: ["PMP & PgMP Certifications", "10+ years running enterprise PMOs", "Experience in healthcare/regulatory compliance", "Mastery of portfolio management (Portfolio Kanban)"],
+      daysAgo: 6,
+      description: "Establish governance and standards for our remote PMO. Oversee a portfolio of 40+ active projects, report milestones to executive leadership, and manage program resources."
+    },
+    {
+      id: 6,
+      title: "Remote Project Manager - E-commerce",
+      company: "RetailFlow Inc.",
+      board: "Glassdoor",
+      exp: "Mid",
+      salary: "$90,000 - $110,000/yr",
+      requirements: ["PMP Certification preferred", "4+ years software project management", "Experience in retail or e-commerce platforms", "Strong vendor management skills"],
+      daysAgo: 7,
+      description: "Lead the migration of our retail operations to a headless commerce architecture. Track release dates, balance team workloads, and report metrics to stakeholders."
+    },
+    {
+      id: 7,
+      title: "Scrum Master / Agile Coach",
+      company: "CyberArmor Labs",
+      board: "LinkedIn",
+      exp: "Senior",
+      salary: "$140,000 - $165,000/yr",
+      requirements: ["CSM/CSP or PMI-ACP required", "6+ years coaching agile teams", "Experience with scaled agile frameworks (SAFe)", "Background in cybersecurity or DevSecOps"],
+      daysAgo: 9,
+      description: "Coach security product teams on agile maturity. Help resolve cross-team dependencies, run agile health checks, and guide developers in self-organization."
+    },
+    {
+      id: 8,
+      title: "IT Project Manager (Remote)",
+      company: "Apex Infrastructure",
+      board: "Indeed",
+      exp: "Mid",
+      salary: "$100,000 - $120,000/yr",
+      requirements: ["PMP Certification", "4+ years managing IT infrastructure projects", "Experience with network setups and database migrations", "Waterfall methodology governance"],
+      daysAgo: 10,
+      description: "Lead infrastructure deployment projects. Create detailed scope statements, manage critical paths, control budgets, and run change control meetings."
+    },
+    {
+      id: 9,
+      title: "Remote Associate Project Manager",
+      company: "GreenTech Solutions",
+      board: "LinkedIn",
+      exp: "Entry",
+      salary: "$70,000 - $85,000/yr",
+      requirements: ["PMP or CAPM in progress", "2+ years professional experience", "Strong written and verbal communication", "Agile tool mastery (Jira, Asana)"],
+      daysAgo: 12,
+      description: "Work alongside product and engineering teams. Manage sprints, run daily standups, capture retro items, and maintain the team wiki."
+    },
+    {
+      id: 10,
+      title: "Healthcare Project Director (Remote)",
+      company: "MedQuest Systems",
+      board: "Glassdoor",
+      exp: "Senior",
+      salary: "$160,000 - $190,000/yr",
+      requirements: ["PMP required", "8+ years in healthcare informatics", "Knowledge of HIPAA compliance and FDA guidelines", "Proven stakeholder management up to C-level"],
+      daysAgo: 13,
+      description: "Direct a suite of software implementation projects for top-tier hospitals. Ensure strict compliance, track milestones, and manage a team of 8 remote PMs."
+    },
+    {
+      id: 11,
+      title: "Agile Project Manager - Gaming",
+      company: "PixelForge Studios",
+      board: "Indeed",
+      exp: "Mid",
+      salary: "$95,000 - $115,000/yr",
+      requirements: ["PMI-ACP or CSM", "3+ years project management in game development", "Experience with Unreal Engine or Unity workflows", "Expertise in Kanban and Scrum"],
+      daysAgo: 15,
+      description: "Oversee the core gameplay loop team. Facilitate sprints, balance production velocity with game designer quality goals, and remove creative bottlenecks."
+    },
+    {
+      id: 12,
+      title: "Remote Scrum Project Manager",
+      company: "NeoBank Corp",
+      board: "LinkedIn",
+      exp: "Mid",
+      salary: "$110,000 - $130,000/yr",
+      requirements: ["PMP and CSM certifications", "5+ years in finance or banking PM", "Experience with secure payment gateway integrations", "Hybrid Scrum/Waterfall expertise"],
+      daysAgo: 16,
+      description: "Lead a high-performing team on mobile banking features. Balance Agile velocity for development with Waterfall checkpoints for compliance and audits."
+    },
+    {
+      id: 13,
+      title: "Marketing Project Manager (Remote)",
+      company: "ContentHub Media",
+      board: "Glassdoor",
+      exp: "Entry",
+      salary: "$65,000 - $80,000/yr",
+      requirements: ["1-2 years managing marketing or creative projects", "Knowledge of agile creative processes", "Exceptional multi-tasking skills", "Proficiency in Asana or Monday.com"],
+      daysAgo: 17,
+      description: "Coordinate creative campaigns, video production, and copy writing pipelines. Run weekly prioritization sessions and coordinate client feedback loops."
+    },
+    {
+      id: 14,
+      title: "Senior Program Manager (Remote)",
+      company: "DataVanguard",
+      board: "LinkedIn",
+      exp: "Senior",
+      salary: "$170,000 - $200,000/yr",
+      requirements: ["PMP and PgMP required", "8+ years program management", "Mastery of data engineering and analytics platforms", "Strong financial management of program budgets"],
+      daysAgo: 19,
+      description: "Manage a program of work focused on enterprise data warehousing. Oversee multiple related project teams, track business value, and align roadmap with corporate strategy."
+    },
+    {
+      id: 15,
+      title: "Product Owner / PM (Remote)",
+      company: "AutoDrive Technologies",
+      board: "Indeed",
+      exp: "Mid",
+      salary: "$120,000 - $140,000/yr",
+      requirements: ["Certified Scrum Product Owner (CSPO)", "4+ years software product management", "Experience defining MVP scopes", "Strong backlog prioritization skills"],
+      daysAgo: 20,
+      description: "Own the backlog for our mapping division. Define user stories, coordinate release dates, interface with customer success, and drive team focus."
+    }
+  ];
+
+  // News Filtering State
+  let newsActiveCategory = 'all';
+
+  // Jobs Filtering State
+  let jobsActiveBoard = 'all';
+  let jobsActiveExp = 'all';
+
+  // 📰 RENDER NEWS PAGE
+  function renderPMNews() {
+    const container = document.getElementById('newsGridContainer');
+    const searchVal = document.getElementById('newsSearchInput').value.toLowerCase();
+    
+    // Filter database
+    const filtered = pmNewsDatabase.filter(art => {
+      const matchesCat = (newsActiveCategory === 'all' || art.category === newsActiveCategory);
+      const matchesSearch = (
+        art.title.toLowerCase().includes(searchVal) ||
+        art.summary.toLowerCase().includes(searchVal) ||
+        art.content.toLowerCase().includes(searchVal) ||
+        art.source.toLowerCase().includes(searchVal)
+      );
+      return matchesCat && matchesSearch;
+    });
+
+    if (filtered.length === 0) {
+      container.innerHTML = `<div style="grid-column: 1/-1; padding: 40px; text-align: center; color: var(--text-secondary); background: var(--bg-card); border-radius: var(--radius-xl); border: 1px solid var(--border-subtle);">No articles found matching filters.</div>`;
+      return;
+    }
+
+    container.innerHTML = filtered.map(art => {
+      return `
+        <div class="news-card">
+          <div class="news-card-header">
+            <span class="news-category-badge ${art.category.toLowerCase()}">${art.category}</span>
+            <span class="news-card-date">${getDynamicDate(art.daysAgo)}</span>
+          </div>
+          <h3 class="news-card-title">${art.title}</h3>
+          <p class="news-card-summary">${art.summary}</p>
+          <div class="news-card-footer">
+            <span>By <strong>${art.source}</strong></span>
+            <div style="display:flex; gap:12px; align-items:center;">
+              <span class="news-read-time">⏱️ ${art.readTime}</span>
+              <button class="btn btn-secondary btn-read-article" data-id="${art.id}" style="padding:4px 10px; font-size:0.75rem; margin:0; border-radius:4px; height:auto;">Read</button>
+            </div>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    // Attach listeners
+    container.querySelectorAll('.btn-read-article').forEach(btn => {
+      btn.addEventListener('click', () => {
+        openArticleModal(btn.dataset.id);
+      });
+    });
+  }
+
+  // 💼 RENDER REMOTE JOBS PAGE
+  function renderPMJobs() {
+    const container = document.getElementById('jobsGridContainer');
+    const searchVal = document.getElementById('jobsSearchInput').value.toLowerCase();
+
+    // Filter database
+    const filtered = pmJobsDatabase.filter(job => {
+      const matchesBoard = (jobsActiveBoard === 'all' || job.board === jobsActiveBoard);
+      const matchesExp = (jobsActiveExp === 'all' || job.exp === jobsActiveExp);
+      const matchesSearch = (
+        job.title.toLowerCase().includes(searchVal) ||
+        job.company.toLowerCase().includes(searchVal) ||
+        job.description.toLowerCase().includes(searchVal) ||
+        job.requirements.some(req => req.toLowerCase().includes(searchVal))
+      );
+      return matchesBoard && matchesExp && matchesSearch;
+    });
+
+    if (filtered.length === 0) {
+      container.innerHTML = `<div style="padding: 40px; text-align: center; color: var(--text-secondary); background: var(--bg-card); border-radius: var(--radius-xl); border: 1px solid var(--border-subtle);">No job postings found matching filters.</div>`;
+      return;
+    }
+
+    container.innerHTML = filtered.map(job => {
+      const reqBullets = job.requirements.map(req => `<li>${req}</li>`).join('');
+      return `
+        <div class="job-card">
+          <div class="job-card-header">
+            <div>
+              <h3 style="font-size: 1.12rem; font-weight: 700; color: var(--text-primary); margin:0;">${job.title}</h3>
+              <div style="font-size: 0.88rem; color: var(--accent-primary); font-weight:600; margin-top:2px;">${job.company}</div>
+            </div>
+            <span class="job-source-tag ${job.board.toLowerCase()}">${job.board}</span>
+          </div>
+          <div class="job-meta-row">
+            <span class="job-meta-item salary">💰 ${job.salary}</span>
+            <span class="job-meta-item">📍 Remote (US/Global)</span>
+            <span class="job-meta-item">⏳ ${job.exp}-level</span>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 12px;">${job.description}</p>
+          <ul class="job-requirements-list">
+            ${reqBullets}
+          </ul>
+          <div class="job-card-actions">
+            <span class="job-post-date">Posted ${getDynamicDate(job.daysAgo)}</span>
+            <button class="btn btn-primary btn-apply-job" data-id="${job.id}" data-title="${job.title}" style="padding: 6px 14px; font-size: 0.8rem; margin:0; border-radius:6px; height:auto;">Apply Now</button>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    // Attach listeners
+    container.querySelectorAll('.btn-apply-job').forEach(btn => {
+      btn.addEventListener('click', () => {
+        openApplyJobModal(btn.dataset.id, btn.dataset.title);
+      });
+    });
+  }
+
+  // 📊 RENDER DASHBOARD PREVIEWS
+  function renderDashboardPreviews() {
+    const newsContainer = document.getElementById('dashNewsList');
+    const jobsContainer = document.getElementById('dashJobsList');
+
+    if (!newsContainer || !jobsContainer) return;
+
+    // Get latest 3 news items
+    const topNews = pmNewsDatabase.slice(0, 3);
+    newsContainer.innerHTML = topNews.map(art => {
+      return `
+        <div class="dash-insight-item" data-id="${art.id}">
+          <div class="dash-insight-title">${art.title}</div>
+          <div class="dash-insight-meta">
+            <span>${art.source}</span>
+            <span>${getDynamicDate(art.daysAgo)}</span>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    // Add click listeners to dashboard news items
+    newsContainer.querySelectorAll('.dash-insight-item').forEach(item => {
+      item.addEventListener('click', () => {
+        openArticleModal(item.dataset.id);
+      });
+    });
+
+    // Get latest 3 jobs items
+    const topJobs = pmJobsDatabase.slice(0, 3);
+    jobsContainer.innerHTML = topJobs.map(job => {
+      return `
+        <div class="dash-insight-item" data-id="${job.id}">
+          <div style="display:flex; justify-content:space-between; align-items:center; width:100%;">
+            <div class="dash-insight-title" style="font-weight:700;">${job.title}</div>
+            <span class="job-source-tag ${job.board.toLowerCase()}" style="font-size:0.6rem; padding: 1px 5px;">${job.board}</span>
+          </div>
+          <div style="font-size:0.75rem; color:var(--accent-primary); font-weight:600; margin-top:2px;">${job.company}</div>
+          <div class="dash-insight-meta">
+            <span>💰 ${job.salary}</span>
+            <span>Posted ${getDynamicDate(job.daysAgo)}</span>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    // Add click listeners to dashboard job items (goes directly to jobs board)
+    jobsContainer.querySelectorAll('.dash-insight-item').forEach(item => {
+      item.addEventListener('click', () => {
+        navigateTo('jobs');
+      });
+    });
+  }
+
+  // 📰 ARTICLE MODAL POPUP
+  const articleModal = document.getElementById('articleModal');
+  const articleModalCloseBtn = document.getElementById('articleModalCloseBtn');
+  
+  function openArticleModal(id) {
+    const art = pmNewsDatabase.find(x => x.id === parseInt(id));
+    if (!art) return;
+
+    document.getElementById('articleModalCategory').className = `news-category-badge ${art.category.toLowerCase()}`;
+    document.getElementById('articleModalCategory').textContent = art.category;
+    document.getElementById('articleModalTitle').textContent = art.title;
+    document.getElementById('articleModalDate').textContent = getDynamicDate(art.daysAgo);
+    document.getElementById('articleModalSource').textContent = art.source;
+    document.getElementById('articleModalReadTime').textContent = art.readTime;
+    
+    // Split text content into paragraphs
+    const pars = art.content.split('. ').map(p => `<p>${p}.</p>`).join('');
+    document.getElementById('articleModalBody').innerHTML = pars;
+
+    articleModal.classList.add('open');
+  }
+
+  articleModalCloseBtn.addEventListener('click', () => {
+    articleModal.classList.remove('open');
+  });
+
+  // 💼 JOB APPLY MODAL POPUP
+  const applyJobModal = document.getElementById('applyJobModal');
+  const applyJobModalCloseBtn = document.getElementById('applyJobModalCloseBtn');
+  const applyJobForm = document.getElementById('applyJobForm');
+
+  function openApplyJobModal(id, title) {
+    document.getElementById('applyJobId').value = id;
+    document.getElementById('applyJobTitle').textContent = title;
+    
+    // Clear inputs
+    document.getElementById('applyName').value = '';
+    document.getElementById('applyEmail').value = '';
+    document.getElementById('applyCover').value = '';
+
+    applyJobModal.classList.add('open');
+  }
+
+  applyJobModalCloseBtn.addEventListener('click', () => {
+    applyJobModal.classList.remove('open');
+  });
+
+  applyJobForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('applyName').value;
+    alert(`Thank you, ${name}! Your (simulated) application has been successfully submitted to the recruitment pipeline. 🚀`);
+    applyJobModal.classList.remove('open');
+  });
+
+  // CLOSE MODALS ON BACKDROP CLICK
+  window.addEventListener('click', (e) => {
+    if (e.target === articleModal) {
+      articleModal.classList.remove('open');
+    }
+    if (e.target === applyJobModal) {
+      applyJobModal.classList.remove('open');
+    }
+  });
+
+  // 🔍 ATTACH SEARCH & FILTER LISTENERS
+  
+  // News Search
+  document.getElementById('newsSearchInput').addEventListener('input', renderPMNews);
+  
+  // News category tabs
+  document.querySelectorAll('.news-filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.news-filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      newsActiveCategory = btn.dataset.category;
+      renderPMNews();
+    });
+  });
+
+  // Jobs Search
+  document.getElementById('jobsSearchInput').addEventListener('input', renderPMJobs);
+
+  // Job boards tabs
+  document.querySelectorAll('.job-board-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.job-board-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      jobsActiveBoard = btn.dataset.board;
+      renderPMJobs();
+    });
+  });
+
+  // Job experience tabs
+  document.querySelectorAll('.job-exp-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.job-exp-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      jobsActiveExp = btn.dataset.exp;
+      renderPMJobs();
+    });
+  });
+
+  // Wire dashboard 'View All' links
+  document.querySelectorAll('.nav-link-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      navigateTo(btn.dataset.section);
+    });
+  });
+
+  // Render initial dashboard widget previews
+  renderDashboardPreviews();
+
   // Initialize quiz
   showQuizSetup();
+
 
 };
 if (document.readyState === 'loading') {

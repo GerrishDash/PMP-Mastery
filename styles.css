@@ -3015,6 +3015,211 @@ body {
 }
 
 /* Modal overlays */
-#breakOverlay.open, #pauseOverlay.open {
+#breakOverlay.open, #pauseOverlay.open, #articleModal.open, #applyJobModal.open {
   display: flex !important;
+}
+
+/* PM Insights & Job Board Styles */
+.news-card, .job-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-xl);
+  padding: 20px;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  text-align: left;
+}
+
+.news-card:hover, .job-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-primary);
+  box-shadow: 0 8px 30px rgba(6, 214, 160, 0.08);
+}
+
+.news-card-header, .job-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  width: 100%;
+}
+
+.news-category-badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+}
+
+.news-category-badge.ai {
+  background: rgba(123, 97, 255, 0.12);
+  color: #7b61ff;
+  border: 1px solid rgba(123, 97, 255, 0.2);
+}
+
+.news-category-badge.agile {
+  background: rgba(17, 138, 178, 0.12);
+  color: #118ab2;
+  border: 1px solid rgba(17, 138, 178, 0.2);
+}
+
+.news-category-badge.hybrid {
+  background: rgba(255, 159, 28, 0.12);
+  color: #ff9f1c;
+  border: 1px solid rgba(255, 159, 28, 0.2);
+}
+
+.news-card-date {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.news-card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.4;
+  margin-bottom: 8px;
+  transition: color 0.2s ease;
+}
+
+.news-card:hover .news-card-title {
+  color: var(--accent-primary);
+}
+
+.news-card-summary {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
+
+.news-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 12px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  width: 100%;
+}
+
+.news-read-time {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Job Board Specific Tags */
+.job-source-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.job-source-tag.linkedin {
+  background: rgba(10, 102, 194, 0.12);
+  color: #0a66c2;
+  border: 1px solid rgba(10, 102, 194, 0.2);
+}
+
+.job-source-tag.indeed {
+  background: rgba(37, 87, 224, 0.12);
+  color: #2557e0;
+  border: 1px solid rgba(37, 87, 224, 0.2);
+}
+
+.job-source-tag.glassdoor {
+  background: rgba(15, 168, 86, 0.12);
+  color: #0fa856;
+  border: 1px solid rgba(15, 168, 86, 0.2);
+}
+
+.job-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.job-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border-subtle);
+}
+
+.job-meta-item.salary {
+  font-weight: 700;
+  color: var(--accent-primary);
+  border-color: rgba(6, 214, 160, 0.2);
+}
+
+.job-requirements-list {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+  padding-left: 18px;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.job-card-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 14px;
+  width: 100%;
+}
+
+.job-post-date {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* Dashboard Insights Widgets styles */
+.dash-insight-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+  text-align: left;
+}
+
+.dash-insight-item:hover {
+  border-color: var(--accent-primary);
+  transform: translateX(2px);
+}
+
+.dash-insight-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.dash-insight-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 2px;
 }
