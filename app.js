@@ -3653,187 +3653,262 @@ const initApp = () => {
   ];
 
   const pmJobsDatabase = [
-    {
-      id: 1,
-      title: "Remote Senior Project Manager",
-      company: "TechWave Solutions",
-      board: "LinkedIn",
-      exp: "Senior",
-      salary: "$130,000 - $160,000/yr",
-      requirements: ["PMP Certification required", "7+ years leading software projects", "Experience with hybrid Waterfall/Scrum", "Proficiency in Jira & Confluence"],
-      daysAgo: 1,
-      description: "We are seeking a seasoned Remote Senior PM to lead a critical digital transformation initiative. You will coordinate between global stakeholder teams, align program budgets with business cases, and manage scrum masters across three workstreams.",
-      link: "https://www.linkedin.com/jobs/search/?keywords=remote%20senior%20project%20manager"
-    },
-    {
-      id: 2,
-      title: "Technical Project Manager (Remote)",
-      company: "CloudScale Systems",
-      board: "Indeed",
-      exp: "Mid",
-      salary: "$105,000 - $125,000/yr",
-      requirements: ["Active PMP or CAPM", "3+ years technical project management", "Strong understanding of cloud infrastructure (AWS/Azure)", "Agile Scrum Master certification a plus"],
-      daysAgo: 2,
-      description: "Join our platform team to manage cloud migration projects. This role requires technical literacy, strong risk analysis capabilities, and excellent cross-functional communication.",
-      link: "https://www.indeed.com/jobs?q=remote+technical+project+manager"
-    },
-    {
-      id: 3,
-      title: "Agile Scrum Master (100% Remote)",
-      company: "FinTech Innovations",
-      board: "Glassdoor",
-      exp: "Mid",
-      salary: "$95,000 - $115,000/yr",
-      requirements: ["Certified Scrum Master (CSM)", "3+ years in a dedicated Scrum Master role", "Experience facilitating all Scrum ceremonies", "Strong coaching and impediment resolution skills"],
-      daysAgo: 3,
-      description: "Facilitate two remote agile development teams. Remove blockers, guide the product owner on backlog refinement, and help scale scrum practices within the division.",
-      link: "https://www.glassdoor.com/Job/remote-scrum-master-jobs-SRCH_KO0,19.htm"
-    },
-    {
-      id: 4,
-      title: "Junior Project Coordinator (Remote)",
-      company: "EduTech Global",
-      board: "Indeed",
-      exp: "Entry",
-      salary: "$60,000 - $75,000/yr",
-      requirements: ["CAPM certification is highly preferred", "1-2 years project coordination experience", "Familiarity with Trello or MS Project", "Excellent organization and meeting moderation skills"],
-      daysAgo: 5,
-      description: "Support senior project managers with schedule tracking, status report aggregation, and meeting coordination. Great entry-level opportunity for aspiring project managers.",
-      link: "https://www.indeed.com/jobs?q=remote+project+coordinator"
-    },
-    {
-      id: 5,
-      title: "Remote Director of Project Management (PMO)",
-      company: "HealthCore Digital",
-      board: "LinkedIn",
-      exp: "Senior",
-      salary: "$180,000 - $210,000/yr",
-      requirements: ["PMP & PgMP Certifications", "10+ years running enterprise PMOs", "Experience in healthcare/regulatory compliance", "Mastery of portfolio management (Portfolio Kanban)"],
-      daysAgo: 6,
-      description: "Establish governance and standards for our remote PMO. Oversee a portfolio of 40+ active projects, report milestones to executive leadership, and manage program resources.",
-      link: "https://www.linkedin.com/jobs/search/?keywords=remote%20director%20project%20management"
-    },
-    {
-      id: 6,
-      title: "Remote Project Manager - E-commerce",
-      company: "RetailFlow Inc.",
-      board: "Glassdoor",
-      exp: "Mid",
-      salary: "$90,000 - $110,000/yr",
-      requirements: ["PMP Certification preferred", "4+ years software project management", "Experience in retail or e-commerce platforms", "Strong vendor management skills"],
-      daysAgo: 7,
-      description: "Lead the migration of our retail operations to a headless commerce architecture. Track release dates, balance team workloads, and report metrics to stakeholders.",
-      link: "https://www.glassdoor.com/Job/remote-project-manager-jobs-SRCH_KO0,22.htm"
-    },
-    {
-      id: 7,
-      title: "Scrum Master / Agile Coach",
-      company: "CyberArmor Labs",
-      board: "LinkedIn",
-      exp: "Senior",
-      salary: "$140,000 - $165,000/yr",
-      requirements: ["CSM/CSP or PMI-ACP required", "6+ years coaching agile teams", "Experience with scaled agile frameworks (SAFe)", "Background in cybersecurity or DevSecOps"],
-      daysAgo: 9,
-      description: "Coach security product teams on agile maturity. Help resolve cross-team dependencies, run agile health checks, and guide developers in self-organization.",
-      link: "https://www.linkedin.com/jobs/search/?keywords=remote%20scrum%20master"
-    },
-    {
-      id: 8,
-      title: "IT Project Manager (Remote)",
-      company: "Apex Infrastructure",
-      board: "Indeed",
-      exp: "Mid",
-      salary: "$100,000 - $120,000/yr",
-      requirements: ["PMP Certification", "4+ years managing IT infrastructure projects", "Experience with network setups and database migrations", "Waterfall methodology governance"],
-      daysAgo: 10,
-      description: "Lead infrastructure deployment projects. Create detailed scope statements, manage critical paths, control budgets, and run change control meetings.",
-      link: "https://www.indeed.com/jobs?q=remote+it+project+manager"
-    },
-    {
-      id: 9,
-      title: "Remote Associate Project Manager",
-      company: "GreenTech Solutions",
-      board: "LinkedIn",
-      exp: "Entry",
-      salary: "$70,000 - $85,000/yr",
-      requirements: ["PMP or CAPM in progress", "2+ years professional experience", "Strong written and verbal communication", "Agile tool mastery (Jira, Asana)"],
-      daysAgo: 12,
-      description: "Work alongside product and engineering teams. Manage sprints, run daily standups, capture retro items, and maintain the team wiki.",
-      link: "https://www.linkedin.com/jobs/search/?keywords=remote%20associate%20project%20manager"
-    },
-    {
-      id: 10,
-      title: "Healthcare Project Director (Remote)",
-      company: "MedQuest Systems",
-      board: "Glassdoor",
-      exp: "Senior",
-      salary: "$160,000 - $190,000/yr",
-      requirements: ["PMP required", "8+ years in healthcare informatics", "Knowledge of HIPAA compliance and FDA guidelines", "Proven stakeholder management up to C-level"],
-      daysAgo: 13,
-      description: "Direct a suite of software implementation projects for top-tier hospitals. Ensure strict compliance, track milestones, and manage a team of 8 remote PMs.",
-      link: "https://www.glassdoor.com/Job/remote-healthcare-project-manager-jobs-SRCH_KO0,32.htm"
-    },
-    {
-      id: 11,
-      title: "Agile Project Manager - Gaming",
-      company: "PixelForge Studios",
-      board: "Indeed",
-      exp: "Mid",
-      salary: "$95,000 - $115,000/yr",
-      requirements: ["PMI-ACP or CSM", "3+ years project management in game development", "Experience with Unreal Engine or Unity workflows", "Expertise in Kanban and Scrum"],
-      daysAgo: 15,
-      description: "Oversee the core gameplay loop team. Facilitate sprints, balance production velocity with game designer quality goals, and remove creative bottlenecks.",
-      link: "https://www.indeed.com/jobs?q=remote+agile+project+manager"
-    },
-    {
-      id: 12,
-      title: "Remote Scrum Project Manager",
-      company: "NeoBank Corp",
-      board: "LinkedIn",
-      exp: "Mid",
-      salary: "$110,000 - $130,000/yr",
-      requirements: ["PMP and CSM certifications", "5+ years in finance or banking PM", "Experience with secure payment gateway integrations", "Hybrid Scrum/Waterfall expertise"],
-      daysAgo: 16,
-      description: "Lead a high-performing team on mobile banking features. Balance Agile velocity for development with Waterfall checkpoints for compliance and audits.",
-      link: "https://www.linkedin.com/jobs/search/?keywords=remote%20scrum%20project%20manager"
-    },
-    {
-      id: 13,
-      title: "Marketing Project Manager (Remote)",
-      company: "ContentHub Media",
-      board: "Glassdoor",
-      exp: "Entry",
-      salary: "$65,000 - $80,000/yr",
-      requirements: ["1-2 years managing marketing or creative projects", "Knowledge of agile creative processes", "Exceptional multi-tasking skills", "Proficiency in Asana or Monday.com"],
-      daysAgo: 17,
-      description: "Coordinate creative campaigns, video production, and copy writing pipelines. Run weekly prioritization sessions and coordinate client feedback loops.",
-      link: "https://www.glassdoor.com/Job/remote-marketing-project-manager-jobs-SRCH_KO0,30.htm"
-    },
-    {
-      id: 14,
-      title: "Senior Program Manager (Remote)",
-      company: "DataVanguard",
-      board: "LinkedIn",
-      exp: "Senior",
-      salary: "$170,000 - $200,000/yr",
-      requirements: ["PMP and PgMP required", "8+ years program management", "Mastery of data engineering and analytics platforms", "Strong financial management of program budgets"],
-      daysAgo: 19,
-      description: "Manage a program of work focused on enterprise data warehousing. Oversee multiple related project teams, track business value, and align roadmap with corporate strategy.",
-      link: "https://www.linkedin.com/jobs/search/?keywords=remote%20senior%20program%20manager"
-    },
-    {
-      id: 15,
-      title: "Product Owner / PM (Remote)",
-      company: "AutoDrive Technologies",
-      board: "Indeed",
-      exp: "Mid",
-      salary: "$120,000 - $140,000/yr",
-      requirements: ["Certified Scrum Product Owner (CSPO)", "4+ years software product management", "Experience defining MVP scopes", "Strong backlog prioritization skills"],
-      daysAgo: 20,
-      description: "Own the backlog for our mapping division. Define user stories, coordinate release dates, interface with customer success, and drive team focus.",
-      link: "https://www.indeed.com/jobs?q=remote+product+owner+project+manager"
-    }
-  ];
+  {
+    "id": 1,
+    "title": "Technical Project Manager",
+    "company": "Nuvolar Works",
+    "board": "LinkedIn",
+    "exp": "Mid",
+    "salary": "$95,000 - $120,000/yr",
+    "requirements": [
+      "Active PMP certification or equivalent path",
+      "3-5 years managing software or business operations projects",
+      "Solid understanding of hybrid Waterfall/Agile lifecycles",
+      "Strong verbal and written English communication skills"
+    ],
+    "daysAgo": 5,
+    "description": "We are a global technology consulting company specializing in IT solutions, cloud-based platforms, data engineering services, and end-to-end project delivery support. With over 14 years of experience and a multicultural team of more than 100 profe...",
+    "link": "https://remoteOK.com/remote-jobs/remote-technical-project-manager-nuvolar-works-1134080"
+  },
+  {
+    "id": 2,
+    "title": "Assistant Project Manager Fragrance",
+    "company": "Slate Brands",
+    "board": "Indeed",
+    "exp": "Entry",
+    "salary": "$60,000 - $78,000/yr",
+    "requirements": [
+      "Active PMP certification or equivalent path",
+      "3-5 years managing software or business operations projects",
+      "Solid understanding of hybrid Waterfall/Agile lifecycles",
+      "Strong verbal and written English communication skills"
+    ],
+    "daysAgo": 6,
+    "description": "Company Description Slate Brands is a modern beauty brand incubator and accelerator focused on redefining how beauty brands are built. The company identifies white space in high-growth categories and leverages strategic partnerships to create dist...",
+    "link": "https://remoteOK.com/remote-jobs/remote-assistant-project-manager-fragrance-slate-brands-1133969"
+  },
+  {
+    "id": 3,
+    "title": "0015 Project Manager",
+    "company": "Ranger American",
+    "board": "Glassdoor",
+    "exp": "Mid",
+    "salary": "$95,000 - $120,000/yr",
+    "requirements": [
+      "Active PMP certification or equivalent path",
+      "3-5 years managing software or business operations projects",
+      "Solid understanding of hybrid Waterfall/Agile lifecycles",
+      "Strong verbal and written English communication skills"
+    ],
+    "daysAgo": 6,
+    "description": "Position SummaryThe Project Manager role is responsible for leading business improvement, technology and platform implementation projects from initiation through completion. This role ensures projects are delivered on time, within scope and budget...",
+    "link": "https://remoteOK.com/remote-jobs/remote-0015-project-manager-ranger-american-1134095"
+  },
+  {
+    "id": 4,
+    "title": "Project Manager",
+    "company": "Leapfrog Technology, Inc.",
+    "board": "LinkedIn",
+    "exp": "Mid",
+    "salary": "$95,000 - $120,000/yr",
+    "requirements": [
+      "Active PMP certification or equivalent path",
+      "3-5 years managing software or business operations projects",
+      "Solid understanding of hybrid Waterfall/Agile lifecycles",
+      "Strong verbal and written English communication skills"
+    ],
+    "daysAgo": 10,
+    "description": "About LeapfrogLeapfrog is on a mission to be a role model technology company. Since 2010, we have relentlessly worked on crafting better digital products with our team of superior engineers. Weâre a full-stack company specializing in SaaS produc...",
+    "link": "https://remoteOK.com/remote-jobs/remote-project-manager-leapfrog-technology-inc-1133962"
+  },
+  {
+    "id": 5,
+    "title": "Project Manager",
+    "company": "Kate Farms",
+    "board": "Indeed",
+    "exp": "Mid",
+    "salary": "$95,000 - $120,000/yr",
+    "requirements": [
+      "Active PMP certification or equivalent path",
+      "3-5 years managing software or business operations projects",
+      "Solid understanding of hybrid Waterfall/Agile lifecycles",
+      "Strong verbal and written English communication skills"
+    ],
+    "daysAgo": 12,
+    "description": "About Kate FarmsKate Farms is a company with heart. Our company was founded on the belief that good nutrition leads to good health, and good health opens the door to endless possibilities. That's why our mission is to make nutrition the cornerston...",
+    "link": "https://remoteOK.com/remote-jobs/remote-project-manager-kate-farms-1133515"
+  },
+  {
+    "id": 6,
+    "title": "Program Manager",
+    "company": "PBG",
+    "board": "Glassdoor",
+    "exp": "Mid",
+    "salary": "$95,000 - $120,000/yr",
+    "requirements": [
+      "Project Management Professional (PMP) certification required",
+      "7+ years leading enterprise cross-functional programs",
+      "Strong budget management, scheduling, and risk planning",
+      "Strong verbal and written English communication skills"
+    ],
+    "daysAgo": 12,
+    "description": "PBG delivers mission-focused solutions that eliminate inefficiency and power transformation for federal agencies requiring agility, security, and impact.Location: RemoteCitizenship: Candidates must be U.S. Citizens or Green Card holders residing i...",
+    "link": "https://remoteOK.com/remote-jobs/remote-program-manager-pbg-1133517"
+  },
+  {
+    "id": 7,
+    "title": "Creative Project Manager",
+    "company": "YunoJuno",
+    "board": "LinkedIn",
+    "exp": "Mid",
+    "salary": "$95,000 - $120,000/yr",
+    "requirements": [
+      "Active PMP certification or equivalent path",
+      "3-5 years managing software or business operations projects",
+      "Solid understanding of hybrid Waterfall/Agile lifecycles",
+      "Strong verbal and written English communication skills"
+    ],
+    "daysAgo": 13,
+    "description": "*Please note this is a contract role and you must be registered as an independent contractor.- W2 contract*About the RolePosition: Creative Project ManagerStart Date: asapLength: 12 monthsFull TimeLocation: LA/ West Hollywood (remote-occasional tr...",
+    "link": "https://remoteOK.com/remote-jobs/remote-creative-project-manager-yunojuno-1133452"
+  },
+  {
+    "id": 8,
+    "title": "Implementation Project Manager",
+    "company": "Intellum, Inc.",
+    "board": "Indeed",
+    "exp": "Mid",
+    "salary": "$95,000 - $120,000/yr",
+    "requirements": [
+      "Active PMP certification or equivalent path",
+      "3-5 years managing software or business operations projects",
+      "Solid understanding of hybrid Waterfall/Agile lifecycles",
+      "Strong verbal and written English communication skills"
+    ],
+    "daysAgo": 17,
+    "description": "About us Intellum is the leader in corporate education technology and powers the largest, most successful customer, partner, and employee learning programs in the world. Large brands and fast-moving companies like Google, Meta, Amazon, Walmart, Xe...",
+    "link": "https://remoteOK.com/remote-jobs/remote-implementation-project-manager-intellum-inc-1133294"
+  },
+  {
+    "id": 9,
+    "title": "Technical Project Manager",
+    "company": "Flash",
+    "board": "Glassdoor",
+    "exp": "Mid",
+    "salary": "$95,000 - $120,000/yr",
+    "requirements": [
+      "Active PMP certification or equivalent path",
+      "3-5 years managing software or business operations projects",
+      "Solid understanding of hybrid Waterfall/Agile lifecycles",
+      "Strong verbal and written English communication skills"
+    ],
+    "daysAgo": 18,
+    "description": "Help us change the way the world parksParking isnât just about spaces â itâs about creating seamless experiences, sustainable solutions, and smarter cities. At Flash, weâre not just thinking about todayâs parking challenges; weâre acti...",
+    "link": "https://remoteOK.com/remote-jobs/remote-technical-project-manager-flash-1133783"
+  },
+  {
+    "id": 10,
+    "title": "Learning Project Manager",
+    "company": "Learnlight",
+    "board": "LinkedIn",
+    "exp": "Mid",
+    "salary": "$95,000 - $120,000/yr",
+    "requirements": [
+      "Active PMP certification or equivalent path",
+      "3-5 years managing software or business operations projects",
+      "Solid understanding of hybrid Waterfall/Agile lifecycles",
+      "Strong verbal and written English communication skills"
+    ],
+    "daysAgo": 18,
+    "description": "Join Our MissionLearnlight is an EdTech company that believes in putting people first. We takeâ¦Please mention the word **REVIVE** and tag RMTk3LjIzNC4yMjEuMTc= when applying to show you read the job post completely (#RMTk3LjIzNC4yMjEuMTc=). This...",
+    "link": "https://remoteOK.com/remote-jobs/remote-learning-project-manager-learnlight-1133233"
+  },
+  {
+    "id": 11,
+    "title": "Project Manager",
+    "company": "TekSturdy USA INC",
+    "board": "Indeed",
+    "exp": "Mid",
+    "salary": "$95,000 - $120,000/yr",
+    "requirements": [
+      "Active PMP certification or equivalent path",
+      "3-5 years managing software or business operations projects",
+      "Solid understanding of hybrid Waterfall/Agile lifecycles",
+      "Strong verbal and written English communication skills"
+    ],
+    "daysAgo": 20,
+    "description": "Aliquam tempus libero eget arcu euismod, in bibendum nisl posuere. Donec gravida sem eu dolor rhoncus viverra.Please mention the word **SOLICITOUSLY** and tag RMTk3LjIzNC4yMjEuMTc= when applying to show you read the job post completely (#RMTk3LjIz...",
+    "link": "https://remoteOK.com/remote-jobs/remote-project-manager-teksturdy-usa-inc-1134143"
+  },
+  {
+    "id": 12,
+    "title": "Project Manager",
+    "company": "Simple Brands Media",
+    "board": "Glassdoor",
+    "exp": "Mid",
+    "salary": "$95,000 - $120,000/yr",
+    "requirements": [
+      "Active PMP certification or equivalent path",
+      "3-5 years managing software or business operations projects",
+      "Solid understanding of hybrid Waterfall/Agile lifecycles",
+      "Strong verbal and written English communication skills"
+    ],
+    "daysAgo": 20,
+    "description": "Aliquam tempus libero eget arcu euismod, in bibendum nisl posuere. Donec gravida sem eu dolor rhoncus viverra.Please mention the word **FASHIONABLY** and tag RMTk3LjIzNC4yMjEuMTc= when applying to show you read the job post completely (#RMTk3LjIzN...",
+    "link": "https://remoteOK.com/remote-jobs/remote-project-manager-simple-brands-media-1133997"
+  },
+  {
+    "id": 13,
+    "title": "Junior Project Manager",
+    "company": "Haystack",
+    "board": "LinkedIn",
+    "exp": "Entry",
+    "salary": "$60,000 - $78,000/yr",
+    "requirements": [
+      "Certified Associate in Project Management (CAPM) preferred",
+      "1-2 years experience in professional project tracking",
+      "Excellent organization, notes capture, and scheduling skills",
+      "Strong verbal and written English communication skills"
+    ],
+    "daysAgo": 20,
+    "description": "We're hiring on behalf of a Haystack partner!The Roleâ¢ Analyze and respond to user inquiries for IT-related issues.â¢ Assist with improving project efficiency and effectiveness within an IT support context.â¢ Perform professional technology su...",
+    "link": "https://remoteOK.com/remote-jobs/remote-junior-project-manager-haystack-1132350"
+  },
+  {
+    "id": 14,
+    "title": "Project Manager French English Fluent",
+    "company": "Brandtech+",
+    "board": "Indeed",
+    "exp": "Mid",
+    "salary": "$95,000 - $120,000/yr",
+    "requirements": [
+      "Active PMP certification or equivalent path",
+      "3-5 years managing software or business operations projects",
+      "Solid understanding of hybrid Waterfall/Agile lifecycles",
+      "Strong verbal and written English communication skills"
+    ],
+    "daysAgo": 20,
+    "description": "Brandtech+ (formerly known as OLIVER+) is a global team of creative thinkers, tech-savvy trendsetters, and production pros specialising in film, CGI, automation, AI, motion design, and digital/print content. We partner with over 300 clients in 40+...",
+    "link": "https://remoteOK.com/remote-jobs/remote-project-manager-french-english-fluent-brandtech-1131548"
+  },
+  {
+    "id": 15,
+    "title": "1079 Project Manager",
+    "company": "GoFasti",
+    "board": "Glassdoor",
+    "exp": "Mid",
+    "salary": "$95,000 - $120,000/yr",
+    "requirements": [
+      "Active PMP certification or equivalent path",
+      "3-5 years managing software or business operations projects",
+      "Solid understanding of hybrid Waterfall/Agile lifecycles",
+      "Strong verbal and written English communication skills"
+    ],
+    "daysAgo": 20,
+    "description": "We Make Remote Work Remarkable â¢ TopTalent from LatAm Hello! We are GoFasti, a Talent-as-a-Service. GoFasti bridges the gap between world-class developers and designers from LatAm and first-class companies around the globe. We need an English-f...",
+    "link": "https://remoteOK.com/remote-jobs/remote-1079-project-manager-gofasti-1131499"
+  }
+];
 
   // News Filtering State
 // News Filtering State
