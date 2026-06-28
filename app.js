@@ -2611,32 +2611,54 @@ const initApp = () => {
     }
   });
 
-  // 6. Margin Tap Navigation & Gestures
-  kindleZoneLeft.addEventListener('click', (e) => {
-    e.stopPropagation();
-    if (currentPageIndex > 0) {
-      currentPageIndex--;
-      renderKindlePage();
+  // 6. Margin Tap Navigation & HUD Toggle via Viewport Clicks
+  kindleViewport.addEventListener('click', (e) => {
+    // If selecting text, don't trigger navigation
+    if (window.getSelection() && window.getSelection().toString().trim().length > 0) {
+      return;
     }
-  });
 
-  kindleZoneRight.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const total = getTotalPages();
-    if (currentPageIndex < total - 1) {
-      currentPageIndex++;
-      renderKindlePage();
+    // Ignore clicks on control panels, bookmark ribbon, navigation buttons, etc.
+    if (e.target.closest('#kindleBookmarkRibbon') || 
+        e.target.closest('.hud-btn') || 
+        e.target.closest('.kindle-nav-bar') || 
+        e.target.closest('.kindle-drawer') || 
+        e.target.closest('#kindleAaPopover')) {
+      return;
     }
-  });
 
-  // Center tap zone toggles HUD visibility
-  kindleZoneCenter.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const isVisible = kindleHUDHeader.classList.contains('visible');
-    toggleHUD(!isVisible);
-    // Close any open popovers/drawers when toggling HUD
-    kindleAaPopover.classList.remove('visible');
-    closeAllDrawers();
+    const rect = kindleViewport.getBoundingClientRect();
+    const clickX = e.clientX - rect.left;
+
+    // Ignore clicks on the scrollbar
+    if (clickX > kindleViewport.clientWidth) {
+      return;
+    }
+
+    const width = rect.width;
+    const ratio = clickX / width;
+
+    if (ratio < 0.16) {
+      // Left 16% -> Prev Page
+      if (currentPageIndex > 0) {
+        currentPageIndex--;
+        renderKindlePage();
+      }
+    } else if (ratio > 0.84) {
+      // Right 16% -> Next Page
+      const total = getTotalPages();
+      if (currentPageIndex < total - 1) {
+        currentPageIndex++;
+        renderKindlePage();
+      }
+    } else {
+      // Center 68% -> Toggle HUD
+      const isVisible = kindleHUDHeader.classList.contains('visible');
+      toggleHUD(!isVisible);
+      // Close any open popovers/drawers when toggling HUD
+      kindleAaPopover.classList.remove('visible');
+      closeAllDrawers();
+    }
   });
 
   function getTotalPages() {

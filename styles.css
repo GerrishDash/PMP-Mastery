@@ -2159,6 +2159,7 @@ body {
   bottom: 64px;
   z-index: 20;
   transition: bottom var(--transition-medium);
+  pointer-events: none; /* Let all pointer/scroll/select events pass through to content */
 }
 
 .kindle-reader-overlay.hud-hidden .kindle-tap-zone {
