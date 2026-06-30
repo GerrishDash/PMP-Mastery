@@ -39,22 +39,46 @@ const initApp = () => {
     pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
   }
 
-  // IndexedDB Setup for PDF storage
+  // IndexedDB Setup for PDF storage with automatic reconnect protocol
   let db = null;
-  const dbRequest = indexedDB.open('pmp_reader_db', 1);
-  dbRequest.onupgradeneeded = (e) => {
-    const database = e.target.result;
-    if (!database.objectStoreNames.contains('books')) {
-      database.createObjectStore('books', { keyPath: 'id' });
-    }
-  };
-  dbRequest.onsuccess = (e) => {
-    db = e.target.result;
-    updateBookshelfUI();
-  };
-  dbRequest.onerror = (e) => {
-    console.error('IndexedDB open error:', e);
-  };
+
+  function initIndexedDB() {
+    return new Promise((resolve, reject) => {
+      const dbRequest = indexedDB.open('pmp_reader_db', 1);
+      dbRequest.onupgradeneeded = (e) => {
+        const database = e.target.result;
+        if (!database.objectStoreNames.contains('books')) {
+          database.createObjectStore('books', { keyPath: 'id' });
+        }
+      };
+      dbRequest.onsuccess = (e) => {
+        db = e.target.result;
+        
+        // Handle database close/upgrade request events
+        db.onversionchange = () => {
+          if (db) {
+            db.close();
+            db = null;
+          }
+          console.warn('[IndexedDB] Connection closed due to version change.');
+        };
+        db.onclose = () => {
+          db = null;
+          console.warn('[IndexedDB] Connection closed.');
+        };
+        
+        updateBookshelfUI().catch(() => {});
+        resolve(db);
+      };
+      dbRequest.onerror = (e) => {
+        console.error('IndexedDB open error:', e);
+        reject(e);
+      };
+    });
+  }
+
+  // Initial load
+  initIndexedDB().catch(err => console.error('Failed to initialize database:', err));
 
   function dbGetBook(bookId) {
     return new Promise((resolve, reject) => {
@@ -72,14 +96,29 @@ const initApp = () => {
         request.onsuccess = () => resolve(request.result ? request.result.file : null);
         request.onerror = () => reject(request.error);
       } catch (err) {
-        reject(err);
+        // If connection is closing or closed, trigger re-initialization and retry once
+        if (err.name === 'InvalidStateError' || err.message.includes('closing') || err.message.includes('closed')) {
+          console.warn('[IndexedDB] Connection lost on get. Attempting reconnect...');
+          db = null;
+          initIndexedDB()
+            .then(() => dbGetBook(bookId).then(resolve).catch(reject))
+            .catch(() => reject(err));
+        } else {
+          reject(err);
+        }
       }
     });
   }
 
   function dbSaveBook(bookId, fileBlob) {
     return new Promise((resolve, reject) => {
-      if (!db) return reject(new Error('Database not initialized'));
+      if (!db) {
+        setTimeout(() => {
+          if (!db) reject(new Error('Database not initialized'));
+          else dbSaveBook(bookId, fileBlob).then(resolve).catch(reject);
+        }, 150);
+        return;
+      }
       try {
         const transaction = db.transaction(['books'], 'readwrite');
         const store = transaction.objectStore('books');
@@ -87,7 +126,16 @@ const initApp = () => {
         request.onsuccess = () => resolve();
         request.onerror = () => reject(request.error);
       } catch (err) {
-        reject(err);
+        // If connection is closing or closed, trigger re-initialization and retry once
+        if (err.name === 'InvalidStateError' || err.message.includes('closing') || err.message.includes('closed')) {
+          console.warn('[IndexedDB] Connection lost on save. Attempting reconnect...');
+          db = null;
+          initIndexedDB()
+            .then(() => dbSaveBook(bookId, fileBlob).then(resolve).catch(reject))
+            .catch(() => reject(err));
+        } else {
+          reject(err);
+        }
       }
     });
   }
@@ -2405,8 +2453,13 @@ const initApp = () => {
       const isLocal = (bookId in localBooks);
       let hasBook = isLocal;
       if (!isLocal) {
-        const fileBlob = await dbGetBook(bookId);
-        hasBook = !!fileBlob;
+        try {
+          const fileBlob = await dbGetBook(bookId);
+          hasBook = !!fileBlob;
+        } catch (dbErr) {
+          console.warn(`[IndexedDB] Could not check status for book ${bookId}:`, dbErr);
+          hasBook = false;
+        }
       }
       
       const progressFill = document.getElementById('progressFill-' + bookId);
