@@ -3668,7 +3668,7 @@ const initApp = () => {
     ],
     "daysAgo": 5,
     "description": "OverviewPatrono con Igualdad de Oportunidad de EmpleoEnterprise Mobility (National Car Rental &amp; Alamo Rent A Car) es la compaÃ±Ã­a de renta de automÃ³viles privada mas grande y con el crecimiento mas rÃ¡pido de NorteamÃ©rica. Con mas de 9,000 ...",
-    "link": "https://remoteOK.com/remote-jobs/remote-preparador-de-vehiculos-hatillo-enterprise-1134099"
+    "link": "https://www.linkedin.com/jobs/search/?keywords=Preparador%20de%20Vehiculos%20Hatillo%20Enterprise"
   },
   {
     "id": 2,
@@ -3683,9 +3683,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 1,
+    "daysAgo": 3,
     "description": "Leading Jobberman Nigeria Recruitment project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.jobberman.com/listings/project-manager-rrreg5"
+    "link": "https://www.indeed.com/jobs?q=Project%20Manager%20Jobberman%20Nigeria%20Recruitment"
   },
   {
     "id": 3,
@@ -3702,7 +3702,7 @@ const initApp = () => {
     ],
     "daysAgo": 5,
     "description": "At Bayer weâre visionaries, driven to solve the worldâs toughest challenges and striving for a world where ,Health for all, Hunger for noneâ is no longer a dream, but a real possibility. Weâre doing it with energy, curiosity and sheer dedi...",
-    "link": "https://remoteOK.com/remote-jobs/remote-kerendia-task-force-bayer-1134145"
+    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Kerendia%20Task%20Force%20Bayer"
   },
   {
     "id": 4,
@@ -3717,9 +3717,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 4,
+    "daysAgo": 3,
     "description": "Leading Rednoxx Limited project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.jobberman.com/listings/product-owner-x88qw2"
+    "link": "https://www.linkedin.com/jobs/search/?keywords=Product%20Owner%20Rednoxx%20Limited"
   },
   {
     "id": 5,
@@ -3736,7 +3736,7 @@ const initApp = () => {
     ],
     "daysAgo": 5,
     "description": "Civalgo is your all-in-one construction management solution, designed by industry experts to streamline project planning, resource allocation, and daily reporting. Simplify your operations, enhance team collaboration, and boost productivity with o...",
-    "link": "https://remoteOK.com/remote-jobs/remote-hh2-biztech-1134146"
+    "link": "https://www.indeed.com/jobs?q=hh2%20Biztech"
   },
   {
     "id": 6,
@@ -3751,9 +3751,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 1,
+    "daysAgo": 2,
     "description": "Leading Jobberman Nigeria Recruitment project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.jobberman.com/listings/project-manager-5pp67e"
+    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20Jobberman%20Nigeria%20Recruitment"
   },
   {
     "id": 7,
@@ -3770,7 +3770,7 @@ const initApp = () => {
     ],
     "daysAgo": 6,
     "description": "This role has been designed as âHybridâ with an expectation that you will work on average 2 days per week from an HPE office.Who We AreHewlett Packard Enterprise is the global edge-to-cloud company advancing the way people live and work. We he...",
-    "link": "https://remoteOK.com/remote-jobs/remote-system-software-engineer-hewlett-packard-enterprise-1134102"
+    "link": "https://www.linkedin.com/jobs/search/?keywords=System%20Software%20Engineer%20Hewlett%20Packard%20Enterprise"
   },
   {
     "id": 8,
@@ -3787,7 +3787,7 @@ const initApp = () => {
     ],
     "daysAgo": 3,
     "description": "Leading Hedge & Pembrook Limited project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.jobberman.com/listings/senior-project-manager-j6642d"
+    "link": "https://www.indeed.com/jobs?q=Senior%20Project%20Manager%20Hedge%20%26%20Pembrook%20Limited"
   },
   {
     "id": 9,
@@ -3804,7 +3804,7 @@ const initApp = () => {
     ],
     "daysAgo": 6,
     "description": "This cms8.revize.com page canât be foundNo webpage was found for the web address: https://cms8.revize.com/revize/portales/Job%20Posting%20%202025-09%20SW%20Laborer.pdfHTTP ERROR 404No webpage was found for the web address: https://cms8.revize.co...",
-    "link": "https://remoteOK.com/remote-jobs/remote-laborer-portales-fire-department-1134147"
+    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=LABORER%20Portales%20Fire%20Department"
   },
   {
     "id": 10,
@@ -3819,9 +3819,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 4,
+    "daysAgo": 5,
     "description": "Leading Stretch-it Concepts Limited project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.jobberman.com/listings/it-project-manager-k7p7ej"
+    "link": "https://www.linkedin.com/jobs/search/?keywords=IT%20Project%20Manager%20Stretch-it%20Concepts%20Limited"
   },
   {
     "id": 11,
@@ -3838,7 +3838,7 @@ const initApp = () => {
     ],
     "daysAgo": 6,
     "description": "Suitable Quality is determined by product users, clients or customers, not by society in general. For example, a low priced product may be viewed as having high quality because it is disposable where another may be viewed as having poor quality be...",
-    "link": "https://remoteOK.com/remote-jobs/remote-product-manager-dueast-1134144"
+    "link": "https://www.indeed.com/jobs?q=Product%20manager%20DU%C3%84%C2%92AST"
   },
   {
     "id": 12,
@@ -3855,7 +3855,7 @@ const initApp = () => {
     ],
     "daysAgo": 5,
     "description": "Leading Virtual IP project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.jobberman.com.gh/listings/technical-project-manager-zpmmqv"
+    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Technical%20Project%20Manager%20Virtual%20IP"
   },
   {
     "id": 13,
@@ -3872,7 +3872,7 @@ const initApp = () => {
     ],
     "daysAgo": 7,
     "description": "Empresa del sector hospitalidad con operaciones en PanamÃ¡, buscamos un Revenue Manager que lidere la estrategia de optimizaciÃ³n de ingresos a travÃ©s del anÃ¡lisis de tarifas, demanda, ocupaciÃ³n y canales de distribuciÃ³n.La posiciÃ³n tendrÃ¡ i...",
-    "link": "https://remoteOK.com/remote-jobs/remote-revenue-manager-grupo-los-pueblos-1134101"
+    "link": "https://www.linkedin.com/jobs/search/?keywords=REVENUE%20MANAGER%20Grupo%20Los%20Pueblos"
   },
   {
     "id": 14,
@@ -3887,9 +3887,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 2,
+    "daysAgo": 3,
     "description": "Leading Cervecería y Maltería Quilmes project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.jobberman.com.gh/listings/global-rewards-project-manager-20mmge"
+    "link": "https://www.indeed.com/jobs?q=Global%20Rewards%20Project%20Manager%20Cervecer%C3%ADa%20y%20Malter%C3%ADa%20Quilmes"
   },
   {
     "id": 15,
@@ -3906,7 +3906,7 @@ const initApp = () => {
     ],
     "daysAgo": 7,
     "description": "Somos una comunidad de 1,400 acres, desarrollada por Ohana Real Estate Investors, recibe el nombre de Twin Dolphin, en honor a la rica historia del primer e icÃ³nico Hotel Twin Dolphin. El plan maestro incluye: Maravilla, un desarrollo privado de ...",
-    "link": "https://remoteOK.com/remote-jobs/remote-aplicador-de-productos-quimicos-b-twin-dolphin-los-cabos-1134107"
+    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Aplicador%20de%20Productos%20Qu%C3%83%C2%ADmicos%20B%20Twin%20Dolphin%20Los%20Cabos"
   },
   {
     "id": 16,
@@ -3923,7 +3923,7 @@ const initApp = () => {
     ],
     "daysAgo": 3,
     "description": "Leading Nestlé project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.jobberman.com.gh/listings/regional-logistics-project-manager-07rrn6"
+    "link": "https://www.linkedin.com/jobs/search/?keywords=Regional%20Logistics%20Project%20Manager%20Nestl%C3%A9"
   },
   {
     "id": 17,
@@ -3940,7 +3940,7 @@ const initApp = () => {
     ],
     "daysAgo": 7,
     "description": "We are a global technology consulting company specializing in IT solutions, cloud-based platforms, data engineering services, and end-to-end project delivery support. With over 14 years of experience and a multicultural team of more than 100 profe...",
-    "link": "https://remoteOK.com/remote-jobs/remote-technical-project-manager-nuvolar-works-1134080"
+    "link": "https://www.indeed.com/jobs?q=Technical%20Project%20Manager%20Nuvolar%20Works"
   },
   {
     "id": 18,
@@ -3955,9 +3955,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 2,
+    "daysAgo": 4,
     "description": "Leading Med Bill, L.L.C project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.brightermonday.co.ke/listings/project-manager-n95rd9"
+    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Technical%20Project%20Manager%20Med%20Bill%2C%20L.L.C"
   },
   {
     "id": 19,
@@ -3974,7 +3974,7 @@ const initApp = () => {
     ],
     "daysAgo": 7,
     "description": "Experience 3 years &amp; Must have knowledge of PythonPlease mention the word **MIGHTILY** and tag RMTM3LjI1NS4xNTguMjUy when applying to show you read the job post completely (#RMTM3LjI1NS4xNTguMjUy). This is a beta feature to avoid spam applican...",
-    "link": "https://remoteOK.com/remote-jobs/remote-computer-science-specialist-g-s-international-public-school-1133998"
+    "link": "https://www.linkedin.com/jobs/search/?keywords=Computer%20Science%20Specialist%20G.S.%20International%20Public%20School"
   },
   {
     "id": 20,
@@ -3991,7 +3991,7 @@ const initApp = () => {
     ],
     "daysAgo": 1,
     "description": "Leading Anonymous Employer project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.brightermonday.co.ke/listings/project-coordinator-7wne8z"
+    "link": "https://www.indeed.com/jobs?q=Project%20Coordinator%20Anonymous%20Employer"
   }
 ];
 

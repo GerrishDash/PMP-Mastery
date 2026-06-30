@@ -235,19 +235,31 @@ async function run() {
     const salary = formatSalary(0, 0, exp);
     const requirements = getRealisticRequirements(job.title);
     
+    const board = boards[idx % boards.length];
+    const query = encodeURIComponent(`${job.title} ${job.company}`);
+    let redirectLink = job.link;
+    
+    if (board === 'LinkedIn') {
+      redirectLink = `https://www.linkedin.com/jobs/search/?keywords=${query}`;
+    } else if (board === 'Indeed') {
+      redirectLink = `https://www.indeed.com/jobs?q=${query}`;
+    } else if (board === 'Glassdoor') {
+      redirectLink = `https://www.glassdoor.com/Job/jobs.htm?sc.keyword=${query}`;
+    }
+    
     const desc = job.description || `Leading ${job.company} project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.`;
     
     return {
       id: idx + 1,
       title: job.title,
       company: job.company,
-      board: boards[idx % boards.length],
+      board: board,
       exp: exp,
       salary: salary,
       requirements: requirements,
       daysAgo: job.daysAgo,
       description: desc,
-      link: job.link
+      link: redirectLink
     };
   });
   
