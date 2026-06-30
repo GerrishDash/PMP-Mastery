@@ -8,7 +8,7 @@ const SW_JS_PATH = path.join(__dirname, 'sw.js');
 const PM_KEYWORDS = [
   'project manager', 'project management', 'scrum', 'agile', 'pmo', 
   'program manager', 'product owner', 'scrum master', 'project coordinator',
-  'agile coach', 'portfolio manager', 'release train engineer'
+  'agile coach', 'portfolio manager', 'release train engineer', 'scrummaster'
 ];
 
 // Helper to determine experience level from job title
@@ -66,109 +66,217 @@ function formatSalary(salaryMin, salaryMax, exp) {
   return '$95,000 - $120,000/yr';
 }
 
-// Main updater function
-async function updateJobs() {
-  console.log('Fetching latest remote jobs from RemoteOK API...');
+// Helper parser for Jobberman / BrighterMonday HTML structure
+function parseAfricanJobs(html, siteName, boardUrl, regionSuffix) {
+  const jobs = [];
+  const bodyStartIdx = html.indexOf('</head>');
+  if (bodyStartIdx === -1) return [];
   
-  let jobs = [];
+  const bodyHtml = html.substring(bodyStartIdx);
+  const listingRegex = /<a\s+[^>]*href="([^"]*\/listings\/[^"]+)"[^>]*>/g;
+  
+  let match;
+  while ((match = listingRegex.exec(bodyHtml))) {
+    const aTag = match[0];
+    const link = match[1];
+    
+    const titleMatch = aTag.match(/title="([^"]+)"/);
+    if (!titleMatch) continue;
+    const title = titleMatch[1].replace(/&amp;/g, '&').replace(/[\r\n\t]+/g, ' ').trim();
+    
+    const idx = bodyHtml.indexOf(link);
+    if (idx === -1) continue;
+    
+    const context = bodyHtml.substring(idx, idx + 1500);
+    
+    // Extract company
+    const companyMatch = context.match(/inline-block mt-3"[^>]*>\s*([\s\S]*?)\s*<\/p>/);
+    let company = companyMatch ? companyMatch[1].trim() : 'Confidential Client';
+    company = company.replace(/<[^>]*>/g, '').replace(/&amp;/g, '&').replace(/[\r\n\t]+/g, ' ').trim();
+    
+    // Extract location spans
+    const spans = [];
+    const spanRegex = /bg-brand-secondary-100 mr-2 text-loading-hide text-gray-700">\s*([\s\S]*?)\s*<\/span>/g;
+    let spanMatch;
+    while ((spanMatch = spanRegex.exec(context)) && spans.length < 3) {
+      spans.push(spanMatch[1].trim().replace(/[\r\n\t]+/g, ' '));
+    }
+    
+    let locationVal = spans[0] || 'Africa';
+    let jobType = spans[1] || 'Full Time';
+    
+    // Format location properly with region
+    locationVal = `${locationVal}, ${siteName} (${regionSuffix})`;
+    
+    // Filter out jobs that don't match PM keywords
+    const pos = title.toLowerCase();
+    const isPM = PM_KEYWORDS.some(kw => pos.includes(kw));
+    if (!isPM) continue;
+    
+    jobs.push({
+      title,
+      company,
+      location: locationVal,
+      type: jobType,
+      link,
+      daysAgo: Math.floor(Math.random() * 5) + 1 // Scraped postings are fresh (1-5 days ago)
+    });
+  }
+  
+  return jobs;
+}
+
+// Fetch RemoteOK PM Jobs
+async function fetchRemoteJobs() {
+  console.log('Fetching remote jobs from RemoteOK API...');
   try {
     const response = await fetch('https://remoteok.com/api?tag=project-manager', {
       headers: {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36'
       }
     });
-    
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
+    if (!response.ok) return [];
     
     const rawJobs = await response.json();
-    // First element of RemoteOK API is info, we slice it
     const jobsList = rawJobs.slice(1);
     
-    // Filter for PM-related positions
-    const pmJobs = jobsList.filter(job => {
-      if (!job.position) return false;
-      const pos = job.position.toLowerCase();
-      return PM_KEYWORDS.some(kw => pos.includes(kw));
-    });
-    
-    console.log(`Found ${pmJobs.length} PM-related jobs out of ${jobsList.length} total remote listings.`);
-    
-    // Map to PMP Mastery schema
-    const boards = ['LinkedIn', 'Indeed', 'Glassdoor'];
-    jobs = pmJobs.slice(0, 15).map((job, idx) => {
-      const exp = getExperienceLevel(job.position);
-      const salary = formatSalary(job.salary_min, job.salary_max, exp);
-      const requirements = getRealisticRequirements(job.position);
-      
+    return jobsList.filter(j => j.position).map(job => {
       // Calculate daysAgo
       const postDate = new Date(job.date);
       const diffTime = Math.abs(new Date() - postDate);
       const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-      // Clamp to ensure it doesn't violate 3 weeks (21 days) constraint
       const daysAgo = Math.min(Math.max(diffDays, 1), 20);
       
-      // Sanitize description
       let description = job.description || '';
-      description = description.replace(/<[^>]*>/g, ''); // strip HTML
+      description = description.replace(/<[^>]*>/g, '');
       if (description.length > 250) {
         description = description.substring(0, 247) + '...';
       }
       
       return {
-        id: idx + 1,
         title: job.position.replace(/[\r\n\t]/g, ' ').trim(),
         company: job.company || 'Confidential Client',
-        board: boards[idx % boards.length], // Cycle through LinkedIn, Indeed, Glassdoor to support filter tabs
-        exp: exp,
-        salary: salary,
-        requirements: requirements,
+        location: 'Remote (US/Global)',
+        type: 'Remote',
+        link: job.url || job.apply_url,
         daysAgo: daysAgo,
-        description: description.replace(/[\r\n\t]+/g, ' ').trim(),
-        link: job.url || job.apply_url || 'https://www.linkedin.com/jobs/'
+        description: description.replace(/[\r\n\t]+/g, ' ').trim()
       };
     });
-  } catch (error) {
-    console.error('Error fetching from RemoteOK API:', error.message);
-    console.log('Falling back to local curated database refresh...');
+  } catch (err) {
+    console.error('RemoteOK fetch failed:', err.message);
+    return [];
   }
+}
 
-  // If we couldn't fetch any active PM jobs, fallback to refreshing the existing ones in app.js
-  if (jobs.length === 0) {
-    console.log('Updating existing local jobs database dates to maintain 3-week window...');
-    let appJs = fs.readFileSync(APP_JS_PATH, 'utf8');
+// Fetch African Local PM Jobs
+async function fetchAfricanJobs() {
+  const targets = [
+    {
+      url: 'https://www.jobberman.com/jobs/project-management',
+      siteName: 'Nigeria',
+      region: 'West Africa'
+    },
+    {
+      url: 'https://www.jobberman.com.gh/jobs/project-management',
+      siteName: 'Ghana',
+      region: 'West Africa'
+    },
+    {
+      url: 'https://www.brightermonday.co.ke/jobs/project-management',
+      siteName: 'Kenya',
+      region: 'East Africa'
+    }
+  ];
+  
+  let allLocalJobs = [];
+  
+  for (const target of targets) {
+    console.log(`Scraping on-site jobs from Job Board: ${target.url}...`);
+    try {
+      const response = await fetch(target.url, {
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36'
+        }
+      });
+      if (!response.ok) continue;
+      const html = await response.text();
+      const parsed = parseAfricanJobs(html, target.siteName, target.url, target.region);
+      console.log(`Parsed ${parsed.length} jobs from ${target.siteName}.`);
+      allLocalJobs = allLocalJobs.concat(parsed);
+    } catch (err) {
+      console.error(`Failed to scrape ${target.siteName}:`, err.message);
+    }
+  }
+  
+  return allLocalJobs;
+}
+
+// Main Process
+async function run() {
+  const remoteJobs = await fetchRemoteJobs();
+  const africanJobs = await fetchAfricanJobs();
+  
+  console.log(`Total jobs fetched: ${remoteJobs.length} Remote, ${africanJobs.length} Local African.`);
+  
+  // Combine lists: Alternate Remote and Local African PM jobs
+  const mergedJobs = [];
+  const maxLen = Math.max(remoteJobs.length, africanJobs.length);
+  
+  for (let i = 0; i < maxLen; i++) {
+    if (i < remoteJobs.length) mergedJobs.push(remoteJobs[i]);
+    if (i < africanJobs.length) mergedJobs.push(africanJobs[i]);
+  }
+  
+  // Format to database schema (limit to 20 jobs)
+  const boards = ['LinkedIn', 'Indeed', 'Glassdoor'];
+  const finalDb = mergedJobs.slice(0, 20).map((job, idx) => {
+    const exp = getExperienceLevel(job.title);
+    const salary = formatSalary(0, 0, exp);
+    const requirements = getRealisticRequirements(job.title);
     
-    // We don't overwrite the contents of the database, but we will write a message
-    // Let's print that fallback is active and keep app.js as is
-    console.log('Local database remains safe and valid.');
+    const desc = job.description || `Leading ${job.company} project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.`;
+    
+    return {
+      id: idx + 1,
+      title: job.title,
+      company: job.company,
+      board: boards[idx % boards.length],
+      exp: exp,
+      salary: salary,
+      requirements: requirements,
+      daysAgo: job.daysAgo,
+      description: desc,
+      link: job.link
+    };
+  });
+  
+  if (finalDb.length === 0) {
+    console.log('No jobs retrieved. Keeping app.js database intact.');
     return;
   }
   
-  // Overwrite the database in app.js
-  console.log(`Writing ${jobs.length} remote PM jobs to app.js...`);
+  console.log(`Writing ${finalDb.length} blended (remote & on-site African) PM jobs to app.js...`);
+  
   let appJs = fs.readFileSync(APP_JS_PATH, 'utf8');
   
   const targetJobsDbStart = appJs.indexOf('const pmJobsDatabase = [');
   const targetNewsFilteringState = appJs.indexOf('// News Filtering State');
   
   if (targetJobsDbStart === -1 || targetNewsFilteringState === -1) {
-    console.error('Could not find database markers in app.js. Operation aborted.');
+    console.error('Failed to locate job database block in app.js.');
     return;
   }
   
-  // Format the array into a pretty print string
-  const jobsDbString = `const pmJobsDatabase = ${JSON.stringify(jobs, null, 2)};`;
-  
-  // Splice into app.js
+  const jobsDbString = `const pmJobsDatabase = ${JSON.stringify(finalDb, null, 2)};`;
   const preJobs = appJs.substring(0, targetJobsDbStart);
   const postJobs = appJs.substring(targetNewsFilteringState);
   
   appJs = preJobs + jobsDbString + '\n\n  ' + postJobs;
   fs.writeFileSync(APP_JS_PATH, appJs, 'utf8');
   console.log('Successfully updated app.js!');
-
-  // Bump Cache Version in sw.js to push update instantly to client browsers
+  
+  // Bump cache version in sw.js
   try {
     let swJs = fs.readFileSync(SW_JS_PATH, 'utf8');
     const match = swJs.match(/const CACHE_NAME = 'pmp-mastery-v(\d+)'/);
@@ -177,15 +285,10 @@ async function updateJobs() {
       swJs = swJs.replace(/const CACHE_NAME = 'pmp-mastery-v\d+'/, `const CACHE_NAME = 'pmp-mastery-v${nextVer}'`);
       fs.writeFileSync(SW_JS_PATH, swJs, 'utf8');
       console.log(`Successfully bumped Service Worker cache version in sw.js to v${nextVer}!`);
-    } else {
-      console.warn('Could not locate CACHE_NAME signature in sw.js.');
     }
   } catch (swErr) {
     console.error('Failed to update sw.js:', swErr.message);
   }
 }
 
-// Run the script
-updateJobs().then(() => {
-  console.log('Database refresh process completed.');
-});
+run();

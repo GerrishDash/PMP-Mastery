@@ -3655,8 +3655,8 @@ const initApp = () => {
   const pmJobsDatabase = [
   {
     "id": 1,
-    "title": "Technical Project Manager",
-    "company": "Nuvolar Works",
+    "title": "Preparador de Vehiculos Hatillo",
+    "company": "Enterprise",
     "board": "LinkedIn",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -3667,30 +3667,30 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 5,
-    "description": "We are a global technology consulting company specializing in IT solutions, cloud-based platforms, data engineering services, and end-to-end project delivery support. With over 14 years of experience and a multicultural team of more than 100 profe...",
-    "link": "https://remoteOK.com/remote-jobs/remote-technical-project-manager-nuvolar-works-1134080"
+    "description": "OverviewPatrono con Igualdad de Oportunidad de EmpleoEnterprise Mobility (National Car Rental &amp; Alamo Rent A Car) es la compaÃ±Ã­a de renta de automÃ³viles privada mas grande y con el crecimiento mas rÃ¡pido de NorteamÃ©rica. Con mas de 9,000 ...",
+    "link": "https://remoteOK.com/remote-jobs/remote-preparador-de-vehiculos-hatillo-enterprise-1134099"
   },
   {
     "id": 2,
-    "title": "Assistant Project Manager Fragrance",
-    "company": "Slate Brands",
+    "title": "Project Manager",
+    "company": "Jobberman Nigeria Recruitment",
     "board": "Indeed",
-    "exp": "Entry",
-    "salary": "$60,000 - $78,000/yr",
+    "exp": "Mid",
+    "salary": "$95,000 - $120,000/yr",
     "requirements": [
       "Active PMP certification or equivalent path",
       "3-5 years managing software or business operations projects",
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 6,
-    "description": "Company Description Slate Brands is a modern beauty brand incubator and accelerator focused on redefining how beauty brands are built. The company identifies white space in high-growth categories and leverages strategic partnerships to create dist...",
-    "link": "https://remoteOK.com/remote-jobs/remote-assistant-project-manager-fragrance-slate-brands-1133969"
+    "daysAgo": 1,
+    "description": "Leading Jobberman Nigeria Recruitment project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.jobberman.com/listings/project-manager-rrreg5"
   },
   {
     "id": 3,
-    "title": "0015 Project Manager",
-    "company": "Ranger American",
+    "title": "Kerendia Task Force",
+    "company": "Bayer",
     "board": "Glassdoor",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -3700,14 +3700,14 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 6,
-    "description": "Position SummaryThe Project Manager role is responsible for leading business improvement, technology and platform implementation projects from initiation through completion. This role ensures projects are delivered on time, within scope and budget...",
-    "link": "https://remoteOK.com/remote-jobs/remote-0015-project-manager-ranger-american-1134095"
+    "daysAgo": 5,
+    "description": "At Bayer weâre visionaries, driven to solve the worldâs toughest challenges and striving for a world where ,Health for all, Hunger for noneâ is no longer a dream, but a real possibility. Weâre doing it with energy, curiosity and sheer dedi...",
+    "link": "https://remoteOK.com/remote-jobs/remote-kerendia-task-force-bayer-1134145"
   },
   {
     "id": 4,
-    "title": "Project Manager",
-    "company": "Leapfrog Technology, Inc.",
+    "title": "Product Owner",
+    "company": "Rednoxx Limited",
     "board": "LinkedIn",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -3717,14 +3717,14 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 10,
-    "description": "About LeapfrogLeapfrog is on a mission to be a role model technology company. Since 2010, we have relentlessly worked on crafting better digital products with our team of superior engineers. Weâre a full-stack company specializing in SaaS produc...",
-    "link": "https://remoteOK.com/remote-jobs/remote-project-manager-leapfrog-technology-inc-1133962"
+    "daysAgo": 4,
+    "description": "Leading Rednoxx Limited project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.jobberman.com/listings/product-owner-x88qw2"
   },
   {
     "id": 5,
-    "title": "Project Manager",
-    "company": "Kate Farms",
+    "title": "hh2",
+    "company": "Biztech",
     "board": "Indeed",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -3734,65 +3734,65 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 12,
-    "description": "About Kate FarmsKate Farms is a company with heart. Our company was founded on the belief that good nutrition leads to good health, and good health opens the door to endless possibilities. That's why our mission is to make nutrition the cornerston...",
-    "link": "https://remoteOK.com/remote-jobs/remote-project-manager-kate-farms-1133515"
+    "daysAgo": 5,
+    "description": "Civalgo is your all-in-one construction management solution, designed by industry experts to streamline project planning, resource allocation, and daily reporting. Simplify your operations, enhance team collaboration, and boost productivity with o...",
+    "link": "https://remoteOK.com/remote-jobs/remote-hh2-biztech-1134146"
   },
   {
     "id": 6,
-    "title": "Program Manager",
-    "company": "PBG",
+    "title": "Project Manager",
+    "company": "Jobberman Nigeria Recruitment",
     "board": "Glassdoor",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
+    "requirements": [
+      "Active PMP certification or equivalent path",
+      "3-5 years managing software or business operations projects",
+      "Solid understanding of hybrid Waterfall/Agile lifecycles",
+      "Strong verbal and written English communication skills"
+    ],
+    "daysAgo": 1,
+    "description": "Leading Jobberman Nigeria Recruitment project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.jobberman.com/listings/project-manager-5pp67e"
+  },
+  {
+    "id": 7,
+    "title": "System Software Engineer",
+    "company": "Hewlett Packard Enterprise",
+    "board": "LinkedIn",
+    "exp": "Mid",
+    "salary": "$95,000 - $120,000/yr",
+    "requirements": [
+      "Active PMP certification or equivalent path",
+      "3-5 years managing software or business operations projects",
+      "Solid understanding of hybrid Waterfall/Agile lifecycles",
+      "Strong verbal and written English communication skills"
+    ],
+    "daysAgo": 6,
+    "description": "This role has been designed as âHybridâ with an expectation that you will work on average 2 days per week from an HPE office.Who We AreHewlett Packard Enterprise is the global edge-to-cloud company advancing the way people live and work. We he...",
+    "link": "https://remoteOK.com/remote-jobs/remote-system-software-engineer-hewlett-packard-enterprise-1134102"
+  },
+  {
+    "id": 8,
+    "title": "Senior Project Manager",
+    "company": "Hedge & Pembrook Limited",
+    "board": "Indeed",
+    "exp": "Senior",
+    "salary": "$135,000 - $165,000/yr",
     "requirements": [
       "Project Management Professional (PMP) certification required",
       "7+ years leading enterprise cross-functional programs",
       "Strong budget management, scheduling, and risk planning",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 12,
-    "description": "PBG delivers mission-focused solutions that eliminate inefficiency and power transformation for federal agencies requiring agility, security, and impact.Location: RemoteCitizenship: Candidates must be U.S. Citizens or Green Card holders residing i...",
-    "link": "https://remoteOK.com/remote-jobs/remote-program-manager-pbg-1133517"
-  },
-  {
-    "id": 7,
-    "title": "Creative Project Manager",
-    "company": "YunoJuno",
-    "board": "LinkedIn",
-    "exp": "Mid",
-    "salary": "$95,000 - $120,000/yr",
-    "requirements": [
-      "Active PMP certification or equivalent path",
-      "3-5 years managing software or business operations projects",
-      "Solid understanding of hybrid Waterfall/Agile lifecycles",
-      "Strong verbal and written English communication skills"
-    ],
-    "daysAgo": 13,
-    "description": "*Please note this is a contract role and you must be registered as an independent contractor.- W2 contract*About the RolePosition: Creative Project ManagerStart Date: asapLength: 12 monthsFull TimeLocation: LA/ West Hollywood (remote-occasional tr...",
-    "link": "https://remoteOK.com/remote-jobs/remote-creative-project-manager-yunojuno-1133452"
-  },
-  {
-    "id": 8,
-    "title": "Implementation Project Manager",
-    "company": "Intellum, Inc.",
-    "board": "Indeed",
-    "exp": "Mid",
-    "salary": "$95,000 - $120,000/yr",
-    "requirements": [
-      "Active PMP certification or equivalent path",
-      "3-5 years managing software or business operations projects",
-      "Solid understanding of hybrid Waterfall/Agile lifecycles",
-      "Strong verbal and written English communication skills"
-    ],
-    "daysAgo": 17,
-    "description": "About us Intellum is the leader in corporate education technology and powers the largest, most successful customer, partner, and employee learning programs in the world. Large brands and fast-moving companies like Google, Meta, Amazon, Walmart, Xe...",
-    "link": "https://remoteOK.com/remote-jobs/remote-implementation-project-manager-intellum-inc-1133294"
+    "daysAgo": 3,
+    "description": "Leading Hedge & Pembrook Limited project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.jobberman.com/listings/senior-project-manager-j6642d"
   },
   {
     "id": 9,
-    "title": "Technical Project Manager",
-    "company": "Flash",
+    "title": "LABORER",
+    "company": "Portales Fire Department",
     "board": "Glassdoor",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -3802,14 +3802,14 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 18,
-    "description": "Help us change the way the world parksParking isnât just about spaces â itâs about creating seamless experiences, sustainable solutions, and smarter cities. At Flash, weâre not just thinking about todayâs parking challenges; weâre acti...",
-    "link": "https://remoteOK.com/remote-jobs/remote-technical-project-manager-flash-1133783"
+    "daysAgo": 6,
+    "description": "This cms8.revize.com page canât be foundNo webpage was found for the web address: https://cms8.revize.com/revize/portales/Job%20Posting%20%202025-09%20SW%20Laborer.pdfHTTP ERROR 404No webpage was found for the web address: https://cms8.revize.co...",
+    "link": "https://remoteOK.com/remote-jobs/remote-laborer-portales-fire-department-1134147"
   },
   {
     "id": 10,
-    "title": "Learning Project Manager",
-    "company": "Learnlight",
+    "title": "IT Project Manager",
+    "company": "Stretch-it Concepts Limited",
     "board": "LinkedIn",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -3819,14 +3819,14 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 18,
-    "description": "Join Our MissionLearnlight is an EdTech company that believes in putting people first. We takeâ¦Please mention the word **REVIVE** and tag RMTk3LjIzNC4yMjEuMTc= when applying to show you read the job post completely (#RMTk3LjIzNC4yMjEuMTc=). This...",
-    "link": "https://remoteOK.com/remote-jobs/remote-learning-project-manager-learnlight-1133233"
+    "daysAgo": 4,
+    "description": "Leading Stretch-it Concepts Limited project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.jobberman.com/listings/it-project-manager-k7p7ej"
   },
   {
     "id": 11,
-    "title": "Project Manager",
-    "company": "TekSturdy USA INC",
+    "title": "Product manager",
+    "company": "DUÄAST",
     "board": "Indeed",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -3836,14 +3836,14 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 20,
-    "description": "Aliquam tempus libero eget arcu euismod, in bibendum nisl posuere. Donec gravida sem eu dolor rhoncus viverra.Please mention the word **SOLICITOUSLY** and tag RMTk3LjIzNC4yMjEuMTc= when applying to show you read the job post completely (#RMTk3LjIz...",
-    "link": "https://remoteOK.com/remote-jobs/remote-project-manager-teksturdy-usa-inc-1134143"
+    "daysAgo": 6,
+    "description": "Suitable Quality is determined by product users, clients or customers, not by society in general. For example, a low priced product may be viewed as having high quality because it is disposable where another may be viewed as having poor quality be...",
+    "link": "https://remoteOK.com/remote-jobs/remote-product-manager-dueast-1134144"
   },
   {
     "id": 12,
-    "title": "Project Manager",
-    "company": "Simple Brands Media",
+    "title": "Technical Project Manager",
+    "company": "Virtual IP",
     "board": "Glassdoor",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -3853,15 +3853,134 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 20,
-    "description": "Aliquam tempus libero eget arcu euismod, in bibendum nisl posuere. Donec gravida sem eu dolor rhoncus viverra.Please mention the word **FASHIONABLY** and tag RMTk3LjIzNC4yMjEuMTc= when applying to show you read the job post completely (#RMTk3LjIzN...",
-    "link": "https://remoteOK.com/remote-jobs/remote-project-manager-simple-brands-media-1133997"
+    "daysAgo": 5,
+    "description": "Leading Virtual IP project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.jobberman.com.gh/listings/technical-project-manager-zpmmqv"
   },
   {
     "id": 13,
-    "title": "Junior Project Manager",
-    "company": "Haystack",
+    "title": "REVENUE MANAGER",
+    "company": "Grupo Los Pueblos",
     "board": "LinkedIn",
+    "exp": "Mid",
+    "salary": "$95,000 - $120,000/yr",
+    "requirements": [
+      "Active PMP certification or equivalent path",
+      "3-5 years managing software or business operations projects",
+      "Solid understanding of hybrid Waterfall/Agile lifecycles",
+      "Strong verbal and written English communication skills"
+    ],
+    "daysAgo": 7,
+    "description": "Empresa del sector hospitalidad con operaciones en PanamÃ¡, buscamos un Revenue Manager que lidere la estrategia de optimizaciÃ³n de ingresos a travÃ©s del anÃ¡lisis de tarifas, demanda, ocupaciÃ³n y canales de distribuciÃ³n.La posiciÃ³n tendrÃ¡ i...",
+    "link": "https://remoteOK.com/remote-jobs/remote-revenue-manager-grupo-los-pueblos-1134101"
+  },
+  {
+    "id": 14,
+    "title": "Global Rewards Project Manager",
+    "company": "Cervecería y Maltería Quilmes",
+    "board": "Indeed",
+    "exp": "Mid",
+    "salary": "$95,000 - $120,000/yr",
+    "requirements": [
+      "Active PMP certification or equivalent path",
+      "3-5 years managing software or business operations projects",
+      "Solid understanding of hybrid Waterfall/Agile lifecycles",
+      "Strong verbal and written English communication skills"
+    ],
+    "daysAgo": 2,
+    "description": "Leading Cervecería y Maltería Quilmes project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.jobberman.com.gh/listings/global-rewards-project-manager-20mmge"
+  },
+  {
+    "id": 15,
+    "title": "Aplicador de Productos QuÃ­micos B",
+    "company": "Twin Dolphin Los Cabos",
+    "board": "Glassdoor",
+    "exp": "Mid",
+    "salary": "$95,000 - $120,000/yr",
+    "requirements": [
+      "Active PMP certification or equivalent path",
+      "3-5 years managing software or business operations projects",
+      "Solid understanding of hybrid Waterfall/Agile lifecycles",
+      "Strong verbal and written English communication skills"
+    ],
+    "daysAgo": 7,
+    "description": "Somos una comunidad de 1,400 acres, desarrollada por Ohana Real Estate Investors, recibe el nombre de Twin Dolphin, en honor a la rica historia del primer e icÃ³nico Hotel Twin Dolphin. El plan maestro incluye: Maravilla, un desarrollo privado de ...",
+    "link": "https://remoteOK.com/remote-jobs/remote-aplicador-de-productos-quimicos-b-twin-dolphin-los-cabos-1134107"
+  },
+  {
+    "id": 16,
+    "title": "Regional Logistics Project Manager",
+    "company": "Nestlé",
+    "board": "LinkedIn",
+    "exp": "Mid",
+    "salary": "$95,000 - $120,000/yr",
+    "requirements": [
+      "Active PMP certification or equivalent path",
+      "3-5 years managing software or business operations projects",
+      "Solid understanding of hybrid Waterfall/Agile lifecycles",
+      "Strong verbal and written English communication skills"
+    ],
+    "daysAgo": 3,
+    "description": "Leading Nestlé project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.jobberman.com.gh/listings/regional-logistics-project-manager-07rrn6"
+  },
+  {
+    "id": 17,
+    "title": "Technical Project Manager",
+    "company": "Nuvolar Works",
+    "board": "Indeed",
+    "exp": "Mid",
+    "salary": "$95,000 - $120,000/yr",
+    "requirements": [
+      "Active PMP certification or equivalent path",
+      "3-5 years managing software or business operations projects",
+      "Solid understanding of hybrid Waterfall/Agile lifecycles",
+      "Strong verbal and written English communication skills"
+    ],
+    "daysAgo": 7,
+    "description": "We are a global technology consulting company specializing in IT solutions, cloud-based platforms, data engineering services, and end-to-end project delivery support. With over 14 years of experience and a multicultural team of more than 100 profe...",
+    "link": "https://remoteOK.com/remote-jobs/remote-technical-project-manager-nuvolar-works-1134080"
+  },
+  {
+    "id": 18,
+    "title": "Technical Project Manager",
+    "company": "Med Bill, L.L.C",
+    "board": "Glassdoor",
+    "exp": "Mid",
+    "salary": "$95,000 - $120,000/yr",
+    "requirements": [
+      "Active PMP certification or equivalent path",
+      "3-5 years managing software or business operations projects",
+      "Solid understanding of hybrid Waterfall/Agile lifecycles",
+      "Strong verbal and written English communication skills"
+    ],
+    "daysAgo": 2,
+    "description": "Leading Med Bill, L.L.C project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.brightermonday.co.ke/listings/project-manager-n95rd9"
+  },
+  {
+    "id": 19,
+    "title": "Computer Science Specialist",
+    "company": "G.S. International Public School",
+    "board": "LinkedIn",
+    "exp": "Mid",
+    "salary": "$95,000 - $120,000/yr",
+    "requirements": [
+      "Active PMP certification or equivalent path",
+      "3-5 years managing software or business operations projects",
+      "Solid understanding of hybrid Waterfall/Agile lifecycles",
+      "Strong verbal and written English communication skills"
+    ],
+    "daysAgo": 7,
+    "description": "Experience 3 years &amp; Must have knowledge of PythonPlease mention the word **MIGHTILY** and tag RMTM3LjI1NS4xNTguMjUy when applying to show you read the job post completely (#RMTM3LjI1NS4xNTguMjUy). This is a beta feature to avoid spam applican...",
+    "link": "https://remoteOK.com/remote-jobs/remote-computer-science-specialist-g-s-international-public-school-1133998"
+  },
+  {
+    "id": 20,
+    "title": "Project Coordinator",
+    "company": "Anonymous Employer",
+    "board": "Indeed",
     "exp": "Entry",
     "salary": "$60,000 - $78,000/yr",
     "requirements": [
@@ -3870,43 +3989,9 @@ const initApp = () => {
       "Excellent organization, notes capture, and scheduling skills",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 20,
-    "description": "We're hiring on behalf of a Haystack partner!The Roleâ¢ Analyze and respond to user inquiries for IT-related issues.â¢ Assist with improving project efficiency and effectiveness within an IT support context.â¢ Perform professional technology su...",
-    "link": "https://remoteOK.com/remote-jobs/remote-junior-project-manager-haystack-1132350"
-  },
-  {
-    "id": 14,
-    "title": "Project Manager French English Fluent",
-    "company": "Brandtech+",
-    "board": "Indeed",
-    "exp": "Mid",
-    "salary": "$95,000 - $120,000/yr",
-    "requirements": [
-      "Active PMP certification or equivalent path",
-      "3-5 years managing software or business operations projects",
-      "Solid understanding of hybrid Waterfall/Agile lifecycles",
-      "Strong verbal and written English communication skills"
-    ],
-    "daysAgo": 20,
-    "description": "Brandtech+ (formerly known as OLIVER+) is a global team of creative thinkers, tech-savvy trendsetters, and production pros specialising in film, CGI, automation, AI, motion design, and digital/print content. We partner with over 300 clients in 40+...",
-    "link": "https://remoteOK.com/remote-jobs/remote-project-manager-french-english-fluent-brandtech-1131548"
-  },
-  {
-    "id": 15,
-    "title": "1079 Project Manager",
-    "company": "GoFasti",
-    "board": "Glassdoor",
-    "exp": "Mid",
-    "salary": "$95,000 - $120,000/yr",
-    "requirements": [
-      "Active PMP certification or equivalent path",
-      "3-5 years managing software or business operations projects",
-      "Solid understanding of hybrid Waterfall/Agile lifecycles",
-      "Strong verbal and written English communication skills"
-    ],
-    "daysAgo": 20,
-    "description": "We Make Remote Work Remarkable â¢ TopTalent from LatAm Hello! We are GoFasti, a Talent-as-a-Service. GoFasti bridges the gap between world-class developers and designers from LatAm and first-class companies around the globe. We need an English-f...",
-    "link": "https://remoteOK.com/remote-jobs/remote-1079-project-manager-gofasti-1131499"
+    "daysAgo": 1,
+    "description": "Leading Anonymous Employer project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.brightermonday.co.ke/listings/project-coordinator-7wne8z"
   }
 ];
 
@@ -3943,7 +4028,10 @@ const initApp = () => {
         'linkedin.com',
         'indeed.com',
         'glassdoor.com',
-        'remoteok.com'
+        'remoteok.com',
+        'jobberman.com',
+        'jobberman.com.gh',
+        'brightermonday.co.ke'
       ];
       
       const hostname = parsedUrl.hostname.toLowerCase();
