@@ -3942,7 +3942,8 @@ const initApp = () => {
         'hbr.org',
         'linkedin.com',
         'indeed.com',
-        'glassdoor.com'
+        'glassdoor.com',
+        'remoteok.com'
       ];
       
       const hostname = parsedUrl.hostname.toLowerCase();
