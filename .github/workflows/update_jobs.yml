@@ -21,9 +21,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: 'npm'
-          # We don't have package-lock.json, so caching might warn. We can bypass cache if needed or leave it.
+          node-version: 22
 
       - name: Fetch and Update Job Database
         run: node update_jobs_db.js
