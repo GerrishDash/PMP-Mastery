@@ -3719,7 +3719,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 5,
+    "daysAgo": 6,
     "description": "OverviewPatrono con Igualdad de Oportunidad de EmpleoEnterprise Mobility (National Car Rental &amp; Alamo Rent A Car) es la compaÃ±Ã­a de renta de automÃ³viles privada mas grande y con el crecimiento mas rÃ¡pido de NorteamÃ©rica. Con mas de 9,000 ...",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Preparador%20de%20Vehiculos%20Hatillo%20Enterprise"
   },
@@ -3736,7 +3736,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 3,
+    "daysAgo": 5,
     "description": "Leading Jobberman Nigeria Recruitment project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.indeed.com/jobs?q=Project%20Manager%20Jobberman%20Nigeria%20Recruitment"
   },
@@ -3753,7 +3753,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 5,
+    "daysAgo": 6,
     "description": "At Bayer weâre visionaries, driven to solve the worldâs toughest challenges and striving for a world where ,Health for all, Hunger for noneâ is no longer a dream, but a real possibility. Weâre doing it with energy, curiosity and sheer dedi...",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Kerendia%20Task%20Force%20Bayer"
   },
@@ -3770,7 +3770,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 3,
+    "daysAgo": 2,
     "description": "Leading Rednoxx Limited project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Product%20Owner%20Rednoxx%20Limited"
   },
@@ -3787,7 +3787,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 5,
+    "daysAgo": 6,
     "description": "Civalgo is your all-in-one construction management solution, designed by industry experts to streamline project planning, resource allocation, and daily reporting. Simplify your operations, enhance team collaboration, and boost productivity with o...",
     "link": "https://www.indeed.com/jobs?q=hh2%20Biztech"
   },
@@ -3855,7 +3855,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 6,
+    "daysAgo": 7,
     "description": "This cms8.revize.com page canât be foundNo webpage was found for the web address: https://cms8.revize.com/revize/portales/Job%20Posting%20%202025-09%20SW%20Laborer.pdfHTTP ERROR 404No webpage was found for the web address: https://cms8.revize.co...",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=LABORER%20Portales%20Fire%20Department"
   },
@@ -3872,7 +3872,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 5,
+    "daysAgo": 4,
     "description": "Leading Stretch-it Concepts Limited project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.linkedin.com/jobs/search/?keywords=IT%20Project%20Manager%20Stretch-it%20Concepts%20Limited"
   },
@@ -3889,7 +3889,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 6,
+    "daysAgo": 7,
     "description": "Suitable Quality is determined by product users, clients or customers, not by society in general. For example, a low priced product may be viewed as having high quality because it is disposable where another may be viewed as having poor quality be...",
     "link": "https://www.indeed.com/jobs?q=Product%20manager%20DU%C3%84%C2%92AST"
   },
@@ -3906,7 +3906,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 5,
+    "daysAgo": 4,
     "description": "Leading Virtual IP project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Technical%20Project%20Manager%20Virtual%20IP"
   },
@@ -3923,7 +3923,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 7,
+    "daysAgo": 8,
     "description": "Empresa del sector hospitalidad con operaciones en PanamÃ¡, buscamos un Revenue Manager que lidere la estrategia de optimizaciÃ³n de ingresos a travÃ©s del anÃ¡lisis de tarifas, demanda, ocupaciÃ³n y canales de distribuciÃ³n.La posiciÃ³n tendrÃ¡ i...",
     "link": "https://www.linkedin.com/jobs/search/?keywords=REVENUE%20MANAGER%20Grupo%20Los%20Pueblos"
   },
@@ -3940,7 +3940,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 3,
+    "daysAgo": 2,
     "description": "Leading Cervecería y Maltería Quilmes project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.indeed.com/jobs?q=Global%20Rewards%20Project%20Manager%20Cervecer%C3%ADa%20y%20Malter%C3%ADa%20Quilmes"
   },
@@ -3957,7 +3957,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 7,
+    "daysAgo": 8,
     "description": "Somos una comunidad de 1,400 acres, desarrollada por Ohana Real Estate Investors, recibe el nombre de Twin Dolphin, en honor a la rica historia del primer e icÃ³nico Hotel Twin Dolphin. El plan maestro incluye: Maravilla, un desarrollo privado de ...",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Aplicador%20de%20Productos%20Qu%C3%83%C2%ADmicos%20B%20Twin%20Dolphin%20Los%20Cabos"
   },
@@ -3974,7 +3974,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 3,
+    "daysAgo": 4,
     "description": "Leading Nestlé project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Regional%20Logistics%20Project%20Manager%20Nestl%C3%A9"
   },
@@ -3991,7 +3991,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 7,
+    "daysAgo": 8,
     "description": "We are a global technology consulting company specializing in IT solutions, cloud-based platforms, data engineering services, and end-to-end project delivery support. With over 14 years of experience and a multicultural team of more than 100 profe...",
     "link": "https://www.indeed.com/jobs?q=Technical%20Project%20Manager%20Nuvolar%20Works"
   },
@@ -4008,7 +4008,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 4,
+    "daysAgo": 3,
     "description": "Leading Med Bill, L.L.C project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Technical%20Project%20Manager%20Med%20Bill%2C%20L.L.C"
   },
@@ -4025,8 +4025,8 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 7,
-    "description": "Experience 3 years &amp; Must have knowledge of PythonPlease mention the word **MIGHTILY** and tag RMTM3LjI1NS4xNTguMjUy when applying to show you read the job post completely (#RMTM3LjI1NS4xNTguMjUy). This is a beta feature to avoid spam applican...",
+    "daysAgo": 8,
+    "description": "Experience 3 years &amp; Must have knowledge of PythonPlease mention the word **MIGHTILY** and tag RNjQuMjM2LjE2MC4yMQ== when applying to show you read the job post completely (#RNjQuMjM2LjE2MC4yMQ==). This is a beta feature to avoid spam applican...",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Computer%20Science%20Specialist%20G.S.%20International%20Public%20School"
   },
   {
@@ -4042,7 +4042,7 @@ const initApp = () => {
       "Excellent organization, notes capture, and scheduling skills",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 1,
+    "daysAgo": 5,
     "description": "Leading Anonymous Employer project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.indeed.com/jobs?q=Project%20Coordinator%20Anonymous%20Employer"
   }
