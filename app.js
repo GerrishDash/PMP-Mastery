@@ -3719,7 +3719,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 7,
+    "daysAgo": 8,
     "description": "OverviewPatrono con Igualdad de Oportunidad de EmpleoEnterprise Mobility (National Car Rental &amp; Alamo Rent A Car) es la compaÃ±Ã­a de renta de automÃ³viles privada mas grande y con el crecimiento mas rÃ¡pido de NorteamÃ©rica. Con mas de 9,000 ...",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Preparador%20de%20Vehiculos%20Hatillo%20Enterprise"
   },
@@ -3736,7 +3736,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 4,
+    "daysAgo": 1,
     "description": "Leading Jobberman Nigeria Recruitment project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.indeed.com/jobs?q=Project%20Manager%20Jobberman%20Nigeria%20Recruitment"
   },
@@ -3753,7 +3753,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 7,
+    "daysAgo": 8,
     "description": "At Bayer weâre visionaries, driven to solve the worldâs toughest challenges and striving for a world where ,Health for all, Hunger for noneâ is no longer a dream, but a real possibility. Weâre doing it with energy, curiosity and sheer dedi...",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Kerendia%20Task%20Force%20Bayer"
   },
@@ -3770,7 +3770,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 2,
+    "daysAgo": 4,
     "description": "Leading Rednoxx Limited project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Product%20Owner%20Rednoxx%20Limited"
   },
@@ -3787,7 +3787,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 7,
+    "daysAgo": 8,
     "description": "Civalgo is your all-in-one construction management solution, designed by industry experts to streamline project planning, resource allocation, and daily reporting. Simplify your operations, enhance team collaboration, and boost productivity with o...",
     "link": "https://www.indeed.com/jobs?q=hh2%20Biztech"
   },
@@ -3804,7 +3804,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 3,
+    "daysAgo": 4,
     "description": "Leading Jobberman Nigeria Recruitment project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20Jobberman%20Nigeria%20Recruitment"
   },
@@ -3821,7 +3821,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 7,
+    "daysAgo": 8,
     "description": "This role has been designed as âHybridâ with an expectation that you will work on average 2 days per week from an HPE office.Who We AreHewlett Packard Enterprise is the global edge-to-cloud company advancing the way people live and work. We he...",
     "link": "https://www.linkedin.com/jobs/search/?keywords=System%20Software%20Engineer%20Hewlett%20Packard%20Enterprise"
   },
@@ -3855,7 +3855,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 8,
+    "daysAgo": 9,
     "description": "This cms8.revize.com page canât be foundNo webpage was found for the web address: https://cms8.revize.com/revize/portales/Job%20Posting%20%202025-09%20SW%20Laborer.pdfHTTP ERROR 404No webpage was found for the web address: https://cms8.revize.co...",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=LABORER%20Portales%20Fire%20Department"
   },
@@ -3872,7 +3872,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 3,
+    "daysAgo": 1,
     "description": "Leading Turbo Energy Limited project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20Turbo%20Energy%20Limited"
   },
@@ -3889,14 +3889,14 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 8,
+    "daysAgo": 9,
     "description": "Suitable Quality is determined by product users, clients or customers, not by society in general. For example, a low priced product may be viewed as having high quality because it is disposable where another may be viewed as having poor quality be...",
     "link": "https://www.indeed.com/jobs?q=Product%20manager%20DU%C3%84%C2%92AST"
   },
   {
     "id": 12,
-    "title": "IT Project Manager",
-    "company": "Stretch-it Concepts Limited",
+    "title": "Technical Project Manager",
+    "company": "Virtual IP",
     "board": "Glassdoor",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -3907,8 +3907,8 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 4,
-    "description": "Leading Stretch-it Concepts Limited project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=IT%20Project%20Manager%20Stretch-it%20Concepts%20Limited"
+    "description": "Leading Virtual IP project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Technical%20Project%20Manager%20Virtual%20IP"
   },
   {
     "id": 13,
@@ -3923,14 +3923,14 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 9,
+    "daysAgo": 10,
     "description": "Empresa del sector hospitalidad con operaciones en PanamÃ¡, buscamos un Revenue Manager que lidere la estrategia de optimizaciÃ³n de ingresos a travÃ©s del anÃ¡lisis de tarifas, demanda, ocupaciÃ³n y canales de distribuciÃ³n.La posiciÃ³n tendrÃ¡ i...",
     "link": "https://www.linkedin.com/jobs/search/?keywords=REVENUE%20MANAGER%20Grupo%20Los%20Pueblos"
   },
   {
     "id": 14,
-    "title": "Technical Project Manager",
-    "company": "Virtual IP",
+    "title": "Global Rewards Project Manager",
+    "company": "Cervecería y Maltería Quilmes",
     "board": "Indeed",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -3940,9 +3940,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 5,
-    "description": "Leading Virtual IP project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.indeed.com/jobs?q=Technical%20Project%20Manager%20Virtual%20IP"
+    "daysAgo": 1,
+    "description": "Leading Cervecería y Maltería Quilmes project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.indeed.com/jobs?q=Global%20Rewards%20Project%20Manager%20Cervecer%C3%ADa%20y%20Malter%C3%ADa%20Quilmes"
   },
   {
     "id": 15,
@@ -3957,14 +3957,14 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 9,
+    "daysAgo": 10,
     "description": "Somos una comunidad de 1,400 acres, desarrollada por Ohana Real Estate Investors, recibe el nombre de Twin Dolphin, en honor a la rica historia del primer e icÃ³nico Hotel Twin Dolphin. El plan maestro incluye: Maravilla, un desarrollo privado de ...",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Aplicador%20de%20Productos%20Qu%C3%83%C2%ADmicos%20B%20Twin%20Dolphin%20Los%20Cabos"
   },
   {
     "id": 16,
-    "title": "Global Rewards Project Manager",
-    "company": "Cervecería y Maltería Quilmes",
+    "title": "Technical Project Manager",
+    "company": "Med Bill, L.L.C",
     "board": "LinkedIn",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -3974,9 +3974,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 3,
-    "description": "Leading Cervecería y Maltería Quilmes project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=Global%20Rewards%20Project%20Manager%20Cervecer%C3%ADa%20y%20Malter%C3%ADa%20Quilmes"
+    "daysAgo": 2,
+    "description": "Leading Med Bill, L.L.C project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.linkedin.com/jobs/search/?keywords=Technical%20Project%20Manager%20Med%20Bill%2C%20L.L.C"
   },
   {
     "id": 17,
@@ -3991,26 +3991,26 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 9,
+    "daysAgo": 10,
     "description": "We are a global technology consulting company specializing in IT solutions, cloud-based platforms, data engineering services, and end-to-end project delivery support. With over 14 years of experience and a multicultural team of more than 100 profe...",
     "link": "https://www.indeed.com/jobs?q=Technical%20Project%20Manager%20Nuvolar%20Works"
   },
   {
     "id": 18,
-    "title": "Regional Logistics Project Manager",
-    "company": "Nestlé",
+    "title": "Project Coordinator",
+    "company": "Anonymous Employer",
     "board": "Glassdoor",
-    "exp": "Mid",
-    "salary": "$95,000 - $120,000/yr",
+    "exp": "Entry",
+    "salary": "$60,000 - $78,000/yr",
     "requirements": [
-      "Active PMP certification or equivalent path",
-      "3-5 years managing software or business operations projects",
-      "Solid understanding of hybrid Waterfall/Agile lifecycles",
+      "Certified Associate in Project Management (CAPM) preferred",
+      "1-2 years experience in professional project tracking",
+      "Excellent organization, notes capture, and scheduling skills",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 5,
-    "description": "Leading Nestlé project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Regional%20Logistics%20Project%20Manager%20Nestl%C3%A9"
+    "daysAgo": 3,
+    "description": "Leading Anonymous Employer project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Coordinator%20Anonymous%20Employer"
   },
   {
     "id": 19,
@@ -4025,26 +4025,26 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 9,
-    "description": "Experience 3 years &amp; Must have knowledge of PythonPlease mention the word **MIGHTILY** and tag RNTcuMTUxLjEyOC4yNDI= when applying to show you read the job post completely (#RNTcuMTUxLjEyOC4yNDI=). This is a beta feature to avoid spam applican...",
+    "daysAgo": 10,
+    "description": "Experience 3 years &amp; Must have knowledge of PythonPlease mention the word **MIGHTILY** and tag RMTcyLjE3NC4yMjMuMjQy when applying to show you read the job post completely (#RMTcyLjE3NC4yMjMuMjQy). This is a beta feature to avoid spam applican...",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Computer%20Science%20Specialist%20G.S.%20International%20Public%20School"
   },
   {
     "id": 20,
-    "title": "Technical Project Manager",
-    "company": "Med Bill, L.L.C",
+    "title": "ASSISTANT PROJECT MANAGER",
+    "company": "ORCHID HR",
     "board": "Indeed",
-    "exp": "Mid",
-    "salary": "$95,000 - $120,000/yr",
+    "exp": "Entry",
+    "salary": "$60,000 - $78,000/yr",
     "requirements": [
       "Active PMP certification or equivalent path",
       "3-5 years managing software or business operations projects",
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 2,
-    "description": "Leading Med Bill, L.L.C project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.indeed.com/jobs?q=Technical%20Project%20Manager%20Med%20Bill%2C%20L.L.C"
+    "daysAgo": 5,
+    "description": "Leading ORCHID HR project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.indeed.com/jobs?q=ASSISTANT%20PROJECT%20MANAGER%20ORCHID%20HR"
   }
 ];
 
