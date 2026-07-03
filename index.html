@@ -79,6 +79,10 @@
         <span class="nav-icon">🧪</span> Mock Exam
         <span class="nav-badge">180</span>
       </div>
+      <div class="nav-item" data-section="summaries">
+        <span class="nav-icon">📖</span> Chapter Summaries
+        <span class="nav-badge">18</span>
+      </div>
 
       <div class="nav-section-label">Real-time Insights</div>
       <div class="nav-item" data-section="news">
@@ -1084,6 +1088,26 @@
           <button class="btn btn-primary" id="btnResumeExam" style="width:100%; padding:12px; font-weight:600;">Resume Exam</button>
         </div>
       </div>
+    </section>
+
+    <!-- ──── CHAPTER SUMMARIES ──── -->
+    <section class="section" id="section-summaries">
+      <div class="page-header">
+        <div class="breadcrumb">PMP Mastery <span class="sep">›</span> Exam Prep</div>
+        <h2>📖 Chapter Summaries</h2>
+        <p>Readable, plain-English summaries for every PMBOK chapter, agile framework, and exam formula. Click any card to expand it.</p>
+      </div>
+
+      <!-- Tab Bar -->
+      <div id="summaryTabBar" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;">
+        <button class="btn btn-primary summary-tab-btn active" data-tab="pmbok6" style="padding:8px 16px;font-size:0.82rem;">PMBOK 6 — Predictive</button>
+        <button class="btn btn-secondary summary-tab-btn" data-tab="pmbok7" style="padding:8px 16px;font-size:0.82rem;">PMBOK 7 — Adaptive</button>
+        <button class="btn btn-secondary summary-tab-btn" data-tab="agile" style="padding:8px 16px;font-size:0.82rem;">Agile &amp; Hybrid</button>
+        <button class="btn btn-secondary summary-tab-btn" data-tab="formulas" style="padding:8px 16px;font-size:0.82rem;">Formulas &amp; Mnemonics</button>
+      </div>
+
+      <!-- Summary Cards Container (rendered by app.js) -->
+      <div id="summaryCardsContainer"></div>
     </section>
 
     <!-- ──── PM NEWS & INNOVATIONS ──── -->

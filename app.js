@@ -2137,42 +2137,91 @@ const initApp = () => {
     }
   }
 
-  function startScheduler() {
-    stopScheduler(); // Clear existing
+  // ─── Send schedule to Service Worker (survives page close/refresh) ─────────
+  function _sendToSW(message) {
+    if (!('serviceWorker' in navigator)) return;
+    navigator.serviceWorker.ready.then(reg => {
+      if (reg.active) reg.active.postMessage(message);
+    });
+  }
 
+  // ─── Build a lightweight tip list to send to SW ─────────────────────────────
+  function _buildTipPayload() {
+    return getPmpTips().slice(0, 80).map(t => ({ title: t.title.substring(0, 60), body: t.body.substring(0, 200) }));
+  }
+
+  // ─── Compute remaining seconds from saved next-fire timestamp ────────────────
+  function _getRemainingSeconds(intervalSec) {
+    const nextFire = parseInt(safeLS.getItem('pmp_notif_next_fire') || '0', 10);
+    if (!nextFire) return intervalSec;
+    const remaining = Math.round((nextFire - Date.now()) / 1000);
+    return (remaining > 0 && remaining < intervalSec) ? remaining : intervalSec;
+  }
+
+  function startScheduler() {
+    stopScheduler();
     const isEnabled = safeLS.getItem('pmp_notif_enabled') === 'true';
     if (!isEnabled || Notification.permission !== 'granted') return;
 
-    const intervalSec = parseInt(notifIntervalSelect.value);
-    secondsRemaining = intervalSec;
-
-    // Local Storage persistence of last interval setting
+    const intervalSec   = parseInt(notifIntervalSelect.value);
     safeLS.setItem('pmp_notif_interval', intervalSec);
 
-    // Update Countdown display
+    const remainingSec  = _getRemainingSeconds(intervalSec);
+
+    // Save the expected next fire time so page reloads can resume correctly
+    const nextFireAt = Date.now() + remainingSec * 1000;
+    safeLS.setItem('pmp_notif_next_fire', String(nextFireAt));
+
+    // Hand off to Service Worker — it owns the timer from here
+    _sendToSW({
+      type: 'SCHEDULE_NOTIF',
+      intervalSec,
+      remainingSec,
+      tips: _buildTipPayload()
+    });
+
+    // Page-side countdown (visual only — SW is the real timer)
+    secondsRemaining = remainingSec;
     updateCountdownDisplay();
-    
     countdownTimer = setInterval(() => {
-      secondsRemaining--;
-      if (secondsRemaining <= 0) {
-        triggerLocalNotification();
-        secondsRemaining = intervalSec; // reset
-      }
+      secondsRemaining = Math.max(0, secondsRemaining - 1);
       updateCountdownDisplay();
+      // Refresh once a minute to re-sync with the saved next-fire timestamp
+      if (secondsRemaining % 60 === 0) {
+        secondsRemaining = _getRemainingSeconds(intervalSec);
+      }
     }, 1000);
   }
 
   function stopScheduler() {
-    if (countdownTimer) {
-      clearInterval(countdownTimer);
-      countdownTimer = null;
-    }
+    if (countdownTimer) { clearInterval(countdownTimer); countdownTimer = null; }
+    secondsRemaining = 0;
+    updateCountdownDisplay();
+    _sendToSW({ type: 'CANCEL_NOTIF' });
+    safeLS.removeItem('pmp_notif_next_fire');
   }
 
   function updateCountdownDisplay() {
     const mins = Math.floor(secondsRemaining / 60);
     const secs = secondsRemaining % 60;
     notifCountdown.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+  }
+
+  // ─── Listen for SW feedback (notification fired / scheduled) ─────────────────
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.addEventListener('message', (event) => {
+      const data = event.data || {};
+      if (data.type === 'NOTIF_FIRED') {
+        // SW just fired a notification — update stored next-fire timestamp
+        safeLS.setItem('pmp_notif_next_fire', String(data.nextFireAt));
+        const intervalSec = parseInt(notifIntervalSelect.value);
+        secondsRemaining  = Math.round((data.nextFireAt - Date.now()) / 1000);
+      }
+      if (data.type === 'NOTIF_SCHEDULED') {
+        // Sync display with SW's confirmed schedule
+        secondsRemaining = data.remainingSec || secondsRemaining;
+      }
+    });
   }
 
   notifToggleBtn.addEventListener('click', () => {
@@ -2210,9 +2259,12 @@ const initApp = () => {
   if (safeLS.getItem('pmp_notif_interval')) {
     notifIntervalSelect.value = safeLS.getItem('pmp_notif_interval');
   }
-  
+
   updateNotifUI();
-  if (safeLS.getItem('pmp_notif_enabled') === 'true') {
+
+  // ─── Auto-resume scheduler on page load (persistent schedule) ────────────────
+  // If notifications were enabled, resume the SW timer from where it left off.
+  if (safeLS.getItem('pmp_notif_enabled') === 'true' && Notification.permission === 'granted') {
     startScheduler();
   }
 
@@ -4644,6 +4696,422 @@ const initApp = () => {
   // Render quiz history on load (so returning students see their results immediately)
   renderQuizHistory();
 
+  // ══════════════════════════════════════════════════════════════════════════════
+  //  CHAPTER SUMMARIES
+  // ══════════════════════════════════════════════════════════════════════════════
+  const chapterSummaries = {
+
+    // ── PMBOK 6 ──────────────────────────────────────────────────────────────
+    pmbok6: [
+      {
+        title: 'Project Integration Management',
+        icon: '🔗',
+        processes: '7 processes across all 5 Process Groups',
+        summary: `Integration Management is the glue of the entire project. The Project Manager is responsible for integrating all other Knowledge Areas into a coherent plan and directing its execution. This KA includes developing the Charter (how the project is authorised), creating the Project Management Plan (the master blueprint), directing and managing the actual work, monitoring overall progress, and formally closing the project. In the PMP exam, Integration is the most tested KA because every decision ultimately comes back here.`,
+        bullets: [
+          'Process 4.1 Develop Charter → 4.2 Develop PMP → 4.3 Direct & Manage → 4.4 Manage Knowledge → 4.5 Monitor & Control → 4.6 Perform Integrated Change Control → 4.7 Close Project/Phase',
+          'The PM is the ONLY person who can approve changes to the PMP; the CCB approves baseline changes',
+          'Lessons Learned (process 4.4) are captured throughout, not only at close',
+          'Change requests flow through Integrated Change Control (4.6) — never bypass the CCB',
+          'The Project Charter grants the PM authority; it is signed by the Sponsor, not the PM',
+          'Every other KA feeds into Integration — if stuck, default to an integration answer'
+        ],
+        tip: 'If a question says "what should the PM do FIRST?" the integration answer is almost always: assess impact, update the plan, submit a change request.'
+      },
+      {
+        title: 'Project Scope Management',
+        icon: '📐',
+        processes: '6 processes',
+        summary: `Scope Management is about defining exactly what is — and is not — included in the project. The PM works with stakeholders to collect requirements, create a Scope Statement, build a WBS, and then guard those boundaries throughout execution. The biggest exam traps here are scope creep (adding work without proper change control) and gold-plating (adding features beyond what was agreed). Validate Scope is a customer-facing process; Control Quality is an internal one.`,
+        bullets: [
+          'Plan → Collect Requirements → Define Scope → Create WBS → Validate Scope → Control Scope',
+          'WBS decomposes deliverables into Work Packages — the lowest level you can estimate',
+          'Scope baseline = Scope Statement + WBS + WBS Dictionary',
+          'Validate Scope = stakeholder sign-off on deliverables (customer-facing)',
+          'Control Quality = internal checks that deliverables meet specifications (done before Validate Scope)',
+          'Scope creep = unauthorised scope growth; must go through change control',
+          'Gold-plating = adding extras beyond approved scope — always wrong on PMP exam'
+        ],
+        tip: 'Validate Scope happens AFTER Control Quality but BEFORE the customer officially accepts. Remember: QC first, then customer sign-off.'
+      },
+      {
+        title: 'Project Schedule Management',
+        icon: '🗓️',
+        processes: '6 processes',
+        summary: `Schedule Management involves building a realistic timeline, identifying the critical path, and managing variances to keep the project on track. Key techniques include the Critical Path Method (CPM), Monte Carlo simulation for uncertainty, and Earned Value Analysis (SPI) for measuring schedule performance. When behind schedule, options include crashing (adding resources) and fast-tracking (doing tasks in parallel), each with different risk/cost trade-offs.`,
+        bullets: [
+          'Critical Path = longest sequence of dependent activities with zero float; determines project duration',
+          'Float (Slack) = how long an activity can delay without delaying the project end date',
+          'Crashing = adding resources to critical path activities to shorten duration; increases cost',
+          'Fast-tracking = doing activities in parallel that were originally sequential; increases risk',
+          'SPI = EV / PV: SPI > 1.0 = ahead of schedule; SPI < 1.0 = behind schedule',
+          'Schedule Baseline is approved in planning and changed only via formal change control',
+          'Lag = a waiting period between activities; Lead = an overlap (negative lag)'
+        ],
+        tip: 'If asked about schedule compression, prefer fast-tracking when cost is a constraint, crashing when time is critical. Never compress non-critical path activities — it wastes resources.'
+      },
+      {
+        title: 'Project Cost Management',
+        icon: '💰',
+        processes: '4 processes',
+        summary: `Cost Management covers estimating budgets, securing funding, and tracking expenditures through Earned Value Management (EVM). EVM is the most heavily tested framework in the entire PMP exam. The budget baseline (BAC) is set in planning; actual performance is measured through CPI (cost efficiency) and SPI (schedule efficiency). The four EAC formulas are essential memory items.`,
+        bullets: [
+          'EV = BAC × % complete | CV = EV − AC | SV = EV − PV',
+          'CPI = EV / AC (>1 = under budget) | SPI = EV / PV (>1 = ahead)',
+          'EAC = BAC / CPI (if current variance continues) — most common exam formula',
+          'EAC = AC + (BAC − EV) assumes remaining work at budget',
+          'EAC = AC + ETC (when original estimate is fundamentally flawed)',
+          'TCPI = (BAC − EV) / (BAC − AC): efficiency needed to finish within budget',
+          'Cost Baseline is an S-curve; Management Reserve is NOT in the baseline'
+        ],
+        tip: 'Management Reserve covers unknown unknowns — it is NOT part of the cost baseline and requires executive approval to access. Contingency Reserve (known unknowns) IS part of the baseline.'
+      },
+      {
+        title: 'Project Quality Management',
+        icon: '✅',
+        processes: '3 processes',
+        summary: `Quality Management ensures deliverables meet requirements and stakeholder expectations. PMBOK emphasises prevention over inspection — catching defects early is far cheaper. Quality is planned in, not inspected in. Key tools include Control Charts (to detect process variance), Pareto Charts (80/20 rule for defect causes), and Fishbone Diagrams (root cause analysis). Cost of Quality (COQ) categorises all quality-related spending.`,
+        bullets: [
+          'Plan Quality → Manage Quality (audit processes) → Control Quality (inspect outputs)',
+          'Quality is defined by the customer — meeting requirements, not exceeding them',
+          'Cost of Conformance = prevention + appraisal costs (doing it right)',
+          'Cost of Non-Conformance = failure costs: internal (rework) + external (warranty, recalls)',
+          'Control Chart: Upper/Lower Control Limits define acceptable variance (±3σ)',
+          'Rule of Seven: 7 consecutive data points on one side of the mean = investigate',
+          'Pareto: 80% of defects come from 20% of causes — focus resources there first'
+        ],
+        tip: 'Manage Quality is about auditing PROCESSES (are we following our quality plan?). Control Quality is about inspecting RESULTS (does this deliverable pass?). The exam loves asking which is which.'
+      },
+      {
+        title: 'Project Resource Management',
+        icon: '👥',
+        processes: '6 processes',
+        summary: `Resource Management covers both the human team and physical resources (equipment, materials). The PM must build the team, develop their capabilities, manage conflicts, and motivate performance. Tuckman's model describes how teams form, storm, norm, perform, and adjourn. Motivation theories (Maslow, Herzberg, McGregor) frequently appear in exam questions. The PM uses Responsibility Assignment Matrices (RAM/RACI) to clarify accountability.`,
+        bullets: [
+          'RACI Matrix: Responsible, Accountable, Consulted, Informed — one A per task',
+          "Tuckman's stages: Forming → Storming → Norming → Performing → Adjourning",
+          'Conflict resolution: Collaborate/Problem-Solve > Compromise > Smooth > Force > Avoid',
+          'Herzberg: Hygiene factors (salary, safety) prevent dissatisfaction; Motivators (achievement) create satisfaction',
+          'McGregor Theory X (people dislike work) vs Theory Y (people want responsibility)',
+          'Acquire Resources is done in Executing; the PM does not always control resource assignments in matrix orgs',
+          'Co-location / "War room" = placing team members together to improve communication'
+        ],
+        tip: 'On PMP questions, PMI strongly prefers the Collaborate resolution style. Avoid/Withdraw is almost always the wrong answer.'
+      },
+      {
+        title: 'Project Communications Management',
+        icon: '📡',
+        processes: '3 processes',
+        summary: `Communications Management ensures the right information reaches the right people at the right time in the right format. Statistics show that PMs spend up to 90% of their time communicating. The Communications Management Plan documents who gets what, when, and how. With n stakeholders, the number of communication channels = n(n-1)/2.`,
+        bullets: [
+          'Formula: Communication channels = n(n-1)/2 (where n = number of stakeholders)',
+          'Push = sending information to recipients (email, reports)',
+          'Pull = recipients access information on demand (repositories, intranets)',
+          'Interactive = real-time two-way (meetings, calls) — most effective for complex issues',
+          'Communications Management Plan defines format, frequency, sender, and escalation path',
+          'Noise = anything that distorts a message between sender and receiver',
+          'Formal written = contract changes, scope changes; Formal verbal = presentations'
+        ],
+        tip: 'Adding stakeholders mid-project dramatically increases communication complexity. If you go from 5 to 6 stakeholders, channels increase from 10 to 15 — a 50% jump. The exam tests this formula.'
+      },
+      {
+        title: 'Project Risk Management',
+        icon: '⚠️',
+        processes: '7 processes',
+        summary: `Risk Management is proactive by nature — you plan for uncertainty before it happens. Risks are uncertain events that can be positive (opportunities) or negative (threats). The Risk Register is the central artefact. Every identified risk is assessed for probability × impact, and then a response strategy is chosen. The exam heavily tests the difference between risk responses for threats vs. opportunities.`,
+        bullets: [
+          'Threat responses: Avoid, Transfer, Mitigate, Accept (Active or Passive)',
+          'Opportunity responses: Exploit, Share, Enhance, Accept',
+          'Risk = Probability × Impact — high P×I risks get priority treatment',
+          'Residual risk = risk remaining after response; Secondary risk = new risk created by a response',
+          'Contingency Reserve covers identified risks (known unknowns)',
+          'Management Reserve covers unidentified risks (unknown unknowns)',
+          'Qualitative Risk Analysis = subjective (High/Med/Low). Quantitative = numerical (EMV, Monte Carlo)'
+        ],
+        tip: 'Transfer does NOT eliminate the risk — it shifts the financial consequence to a third party (e.g., insurance). The risk event can still happen. Avoid eliminates the risk entirely.'
+      },
+      {
+        title: 'Project Procurement Management',
+        icon: '🤝',
+        processes: '3 processes (PMBOK 6)',
+        summary: `Procurement Management covers everything related to buying goods or services from external vendors. The PM must plan what to procure, select sellers, and manage contract performance. Contract types determine who bears cost risk: Fixed Price favours the buyer (seller bears overruns), while Cost Reimbursable favours the seller (buyer pays actual costs). Time and Material contracts are hybrid.`,
+        bullets: [
+          'FFP (Firm Fixed Price): seller bears all cost risk — most common for defined scope',
+          'FPIF (Fixed Price Incentive Fee): seller shares savings with buyer up to ceiling price',
+          'CPFF (Cost Plus Fixed Fee): buyer pays all costs + fixed fee to seller',
+          'CPIF (Cost Plus Incentive Fee): buyer pays costs + fee that varies with performance',
+          'T&M (Time & Material): hybrid — used for small, undefined, or evolving scope',
+          'Procurement Statement of Work (SOW) defines scope of work for the seller',
+          'Privity of contract: PM has no direct legal relationship with sub-contractors'
+        ],
+        tip: 'Fixed Price contracts motivate sellers to finish on time and on budget because they keep any savings. If scope is poorly defined, prefer Cost Reimbursable to avoid disputes.'
+      },
+      {
+        title: 'Project Stakeholder Management',
+        icon: '🌐',
+        processes: '4 processes',
+        summary: `Stakeholder Management involves identifying everyone impacted by the project, understanding their interests and influence, and engaging them appropriately throughout the lifecycle. Engagement must be tailored — a resistant executive needs a different approach than a supportive end user. The Stakeholder Engagement Assessment Matrix tracks current vs. desired engagement levels.`,
+        bullets: [
+          'Identify Stakeholders is done early in Initiating AND should be repeated throughout the project',
+          'Stakeholder Engagement levels: Unaware → Resistant → Neutral → Supportive → Leading',
+          'Power/Interest Grid: High power + High interest = Manage Closely',
+          'Salience Model: Power, Legitimacy, Urgency — stakeholders with all three are "definitive"',
+          'Engagement plan is part of the overall PMP — it is confidential (not shared with stakeholders)',
+          'Resistant stakeholders need face-to-face communication and involvement in decision-making',
+          'Monitor Stakeholder Engagement: track current vs. desired engagement and adjust strategies'
+        ],
+        tip: 'Identify Stakeholders is one of the FIRST processes in a project (Initiating). Missing key stakeholders early is a major source of scope changes and conflicts later — PMI is adamant about this.'
+      }
+    ],
+
+    // ── PMBOK 7 ──────────────────────────────────────────────────────────────
+    pmbok7: [
+      {
+        title: 'The 12 PMBOK 7 Principles',
+        icon: '🧭',
+        processes: 'Foundation for all project delivery',
+        summary: `PMBOK 7 shifted from process-based to principle-based guidance. Instead of prescribing 49 processes, it defines 12 principles that should guide every project manager's decisions, regardless of methodology. These principles are not rules — they are professional values and behaviours that underpin effective project management in both predictive and agile environments.`,
+        bullets: [
+          '1. Be a Diligent, Respectful, and Caring Steward',
+          '2. Create a Collaborative Project Team Environment',
+          '3. Effectively Engage with Stakeholders',
+          '4. Focus on Value (not just deliverables)',
+          '5. Recognise, Evaluate, and Respond to System Interactions',
+          '6. Demonstrate Leadership Behaviours',
+          '7. Tailor Based on Context',
+          '8. Build Quality into Processes and Deliverables',
+          '9. Navigate Complexity',
+          '10. Optimise Risk Responses',
+          '11. Embrace Adaptability and Resiliency',
+          '12. Enable Change to Achieve the Envisioned Future State'
+        ],
+        tip: 'Exam questions on Principle 4 (Focus on Value) often contrast value delivery with simply completing deliverables on schedule. If the project is delivering outputs but no one will use them, the PM should escalate — not just finish.'
+      },
+      {
+        title: 'The 8 PMBOK 7 Performance Domains',
+        icon: '🎯',
+        processes: 'Replaces the 10 Knowledge Areas',
+        summary: `Performance Domains describe critical areas of focus that must work together for successful project delivery. Unlike PMBOK 6's sequential Knowledge Areas, domains are holistic — they operate simultaneously and continuously throughout the project. The domains cover stakeholder engagement, team dynamics, value delivery, planning, project work, measurement, uncertainty, and the broader delivery environment.`,
+        bullets: [
+          'Stakeholder Domain: identification, analysis, and engagement planning throughout the lifecycle',
+          'Team Domain: servant leadership, collaboration, and building high-performing teams',
+          'Development Approach & Lifecycle Domain: choosing predictive, adaptive, or hybrid',
+          'Planning Domain: estimating, scheduling, and keeping plans useful and current',
+          'Project Work Domain: execution, procurement, and communication management',
+          'Delivery Domain: delivering value incrementally and validating with stakeholders',
+          'Measurement Domain: defining meaningful metrics, tracking performance, responding to data',
+          'Uncertainty Domain: risk, ambiguity, complexity — being adaptive when reality diverges from plan'
+        ],
+        tip: 'The PMP exam (ECO 2021) is built around these 8 domains and 3 domains (People, Process, Business Environment). PMBOK 7 domains are the "why", while the ECO defines the exam\'s "what".'
+      }
+    ],
+
+    // ── AGILE ─────────────────────────────────────────────────────────────────
+    agile: [
+      {
+        title: 'Scrum Framework',
+        icon: '🏃',
+        processes: 'Core agile framework',
+        summary: `Scrum is the most popular agile framework and the one most heavily tested on the PMP exam. It operates in fixed-length iterations called Sprints (1–4 weeks). The Scrum Team has three roles: Product Owner (what to build), Scrum Master (servant leader, removes blockers), and Developers (build the product). Four ceremonies structure each sprint. The Product Backlog is the single prioritised source of work.`,
+        bullets: [
+          'Sprint: time-boxed iteration (1–4 weeks); no scope changes allowed mid-sprint',
+          'Product Owner: owns the backlog, prioritises by value, defines "done"',
+          'Scrum Master: servant leader; coaches team, facilitates ceremonies, removes impediments',
+          'Developers: self-organising; determine how to complete backlog items',
+          'Sprint Planning → Daily Scrum (15 min) → Sprint Review → Sprint Retrospective',
+          'Sprint Review: demo to stakeholders, inspect increment, update backlog',
+          'Sprint Retrospective: reflect on HOW the team worked (process improvement)',
+          'Velocity: how many story points the team completes per sprint (used for forecasting)'
+        ],
+        tip: 'On PMP questions, if an agile team has a problem, the Scrum Master NEVER assigns work or makes decisions for the team. The SM facilitates and removes obstacles — the team self-organises.'
+      },
+      {
+        title: 'Kanban Essentials',
+        icon: '📋',
+        processes: 'Flow-based agile method',
+        summary: `Kanban is a visual, flow-based approach that uses a board with columns to represent different stages of work. Unlike Scrum, Kanban has no fixed iterations or roles — work flows continuously as capacity allows. The defining feature is Work In Progress (WIP) limits: limiting how many items are in each stage prevents bottlenecks and overloading team members. Cycle Time is the key metric.`,
+        bullets: [
+          'Kanban Board: columns represent workflow stages (To Do → In Progress → Done)',
+          'WIP Limits: cap the number of items in each column to prevent overload',
+          'Pull System: team members pull work when they have capacity (not pushed by managers)',
+          'Cycle Time: time from work start to completion — lower is better',
+          'Lead Time: time from request creation to delivery (includes wait time)',
+          'No prescribed roles, sprints, or ceremonies — continuous flow',
+          'Cumulative Flow Diagram (CFD): visual tool to spot bottlenecks in the system'
+        ],
+        tip: 'Kanban is ideal for support/maintenance work with unpredictable arrival rates. Scrum is better for product development with defined goals. Hybrid: use Kanban board with Scrum ceremonies.'
+      },
+      {
+        title: 'Hybrid & SAFe Basics',
+        icon: '⚡',
+        processes: 'Enterprise-scale agile',
+        summary: `Hybrid approaches combine elements of predictive and adaptive delivery. Milestones and governance may follow a predictive structure, while execution uses agile sprints. The Scaled Agile Framework (SAFe) is the most common enterprise agile framework. It organises agile teams into Agile Release Trains (ARTs) and coordinates their work through Programme Increment (PI) Planning — a two-day planning event that aligns all teams on objectives for the next 8–12 weeks.`,
+        bullets: [
+          'Hybrid: governance/milestones from predictive + execution from agile sprints',
+          'SAFe ART (Agile Release Train): 5–12 teams (50–125 people) aligned to a common mission',
+          'PI Planning: all ART teams plan together every 8–12 weeks — a core SAFe ceremony',
+          'Release Train Engineer (RTE): servant leader for the ART (like a Scrum Master for SAFe)',
+          'System Demo: every iteration, teams demonstrate integrated progress',
+          'Inspect & Adapt (I&A): quarterly retrospective + problem-solving workshop',
+          'Innovation & Planning (IP) Iteration: buffer sprint for learning, exploration, PI prep'
+        ],
+        tip: 'The PMP exam does not require deep SAFe knowledge, but tests awareness of when to use hybrid. Key: use adaptive for high uncertainty/fast-changing requirements; predictive for stable, well-defined scope.'
+      },
+      {
+        title: 'Agile Manifesto & 12 Principles',
+        icon: '📜',
+        processes: 'Foundation of all agile methods',
+        summary: `The Agile Manifesto (2001) states four core values: Individuals over processes, Working software over comprehensive documentation, Customer collaboration over contract negotiation, and Responding to change over following a plan. The 12 principles elaborate on these values and define the agile mindset. Every agile framework — Scrum, Kanban, XP, SAFe — is built on these foundations.`,
+        bullets: [
+          'Value 1: Individuals and interactions > processes and tools',
+          'Value 2: Working software (product) > comprehensive documentation',
+          'Value 3: Customer collaboration > contract negotiation',
+          'Value 4: Responding to change > following a plan',
+          'Principle: Deliver working software frequently — in weeks, not months',
+          'Principle: Business people and developers work together daily',
+          'Principle: Self-organising teams produce the best designs and architectures',
+          'Principle: The most efficient conveyance is face-to-face conversation'
+        ],
+        tip: 'The exam will sometimes present a choice between "following the documented process" and "talking to the customer directly". In agile context, the customer collaboration answer almost always wins.'
+      }
+    ],
+
+    // ── FORMULAS ──────────────────────────────────────────────────────────────
+    formulas: [
+      {
+        title: 'EVM Formula Sheet',
+        icon: '📐',
+        processes: 'Earned Value Management — PMBOK 6 Process 7.4',
+        summary: `Earned Value Management (EVM) is a quantitative project performance measurement system. It integrates scope, schedule, and cost to give a real-time picture of project health. The PMP exam typically presents 3–8 EVM calculation questions. The most important formulas to memorise are CV, SV, CPI, SPI, and the four EAC variants. Always start by identifying PV, EV, and AC from the question.`,
+        bullets: [
+          'PV = Planned Value (what work should have been done by now × its budget)',
+          'EV = Earned Value (% complete × BAC = value of work actually done)',
+          'AC = Actual Cost (what you actually spent)',
+          'CV = EV − AC (negative = over budget) | CPI = EV ÷ AC (>1 = under budget)',
+          'SV = EV − PV (negative = behind) | SPI = EV ÷ PV (>1 = ahead)',
+          'EAC = BAC ÷ CPI — if current cost efficiency continues to project end',
+          'EAC = AC + (BAC − EV) — if remaining work at original budget rate',
+          'EAC = AC + [(BAC − EV) ÷ CPI] — if remaining work at current efficiency',
+          'TCPI = (BAC − EV) ÷ (BAC − AC) — efficiency needed to finish within budget',
+          'VAC = BAC − EAC (positive = expected surplus, negative = expected overrun)'
+        ],
+        tip: 'Mnemonic: "Every Video Camera Shoots Portraits" → EV, CV (EV−AC), CPI (EV/AC), SV (EV−PV), and EAC (BAC/CPI) are the core five. Start every EVM question by listing PV, EV, AC, BAC.'
+      },
+      {
+        title: 'Critical Path & Float',
+        icon: '🔗',
+        processes: 'PMBOK 6 Process 6.5 — Develop Schedule',
+        summary: `The Critical Path Method (CPM) identifies the longest sequence of dependent activities from project start to finish. This path has zero float — any delay directly delays project end. Float (Slack) is the flexibility an activity has to slip before it impacts the critical path or a key milestone. Understanding forward pass, backward pass, and free float calculations is essential for the exam.`,
+        bullets: [
+          'Critical Path = longest duration path from start to finish; has ZERO total float',
+          'Total Float = LS − ES or LF − EF (how long activity can slip without delaying project)',
+          'Free Float = ES(next) − EF(current) (how long it can slip without delaying the next activity)',
+          'Forward Pass: start at Day 0, add durations left-to-right to get ES and EF',
+          'Backward Pass: start at project end, subtract durations right-to-left to get LS and LF',
+          'Near-critical path: a path with very little float that could become critical if risks materialise',
+          'Schedule Compression: Crash (cost ↑) or Fast-track (risk ↑); both only on critical path'
+        ],
+        tip: 'Mnemonic for Float: "Late minus Early = Slack". If LF − EF = 0, it\'s on the critical path. Always compress the critical path only — compressing non-critical activities wastes money with no time benefit.'
+      },
+      {
+        title: 'Risk & Procurement Formulas',
+        icon: '🎲',
+        processes: 'Risk: PMBOK 11 | Procurement: PMBOK 12',
+        summary: `Risk formulas focus on Expected Monetary Value (EMV) for quantitative risk analysis, and Point of Total Assumption (PTA) for procurement contracts. EMV calculates the average outcome when considering the probability of different scenarios. PTA defines the cost point above which a FPIF contractor absorbs all additional costs — a critical concept for cost-type contract questions.`,
+        bullets: [
+          'EMV = Probability × Impact (sum all scenarios for Decision Tree analysis)',
+          'Decision Tree: calculate EMV for each branch, choose the path with best outcome',
+          'PTA (Point of Total Assumption) = [(Ceiling Price − Target Price) ÷ Buyer Share] + Target Cost',
+          'PTA marks where seller\'s profit = 0; seller absorbs all costs above PTA in FPIF contracts',
+          'Sigma levels: ±1σ = 68.27%, ±2σ = 95.45%, ±3σ = 99.73%, ±6σ = 99.9997%',
+          'PERT (3-point estimate): (O + 4M + P) ÷ 6 | SD = (P − O) ÷ 6',
+          'Triangular estimate: (O + M + P) ÷ 3 (no weight given to Most Likely)'
+        ],
+        tip: 'For EMV questions, a negative EMV = a threat (loss), a positive EMV = an opportunity (gain). In a Decision Tree, always pick the branch with the HIGHEST (least negative, most positive) EMV.'
+      },
+      {
+        title: 'Communication & Stakeholder Formulas',
+        icon: '📡',
+        processes: 'Communications: PMBOK 10 | Stakeholders: PMBOK 13',
+        summary: `A small set of communication and organisational formulas frequently appear on the exam. The most tested is the communication channels formula, which demonstrates why adding stakeholders exponentially increases complexity. Understanding organisational structures (Functional, Projectized, Matrix) and their impact on PM authority is also critical.`,
+        bullets: [
+          'Communication Channels = n(n−1) ÷ 2 where n = number of people',
+          'Example: 5 people → 10 channels; 10 people → 45 channels; 20 people → 190 channels',
+          'Functional Org: PM has little authority; functional managers control resources',
+          'Projectized Org: PM has full authority; team dedicated full-time to project',
+          'Strong Matrix: PM has more authority than FM; Weak Matrix: FM has more authority',
+          'Balanced Matrix: PM and FM share authority equally — most conflict-prone structure',
+          'Co-location ("war room") increases communication bandwidth and team cohesion'
+        ],
+        tip: 'Exam trick: if a question describes a PM who "requests" or "negotiates" for resources and "reports to" a functional manager — that\'s a Weak or Balanced Matrix org. Recognise the authority signals.'
+      }
+    ]
+  };
+
+  // ── Renderer ─────────────────────────────────────────────────────────────────
+  let activeSummaryTab = 'pmbok6';
+
+  function renderSummaries(tab) {
+    activeSummaryTab = tab;
+    const container = document.getElementById('summaryCardsContainer');
+    if (!container) return;
+    const chapters = chapterSummaries[tab] || [];
+    container.innerHTML = '';
+
+    chapters.forEach((ch, idx) => {
+      const card = document.createElement('div');
+      card.className = 'mindset-rule-card';
+      card.style.marginBottom = '12px';
+      card.innerHTML = `
+        <div class="rule-header" style="cursor:pointer;">
+          <div class="rule-header-left">
+            <span class="rule-num">${ch.icon}</span>
+            <span class="rule-title">${ch.title}</span>
+            <span style="font-size:0.72rem;color:var(--text-muted);margin-left:10px;">${ch.processes}</span>
+          </div>
+          <span class="rule-arrow">►</span>
+        </div>
+        <div class="rule-body">
+          <p style="color:var(--text-secondary);line-height:1.75;margin-bottom:16px;">${ch.summary}</p>
+
+          <div style="margin-bottom:16px;">
+            <h4 style="font-size:0.82rem;font-weight:700;color:var(--accent-primary);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;">🔑 Key Points</h4>
+            <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px;">
+              ${ch.bullets.map(b => `
+                <li style="display:flex;gap:8px;align-items:flex-start;font-size:0.85rem;color:var(--text-secondary);line-height:1.5;">
+                  <span style="color:var(--accent-primary);flex-shrink:0;margin-top:2px;">▸</span>
+                  <span>${b}</span>
+                </li>`).join('')}
+            </ul>
+          </div>
+
+          <div style="background:rgba(6,214,160,0.08);border:1px solid rgba(6,214,160,0.25);border-left:4px solid var(--accent-primary);border-radius:8px;padding:12px 14px;">
+            <span style="font-size:0.75rem;font-weight:700;color:var(--accent-primary);text-transform:uppercase;letter-spacing:0.06em;display:block;margin-bottom:4px;">💡 Exam Tip</span>
+            <p style="font-size:0.85rem;color:var(--text-secondary);line-height:1.6;margin:0;">${ch.tip}</p>
+          </div>
+        </div>`;
+
+      const header = card.querySelector('.rule-header');
+      header.addEventListener('click', () => card.classList.toggle('expanded'));
+      container.appendChild(card);
+    });
+  }
+
+  // Wire up tab buttons
+  const tabBar = document.getElementById('summaryTabBar');
+  if (tabBar) {
+    tabBar.querySelectorAll('.summary-tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabBar.querySelectorAll('.summary-tab-btn').forEach(b => {
+          b.className = 'btn btn-secondary summary-tab-btn';
+        });
+        btn.className = 'btn btn-primary summary-tab-btn';
+        renderSummaries(btn.dataset.tab);
+      });
+    });
+    // Render default tab on load
+    renderSummaries('pmbok6');
+  }
 
 };
 if (document.readyState === 'loading') {
