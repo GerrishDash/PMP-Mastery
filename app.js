@@ -313,7 +313,11 @@ const initApp = () => {
   // ══════════════════════════════════════════════
   //  DATA: FLASHCARDS
   // ══════════════════════════════════════════════
-  const allFlashcards = [
+  // ── Load flashcards from external flashcards.js (window.PMP_FLASHCARDS) ──
+  // Fallback to built-in set if file not loaded
+  const allFlashcards = (window.PMP_FLASHCARDS && window.PMP_FLASHCARDS.length > 0)
+    ? window.PMP_FLASHCARDS
+    : [
     // PMBOK 6 Flashcards
     { cat: 'pmbok6', q: 'What are the 5 Process Groups?', a: 'Initiating, Planning, Executing, Monitoring & Controlling, and Closing. They are NOT sequential phases — they overlap and repeat throughout the project.' },
     { cat: 'pmbok6', q: 'How many Knowledge Areas and Processes are in PMBOK 6?', a: '10 Knowledge Areas containing 49 processes total. Integration is the only KA with processes in ALL 5 process groups.' },
@@ -736,30 +740,45 @@ const initApp = () => {
   //  EVM CALCULATOR
   // ══════════════════════════════════════════════
   document.getElementById('evmCalculateBtn').addEventListener('click', () => {
-    const pv = parseFloat(document.getElementById('evmPV').value);
-    const ev = parseFloat(document.getElementById('evmEV').value);
-    const ac = parseFloat(document.getElementById('evmAC').value);
+    const pv  = parseFloat(document.getElementById('evmPV').value);
+    const ev  = parseFloat(document.getElementById('evmEV').value);
+    const ac  = parseFloat(document.getElementById('evmAC').value);
     const bac = parseFloat(document.getElementById('evmBAC').value);
 
     if ([pv, ev, ac, bac].some(isNaN)) {
-      alert('Please enter valid numbers for all four fields.');
+      showToast('⚠️ Please enter valid numbers for all four fields.', 'warning');
       return;
     }
 
-    const cv = ev - ac;
-    const sv = ev - pv;
-    const cpi = ev / ac;
-    const spi = ev / pv;
-    const eac = bac / cpi;
-    const etc = eac - ac;
-    const vac = bac - eac;
+    // ── Division-by-zero guards ──────────────────────────────────
+    if (ac === 0) {
+      showToast('⚠️ Actual Cost (AC) cannot be zero — CPI would be undefined.', 'warning');
+      return;
+    }
+    if (pv === 0) {
+      showToast('⚠️ Planned Value (PV) cannot be zero — SPI would be undefined.', 'warning');
+      return;
+    }
+    if (bac === ac) {
+      showToast('⚠️ BAC equals AC — TCPI denominator is zero. Check your inputs.', 'warning');
+      return;
+    }
+    // ────────────────────────────────────────────────────────────
+
+    const cv   = ev - ac;
+    const sv   = ev - pv;
+    const cpi  = ev / ac;
+    const spi  = ev / pv;
+    const eac  = bac / cpi;
+    const etc  = eac - ac;
+    const vac  = bac - eac;
     const tcpi = (bac - ev) / (bac - ac);
 
-    const fmt = (v) => v.toLocaleString('en-US', { maximumFractionDigits: 2 });
+    const fmt      = (v) => v.toLocaleString('en-US', { maximumFractionDigits: 2 });
     const fmtDollar = (v) => '$' + Math.abs(v).toLocaleString('en-US', { maximumFractionDigits: 0 });
 
-    document.getElementById('resCV').textContent = (cv >= 0 ? '+' : '') + fmtDollar(cv).replace('$', (cv >= 0 ? '$' : '-$'));
-    document.getElementById('resSV').textContent = (sv >= 0 ? '+' : '') + fmtDollar(sv).replace('$', (sv >= 0 ? '$' : '-$'));
+    document.getElementById('resCV').textContent  = (cv  >= 0 ? '+' : '') + fmtDollar(cv).replace('$',  (cv  >= 0 ? '$' : '-$'));
+    document.getElementById('resSV').textContent  = (sv  >= 0 ? '+' : '') + fmtDollar(sv).replace('$',  (sv  >= 0 ? '$' : '-$'));
     document.getElementById('resCPI').textContent = fmt(cpi);
     document.getElementById('resSPI').textContent = fmt(spi);
     document.getElementById('resEAC').textContent = '$' + eac.toLocaleString('en-US', { maximumFractionDigits: 0 });
@@ -768,14 +787,14 @@ const initApp = () => {
     document.getElementById('resTCPI').textContent = fmt(tcpi);
 
     // Interpretations
-    setInterp('intCV', cv >= 0 ? 'Under Budget ✓' : 'Over Budget ✗', cv >= 0 ? 'good' : 'bad');
-    setInterp('intSV', sv >= 0 ? 'On/Ahead of Schedule ✓' : 'Behind Schedule ✗', sv >= 0 ? 'good' : 'bad');
-    setInterp('intCPI', cpi >= 1 ? `Efficient: Getting $${fmt(cpi)} per $1 spent` : `Inefficient: Getting $${fmt(cpi)} per $1 spent`, cpi >= 1 ? 'good' : 'bad');
-    setInterp('intSPI', spi >= 1 ? `${fmt(spi * 100)}% of planned work done` : `Only ${fmt(spi * 100)}% of planned work done`, spi >= 1 ? 'good' : 'bad');
-    setInterp('intEAC', eac <= bac ? 'Will finish at/under budget' : `Will exceed budget by $${(eac - bac).toLocaleString('en-US', { maximumFractionDigits: 0 })}`, eac <= bac ? 'good' : 'bad');
-    setInterp('intETC', `Still need $${etc.toLocaleString('en-US', { maximumFractionDigits: 0 })} to finish`, 'neutral');
-    setInterp('intVAC', vac >= 0 ? 'Expected surplus at completion' : 'Expected deficit at completion', vac >= 0 ? 'good' : 'bad');
-    setInterp('intTCPI', tcpi > 1.1 ? 'Must perform significantly better!' : (tcpi > 1 ? 'Must improve slightly' : 'Can maintain/relax pace'), tcpi > 1 ? 'bad' : 'good');
+    setInterp('intCV',   cv  >= 0 ? 'Under Budget ✓'        : 'Over Budget ✗',                                     cv  >= 0 ? 'good' : 'bad');
+    setInterp('intSV',   sv  >= 0 ? 'On/Ahead of Schedule ✓' : 'Behind Schedule ✗',                                sv  >= 0 ? 'good' : 'bad');
+    setInterp('intCPI',  cpi >= 1  ? `Efficient: Getting $${fmt(cpi)} per $1 spent`   : `Inefficient: Getting $${fmt(cpi)} per $1 spent`, cpi >= 1 ? 'good' : 'bad');
+    setInterp('intSPI',  spi >= 1  ? `${fmt(spi * 100)}% of planned work done`         : `Only ${fmt(spi * 100)}% of planned work done`,        spi >= 1 ? 'good' : 'bad');
+    setInterp('intEAC',  eac <= bac ? 'Will finish at/under budget'                   : `Will exceed budget by $${(eac - bac).toLocaleString('en-US', {maximumFractionDigits:0})}`, eac <= bac ? 'good' : 'bad');
+    setInterp('intETC',  `Still need $${etc.toLocaleString('en-US', {maximumFractionDigits:0})} to finish`, 'neutral');
+    setInterp('intVAC',  vac >= 0  ? 'Expected surplus at completion'                 : 'Expected deficit at completion', vac >= 0 ? 'good' : 'bad');
+    setInterp('intTCPI', tcpi > 1.1 ? 'Must perform significantly better!'           : (tcpi > 1 ? 'Must improve slightly' : 'Can maintain/relax pace'), tcpi > 1 ? 'bad' : 'good');
   });
 
   function setInterp(id, text, type) {
@@ -784,10 +803,79 @@ const initApp = () => {
     el.className = 'interpretation interp-' + type;
   }
 
-  // ══════════════════════════════════════════════
-  // ══════════════════════════════════════════════
-  //  QUIZ ENGINE (ENHANCED WITH PRACTICE & FULL EXAM MODES)
-  // ══════════════════════════════════════════════
+  // ── Themed toast notification (replaces alert() for non-blocking feedback) ──
+  function showToast(message, type = 'info') {
+    let toastContainer = document.getElementById('pmpToastContainer');
+    if (!toastContainer) {
+      toastContainer = document.createElement('div');
+      toastContainer.id = 'pmpToastContainer';
+      toastContainer.style.cssText = [
+        'position:fixed', 'bottom:24px', 'right:24px', 'z-index:99999',
+        'display:flex', 'flex-direction:column', 'gap:10px',
+        'pointer-events:none'
+      ].join(';');
+      document.body.appendChild(toastContainer);
+    }
+    const colors = {
+      info:    'var(--accent-primary)',
+      warning: 'var(--accent-warm)',
+      error:   '#ef4444',
+      success: 'var(--accent-primary)'
+    };
+    const toast = document.createElement('div');
+    toast.style.cssText = [
+      'background:var(--bg-card)',
+      'border:1px solid ' + (colors[type] || colors.info),
+      'border-left:4px solid ' + (colors[type] || colors.info),
+      'color:var(--text-primary)',
+      'padding:12px 18px',
+      'border-radius:8px',
+      'font-size:0.85rem',
+      'max-width:320px',
+      'box-shadow:0 4px 20px rgba(0,0,0,0.4)',
+      'opacity:0',
+      'transform:translateX(20px)',
+      'transition:all 0.25s ease',
+      'pointer-events:auto'
+    ].join(';');
+    toast.textContent = message;
+    toastContainer.appendChild(toast);
+    // Animate in
+    requestAnimationFrame(() => {
+      toast.style.opacity = '1';
+      toast.style.transform = 'translateX(0)';
+    });
+    // Auto-dismiss after 4s
+    setTimeout(() => {
+      toast.style.opacity = '0';
+      toast.style.transform = 'translateX(20px)';
+      setTimeout(() => toast.remove(), 300);
+    }, 4000);
+  }
+
+  // ── Themed confirm modal (replaces browser confirm() dialog) ────────────────
+  function showConfirmModal(message, onConfirm) {
+    const overlay = document.createElement('div');
+    overlay.style.cssText = [
+      'position:fixed', 'inset:0', 'z-index:99998',
+      'display:flex', 'align-items:center', 'justify-content:center',
+      'background:rgba(15,23,42,0.8)', 'backdrop-filter:blur(4px)'
+    ].join(';');
+    overlay.innerHTML = `
+      <div style="background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:16px;padding:28px 32px;max-width:400px;width:90%;text-align:center;">
+        <div style="font-size:2rem;margin-bottom:12px;">⚠️</div>
+        <p style="color:var(--text-primary);font-size:0.92rem;line-height:1.6;margin-bottom:24px;">${message}</p>
+        <div style="display:flex;gap:12px;justify-content:center;">
+          <button id="_confirmNo"  class="btn btn-secondary" style="padding:10px 24px;">Cancel</button>
+          <button id="_confirmYes" class="btn btn-primary"   style="padding:10px 24px;">Confirm</button>
+        </div>
+      </div>`;
+    document.body.appendChild(overlay);
+    overlay.querySelector('#_confirmNo').addEventListener('click',  () => overlay.remove());
+    overlay.querySelector('#_confirmYes').addEventListener('click', () => { overlay.remove(); onConfirm(); });
+  }
+
+
   let quizState = {
     mode: 'practice', // 'practice' or 'full'
     currentQ: 0,
@@ -824,42 +912,61 @@ const initApp = () => {
     document.getElementById('pauseOverlay').style.display = 'none';
   }
 
-  function startQuiz(mode) {
-    quizState.mode = mode;
+  // ── Stratified sampler: enforces ECO domain distribution ────────
+  function stratifiedSample(bank, distribution) {
+    const combined = Object.entries(distribution).flatMap(([domain, count]) => {
+      const pool = shuffleArray(bank.filter(q => q.domain === domain));
+      return pool.slice(0, Math.min(count, pool.length));
+    });
+    return shuffleArray(combined); // intermix domains as on real exam
+  }
+
+  // ECO 2021: People 42% (~76q), Process 50% (~90q), Business Environment 8% (~14q)
+  const ECO_DISTRIBUTION = { People: 76, Process: 90, 'Business Environment': 14 };
+
+  function getMockTestBank(testNum) {
+    const banks = {
+      1: window.PMP_QUESTION_BANK   || [],
+      2: window.PMP_MOCK_TEST_2     || [],
+      3: window.PMP_MOCK_TEST_3     || [],
+      4: window.PMP_MOCK_TEST_4     || [],
+      5: window.PMP_MOCK_TEST_5     || []
+    };
+    // Fallback: combine all available banks if specific one is empty
+    const bank = banks[testNum] || [];
+    if (bank.length > 0) return bank;
+    return Object.values(banks).flat();
+  }
+
+  function startQuiz(mode, testNum) {
+    quizState.mode   = mode;
+    quizState.testNum = testNum || 1;
     quizState.currentQ = 0;
-    quizState.score = 0;
+    quizState.score    = 0;
     quizState.selectedAnswer = -1;
     quizState.answered = false;
-    quizState.answers = [];
+    quizState.answers  = [];
     quizState.isPaused = false;
 
-    // Load from questions.js (window.PMP_QUESTION_BANK)
-    const masterBank = window.PMP_QUESTION_BANK || [];
+    const bank = getMockTestBank(quizState.testNum);
 
     if (mode === 'practice') {
-      // Practice Quiz: 20 random questions
-      const shuffled = shuffleArray(masterBank);
-      quizState.questions = shuffled.slice(0, Math.min(20, shuffled.length));
+      // Practice Quiz: 20 random questions from selected bank
+      quizState.questions = shuffleArray(bank).slice(0, Math.min(20, bank.length));
       document.getElementById('quizTimerWrapper').classList.add('hidden');
       stopTimer();
     } else {
-      // Full Mock Exam: 180 questions
-      const shuffled = shuffleArray(masterBank);
-      quizState.questions = shuffled.slice(0, Math.min(180, shuffled.length));
+      // Full Mock Exam: 180 questions with stratified ECO distribution
+      quizState.questions = stratifiedSample(bank, ECO_DISTRIBUTION);
       document.getElementById('quizTimerWrapper').classList.remove('hidden');
-      
-      // 230 minutes = 13800 seconds
-      quizState.timeLeft = 230 * 60;
+      quizState.timeLeft = 230 * 60;  // 230 minutes
       startTimer();
     }
 
     document.getElementById('quizSetup').classList.add('hidden');
     document.getElementById('quizActive').classList.remove('hidden');
     document.getElementById('quizResults').classList.add('hidden');
-    
-    // Update total number in active quiz UI
     document.getElementById('quizTotalNum').textContent = quizState.questions.length;
-
     renderQuestion();
   }
 
@@ -1067,24 +1174,80 @@ const initApp = () => {
 
     const score = quizState.score;
     const total = quizState.questions.length;
-    
+
     // Fill remaining answers in full exam if ended early
     while (quizState.answers.length < total) {
       const idx = quizState.answers.length;
-      const q = quizState.questions[idx];
-      quizState.answers.push({
-        questionIndex: idx,
-        selected: -1,
-        correct: q.correct,
-        isCorrect: false
-      });
+      const q   = quizState.questions[idx];
+      quizState.answers.push({ questionIndex: idx, selected: -1, correct: q.correct, isCorrect: false });
     }
 
     const pct = Math.round((score / total) * 100);
-
     document.getElementById('finalScoreNum').textContent = score;
     document.getElementById('finalTotalNum').textContent = total;
     document.getElementById('resultsCircle').style.setProperty('--score-pct', pct);
+
+    // ── Domain breakdown ─────────────────────────────────────────
+    const domainStats = {};
+    quizState.answers.forEach((ans, i) => {
+      const q  = quizState.questions[i];
+      const d  = q.domain || 'Unknown';
+      if (!domainStats[d]) domainStats[d] = { correct: 0, total: 0 };
+      domainStats[d].total++;
+      if (ans.isCorrect) domainStats[d].correct++;
+    });
+
+    // Find weakest domain
+    let weakDomain = '', weakPct = 101;
+    Object.entries(domainStats).forEach(([d, s]) => {
+      const p = s.total > 0 ? Math.round((s.correct / s.total) * 100) : 0;
+      if (p < weakPct) { weakPct = p; weakDomain = d; }
+    });
+
+    // ── Render domain breakdown widget ───────────────────────────
+    const domainBreakdownEl = document.getElementById('quizDomainBreakdown');
+    if (domainBreakdownEl) {
+      const domainOrder = ['People', 'Process', 'Business Environment'];
+      domainBreakdownEl.innerHTML = `
+        <h4 style="font-size:0.9rem;font-weight:700;color:var(--text-primary);margin:0 0 12px;">📊 Domain Breakdown</h4>
+        ${domainOrder.map(d => {
+          const s   = domainStats[d] || { correct: 0, total: 0 };
+          const dp  = s.total > 0 ? Math.round((s.correct / s.total) * 100) : 0;
+          const isWeak = d === weakDomain && s.total > 0;
+          const barColor = dp >= 70 ? 'var(--accent-primary)' : (dp >= 50 ? 'var(--accent-secondary)' : 'var(--accent-warm)');
+          return `
+            <div style="margin-bottom:10px;">
+              <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+                <span style="font-size:0.82rem;color:var(--text-secondary);">${d}${isWeak ? ' ⚠️' : ''}</span>
+                <span style="font-size:0.82rem;font-weight:700;color:${barColor};">${s.correct}/${s.total} (${dp}%)</span>
+              </div>
+              <div style="height:6px;background:var(--border-subtle);border-radius:3px;">
+                <div style="height:100%;width:${dp}%;background:${barColor};border-radius:3px;transition:width 0.6s ease;"></div>
+              </div>
+            </div>`;
+        }).join('')}
+        ${weakDomain ? `<p style="font-size:0.78rem;color:var(--accent-warm);margin-top:10px;">🎯 Focus next on: <strong>${weakDomain}</strong> (${weakPct}%)</p>` : ''}
+      `;
+    }
+
+    // ── Persist quiz history to localStorage ─────────────────────
+    try {
+      const historyRaw  = safeLS.getItem('pmp_quiz_history');
+      const history     = historyRaw ? JSON.parse(historyRaw) : [];
+      history.push({
+        date:    new Date().toLocaleDateString(),
+        score,
+        total,
+        pct,
+        mode:    quizState.mode,
+        testNum: quizState.testNum || 1,
+        domainStats
+      });
+      // Keep last 10 attempts
+      if (history.length > 10) history.splice(0, history.length - 10);
+      safeLS.setItem('pmp_quiz_history', JSON.stringify(history));
+      renderQuizHistory();
+    } catch(e) { /* storage quota or parse error — silently continue */ }
 
     let message, sub;
     if (pct >= 80) {
@@ -1092,34 +1255,46 @@ const initApp = () => {
       sub = `You scored ${pct}% — well above the passing threshold. Keep reviewing weak areas.`;
     } else if (pct >= 65) {
       message = '👍 Good Progress!';
-      sub = `You scored ${pct}%. You\'re close — focus on the questions you missed and review those topics.`;
+      sub = `You scored ${pct}%. You\'re close — focus on questions you missed and the domains shown below.`;
     } else {
       message = '📚 Keep Studying!';
-      sub = `You scored ${pct}%. Review the explanations below, revisit the study sections, and retake the exam.`;
+      sub = `You scored ${pct}%. Review the explanations below, revisit study sections for your weakest domain, and retake.`;
     }
     document.getElementById('resultsMessage').textContent = message;
-    document.getElementById('resultsSub').textContent = sub;
+    document.getElementById('resultsSub').textContent     = sub;
 
-    // Build review section
+    // ── Build review section (lazy render on toggle) ──────────────
     const reviewSection = document.getElementById('quizReviewSection');
     reviewSection.innerHTML = '';
     reviewSection.classList.add('hidden');
     document.getElementById('quizReviewBtn').textContent = '📋 Review Answers';
 
-    // Render paginated/organized reviews for large sets to avoid DOM freeze
-    quizState.answers.forEach((ans, idx) => {
-      const q = quizState.questions[ans.questionIndex];
-      const letters = ['A', 'B', 'C', 'D'];
+    // Store answers reference for lazy rendering
+    reviewSection._answers   = quizState.answers.slice();
+    reviewSection._questions = quizState.questions.slice();
+  }
+
+  // ── Lazy paginated review renderer (avoids DOM freeze on 180q) ──
+  function renderReviewPage(reviewSection, pageNum) {
+    const answers   = reviewSection._answers   || [];
+    const questions = reviewSection._questions || [];
+    const PAGE_SIZE = 25;
+    const start     = pageNum * PAGE_SIZE;
+    const end       = Math.min(start + PAGE_SIZE, answers.length);
+    const totalPages = Math.ceil(answers.length / PAGE_SIZE);
+    reviewSection.innerHTML = '';
+
+    const letters = ['A', 'B', 'C', 'D'];
+    for (let idx = start; idx < end; idx++) {
+      const ans  = answers[idx];
+      const q    = questions[ans.questionIndex];
+      const statusColor  = ans.isCorrect ? 'var(--accent-primary)' : 'var(--accent-warm)';
+      const statusSymbol = ans.isCorrect ? '✓' : '✗';
       const card = document.createElement('div');
       card.className = 'question-card';
       card.style.marginBottom = '16px';
-      
-      let selectedText = ans.selected === -1 ? 'None Selected' : `${letters[ans.selected]}. ${q.options[ans.selected]}`;
-      let statusColor = ans.isCorrect ? 'var(--accent-primary)' : 'var(--accent-warm)';
-      let statusSymbol = ans.isCorrect ? '✓' : '✗';
-      
       card.innerHTML = `
-        <div class="question-number" style="color: ${statusColor}">
+        <div class="question-number" style="color:${statusColor}">
           ${statusSymbol} Question ${idx + 1} (${q.domain} Domain)
         </div>
         <div class="question-scenario">${q.scenario}</div>
@@ -1127,18 +1302,62 @@ const initApp = () => {
         <div style="margin-bottom:12px;">
           ${q.options.map((opt, i) => {
             let cls = '';
-            if (i === q.correct) cls = 'color: var(--accent-primary); font-weight:600;';
-            if (i === ans.selected && !ans.isCorrect) cls = 'color: var(--accent-warm); text-decoration: line-through;';
-            return `<div style="padding:6px 0; font-size:0.85rem; ${cls}">${letters[i]}. ${opt}</div>`;
+            if (i === q.correct)                         cls = 'color:var(--accent-primary);font-weight:600;';
+            if (i === ans.selected && !ans.isCorrect)    cls = 'color:var(--accent-warm);text-decoration:line-through;';
+            return `<div style="padding:6px 0;font-size:0.85rem;${cls}">${letters[i]}. ${opt}</div>`;
           }).join('')}
         </div>
-        <div class="explanation-box visible" style="border-left: 3px solid ${statusColor}">
+        <div class="explanation-box visible" style="border-left:3px solid ${statusColor}">
           <h4>💡 Why ${letters[q.correct]} is the best answer:</h4>
           <p>${q.explanation}</p>
-        </div>
-      `;
+        </div>`;
       reviewSection.appendChild(card);
-    });
+    }
+
+    // Pagination controls
+    if (totalPages > 1) {
+      const pager = document.createElement('div');
+      pager.style.cssText = 'display:flex;justify-content:center;gap:10px;margin:20px 0;flex-wrap:wrap;';
+      for (let p = 0; p < totalPages; p++) {
+        const btn = document.createElement('button');
+        btn.className = `btn ${p === pageNum ? 'btn-primary' : 'btn-secondary'}`;
+        btn.style.cssText = 'padding:6px 14px;font-size:0.8rem;';
+        btn.textContent = `${p * PAGE_SIZE + 1}–${Math.min((p + 1) * PAGE_SIZE, answers.length)}`;
+        btn.addEventListener('click', () => renderReviewPage(reviewSection, p));
+        pager.appendChild(btn);
+      }
+      reviewSection.insertBefore(pager, reviewSection.firstChild);
+      reviewSection.appendChild(pager.cloneNode(true));
+      // Re-attach events on cloned pager
+      reviewSection.lastChild.querySelectorAll('button').forEach((btn, p) => {
+        btn.addEventListener('click', () => renderReviewPage(reviewSection, p));
+      });
+    }
+  }
+
+  // ── Quiz history renderer for dashboard ──────────────────────────
+  function renderQuizHistory() {
+    const historyEl = document.getElementById('quizHistoryWidget');
+    if (!historyEl) return;
+    try {
+      const raw     = safeLS.getItem('pmp_quiz_history');
+      const history = raw ? JSON.parse(raw) : [];
+      if (!history.length) {
+        historyEl.innerHTML = '<p style="color:var(--text-muted);font-size:0.82rem;">No quiz history yet. Take your first quiz!</p>';
+        return;
+      }
+      const recent = history.slice(-5).reverse();
+      historyEl.innerHTML = `
+        <h4 style="font-size:0.85rem;font-weight:700;color:var(--text-primary);margin:0 0 10px;">📈 Recent Quiz History</h4>
+        ${recent.map(h => {
+          const col = h.pct >= 80 ? 'var(--accent-primary)' : (h.pct >= 65 ? 'var(--accent-secondary)' : 'var(--accent-warm)');
+          return `<div style="display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--border-subtle);">
+            <span style="font-size:0.78rem;color:var(--text-secondary);">${h.date} · ${h.mode === 'full' ? 'Mock Test ' + (h.testNum || 1) : 'Practice'}</span>
+            <span style="font-size:0.9rem;font-weight:700;color:${col};">${h.pct}%</span>
+          </div>`;
+        }).join('')}
+      `;
+    } catch(e) { /* ignore */ }
   }
 
   // Setup click listeners for new elements
@@ -1153,26 +1372,34 @@ const initApp = () => {
     }
   });
 
-  document.getElementById('btnModePractice').addEventListener('click', () => startQuiz('practice'));
-  document.getElementById('btnModeFull').addEventListener('click', () => startQuiz('full'));
+  // Quiz mode buttons — read selected test number from dropdown
+  document.getElementById('btnModePractice').addEventListener('click', () => {
+    const sel = document.getElementById('mockTestSelector');
+    startQuiz('practice', sel ? parseInt(sel.value) : 1);
+  });
+  document.getElementById('btnModeFull').addEventListener('click', () => {
+    const sel = document.getElementById('mockTestSelector');
+    startQuiz('full', sel ? parseInt(sel.value) : 1);
+  });
   document.getElementById('quizPauseBtn').addEventListener('click', pauseExam);
   document.getElementById('btnResumeExam').addEventListener('click', resumeExam);
   document.getElementById('btnResumeFromBreak').addEventListener('click', resumeFromBreak);
   
   document.getElementById('quizEndEarlyBtn').addEventListener('click', () => {
-    const msg = quizState.mode === 'full' 
+    const msg = quizState.mode === 'full'
       ? 'Are you sure you want to quit the exam? Your progress will be graded based on answered questions.'
       : 'Are you sure you want to end this practice quiz?';
-    if (confirm(msg)) {
-      showQuizResults();
-    }
+    showConfirmModal(msg, () => showQuizResults());
   });
 
   document.getElementById('quizReviewBtn').addEventListener('click', () => {
     const reviewSection = document.getElementById('quizReviewSection');
+    const isHidden = reviewSection.classList.contains('hidden');
     reviewSection.classList.toggle('hidden');
-    document.getElementById('quizReviewBtn').textContent =
-      reviewSection.classList.contains('hidden') ? '📋 Review Answers' : '📋 Hide Review';
+    document.getElementById('quizReviewBtn').textContent = isHidden ? '📋 Hide Review' : '📋 Review Answers';
+    if (isHidden && reviewSection._answers && !reviewSection.querySelector('.question-card')) {
+      renderReviewPage(reviewSection, 0);
+    }
   });
 
   document.getElementById('quizRetakeBtn').addEventListener('click', () => {
@@ -1961,7 +2188,7 @@ const initApp = () => {
       });
     } else {
       const isEnabled = safeLS.getItem('pmp_notif_enabled') === 'true';
-      safeLS.setItem('pmp_notif_enabled', !isEnabled);
+      safeLS.setItem('pmp_notif_enabled', String(!isEnabled));
       if (!isEnabled) {
         startScheduler();
       } else {
@@ -1994,44 +2221,88 @@ const initApp = () => {
   // ══════════════════════════════════════════════
   const mindsetRules = [
     {
-      id: 1,
-      title: "Analyze and Assess FIRST",
-      icon: "🔍",
-      instruction: "When a new issue, risk, or change occurs, the Project Manager's first step is ALWAYS to analyze the impact, consult registers, or evaluate options. Never take immediate action or request changes without understanding the effect.",
-      scenario: "A key stakeholder requests a modification to the database schema mid-execution. What should the PM do first?",
-      answer: "Analyze the impact of the requested change on the scope, timeline, budget, and quality before preparing a change request."
+      id: 1, icon: '🔍',
+      title: 'Analyze and Assess FIRST',
+      instruction: "When a new issue, risk, or change occurs, the PM's first step is ALWAYS to analyze impact, consult registers, or evaluate options. Never take immediate action or request changes without understanding the effect on scope, schedule, cost, and quality.",
+      scenario: 'A key stakeholder requests a modification to the database schema mid-execution. What should the PM do first?',
+      answer: 'Analyze the impact of the requested change on scope, timeline, budget, and quality BEFORE preparing a change request.'
     },
     {
-      id: 2,
-      title: "Collaborate and Talk Privately",
-      icon: "🤝",
-      instruction: "Resolve conflicts and disagreements at the lowest level possible. Always speak to team members privately, listen actively, and seek consensus. Avoid immediately escalating to management or the sponsor.",
-      scenario: "Two senior developers are arguing over an architecture decision, stalling sprint progress. What should the PM do first?",
-      answer: "Facilitate a private meeting between the two developers to discuss their concerns and guide them toward a collaborative decision."
+      id: 2, icon: '🤝',
+      title: 'Collaborate and Talk Privately',
+      instruction: 'Resolve conflicts at the lowest level possible. Always speak to team members privately, listen actively, and seek consensus before escalating. PMI preference order: Collaborate → Compromise → Smooth → Force → Withdraw.',
+      scenario: 'Two senior developers are arguing over an architecture decision, stalling sprint progress. What should the PM do first?',
+      answer: 'Facilitate a private meeting between the two developers to discuss their concerns and guide them toward a collaborative decision.'
     },
     {
-      id: 3,
-      title: "Agile is Servant Leadership",
-      icon: "🛡️",
-      instruction: "In Agile, the PM (acting as Scrum Master) does not assign tasks, dictate schedules, or issue directives. Instead, you remove impediments, protect the team from distractions, and coach them on self-organization.",
-      scenario: "An agile team is struggling to meet their sprint goal because of frequent ad-hoc requests from a sales manager. What should the PM do?",
-      answer: "Intervene to shield the team from the sales manager's requests, and coach the manager to direct all requests through the Product Owner."
+      id: 3, icon: '🛡️',
+      title: 'Agile is Servant Leadership',
+      instruction: 'In Agile, the PM (as Scrum Master) does NOT assign tasks, dictate schedules, or issue directives. Instead, you remove impediments, protect the team from distractions, and coach them toward self-organization. The team commits; the SM enables.',
+      scenario: 'An agile team is struggling to meet their sprint goal because of frequent ad-hoc requests from a sales manager. What should the PM do?',
+      answer: 'Shield the team from the sales manager\'s requests and coach the manager to direct all requests through the Product Owner.'
     },
     {
-      id: 4,
-      title: "Follow the Change Control Board (CCB)",
-      icon: "📋",
-      instruction: "For predictive projects, any modification to baselines (scope, schedule, or cost) requires a formal change request processed through the Integrated Change Control process and approved by the CCB.",
-      scenario: "The client asks a developer to add a minor extra field to a report. The developer says it takes only 10 minutes. What should the PM do?",
-      answer: "Instruct the developer not to add the feature yet; document the request and submit a formal change request to the CCB."
+      id: 4, icon: '📋',
+      title: 'All Changes Go Through the CCB',
+      instruction: 'ANY modification to baselines (scope, schedule, or cost) requires a formal change request through Integrated Change Control (Process 4.6) and CCB approval — regardless of how small, or who requests it (including the sponsor or CEO).',
+      scenario: 'The client asks a developer to add a minor extra field to a report. The developer says it takes only 10 minutes. What should the PM do?',
+      answer: 'Instruct the developer not to add the feature yet; document the request and submit a formal change request to the CCB.'
     },
     {
-      id: 5,
-      title: "Do Not Fire or Escalate Unilaterally",
-      icon: "❌",
-      instruction: "When dealing with team performance issues, always follow coaching and performance improvement paths. Firing team members or formal escalations to HR/Sponsor are final resorts after all internal coaching attempts fail.",
-      scenario: "A developer's productivity has fallen for three consecutive sprints, causing delayed deliverables. What should the PM do?",
-      answer: "Meet with the developer privately to understand the root cause of the performance drop and collaboratively create a support plan."
+      id: 5, icon: '❌',
+      title: 'Never Fire or Escalate Unilaterally',
+      instruction: 'When dealing with team performance issues, always coach privately first. Firing team members or formal HR/Sponsor escalations are final resorts ONLY after all internal coaching and support attempts have been documented and have failed.',
+      scenario: 'A developer\'s productivity has fallen for three consecutive sprints, causing delayed deliverables. What should the PM do?',
+      answer: 'Meet privately to understand the root cause of the performance drop and collaboratively create a support and improvement plan.'
+    },
+    {
+      id: 6, icon: '⚠️',
+      title: 'Check the Risk Register FIRST',
+      instruction: 'When a problem occurs during execution, your FIRST action is to check the risk register — the problem may be a previously identified risk that has materialized and already has a contingency plan. Never treat a problem as new without checking existing plans.',
+      scenario: 'A critical vendor announces a 3-week delay during project execution. What is the FIRST thing the PM should do?',
+      answer: 'Check the risk register to see if this was an identified risk with a pre-planned contingency response; then assess impact before escalating.'
+    },
+    {
+      id: 7, icon: '🚫',
+      title: 'Never Gold-Plate the Deliverable',
+      instruction: 'Gold-plating means adding features or enhancements BEYOND approved scope — even if they seem beneficial and cost nothing extra. Every change to scope must be formally evaluated and approved. The PM protects the baseline, not just the budget.',
+      scenario: 'A team member proposes adding an extra analytics dashboard that was not in scope, saying it will delight the client. The PM\'s response?',
+      answer: 'Decline to implement without authorization; submit a change request for CCB evaluation if the team member believes it adds value.'
+    },
+    {
+      id: 8, icon: '🔮',
+      title: 'Be Proactive, Not Reactive',
+      instruction: 'The PMI mindset always favors proactive risk prevention over reactive crisis management. When given options, always choose the answer that involves planning ahead, identifying risks early, and taking preventive action before problems materialize.',
+      scenario: 'A PM notices that a key vendor is experiencing financial difficulties early in the project. What should the PM do?',
+      answer: 'Assess the risk immediately, add it to the risk register, begin developing contingency plans (alternative vendors), and monitor the vendor\'s financial status proactively.'
+    },
+    {
+      id: 9, icon: '⚖️',
+      title: 'Ethics Always Wins — Report Misconduct',
+      instruction: 'PMI\'s Code of Ethics requires honesty, transparency, and reporting of misconduct — always. No organizational pressure, cultural norm, or authority hierarchy overrides ethical obligations. If you discover fraud, bribery, or misrepresentation, you MUST report it through appropriate channels.',
+      scenario: 'A PMO director asks the PM to report project status as Green when it is actually Red. What must the PM do?',
+      answer: 'Refuse to misrepresent project status, document the directive, and report accurate status to appropriate stakeholders through proper governance channels.'
+    },
+    {
+      id: 10, icon: '📢',
+      title: 'The Sponsor Owns the Business Case',
+      instruction: 'The PM manages the project; the SPONSOR owns the business case, the charter, and the strategic justification. If business conditions change and the business case is no longer valid, the PM must inform the sponsor — who then decides whether to continue, reprioritize, or terminate.',
+      scenario: 'Halfway through a project, market research shows the product\'s business case is no longer viable. What should the PM do?',
+      answer: 'Present an objective updated business case analysis to the sponsor and steering committee — they make the continuation/termination decision, not the PM.'
+    },
+    {
+      id: 11, icon: '🗓️',
+      title: 'Lessons Learned Are Captured Throughout',
+      instruction: 'Lessons Learned are NOT only captured at project closing. PMBOK 6 requires ongoing documentation throughout the project lifecycle. Capturing lessons when events are fresh produces higher quality OPAs that benefit future projects.',
+      scenario: 'A sponsor asks the PM to skip lessons learned at closing since the team is already dispersed. What should the PM do?',
+      answer: 'Conduct at least an abbreviated virtual lessons learned session — the PM has a governance obligation to update OPAs, regardless of team availability.'
+    },
+    {
+      id: 12, icon: '🎯',
+      title: 'EXAM STRATEGY: How to Beat PMP Questions',
+      instruction: `PMI exams test MINDSET as much as knowledge. Use these elimination strategies:\n\n🔴 Eliminate immediately: answers that involve ignoring, bypassing governance, immediately firing/replacing, or doing nothing.\n\n🟡 Beware of: answers that skip analysis and jump to action, or involve unilateral decisions without consulting stakeholders.\n\n🟢 Prefer: answers that involve collaborative problem-solving, assessing before acting, following process (CCB, risk register), proactive planning, and private communication for conflicts.\n\n⏱️ TIME MANAGEMENT: 230 minutes ÷ 180 questions = 76 seconds per question. Flag and return to difficult ones. Never leave blanks — guess if needed.\n\n📊 DOMAIN WEIGHTS: People 42% · Process 50% · Business Environment 8%.`,
+      scenario: 'A question asks what the PM should do FIRST when a team member raises a concern about a technical risk. Which answer type does PMI prefer?',
+      answer: 'The answer that involves investigating/assessing the concern thoroughly before taking action — PMI always prefers analysis before action, and collaboration over unilateral decisions.'
     }
   ];
 
@@ -4369,6 +4640,9 @@ const initApp = () => {
 
   // Initialize quiz
   showQuizSetup();
+
+  // Render quiz history on load (so returning students see their results immediately)
+  renderQuizHistory();
 
 
 };

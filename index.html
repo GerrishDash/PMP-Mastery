@@ -982,6 +982,24 @@
               </div>
             </div>
           </div>
+
+          <!-- Mock Test Selector -->
+          <div style="margin-top:20px;padding:16px;background:var(--bg-secondary);border-radius:var(--radius-md);border:1px solid var(--border-subtle);">
+            <label for="mockTestSelector" style="display:block;font-size:0.82rem;font-weight:700;color:var(--text-secondary);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.06em;">🗂 Select Question Bank</label>
+            <select id="mockTestSelector" style="width:100%;padding:10px 14px;background:var(--bg-card);color:var(--text-primary);border:1px solid var(--border-subtle);border-radius:8px;font-size:0.88rem;cursor:pointer;">
+              <option value="1">Mock Test 1 — Original Bank (ECO Calibrated)</option>
+              <option value="2">Mock Test 2 — Advanced Scenarios</option>
+              <option value="3">Mock Test 3 — Complex Hybrid Cases</option>
+              <option value="4">Mock Test 4 — Behavioral &amp; Leadership</option>
+              <option value="5">Mock Test 5 — Strategic &amp; Governance</option>
+            </select>
+            <p style="font-size:0.75rem;color:var(--text-muted);margin-top:6px;">Each test has 180 unique questions across People (42%), Process (50%), and Business Environment (8%) — matching the real PMP ECO 2021.</p>
+          </div>
+
+          <!-- Quiz History -->
+          <div id="quizHistoryWidget" style="margin-top:16px;padding:16px;background:var(--bg-secondary);border-radius:var(--radius-md);border:1px solid var(--border-subtle);">
+            <p style="color:var(--text-muted);font-size:0.82rem;">No quiz history yet. Take your first quiz!</p>
+          </div>
         </div>
       </div>
 
@@ -1031,6 +1049,10 @@
             </div>
             <div class="results-message" id="resultsMessage">Great Job!</div>
             <div class="results-sub" id="resultsSub">You scored above the passing threshold.</div>
+
+            <!-- Domain Breakdown -->
+            <div id="quizDomainBreakdown" style="margin:20px 0;text-align:left;background:var(--bg-secondary);border:1px solid var(--border-subtle);border-radius:10px;padding:16px;"></div>
+
             <div class="quiz-actions" style="margin-top: 24px;">
               <button class="btn btn-primary" id="quizRetakeBtn">🔁 Retake Exam</button>
               <button class="btn btn-secondary" id="quizReviewBtn">📋 Review Answers</button>
@@ -1393,6 +1415,11 @@
 </div>
 
 <script src="questions.js"></script>
+<script src="questions2.js"></script>
+<script src="questions3.js"></script>
+<script src="questions4.js"></script>
+<script src="questions5.js"></script>
+<script src="flashcards.js"></script>
 <script src="app.js"></script>
 <script>
   if ('serviceWorker' in navigator) {
