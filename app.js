@@ -3979,8 +3979,8 @@ const initApp = () => {
   const pmJobsDatabase = [
   {
     "id": 1,
-    "title": "Preparador de Vehiculos Hatillo",
-    "company": "Enterprise",
+    "title": "VP Paid Media",
+    "company": "Kanahoma",
     "board": "LinkedIn",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -3990,9 +3990,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 8,
-    "description": "OverviewPatrono con Igualdad de Oportunidad de EmpleoEnterprise Mobility (National Car Rental &amp; Alamo Rent A Car) es la compaÃ±Ã­a de renta de automÃ³viles privada mas grande y con el crecimiento mas rÃ¡pido de NorteamÃ©rica. Con mas de 9,000 ...",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=Preparador%20de%20Vehiculos%20Hatillo%20Enterprise"
+    "daysAgo": 2,
+    "description": "Role DescriptionThe Vice President, Paid Media, is the senior-most Paid Media leader at Kanahoma, responsible for the strategic direction, performance, and continuous evolution of the agencyâs Paid Media practice. Reporting directly to the SVP, ...",
+    "link": "https://www.linkedin.com/jobs/search/?keywords=VP%20Paid%20Media%20Kanahoma"
   },
   {
     "id": 2,
@@ -4013,8 +4013,8 @@ const initApp = () => {
   },
   {
     "id": 3,
-    "title": "Kerendia Task Force",
-    "company": "Bayer",
+    "title": "Project Manager Donut Studios",
+    "company": "New Engen",
     "board": "Glassdoor",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4024,9 +4024,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 8,
-    "description": "At Bayer weâre visionaries, driven to solve the worldâs toughest challenges and striving for a world where ,Health for all, Hunger for noneâ is no longer a dream, but a real possibility. Weâre doing it with energy, curiosity and sheer dedi...",
-    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Kerendia%20Task%20Force%20Bayer"
+    "daysAgo": 2,
+    "description": "WHY DONUT STUDIOS? At New Engen, we help brands grow, not just bigger, but smarter. Weâre a digital marketing agency that drives meaningful impact across the entire customer journey by integrating media, creative, analytics, influencer, and reta...",
+    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20Donut%20Studios%20New%20Engen"
   },
   {
     "id": 4,
@@ -4047,8 +4047,8 @@ const initApp = () => {
   },
   {
     "id": 5,
-    "title": "hh2",
-    "company": "Biztech",
+    "title": "Engineer 2",
+    "company": "Catalyst Brands India",
     "board": "Indeed",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4058,9 +4058,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 8,
-    "description": "Civalgo is your all-in-one construction management solution, designed by industry experts to streamline project planning, resource allocation, and daily reporting. Simplify your operations, enhance team collaboration, and boost productivity with o...",
-    "link": "https://www.indeed.com/jobs?q=hh2%20Biztech"
+    "daysAgo": 2,
+    "description": "OverviewPay RangeINR â¹0.00 - INR â¹0.00 /Yr.Please mention the word **CONGENIAL** and tag RNTIuMTYwLjE2NS4yMDk= when applying to show you read the job post completely (#RNTIuMTYwLjE2NS4yMDk=). This is a beta feature to avoid spam applicants. Co...",
+    "link": "https://www.indeed.com/jobs?q=Engineer%202%20Catalyst%20Brands%20India"
   },
   {
     "id": 6,
@@ -4075,14 +4075,14 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 4,
+    "daysAgo": 1,
     "description": "Leading Jobberman Nigeria Recruitment project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20Jobberman%20Nigeria%20Recruitment"
   },
   {
     "id": 7,
-    "title": "System Software Engineer",
-    "company": "Hewlett Packard Enterprise",
+    "title": "Join Our Team",
+    "company": "Mixed Media Labs, Inc.",
     "board": "LinkedIn",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4093,8 +4093,8 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 8,
-    "description": "This role has been designed as âHybridâ with an expectation that you will work on average 2 days per week from an HPE office.Who We AreHewlett Packard Enterprise is the global edge-to-cloud company advancing the way people live and work. We he...",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=System%20Software%20Engineer%20Hewlett%20Packard%20Enterprise"
+    "description": "ECHEMI is a global chemical industry B2B website. You can find leading manufacturing companies, top suppliers &amp; quality chemical products here. We help you complete chemical business in the world. https://www.echemi.com/Please mention the word...",
+    "link": "https://www.linkedin.com/jobs/search/?keywords=Join%20Our%20Team%20Mixed%20Media%20Labs%2C%20Inc."
   },
   {
     "id": 8,
@@ -4109,14 +4109,14 @@ const initApp = () => {
       "Strong budget management, scheduling, and risk planning",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 4,
+    "daysAgo": 1,
     "description": "Leading Hedge & Pembrook Limited project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.indeed.com/jobs?q=Senior%20Project%20Manager%20Hedge%20%26%20Pembrook%20Limited"
   },
   {
     "id": 9,
-    "title": "LABORER",
-    "company": "Portales Fire Department",
+    "title": "Preparador de Vehiculos Hatillo",
+    "company": "Enterprise",
     "board": "Glassdoor",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4127,115 +4127,13 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 9,
-    "description": "This cms8.revize.com page canât be foundNo webpage was found for the web address: https://cms8.revize.com/revize/portales/Job%20Posting%20%202025-09%20SW%20Laborer.pdfHTTP ERROR 404No webpage was found for the web address: https://cms8.revize.co...",
-    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=LABORER%20Portales%20Fire%20Department"
+    "description": "OverviewPatrono con Igualdad de Oportunidad de EmpleoEnterprise Mobility (National Car Rental &amp; Alamo Rent A Car) es la compaÃ±Ã­a de renta de automÃ³viles privada mas grande y con el crecimiento mas rÃ¡pido de NorteamÃ©rica. Con mas de 9,000 ...",
+    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Preparador%20de%20Vehiculos%20Hatillo%20Enterprise"
   },
   {
     "id": 10,
     "title": "Project Manager",
-    "company": "Turbo Energy Limited",
-    "board": "LinkedIn",
-    "exp": "Mid",
-    "salary": "$95,000 - $120,000/yr",
-    "requirements": [
-      "Active PMP certification or equivalent path",
-      "3-5 years managing software or business operations projects",
-      "Solid understanding of hybrid Waterfall/Agile lifecycles",
-      "Strong verbal and written English communication skills"
-    ],
-    "daysAgo": 1,
-    "description": "Leading Turbo Energy Limited project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20Turbo%20Energy%20Limited"
-  },
-  {
-    "id": 11,
-    "title": "Product manager",
-    "company": "DUÄAST",
-    "board": "Indeed",
-    "exp": "Mid",
-    "salary": "$95,000 - $120,000/yr",
-    "requirements": [
-      "Active PMP certification or equivalent path",
-      "3-5 years managing software or business operations projects",
-      "Solid understanding of hybrid Waterfall/Agile lifecycles",
-      "Strong verbal and written English communication skills"
-    ],
-    "daysAgo": 9,
-    "description": "Suitable Quality is determined by product users, clients or customers, not by society in general. For example, a low priced product may be viewed as having high quality because it is disposable where another may be viewed as having poor quality be...",
-    "link": "https://www.indeed.com/jobs?q=Product%20manager%20DU%C3%84%C2%92AST"
-  },
-  {
-    "id": 12,
-    "title": "Technical Project Manager",
-    "company": "Virtual IP",
-    "board": "Glassdoor",
-    "exp": "Mid",
-    "salary": "$95,000 - $120,000/yr",
-    "requirements": [
-      "Active PMP certification or equivalent path",
-      "3-5 years managing software or business operations projects",
-      "Solid understanding of hybrid Waterfall/Agile lifecycles",
-      "Strong verbal and written English communication skills"
-    ],
-    "daysAgo": 4,
-    "description": "Leading Virtual IP project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Technical%20Project%20Manager%20Virtual%20IP"
-  },
-  {
-    "id": 13,
-    "title": "REVENUE MANAGER",
-    "company": "Grupo Los Pueblos",
-    "board": "LinkedIn",
-    "exp": "Mid",
-    "salary": "$95,000 - $120,000/yr",
-    "requirements": [
-      "Active PMP certification or equivalent path",
-      "3-5 years managing software or business operations projects",
-      "Solid understanding of hybrid Waterfall/Agile lifecycles",
-      "Strong verbal and written English communication skills"
-    ],
-    "daysAgo": 10,
-    "description": "Empresa del sector hospitalidad con operaciones en PanamÃ¡, buscamos un Revenue Manager que lidere la estrategia de optimizaciÃ³n de ingresos a travÃ©s del anÃ¡lisis de tarifas, demanda, ocupaciÃ³n y canales de distribuciÃ³n.La posiciÃ³n tendrÃ¡ i...",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=REVENUE%20MANAGER%20Grupo%20Los%20Pueblos"
-  },
-  {
-    "id": 14,
-    "title": "Global Rewards Project Manager",
-    "company": "Cervecería y Maltería Quilmes",
-    "board": "Indeed",
-    "exp": "Mid",
-    "salary": "$95,000 - $120,000/yr",
-    "requirements": [
-      "Active PMP certification or equivalent path",
-      "3-5 years managing software or business operations projects",
-      "Solid understanding of hybrid Waterfall/Agile lifecycles",
-      "Strong verbal and written English communication skills"
-    ],
-    "daysAgo": 1,
-    "description": "Leading Cervecería y Maltería Quilmes project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.indeed.com/jobs?q=Global%20Rewards%20Project%20Manager%20Cervecer%C3%ADa%20y%20Malter%C3%ADa%20Quilmes"
-  },
-  {
-    "id": 15,
-    "title": "Aplicador de Productos QuÃ­micos B",
-    "company": "Twin Dolphin Los Cabos",
-    "board": "Glassdoor",
-    "exp": "Mid",
-    "salary": "$95,000 - $120,000/yr",
-    "requirements": [
-      "Active PMP certification or equivalent path",
-      "3-5 years managing software or business operations projects",
-      "Solid understanding of hybrid Waterfall/Agile lifecycles",
-      "Strong verbal and written English communication skills"
-    ],
-    "daysAgo": 10,
-    "description": "Somos una comunidad de 1,400 acres, desarrollada por Ohana Real Estate Investors, recibe el nombre de Twin Dolphin, en honor a la rica historia del primer e icÃ³nico Hotel Twin Dolphin. El plan maestro incluye: Maravilla, un desarrollo privado de ...",
-    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Aplicador%20de%20Productos%20Qu%C3%83%C2%ADmicos%20B%20Twin%20Dolphin%20Los%20Cabos"
-  },
-  {
-    "id": 16,
-    "title": "Technical Project Manager",
-    "company": "Med Bill, L.L.C",
+    "company": "Monas Consulting",
     "board": "LinkedIn",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4246,13 +4144,115 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 2,
-    "description": "Leading Med Bill, L.L.C project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=Technical%20Project%20Manager%20Med%20Bill%2C%20L.L.C"
+    "description": "Leading Monas Consulting project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20Monas%20Consulting"
+  },
+  {
+    "id": 11,
+    "title": "Kerendia Task Force",
+    "company": "Bayer",
+    "board": "Indeed",
+    "exp": "Mid",
+    "salary": "$95,000 - $120,000/yr",
+    "requirements": [
+      "Active PMP certification or equivalent path",
+      "3-5 years managing software or business operations projects",
+      "Solid understanding of hybrid Waterfall/Agile lifecycles",
+      "Strong verbal and written English communication skills"
+    ],
+    "daysAgo": 9,
+    "description": "At Bayer weâre visionaries, driven to solve the worldâs toughest challenges and striving for a world where ,Health for all, Hunger for noneâ is no longer a dream, but a real possibility. Weâre doing it with energy, curiosity and sheer dedi...",
+    "link": "https://www.indeed.com/jobs?q=Kerendia%20Task%20Force%20Bayer"
+  },
+  {
+    "id": 12,
+    "title": "Project Manager",
+    "company": "Turbo Energy Limited",
+    "board": "Glassdoor",
+    "exp": "Mid",
+    "salary": "$95,000 - $120,000/yr",
+    "requirements": [
+      "Active PMP certification or equivalent path",
+      "3-5 years managing software or business operations projects",
+      "Solid understanding of hybrid Waterfall/Agile lifecycles",
+      "Strong verbal and written English communication skills"
+    ],
+    "daysAgo": 2,
+    "description": "Leading Turbo Energy Limited project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20Turbo%20Energy%20Limited"
+  },
+  {
+    "id": 13,
+    "title": "hh2",
+    "company": "Biztech",
+    "board": "LinkedIn",
+    "exp": "Mid",
+    "salary": "$95,000 - $120,000/yr",
+    "requirements": [
+      "Active PMP certification or equivalent path",
+      "3-5 years managing software or business operations projects",
+      "Solid understanding of hybrid Waterfall/Agile lifecycles",
+      "Strong verbal and written English communication skills"
+    ],
+    "daysAgo": 9,
+    "description": "Civalgo is your all-in-one construction management solution, designed by industry experts to streamline project planning, resource allocation, and daily reporting. Simplify your operations, enhance team collaboration, and boost productivity with o...",
+    "link": "https://www.linkedin.com/jobs/search/?keywords=hh2%20Biztech"
+  },
+  {
+    "id": 14,
+    "title": "Technical Project Manager",
+    "company": "Virtual IP",
+    "board": "Indeed",
+    "exp": "Mid",
+    "salary": "$95,000 - $120,000/yr",
+    "requirements": [
+      "Active PMP certification or equivalent path",
+      "3-5 years managing software or business operations projects",
+      "Solid understanding of hybrid Waterfall/Agile lifecycles",
+      "Strong verbal and written English communication skills"
+    ],
+    "daysAgo": 5,
+    "description": "Leading Virtual IP project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.indeed.com/jobs?q=Technical%20Project%20Manager%20Virtual%20IP"
+  },
+  {
+    "id": 15,
+    "title": "System Software Engineer",
+    "company": "Hewlett Packard Enterprise",
+    "board": "Glassdoor",
+    "exp": "Mid",
+    "salary": "$95,000 - $120,000/yr",
+    "requirements": [
+      "Active PMP certification or equivalent path",
+      "3-5 years managing software or business operations projects",
+      "Solid understanding of hybrid Waterfall/Agile lifecycles",
+      "Strong verbal and written English communication skills"
+    ],
+    "daysAgo": 9,
+    "description": "This role has been designed as âHybridâ with an expectation that you will work on average 2 days per week from an HPE office.Who We AreHewlett Packard Enterprise is the global edge-to-cloud company advancing the way people live and work. We he...",
+    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=System%20Software%20Engineer%20Hewlett%20Packard%20Enterprise"
+  },
+  {
+    "id": 16,
+    "title": "Global Rewards Project Manager",
+    "company": "Cervecería y Maltería Quilmes",
+    "board": "LinkedIn",
+    "exp": "Mid",
+    "salary": "$95,000 - $120,000/yr",
+    "requirements": [
+      "Active PMP certification or equivalent path",
+      "3-5 years managing software or business operations projects",
+      "Solid understanding of hybrid Waterfall/Agile lifecycles",
+      "Strong verbal and written English communication skills"
+    ],
+    "daysAgo": 4,
+    "description": "Leading Cervecería y Maltería Quilmes project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.linkedin.com/jobs/search/?keywords=Global%20Rewards%20Project%20Manager%20Cervecer%C3%ADa%20y%20Malter%C3%ADa%20Quilmes"
   },
   {
     "id": 17,
-    "title": "Technical Project Manager",
-    "company": "Nuvolar Works",
+    "title": "LABORER",
+    "company": "Portales Fire Department",
     "board": "Indeed",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4263,13 +4263,13 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 10,
-    "description": "We are a global technology consulting company specializing in IT solutions, cloud-based platforms, data engineering services, and end-to-end project delivery support. With over 14 years of experience and a multicultural team of more than 100 profe...",
-    "link": "https://www.indeed.com/jobs?q=Technical%20Project%20Manager%20Nuvolar%20Works"
+    "description": "This cms8.revize.com page canât be foundNo webpage was found for the web address: https://cms8.revize.com/revize/portales/Job%20Posting%20%202025-09%20SW%20Laborer.pdfHTTP ERROR 404No webpage was found for the web address: https://cms8.revize.co...",
+    "link": "https://www.indeed.com/jobs?q=LABORER%20Portales%20Fire%20Department"
   },
   {
     "id": 18,
-    "title": "Project Coordinator",
-    "company": "Anonymous Employer",
+    "title": "Junior Project Manager",
+    "company": "VISION 2063 FOUNDATION",
     "board": "Glassdoor",
     "exp": "Entry",
     "salary": "$60,000 - $78,000/yr",
@@ -4279,14 +4279,14 @@ const initApp = () => {
       "Excellent organization, notes capture, and scheduling skills",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 3,
-    "description": "Leading Anonymous Employer project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Coordinator%20Anonymous%20Employer"
+    "daysAgo": 5,
+    "description": "Leading VISION 2063 FOUNDATION project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Junior%20Project%20Manager%20VISION%202063%20FOUNDATION"
   },
   {
     "id": 19,
-    "title": "Computer Science Specialist",
-    "company": "G.S. International Public School",
+    "title": "Product manager",
+    "company": "DUÄAST",
     "board": "LinkedIn",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4297,16 +4297,16 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 10,
-    "description": "Experience 3 years &amp; Must have knowledge of PythonPlease mention the word **MIGHTILY** and tag RMTcyLjE3NC4yMjMuMjQy when applying to show you read the job post completely (#RMTcyLjE3NC4yMjMuMjQy). This is a beta feature to avoid spam applican...",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=Computer%20Science%20Specialist%20G.S.%20International%20Public%20School"
+    "description": "Suitable Quality is determined by product users, clients or customers, not by society in general. For example, a low priced product may be viewed as having high quality because it is disposable where another may be viewed as having poor quality be...",
+    "link": "https://www.linkedin.com/jobs/search/?keywords=Product%20manager%20DU%C3%84%C2%92AST"
   },
   {
     "id": 20,
-    "title": "ASSISTANT PROJECT MANAGER",
-    "company": "ORCHID HR",
+    "title": "Technical Project Manager",
+    "company": "Med Bill, L.L.C",
     "board": "Indeed",
-    "exp": "Entry",
-    "salary": "$60,000 - $78,000/yr",
+    "exp": "Mid",
+    "salary": "$95,000 - $120,000/yr",
     "requirements": [
       "Active PMP certification or equivalent path",
       "3-5 years managing software or business operations projects",
@@ -4314,8 +4314,8 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 5,
-    "description": "Leading ORCHID HR project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.indeed.com/jobs?q=ASSISTANT%20PROJECT%20MANAGER%20ORCHID%20HR"
+    "description": "Leading Med Bill, L.L.C project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.indeed.com/jobs?q=Technical%20Project%20Manager%20Med%20Bill%2C%20L.L.C"
   }
 ];
 
