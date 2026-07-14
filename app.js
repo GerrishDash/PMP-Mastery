@@ -4042,7 +4042,7 @@ const initApp = () => {
       "Excellent organization, notes capture, and scheduling skills",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 6,
+    "daysAgo": 7,
     "description": "About the role The Junior Business Analyst position provides essential research and logistical support to our principals as they advise high-level corporate boards. The role exists to ensure that every mandate we accept is grounded in rigorous inv...",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Junior%20Business%20Analyst%20Arabian%20Private%20Holdings"
   },
@@ -4076,7 +4076,7 @@ const initApp = () => {
       "Excellent organization, notes capture, and scheduling skills",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 7,
+    "daysAgo": 8,
     "description": "Junior Project ManagerCampaign Delivery | Installations | Project CoordinationRemoteÂ£30,000 - Â£32,000Are you looking to build a career in Project Management with a role that offers real responsibility, hands-on experience, and clear progression?...",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Junior%20Project%20Manager%20ASG%20International"
   },
@@ -4093,7 +4093,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 2,
+    "daysAgo": 1,
     "description": "Leading Rednoxx Limited project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Product%20Owner%20Rednoxx%20Limited"
   },
@@ -4110,7 +4110,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 11,
+    "daysAgo": 12,
     "description": "Role DescriptionThe Vice President, Paid Media, is the senior-most Paid Media leader at Kanahoma, responsible for the strategic direction, performance, and continuous evolution of the agencyâs Paid Media practice. Reporting directly to the SVP, ...",
     "link": "https://www.indeed.com/jobs?q=VP%20Paid%20Media%20Kanahoma"
   },
@@ -4144,7 +4144,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 11,
+    "daysAgo": 12,
     "description": "WHY DONUT STUDIOS? At New Engen, we help brands grow, not just bigger, but smarter. Weâre a digital marketing agency that drives meaningful impact across the entire customer journey by integrating media, creative, analytics, influencer, and reta...",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20Donut%20Studios%20New%20Engen"
   },
@@ -4161,7 +4161,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 4,
+    "daysAgo": 1,
     "description": "Leading E-Konsult project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.indeed.com/jobs?q=Project%20Manager%20E-Konsult"
   },
@@ -4178,14 +4178,14 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 11,
-    "description": "OverviewPay RangeINR â¹0.00 - INR â¹0.00 /Yr.Please mention the word **CONGENIAL** and tag RMjAuNTUuMTUuMw== when applying to show you read the job post completely (#RMjAuNTUuMTUuMw==). This is a beta feature to avoid spam applicants. Companies ...",
+    "daysAgo": 12,
+    "description": "OverviewPay RangeINR â¹0.00 - INR â¹0.00 /Yr.Please mention the word **CONGENIAL** and tag RNjQuMjM2LjEzNC4xOA== when applying to show you read the job post completely (#RNjQuMjM2LjEzNC4xOA==). This is a beta feature to avoid spam applicants. Co...",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Engineer%202%20Catalyst%20Brands%20India"
   },
   {
     "id": 10,
-    "title": "Project Manager",
-    "company": "Rekrut Consulting",
+    "title": "Project Manager – Ghana",
+    "company": "Alinea International",
     "board": "LinkedIn",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4195,9 +4195,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 3,
-    "description": "Leading Rekrut Consulting project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20Rekrut%20Consulting"
+    "daysAgo": 4,
+    "description": "Leading Alinea International project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20%E2%80%93%20Ghana%20Alinea%20International"
   },
   {
     "id": 11,
@@ -4212,14 +4212,14 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 17,
+    "daysAgo": 18,
     "description": "ECHEMI is a global chemical industry B2B website. You can find leading manufacturing companies, top suppliers &amp; quality chemical products here. We help you complete chemical business in the world. https://www.echemi.com/Please mention the word...",
     "link": "https://www.indeed.com/jobs?q=Join%20Our%20Team%20Mixed%20Media%20Labs%2C%20Inc."
   },
   {
     "id": 12,
-    "title": "Project Manager – Ghana",
-    "company": "Alinea International",
+    "title": "Project Manager – Fruit Processing",
+    "company": "HPW",
     "board": "Glassdoor",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4229,9 +4229,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 3,
-    "description": "Leading Alinea International project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20%E2%80%93%20Ghana%20Alinea%20International"
+    "daysAgo": 2,
+    "description": "Leading HPW project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20%E2%80%93%20Fruit%20Processing%20HPW"
   },
   {
     "id": 13,
@@ -4246,14 +4246,14 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 18,
+    "daysAgo": 19,
     "description": "OverviewPatrono con Igualdad de Oportunidad de EmpleoEnterprise Mobility (National Car Rental &amp; Alamo Rent A Car) es la compaÃ±Ã­a de renta de automÃ³viles privada mas grande y con el crecimiento mas rÃ¡pido de NorteamÃ©rica. Con mas de 9,000 ...",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Preparador%20de%20Vehiculos%20Hatillo%20Enterprise"
   },
   {
     "id": 14,
-    "title": "Project Manager – Fruit Processing",
-    "company": "HPW",
+    "title": "Project Manager",
+    "company": "CoreNett Limited",
     "board": "Indeed",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4263,9 +4263,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 5,
-    "description": "Leading HPW project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.indeed.com/jobs?q=Project%20Manager%20%E2%80%93%20Fruit%20Processing%20HPW"
+    "daysAgo": 4,
+    "description": "Leading CoreNett Limited project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.indeed.com/jobs?q=Project%20Manager%20CoreNett%20Limited"
   },
   {
     "id": 15,
@@ -4280,26 +4280,26 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 18,
+    "daysAgo": 19,
     "description": "At Bayer weâre visionaries, driven to solve the worldâs toughest challenges and striving for a world where ,Health for all, Hunger for noneâ is no longer a dream, but a real possibility. Weâre doing it with energy, curiosity and sheer dedi...",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Kerendia%20Task%20Force%20Bayer"
   },
   {
     "id": 16,
-    "title": "Project Manager",
-    "company": "CoreNett Limited",
+    "title": "Junior Project Manager",
+    "company": "VISION 2063 FOUNDATION",
     "board": "LinkedIn",
-    "exp": "Mid",
-    "salary": "$95,000 - $120,000/yr",
+    "exp": "Entry",
+    "salary": "$60,000 - $78,000/yr",
     "requirements": [
-      "Active PMP certification or equivalent path",
-      "3-5 years managing software or business operations projects",
-      "Solid understanding of hybrid Waterfall/Agile lifecycles",
+      "Certified Associate in Project Management (CAPM) preferred",
+      "1-2 years experience in professional project tracking",
+      "Excellent organization, notes capture, and scheduling skills",
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 5,
-    "description": "Leading CoreNett Limited project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20CoreNett%20Limited"
+    "description": "Leading VISION 2063 FOUNDATION project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.linkedin.com/jobs/search/?keywords=Junior%20Project%20Manager%20VISION%202063%20FOUNDATION"
   },
   {
     "id": 17,
@@ -4314,26 +4314,26 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 18,
+    "daysAgo": 19,
     "description": "Civalgo is your all-in-one construction management solution, designed by industry experts to streamline project planning, resource allocation, and daily reporting. Simplify your operations, enhance team collaboration, and boost productivity with o...",
     "link": "https://www.indeed.com/jobs?q=hh2%20Biztech"
   },
   {
     "id": 18,
-    "title": "Junior Project Manager",
-    "company": "VISION 2063 FOUNDATION",
+    "title": "Technical Project Manager",
+    "company": "Med Bill, L.L.C",
     "board": "Glassdoor",
-    "exp": "Entry",
-    "salary": "$60,000 - $78,000/yr",
+    "exp": "Mid",
+    "salary": "$95,000 - $120,000/yr",
     "requirements": [
-      "Certified Associate in Project Management (CAPM) preferred",
-      "1-2 years experience in professional project tracking",
-      "Excellent organization, notes capture, and scheduling skills",
+      "Active PMP certification or equivalent path",
+      "3-5 years managing software or business operations projects",
+      "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 4,
-    "description": "Leading VISION 2063 FOUNDATION project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Junior%20Project%20Manager%20VISION%202063%20FOUNDATION"
+    "description": "Leading Med Bill, L.L.C project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Technical%20Project%20Manager%20Med%20Bill%2C%20L.L.C"
   },
   {
     "id": 19,
@@ -4348,14 +4348,14 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 18,
+    "daysAgo": 19,
     "description": "This role has been designed as âHybridâ with an expectation that you will work on average 2 days per week from an HPE office.Who We AreHewlett Packard Enterprise is the global edge-to-cloud company advancing the way people live and work. We he...",
     "link": "https://www.linkedin.com/jobs/search/?keywords=System%20Software%20Engineer%20Hewlett%20Packard%20Enterprise"
   },
   {
     "id": 20,
-    "title": "Technical Project Manager",
-    "company": "Med Bill, L.L.C",
+    "title": "Project Management Support - Officer",
+    "company": "UNOPS",
     "board": "Indeed",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4365,9 +4365,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 3,
-    "description": "Leading Med Bill, L.L.C project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.indeed.com/jobs?q=Technical%20Project%20Manager%20Med%20Bill%2C%20L.L.C"
+    "daysAgo": 2,
+    "description": "Leading UNOPS project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.indeed.com/jobs?q=Project%20Management%20Support%20-%20Officer%20UNOPS"
   }
 ];
 
