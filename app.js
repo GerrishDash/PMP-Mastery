@@ -4042,14 +4042,14 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 3,
-    "description": "Posted 1:21:26 PM. Project ManagerLocation: Remote, Canada Empire life is looking to hire a Project Manager to joinâ¦See this and similar jobs on LinkedIn.Please mention the word **COMELY** and tag RMjAuNDkuMTMuMTg2 when applying to show you read...",
+    "daysAgo": 4,
+    "description": "Posted 1:21:26 PM. Project ManagerLocation: Remote, Canada Empire life is looking to hire a Project Manager to joinâ¦See this and similar jobs on LinkedIn.Please mention the word **COMELY** and tag RNC4xNTUuMTExLjE= when applying to show you read...",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20Empire%20Life"
   },
   {
     "id": 2,
     "title": "Project Manager",
-    "company": "Jobberman Nigeria Recruitment",
+    "company": "Jobberman (Third Party Recruitment)",
     "board": "Indeed",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4059,9 +4059,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 2,
-    "description": "Leading Jobberman Nigeria Recruitment project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.indeed.com/jobs?q=Project%20Manager%20Jobberman%20Nigeria%20Recruitment"
+    "daysAgo": 5,
+    "description": "Leading Jobberman (Third Party Recruitment) project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.indeed.com/jobs?q=Project%20Manager%20Jobberman%20(Third%20Party%20Recruitment)"
   },
   {
     "id": 3,
@@ -4076,7 +4076,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 4,
+    "daysAgo": 5,
     "description": "Reporting to the Sr. Director, Customer Success, the Senior Customer Success Manager is responsible for managing and providing world-class partnerships to their clients and ensuring they are optimizing the use and value of PointClickCareâs solut...",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Customer%20Success%20Manager%20Enterprise%20PointClickCare"
   },
@@ -4093,7 +4093,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 5,
+    "daysAgo": 4,
     "description": "Leading Rednoxx Limited project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Product%20Owner%20Rednoxx%20Limited"
   },
@@ -4110,7 +4110,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 5,
+    "daysAgo": 6,
     "description": "Position Summary:The Creative Strategist is responsible for developing and ensuring fulfilment of the creative pipeline based on company SOPs.The Creative Strategist is responsible for translating performance goals and audience insights into a cle...",
     "link": "https://www.indeed.com/jobs?q=Jr%20Creative%20Strategist%20Trivium%20Group"
   },
@@ -4127,26 +4127,26 @@ const initApp = () => {
       "Strong budget management, scheduling, and risk planning",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 4,
+    "daysAgo": 3,
     "description": "Leading Hedge & Pembrook Limited project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Senior%20Project%20Manager%20Hedge%20%26%20Pembrook%20Limited"
   },
   {
     "id": 7,
-    "title": "Junior Business Analyst",
-    "company": "Arabian Private Holdings",
+    "title": "Liasoning Agents required for Cities",
+    "company": "Shamlax",
     "board": "LinkedIn",
-    "exp": "Entry",
-    "salary": "$60,000 - $78,000/yr",
+    "exp": "Mid",
+    "salary": "$95,000 - $120,000/yr",
     "requirements": [
-      "Certified Associate in Project Management (CAPM) preferred",
-      "1-2 years experience in professional project tracking",
-      "Excellent organization, notes capture, and scheduling skills",
+      "Active PMP certification or equivalent path",
+      "3-5 years managing software or business operations projects",
+      "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 11,
-    "description": "About the role The Junior Business Analyst position provides essential research and logistical support to our principals as they advise high-level corporate boards. The role exists to ensure that every mandate we accept is grounded in rigorous inv...",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=Junior%20Business%20Analyst%20Arabian%20Private%20Holdings"
+    "daysAgo": 9,
+    "description": "Persons having 3-5 yrs of experience in the Foundry / Foundry Chemicals field can apply toManaging Director: sks@shamlax.comPlease mention the word **STIMULATE** and tag RNC4xNTUuMTExLjE= when applying to show you read the job post completely (#RN...",
+    "link": "https://www.linkedin.com/jobs/search/?keywords=Liasoning%20Agents%20required%20for%20Cities%20Shamlax"
   },
   {
     "id": 8,
@@ -4161,14 +4161,14 @@ const initApp = () => {
       "Strong budget management, scheduling, and risk planning",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 1,
+    "daysAgo": 4,
     "description": "Leading StreSERT Integrated Limited (SIL) project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.indeed.com/jobs?q=Senior%20Project%20Manager%20StreSERT%20Integrated%20Limited%20(SIL)"
   },
   {
     "id": 9,
-    "title": "Junior Project Manager",
-    "company": "ASG International",
+    "title": "Junior Business Analyst",
+    "company": "Arabian Private Holdings",
     "board": "Glassdoor",
     "exp": "Entry",
     "salary": "$60,000 - $78,000/yr",
@@ -4179,8 +4179,8 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 12,
-    "description": "Junior Project ManagerCampaign Delivery | Installations | Project CoordinationRemoteÂ£30,000 - Â£32,000Are you looking to build a career in Project Management with a role that offers real responsibility, hands-on experience, and clear progression?...",
-    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Junior%20Project%20Manager%20ASG%20International"
+    "description": "About the role The Junior Business Analyst position provides essential research and logistical support to our principals as they advise high-level corporate boards. The role exists to ensure that every mandate we accept is grounded in rigorous inv...",
+    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Junior%20Business%20Analyst%20Arabian%20Private%20Holdings"
   },
   {
     "id": 10,
@@ -4201,20 +4201,20 @@ const initApp = () => {
   },
   {
     "id": 11,
-    "title": "VP Paid Media",
-    "company": "Kanahoma",
+    "title": "Junior Project Manager",
+    "company": "ASG International",
     "board": "Indeed",
-    "exp": "Mid",
-    "salary": "$95,000 - $120,000/yr",
+    "exp": "Entry",
+    "salary": "$60,000 - $78,000/yr",
     "requirements": [
-      "Active PMP certification or equivalent path",
-      "3-5 years managing software or business operations projects",
-      "Solid understanding of hybrid Waterfall/Agile lifecycles",
+      "Certified Associate in Project Management (CAPM) preferred",
+      "1-2 years experience in professional project tracking",
+      "Excellent organization, notes capture, and scheduling skills",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 16,
-    "description": "Role DescriptionThe Vice President, Paid Media, is the senior-most Paid Media leader at Kanahoma, responsible for the strategic direction, performance, and continuous evolution of the agencyâs Paid Media practice. Reporting directly to the SVP, ...",
-    "link": "https://www.indeed.com/jobs?q=VP%20Paid%20Media%20Kanahoma"
+    "daysAgo": 13,
+    "description": "Junior Project ManagerCampaign Delivery | Installations | Project CoordinationRemoteÂ£30,000 - Â£32,000Are you looking to build a career in Project Management with a role that offers real responsibility, hands-on experience, and clear progression?...",
+    "link": "https://www.indeed.com/jobs?q=Junior%20Project%20Manager%20ASG%20International"
   },
   {
     "id": 12,
@@ -4229,14 +4229,14 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 2,
+    "daysAgo": 4,
     "description": "Leading Alinea International project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20%E2%80%93%20Ghana%20Alinea%20International"
   },
   {
     "id": 13,
-    "title": "Project Manager Donut Studios",
-    "company": "New Engen",
+    "title": "VP Paid Media",
+    "company": "Kanahoma",
     "board": "LinkedIn",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4246,9 +4246,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 16,
-    "description": "WHY DONUT STUDIOS? At New Engen, we help brands grow, not just bigger, but smarter. Weâre a digital marketing agency that drives meaningful impact across the entire customer journey by integrating media, creative, analytics, influencer, and reta...",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20Donut%20Studios%20New%20Engen"
+    "daysAgo": 17,
+    "description": "Role DescriptionThe Vice President, Paid Media, is the senior-most Paid Media leader at Kanahoma, responsible for the strategic direction, performance, and continuous evolution of the agencyâs Paid Media practice. Reporting directly to the SVP, ...",
+    "link": "https://www.linkedin.com/jobs/search/?keywords=VP%20Paid%20Media%20Kanahoma"
   },
   {
     "id": 14,
@@ -4263,14 +4263,14 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 4,
+    "daysAgo": 2,
     "description": "Leading HPW project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.indeed.com/jobs?q=Project%20Manager%20%E2%80%93%20Fruit%20Processing%20HPW"
   },
   {
     "id": 15,
-    "title": "Engineer 2",
-    "company": "Catalyst Brands India",
+    "title": "Project Manager Donut Studios",
+    "company": "New Engen",
     "board": "Glassdoor",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4280,9 +4280,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 16,
-    "description": "OverviewPay RangeINR â¹0.00 - INR â¹0.00 /Yr.Please mention the word **CONGENIAL** and tag RMjAuNDkuMTMuMTg2 when applying to show you read the job post completely (#RMjAuNDkuMTMuMTg2). This is a beta feature to avoid spam applicants. Companies ...",
-    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Engineer%202%20Catalyst%20Brands%20India"
+    "daysAgo": 17,
+    "description": "WHY DONUT STUDIOS? At New Engen, we help brands grow, not just bigger, but smarter. Weâre a digital marketing agency that drives meaningful impact across the entire customer journey by integrating media, creative, analytics, influencer, and reta...",
+    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20Donut%20Studios%20New%20Engen"
   },
   {
     "id": 16,
@@ -4297,14 +4297,14 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 4,
+    "daysAgo": 2,
     "description": "Leading CoreNett Limited project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20CoreNett%20Limited"
   },
   {
     "id": 17,
-    "title": "Join Our Team",
-    "company": "Mixed Media Labs, Inc.",
+    "title": "Engineer 2",
+    "company": "Catalyst Brands India",
     "board": "Indeed",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4314,9 +4314,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 20,
-    "description": "ECHEMI is a global chemical industry B2B website. You can find leading manufacturing companies, top suppliers &amp; quality chemical products here. We help you complete chemical business in the world. https://www.echemi.com/Please mention the word...",
-    "link": "https://www.indeed.com/jobs?q=Join%20Our%20Team%20Mixed%20Media%20Labs%2C%20Inc."
+    "daysAgo": 17,
+    "description": "OverviewPay RangeINR â¹0.00 - INR â¹0.00 /Yr.Please mention the word **CONGENIAL** and tag RNC4xNTUuMTExLjE= when applying to show you read the job post completely (#RNC4xNTUuMTExLjE=). This is a beta feature to avoid spam applicants. Companies ...",
+    "link": "https://www.indeed.com/jobs?q=Engineer%202%20Catalyst%20Brands%20India"
   },
   {
     "id": 18,
@@ -4331,14 +4331,14 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 1,
+    "daysAgo": 5,
     "description": "Leading Med Bill, L.L.C project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Technical%20Project%20Manager%20Med%20Bill%2C%20L.L.C"
   },
   {
     "id": 19,
-    "title": "Preparador de Vehiculos Hatillo",
-    "company": "Enterprise",
+    "title": "Join Our Team",
+    "company": "Mixed Media Labs, Inc.",
     "board": "LinkedIn",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4349,8 +4349,8 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 20,
-    "description": "OverviewPatrono con Igualdad de Oportunidad de EmpleoEnterprise Mobility (National Car Rental &amp; Alamo Rent A Car) es la compaÃ±Ã­a de renta de automÃ³viles privada mas grande y con el crecimiento mas rÃ¡pido de NorteamÃ©rica. Con mas de 9,000 ...",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=Preparador%20de%20Vehiculos%20Hatillo%20Enterprise"
+    "description": "ECHEMI is a global chemical industry B2B website. You can find leading manufacturing companies, top suppliers &amp; quality chemical products here. We help you complete chemical business in the world. https://www.echemi.com/Please mention the word...",
+    "link": "https://www.linkedin.com/jobs/search/?keywords=Join%20Our%20Team%20Mixed%20Media%20Labs%2C%20Inc."
   },
   {
     "id": 20,
@@ -4365,7 +4365,7 @@ const initApp = () => {
       "Excellent organization, notes capture, and scheduling skills",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 2,
+    "daysAgo": 1,
     "description": "Leading Kaziweza Limited project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.indeed.com/jobs?q=Project%20Coordinator-Structural%20Steel%20Field%20Kaziweza%20Limited"
   }
