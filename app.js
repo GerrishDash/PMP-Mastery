@@ -4031,11 +4031,11 @@ const initApp = () => {
   const pmJobsDatabase = [
   {
     "id": 1,
-    "title": "Project Management Officer",
-    "company": "Glints",
+    "title": "OFFICE ASSISTANT",
+    "company": "Agrinomic Insights LLC",
     "board": "LinkedIn",
-    "exp": "Mid",
-    "salary": "$95,000 - $120,000/yr",
+    "exp": "Entry",
+    "salary": "$60,000 - $78,000/yr",
     "requirements": [
       "Active PMP certification or equivalent path",
       "3-5 years managing software or business operations projects",
@@ -4043,8 +4043,8 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 3,
-    "description": "Project Objectives: Support the IT Portfolio Governance function by ensuring projects are delivered on schedule, within budget, and in accordance with governance standards. The role is responsible for coordinating project governance activities, mo...",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Management%20Officer%20Glints"
+    "description": "Office AssistantHome / Careers / Office AssistantAgrinomic Insights is seeking growth-oriented, high-performance people ready to deliver top quality services to our clients and team.Compensation &amp; BenefitsLocationFully RemoteOffice HoursFlexib...",
+    "link": "https://www.linkedin.com/jobs/search/?keywords=OFFICE%20ASSISTANT%20Agrinomic%20Insights%20LLC"
   },
   {
     "id": 2,
@@ -4059,14 +4059,14 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 2,
+    "daysAgo": 4,
     "description": "Leading Jobberman (Third Party Recruitment) project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.indeed.com/jobs?q=Project%20Manager%20Jobberman%20(Third%20Party%20Recruitment)"
   },
   {
     "id": 3,
-    "title": "Placement Officer",
-    "company": "Grey Sim Learnings Foundation",
+    "title": "Data Quality Analyst",
+    "company": "Owl.co",
     "board": "Glassdoor",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4076,9 +4076,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 5,
-    "description": "JOB ALERT: Join Grey Sim Learnings Foundation!We're looking for passionate individuals to join our team in Guwahati!We have open positions for:Placement Officer: Help our trainees find their dream jobs!What we offer:Job type: Full-time permanentLo...",
-    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Placement%20Officer%20Grey%20Sim%20Learnings%20Foundation"
+    "daysAgo": 3,
+    "description": "Weâre building applied AI systems for highâstakes, realâworld decisions. Our platform ingests and reasons over large, messy data to surface evidence with hard constraints around fairness, auditability, and low bias.The single gnarliest, most...",
+    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Data%20Quality%20Analyst%20Owl.co"
   },
   {
     "id": 4,
@@ -4099,8 +4099,8 @@ const initApp = () => {
   },
   {
     "id": 5,
-    "title": "Technical Specialist",
-    "company": "PeopleLink Collaboration Inc.",
+    "title": "Project Management Officer",
+    "company": "Glints",
     "board": "Indeed",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4110,9 +4110,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 5,
-    "description": "..Please mention the word **REVOLUTIONARY** and tag RNjguMjIwLjYwLjIyNA== when applying to show you read the job post completely (#RNjguMjIwLjYwLjIyNA==). This is a beta feature to avoid spam applicants. Companies can search these words to find ap...",
-    "link": "https://www.indeed.com/jobs?q=Technical%20Specialist%20PeopleLink%20Collaboration%20Inc."
+    "daysAgo": 4,
+    "description": "Project Objectives: Support the IT Portfolio Governance function by ensuring projects are delivered on schedule, within budget, and in accordance with governance standards. The role is responsible for coordinating project governance activities, mo...",
+    "link": "https://www.indeed.com/jobs?q=Project%20Management%20Officer%20Glints"
   },
   {
     "id": 6,
@@ -4127,14 +4127,14 @@ const initApp = () => {
       "Strong budget management, scheduling, and risk planning",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 3,
+    "daysAgo": 5,
     "description": "Leading Hedge & Pembrook Limited project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Senior%20Project%20Manager%20Hedge%20%26%20Pembrook%20Limited"
   },
   {
     "id": 7,
-    "title": "Designer",
-    "company": "RideTEGO",
+    "title": "Placement Officer",
+    "company": "Grey Sim Learnings Foundation",
     "board": "LinkedIn",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4144,9 +4144,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 5,
-    "description": "Country: IndiaYears of Experience: 2Qualification: BCAJob Information: test tew tPlease mention the word **ADULATORY** and tag RNjguMjIwLjYwLjIyNA== when applying to show you read the job post completely (#RNjguMjIwLjYwLjIyNA==). This is a beta fe...",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=Designer%20RideTEGO"
+    "daysAgo": 6,
+    "description": "JOB ALERT: Join Grey Sim Learnings Foundation!We're looking for passionate individuals to join our team in Guwahati!We have open positions for:Placement Officer: Help our trainees find their dream jobs!What we offer:Job type: Full-time permanentLo...",
+    "link": "https://www.linkedin.com/jobs/search/?keywords=Placement%20Officer%20Grey%20Sim%20Learnings%20Foundation"
   },
   {
     "id": 8,
@@ -4161,26 +4161,26 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 2,
+    "daysAgo": 3,
     "description": "Leading The Padana Services project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.indeed.com/jobs?q=Business%20Transformation%20Project%20Manager%20The%20Padana%20Services"
   },
   {
     "id": 9,
-    "title": "Fresh Graduate Management Training Program",
-    "company": "Deliveree On-Demand Logistics (Southeast Asia)",
+    "title": "Technical Specialist",
+    "company": "PeopleLink Collaboration Inc.",
     "board": "Glassdoor",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
     "requirements": [
-      "Project Management Professional (PMP) certification required",
-      "7+ years leading enterprise cross-functional programs",
-      "Strong budget management, scheduling, and risk planning",
+      "Active PMP certification or equivalent path",
+      "3-5 years managing software or business operations projects",
+      "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 7,
-    "description": "If you just click apply, you will not receive a response. You must follow the instructions below under 'how to apply' for our team to review and respond to your application. Complete and qualified applications receive a response within 24 hours.Su...",
-    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Fresh%20Graduate%20Management%20Training%20Program%20Deliveree%20On-Demand%20Logistics%20(Southeast%20Asia)"
+    "daysAgo": 6,
+    "description": "..Please mention the word **REVOLUTIONARY** and tag RMjAuMTY4LjEwMi4xMjg= when applying to show you read the job post completely (#RMjAuMTY4LjEwMi4xMjg=). This is a beta feature to avoid spam applicants. Companies can search these words to find ap...",
+    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Technical%20Specialist%20PeopleLink%20Collaboration%20Inc."
   },
   {
     "id": 10,
@@ -4195,14 +4195,14 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 5,
+    "daysAgo": 2,
     "description": "Leading Project HOPE Namibia (PHN) project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20%E2%80%93%20Strengthening%20Newborn%20Respiratory%20Care%20Project%20Project%20HOPE%20Namibia%20(PHN)"
   },
   {
     "id": 11,
-    "title": "Project Manager",
-    "company": "Empire Life",
+    "title": "Designer",
+    "company": "RideTEGO",
     "board": "Indeed",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4212,9 +4212,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 8,
-    "description": "Posted 1:21:26 PM. Project ManagerLocation: Remote, Canada Empire life is looking to hire a Project Manager to joinâ¦See this and similar jobs on LinkedIn.Please mention the word **COMELY** and tag RNjguMjIwLjYwLjIyNA== when applying to show you ...",
-    "link": "https://www.indeed.com/jobs?q=Project%20Manager%20Empire%20Life"
+    "daysAgo": 6,
+    "description": "Country: IndiaYears of Experience: 2Qualification: BCAJob Information: test tew tPlease mention the word **ADULATORY** and tag RMjAuMTY4LjEwMi4xMjg= when applying to show you read the job post completely (#RMjAuMTY4LjEwMi4xMjg=). This is a beta fe...",
+    "link": "https://www.indeed.com/jobs?q=Designer%20RideTEGO"
   },
   {
     "id": 12,
@@ -4229,26 +4229,26 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 5,
+    "daysAgo": 2,
     "description": "Leading Project HOPE Namibia (PHN) project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20%E2%80%93%20Strengthening%20Newborn%20Respiratory%20Care%20Project%20Project%20HOPE%20Namibia%20(PHN)"
   },
   {
     "id": 13,
-    "title": "Customer Success Manager Enterprise",
-    "company": "PointClickCare",
+    "title": "Fresh Graduate Management Training Program",
+    "company": "Deliveree On-Demand Logistics (Southeast Asia)",
     "board": "LinkedIn",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
     "requirements": [
-      "Active PMP certification or equivalent path",
-      "3-5 years managing software or business operations projects",
-      "Solid understanding of hybrid Waterfall/Agile lifecycles",
+      "Project Management Professional (PMP) certification required",
+      "7+ years leading enterprise cross-functional programs",
+      "Strong budget management, scheduling, and risk planning",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 9,
-    "description": "Reporting to the Sr. Director, Customer Success, the Senior Customer Success Manager is responsible for managing and providing world-class partnerships to their clients and ensuring they are optimizing the use and value of PointClickCareâs solut...",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=Customer%20Success%20Manager%20Enterprise%20PointClickCare"
+    "daysAgo": 8,
+    "description": "If you just click apply, you will not receive a response. You must follow the instructions below under 'how to apply' for our team to review and respond to your application. Complete and qualified applications receive a response within 24 hours.Su...",
+    "link": "https://www.linkedin.com/jobs/search/?keywords=Fresh%20Graduate%20Management%20Training%20Program%20Deliveree%20On-Demand%20Logistics%20(Southeast%20Asia)"
   },
   {
     "id": 14,
@@ -4263,14 +4263,14 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 3,
+    "daysAgo": 2,
     "description": "Leading UNOPS project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.indeed.com/jobs?q=Project%20Manager%20(transactional)%20UNOPS"
   },
   {
     "id": 15,
-    "title": "Jr Creative Strategist",
-    "company": "Trivium Group",
+    "title": "Future Openings Project Management",
+    "company": "Sparkgeo - Applied Geospatial",
     "board": "Glassdoor",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4280,9 +4280,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 10,
-    "description": "Position Summary:The Creative Strategist is responsible for developing and ensuring fulfilment of the creative pipeline based on company SOPs.The Creative Strategist is responsible for translating performance goals and audience insights into a cle...",
-    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Jr%20Creative%20Strategist%20Trivium%20Group"
+    "daysAgo": 9,
+    "description": "Future Openings - Project ManagementFuture OpeningsFull TimePrince George (Sparkgeo employees work remotely in Canada), BCApply NowThank you for your interest in joining the team at Sparkgeo! By submitting your application, you will be joining our...",
+    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Future%20Openings%20Project%20Management%20Sparkgeo%20-%20Applied%20Geospatial"
   },
   {
     "id": 16,
@@ -4303,8 +4303,8 @@ const initApp = () => {
   },
   {
     "id": 17,
-    "title": "Liasoning Agents required for Cities",
-    "company": "Shamlax",
+    "title": "Project Manager",
+    "company": "Empire Life",
     "board": "Indeed",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4314,9 +4314,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 13,
-    "description": "Persons having 3-5 yrs of experience in the Foundry / Foundry Chemicals field can apply toManaging Director: sks@shamlax.comPlease mention the word **STIMULATE** and tag RNjguMjIwLjYwLjIyNA== when applying to show you read the job post completely ...",
-    "link": "https://www.indeed.com/jobs?q=Liasoning%20Agents%20required%20for%20Cities%20Shamlax"
+    "daysAgo": 9,
+    "description": "Posted 1:21:26 PM. Project ManagerLocation: Remote, Canada Empire life is looking to hire a Project Manager to joinâ¦See this and similar jobs on LinkedIn.Please mention the word **COMELY** and tag RMjAuMTY4LjEwMi4xMjg= when applying to show you ...",
+    "link": "https://www.indeed.com/jobs?q=Project%20Manager%20Empire%20Life"
   },
   {
     "id": 18,
@@ -4331,26 +4331,26 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 3,
+    "daysAgo": 5,
     "description": "Leading Alinea International project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20%E2%80%93%20Ghana%20Alinea%20International"
   },
   {
     "id": 19,
-    "title": "Junior Business Analyst",
-    "company": "Arabian Private Holdings",
+    "title": "Customer Success Manager Enterprise",
+    "company": "PointClickCare",
     "board": "LinkedIn",
-    "exp": "Entry",
-    "salary": "$60,000 - $78,000/yr",
+    "exp": "Mid",
+    "salary": "$95,000 - $120,000/yr",
     "requirements": [
-      "Certified Associate in Project Management (CAPM) preferred",
-      "1-2 years experience in professional project tracking",
-      "Excellent organization, notes capture, and scheduling skills",
+      "Active PMP certification or equivalent path",
+      "3-5 years managing software or business operations projects",
+      "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 16,
-    "description": "About the role The Junior Business Analyst position provides essential research and logistical support to our principals as they advise high-level corporate boards. The role exists to ensure that every mandate we accept is grounded in rigorous inv...",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=Junior%20Business%20Analyst%20Arabian%20Private%20Holdings"
+    "daysAgo": 10,
+    "description": "Reporting to the Sr. Director, Customer Success, the Senior Customer Success Manager is responsible for managing and providing world-class partnerships to their clients and ensuring they are optimizing the use and value of PointClickCareâs solut...",
+    "link": "https://www.linkedin.com/jobs/search/?keywords=Customer%20Success%20Manager%20Enterprise%20PointClickCare"
   },
   {
     "id": 20,
@@ -4365,7 +4365,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 1,
+    "daysAgo": 3,
     "description": "Leading HPW project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.indeed.com/jobs?q=Project%20Manager%20%E2%80%93%20Fruit%20Processing%20HPW"
   }
