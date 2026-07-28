@@ -4031,20 +4031,20 @@ const initApp = () => {
   const pmJobsDatabase = [
   {
     "id": 1,
-    "title": "Brand Content & Communications Associate Manager",
-    "company": "FuseGlobal",
+    "title": "System kolejkowy KolejkoBot",
+    "company": "WidNet",
     "board": "LinkedIn",
-    "exp": "Entry",
-    "salary": "$60,000 - $78,000/yr",
+    "exp": "Mid",
+    "salary": "$95,000 - $120,000/yr",
     "requirements": [
-      "Certified Associate in Project Management (CAPM) preferred",
-      "1-2 years experience in professional project tracking",
-      "Excellent organization, notes capture, and scheduling skills",
+      "Active PMP certification or equivalent path",
+      "3-5 years managing software or business operations projects",
+      "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 3,
-    "description": "Posted 5:02:57 PM. Title: Brand Content & Communications Associate Manager (remote)Location: Remote (candidates mustâ¦See this and similar jobs on LinkedIn.Please mention the word **BRILLIANCE** and tag RMjAuNTEuMjA2Ljgw when applying to show you...",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=Brand%20Content%20%26%20Communications%20Associate%20Manager%20FuseGlobal"
+    "daysAgo": 2,
+    "description": "System kolejkowy dlasklepÃ³wSystem kolejkowy dlaszpitali i przychodniSystem kolejkowy dlaaptekSystem kolejkowy dlaurzÄdÃ³wPlease mention the word **EASE** and tag RMTcyLjE3NC4yMjEuMjI0 when applying to show you read the job post completely (#RMTc...",
+    "link": "https://www.linkedin.com/jobs/search/?keywords=System%20kolejkowy%20KolejkoBot%20WidNet"
   },
   {
     "id": 2,
@@ -4059,26 +4059,26 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 4,
+    "daysAgo": 5,
     "description": "Leading Jobberman (Third Party Recruitment) project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.indeed.com/jobs?q=Project%20Manager%20Jobberman%20(Third%20Party%20Recruitment)"
   },
   {
     "id": 3,
-    "title": "Brand Designer",
-    "company": "CoâStar",
+    "title": "Brand Content & Communications Associate Manager",
+    "company": "FuseGlobal",
     "board": "Glassdoor",
-    "exp": "Mid",
-    "salary": "$95,000 - $120,000/yr",
+    "exp": "Entry",
+    "salary": "$60,000 - $78,000/yr",
     "requirements": [
-      "Active PMP certification or equivalent path",
-      "3-5 years managing software or business operations projects",
-      "Solid understanding of hybrid Waterfall/Agile lifecycles",
+      "Certified Associate in Project Management (CAPM) preferred",
+      "1-2 years experience in professional project tracking",
+      "Excellent organization, notes capture, and scheduling skills",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 3,
-    "description": "About Co-StarSomeone downloads CoâStar every 5 seconds.In the five years since we launched, 25% of young people 18-25 in the US have downloaded the app. Big Sean has rapped about us, Ariana Grande &amp; Kevin Durant post screenshots to their IGs...",
-    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Brand%20Designer%20Co%C3%A2%C2%80%C2%93Star"
+    "daysAgo": 4,
+    "description": "Posted 5:02:57 PM. Title: Brand Content & Communications Associate Manager (remote)Location: Remote (candidates mustâ¦See this and similar jobs on LinkedIn.Please mention the word **BRILLIANCE** and tag RMTcyLjE3NC4yMjEuMjI0 when applying to show...",
+    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Brand%20Content%20%26%20Communications%20Associate%20Manager%20FuseGlobal"
   },
   {
     "id": 4,
@@ -4099,8 +4099,8 @@ const initApp = () => {
   },
   {
     "id": 5,
-    "title": "Ecommerce Specialist",
-    "company": "Huntress Talent",
+    "title": "Brand Designer",
+    "company": "CoâStar",
     "board": "Indeed",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4110,9 +4110,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 3,
-    "description": "Looking for a hands-on associate to execute the day-to-day Shopify work that keeps our site running; Product builds, storefront assets management, collection management, and merchandising updates.This is a junior role built for someone early in th...",
-    "link": "https://www.indeed.com/jobs?q=Ecommerce%20Specialist%20Huntress%20Talent"
+    "daysAgo": 4,
+    "description": "About Co-StarSomeone downloads CoâStar every 5 seconds.In the five years since we launched, 25% of young people 18-25 in the US have downloaded the app. Big Sean has rapped about us, Ariana Grande &amp; Kevin Durant post screenshots to their IGs...",
+    "link": "https://www.indeed.com/jobs?q=Brand%20Designer%20Co%C3%A2%C2%80%C2%93Star"
   },
   {
     "id": 6,
@@ -4127,14 +4127,14 @@ const initApp = () => {
       "Strong budget management, scheduling, and risk planning",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 2,
+    "daysAgo": 3,
     "description": "Leading Hedge & Pembrook Limited project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Senior%20Project%20Manager%20Hedge%20%26%20Pembrook%20Limited"
   },
   {
     "id": 7,
-    "title": "Creative Project Manager",
-    "company": "MUSEUM OF ICE CREAM",
+    "title": "Ecommerce Specialist",
+    "company": "Huntress Talent",
     "board": "LinkedIn",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4144,15 +4144,49 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 3,
-    "description": "About The RoleAt Museum of Ice Cream, we exist to spark joy, create connection, and turn everyday moments into unforgettable experiences â while serving as the global champion of ice cream culture. From the brands and makers shaping the category...",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=Creative%20Project%20Manager%20MUSEUM%20OF%20ICE%20CREAM"
+    "daysAgo": 4,
+    "description": "Looking for a hands-on associate to execute the day-to-day Shopify work that keeps our site running; Product builds, storefront assets management, collection management, and merchandising updates.This is a junior role built for someone early in th...",
+    "link": "https://www.linkedin.com/jobs/search/?keywords=Ecommerce%20Specialist%20Huntress%20Talent"
   },
   {
     "id": 8,
+    "title": "Product Owner",
+    "company": "MIM Finance Company",
+    "board": "Indeed",
+    "exp": "Mid",
+    "salary": "$95,000 - $120,000/yr",
+    "requirements": [
+      "Active PMP certification or equivalent path",
+      "3-5 years managing software or business operations projects",
+      "Solid understanding of hybrid Waterfall/Agile lifecycles",
+      "Strong verbal and written English communication skills"
+    ],
+    "daysAgo": 5,
+    "description": "Leading MIM Finance Company project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.indeed.com/jobs?q=Product%20Owner%20MIM%20Finance%20Company"
+  },
+  {
+    "id": 9,
+    "title": "Creative Project Manager",
+    "company": "MUSEUM OF ICE CREAM",
+    "board": "Glassdoor",
+    "exp": "Mid",
+    "salary": "$95,000 - $120,000/yr",
+    "requirements": [
+      "Active PMP certification or equivalent path",
+      "3-5 years managing software or business operations projects",
+      "Solid understanding of hybrid Waterfall/Agile lifecycles",
+      "Strong verbal and written English communication skills"
+    ],
+    "daysAgo": 4,
+    "description": "About The RoleAt Museum of Ice Cream, we exist to spark joy, create connection, and turn everyday moments into unforgettable experiences â while serving as the global champion of ice cream culture. From the brands and makers shaping the category...",
+    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Creative%20Project%20Manager%20MUSEUM%20OF%20ICE%20CREAM"
+  },
+  {
+    "id": 10,
     "title": "Business Transformation Project Manager",
     "company": "The Padana Services",
-    "board": "Indeed",
+    "board": "LinkedIn",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
     "requirements": [
@@ -4163,13 +4197,13 @@ const initApp = () => {
     ],
     "daysAgo": 4,
     "description": "Leading The Padana Services project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.indeed.com/jobs?q=Business%20Transformation%20Project%20Manager%20The%20Padana%20Services"
+    "link": "https://www.linkedin.com/jobs/search/?keywords=Business%20Transformation%20Project%20Manager%20The%20Padana%20Services"
   },
   {
-    "id": 9,
+    "id": 11,
     "title": "Head of Operations",
     "company": "OpenTrack",
-    "board": "Glassdoor",
+    "board": "Indeed",
     "exp": "Senior",
     "salary": "$135,000 - $165,000/yr",
     "requirements": [
@@ -4178,43 +4212,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 3,
+    "daysAgo": 4,
     "description": "At OpenTrack, we're tackling the fragmented data and workflows of the trillion dollar logistics industry. Using data collected in real time from hundreds of sources, we help customers keep their cargo moving efficiently, on time and at a cost savi...",
-    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Head%20of%20Operations%20OpenTrack"
-  },
-  {
-    "id": 10,
-    "title": "Project Manager – Strengthening Newborn Respiratory Care Project",
-    "company": "Project HOPE Namibia (PHN)",
-    "board": "LinkedIn",
-    "exp": "Mid",
-    "salary": "$95,000 - $120,000/yr",
-    "requirements": [
-      "Active PMP certification or equivalent path",
-      "3-5 years managing software or business operations projects",
-      "Solid understanding of hybrid Waterfall/Agile lifecycles",
-      "Strong verbal and written English communication skills"
-    ],
-    "daysAgo": 1,
-    "description": "Leading Project HOPE Namibia (PHN) project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20%E2%80%93%20Strengthening%20Newborn%20Respiratory%20Care%20Project%20Project%20HOPE%20Namibia%20(PHN)"
-  },
-  {
-    "id": 11,
-    "title": "Paralegal",
-    "company": "Giga Energy",
-    "board": "Indeed",
-    "exp": "Mid",
-    "salary": "$95,000 - $120,000/yr",
-    "requirements": [
-      "Active PMP certification or equivalent path",
-      "3-5 years managing software or business operations projects",
-      "Solid understanding of hybrid Waterfall/Agile lifecycles",
-      "Strong verbal and written English communication skills"
-    ],
-    "daysAgo": 3,
-    "description": "Why join GigaThe Pace: We're building at a speed most companies talk about but never actually operate at. If you've been bored somewhere else, you won't be here.The Impact: Every person at Giga touches the work that matters. No layers, no waiting ...",
-    "link": "https://www.indeed.com/jobs?q=Paralegal%20Giga%20Energy"
+    "link": "https://www.indeed.com/jobs?q=Head%20of%20Operations%20OpenTrack"
   },
   {
     "id": 12,
@@ -4229,14 +4229,14 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 4,
+    "daysAgo": 1,
     "description": "Leading Project HOPE Namibia (PHN) project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20%E2%80%93%20Strengthening%20Newborn%20Respiratory%20Care%20Project%20Project%20HOPE%20Namibia%20(PHN)"
   },
   {
     "id": 13,
-    "title": "Animal Cruelty Case Specialist",
-    "company": "Rose, Klein &amp; Marias",
+    "title": "Paralegal",
+    "company": "Giga Energy",
     "board": "LinkedIn",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4247,13 +4247,13 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 4,
-    "description": "DescriptionTerm of Employment: Full-Time, ExemptReports To: Criminal Justice Program Managing AttorneyUnion: Bargaining Unit Position, Nonprofit Professional Employees Union (NPEU)Location: Remote (U.S. Based)Who We AreThe Animal Legal Defense Fun...",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=Animal%20Cruelty%20Case%20Specialist%20Rose%2C%20Klein%20%26amp%3B%20Marias"
+    "description": "Why join GigaThe Pace: We're building at a speed most companies talk about but never actually operate at. If you've been bored somewhere else, you won't be here.The Impact: Every person at Giga touches the work that matters. No layers, no waiting ...",
+    "link": "https://www.linkedin.com/jobs/search/?keywords=Paralegal%20Giga%20Energy"
   },
   {
     "id": 14,
-    "title": "Project Manager (transactional)",
-    "company": "UNOPS",
+    "title": "Project Manager – Strengthening Newborn Respiratory Care Project",
+    "company": "Project HOPE Namibia (PHN)",
     "board": "Indeed",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4264,64 +4264,13 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 2,
-    "description": "Leading UNOPS project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.indeed.com/jobs?q=Project%20Manager%20(transactional)%20UNOPS"
+    "description": "Leading Project HOPE Namibia (PHN) project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.indeed.com/jobs?q=Project%20Manager%20%E2%80%93%20Strengthening%20Newborn%20Respiratory%20Care%20Project%20Project%20HOPE%20Namibia%20(PHN)"
   },
   {
     "id": 15,
-    "title": "Data Entry Specialist",
-    "company": "Morgan McKinley",
-    "board": "Glassdoor",
-    "exp": "Entry",
-    "salary": "$60,000 - $78,000/yr",
-    "requirements": [
-      "Active PMP certification or equivalent path",
-      "3-5 years managing software or business operations projects",
-      "Solid understanding of hybrid Waterfall/Agile lifecycles",
-      "Strong verbal and written English communication skills"
-    ],
-    "daysAgo": 4,
-    "description": "Posted 3:00:05 PM. Healthcare AI Data SpecialistRemote | 6 Month Contract | $24â$26/hour | Full-Time (40 hrs/week)Weâ¦See this and similar jobs on LinkedIn.Please mention the word **UNQUESTIONABLY** and tag RMjAuNTEuMjA2Ljgw when applying to sh...",
-    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Data%20Entry%20Specialist%20Morgan%20McKinley"
-  },
-  {
-    "id": 16,
-    "title": "Global Rewards Project Manager",
-    "company": "Cervecería y Maltería Quilmes",
-    "board": "LinkedIn",
-    "exp": "Mid",
-    "salary": "$95,000 - $120,000/yr",
-    "requirements": [
-      "Active PMP certification or equivalent path",
-      "3-5 years managing software or business operations projects",
-      "Solid understanding of hybrid Waterfall/Agile lifecycles",
-      "Strong verbal and written English communication skills"
-    ],
-    "daysAgo": 3,
-    "description": "Leading Cervecería y Maltería Quilmes project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=Global%20Rewards%20Project%20Manager%20Cervecer%C3%ADa%20y%20Malter%C3%ADa%20Quilmes"
-  },
-  {
-    "id": 17,
-    "title": "OFFICE ASSISTANT",
-    "company": "Agrinomic Insights LLC",
-    "board": "Indeed",
-    "exp": "Entry",
-    "salary": "$60,000 - $78,000/yr",
-    "requirements": [
-      "Active PMP certification or equivalent path",
-      "3-5 years managing software or business operations projects",
-      "Solid understanding of hybrid Waterfall/Agile lifecycles",
-      "Strong verbal and written English communication skills"
-    ],
-    "daysAgo": 6,
-    "description": "Office AssistantHome / Careers / Office AssistantAgrinomic Insights is seeking growth-oriented, high-performance people ready to deliver top quality services to our clients and team.Compensation &amp; BenefitsLocationFully RemoteOffice HoursFlexib...",
-    "link": "https://www.indeed.com/jobs?q=OFFICE%20ASSISTANT%20Agrinomic%20Insights%20LLC"
-  },
-  {
-    "id": 18,
-    "title": "Project Manager – Ghana",
-    "company": "Alinea International",
+    "title": "Animal Cruelty Case Specialist",
+    "company": "Rose, Klein &amp; Marias",
     "board": "Glassdoor",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4332,13 +4281,13 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 5,
-    "description": "Leading Alinea International project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20%E2%80%93%20Ghana%20Alinea%20International"
+    "description": "DescriptionTerm of Employment: Full-Time, ExemptReports To: Criminal Justice Program Managing AttorneyUnion: Bargaining Unit Position, Nonprofit Professional Employees Union (NPEU)Location: Remote (U.S. Based)Who We AreThe Animal Legal Defense Fun...",
+    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Animal%20Cruelty%20Case%20Specialist%20Rose%2C%20Klein%20%26amp%3B%20Marias"
   },
   {
-    "id": 19,
-    "title": "Data Quality Analyst",
-    "company": "Owl.co",
+    "id": 16,
+    "title": "Project Manager (transactional)",
+    "company": "UNOPS",
     "board": "LinkedIn",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4348,14 +4297,65 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 6,
-    "description": "Weâre building applied AI systems for highâstakes, realâworld decisions. Our platform ingests and reasons over large, messy data to surface evidence with hard constraints around fairness, auditability, and low bias.The single gnarliest, most...",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=Data%20Quality%20Analyst%20Owl.co"
+    "daysAgo": 3,
+    "description": "Leading UNOPS project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20(transactional)%20UNOPS"
+  },
+  {
+    "id": 17,
+    "title": "Data Entry Specialist",
+    "company": "Morgan McKinley",
+    "board": "Indeed",
+    "exp": "Entry",
+    "salary": "$60,000 - $78,000/yr",
+    "requirements": [
+      "Active PMP certification or equivalent path",
+      "3-5 years managing software or business operations projects",
+      "Solid understanding of hybrid Waterfall/Agile lifecycles",
+      "Strong verbal and written English communication skills"
+    ],
+    "daysAgo": 5,
+    "description": "Posted 3:00:05 PM. Healthcare AI Data SpecialistRemote | 6 Month Contract | $24â$26/hour | Full-Time (40 hrs/week)Weâ¦See this and similar jobs on LinkedIn.Please mention the word **UNQUESTIONABLY** and tag RMTcyLjE3NC4yMjEuMjI0 when applying t...",
+    "link": "https://www.indeed.com/jobs?q=Data%20Entry%20Specialist%20Morgan%20McKinley"
+  },
+  {
+    "id": 18,
+    "title": "Global Rewards Project Manager",
+    "company": "Cervecería y Maltería Quilmes",
+    "board": "Glassdoor",
+    "exp": "Mid",
+    "salary": "$95,000 - $120,000/yr",
+    "requirements": [
+      "Active PMP certification or equivalent path",
+      "3-5 years managing software or business operations projects",
+      "Solid understanding of hybrid Waterfall/Agile lifecycles",
+      "Strong verbal and written English communication skills"
+    ],
+    "daysAgo": 2,
+    "description": "Leading Cervecería y Maltería Quilmes project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Global%20Rewards%20Project%20Manager%20Cervecer%C3%ADa%20y%20Malter%C3%ADa%20Quilmes"
+  },
+  {
+    "id": 19,
+    "title": "OFFICE ASSISTANT",
+    "company": "Agrinomic Insights LLC",
+    "board": "LinkedIn",
+    "exp": "Entry",
+    "salary": "$60,000 - $78,000/yr",
+    "requirements": [
+      "Active PMP certification or equivalent path",
+      "3-5 years managing software or business operations projects",
+      "Solid understanding of hybrid Waterfall/Agile lifecycles",
+      "Strong verbal and written English communication skills"
+    ],
+    "daysAgo": 7,
+    "description": "Office AssistantHome / Careers / Office AssistantAgrinomic Insights is seeking growth-oriented, high-performance people ready to deliver top quality services to our clients and team.Compensation &amp; BenefitsLocationFully RemoteOffice HoursFlexib...",
+    "link": "https://www.linkedin.com/jobs/search/?keywords=OFFICE%20ASSISTANT%20Agrinomic%20Insights%20LLC"
   },
   {
     "id": 20,
-    "title": "Project Manager – Fruit Processing",
-    "company": "HPW",
+    "title": "Project Manager – Ghana",
+    "company": "Alinea International",
     "board": "Indeed",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4365,9 +4365,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 3,
-    "description": "Leading HPW project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.indeed.com/jobs?q=Project%20Manager%20%E2%80%93%20Fruit%20Processing%20HPW"
+    "daysAgo": 5,
+    "description": "Leading Alinea International project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.indeed.com/jobs?q=Project%20Manager%20%E2%80%93%20Ghana%20Alinea%20International"
   }
 ];
 
