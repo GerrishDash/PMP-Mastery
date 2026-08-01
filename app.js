@@ -4042,7 +4042,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 2,
+    "daysAgo": 3,
     "description": "Precision, scale, and measurable impact for modern political campaigns. PowerPlay brings broadcast-level credibility to the digital space with transparent reporting, brand-safe environments, and proven performance.Please mention the word **HEROIC*...",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Political%20PowerPlay"
   },
@@ -4059,7 +4059,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 2,
+    "daysAgo": 4,
     "description": "Leading Jobberman (Third Party Recruitment) project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.indeed.com/jobs?q=Project%20Manager%20Jobberman%20(Third%20Party%20Recruitment)"
   },
@@ -4076,7 +4076,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 2,
+    "daysAgo": 3,
     "description": "Catalog Type = Carn Sort = Lion King Carn Mix  Select Pink  New Love  Nelson  Duero  Domingo  Carn Don Pedro  Esquimo  Kiro  Rayo De Sol  Pink Nelson  Cassandra  Dakota  Orange Tundra  Vianca  Delphi  Calvin  Mini Barbara  Mini Belmonte  Brisbane ...",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Lion%20King%20BiFlorica"
   },
@@ -4093,7 +4093,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 3,
+    "daysAgo": 2,
     "description": "Leading Rednoxx Limited project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Product%20Owner%20Rednoxx%20Limited"
   },
@@ -4110,7 +4110,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 2,
+    "daysAgo": 3,
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.L...",
     "link": "https://www.indeed.com/jobs?q=test%20UztexGroup"
   },
@@ -4127,7 +4127,7 @@ const initApp = () => {
       "Strong budget management, scheduling, and risk planning",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 4,
+    "daysAgo": 2,
     "description": "Leading Hedge & Pembrook Limited project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Senior%20Project%20Manager%20Hedge%20%26%20Pembrook%20Limited"
   },
@@ -4144,8 +4144,8 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 2,
-    "description": "Reeder, TÃ¼rkiyeânin en bÃ¼yÃ¼k yerli telefon Ã¼reticisi. TÃ¼rkiyeânin 58 Åehrinde 125 dÃ¼kkanÄ± bulunmaktadÄ±r.Please mention the word **EXHILARATE** and tag RMjAuMTY4LjEzNi4xNjU= when applying to show you read the job post completely (#RMjA...",
+    "daysAgo": 3,
+    "description": "Reeder, TÃ¼rkiyeânin en bÃ¼yÃ¼k yerli telefon Ã¼reticisi. TÃ¼rkiyeânin 58 Åehrinde 125 dÃ¼kkanÄ± bulunmaktadÄ±r.Please mention the word **EXHILARATE** and tag RMTcyLjE4Mi4yNDQuNg== when applying to show you read the job post completely (#RMTc...",
     "link": "https://www.linkedin.com/jobs/search/?keywords=REEDER%20Tarsu%20Al%C3%84%C2%B1%C3%85%C2%9Fveri%C3%85%C2%9F%20Merkezi"
   },
   {
@@ -4161,7 +4161,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 1,
+    "daysAgo": 4,
     "description": "Leading MIM Finance Company project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.indeed.com/jobs?q=Product%20Owner%20MIM%20Finance%20Company"
   },
@@ -4178,7 +4178,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 2,
+    "daysAgo": 3,
     "description": "1960 yÄ±lÄ±nda temelleri atÄ±lan FLO, bugÃ¼n TÃ¼rkiye ayakkabÄ± pazarÄ±nÄ±n Ã¶ncÃ¼ firmalarÄ±ndandÄ±r. TÃ¼rkiyeâde ayakkabÄ± sektÃ¶rÃ¼ne Ã¶ncÃ¼lÃ¼k etme ve bu sektÃ¶rÃ¼ dÃ¼nya Ã¼retim liginde Ã¼st sÄ±ralara taÅÄ±ma vizyonuyla hareket eden FLO, ...",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=FLO%20Tarsu%20Al%C3%84%C2%B1%C3%85%C2%9Fveri%C3%85%C2%9F%20Merkezi"
   },
@@ -4195,7 +4195,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 2,
+    "daysAgo": 1,
     "description": "Leading Vecomity Ghana Ltd project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20Vecomity%20Ghana%20Ltd"
   },
@@ -4212,8 +4212,8 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 3,
-    "description": "Â¿Te gusta trabajar al aire libre? Â¿Buscas un empleo estable con oportunidad de crecer? Â¡Esta es tu oportunidad!Busca...More InfoPlease mention the word **GLIMMERING** and tag RMjAuMTY4LjEzNi4xNjU= when applying to show you read the job post com...",
+    "daysAgo": 4,
+    "description": "Â¿Te gusta trabajar al aire libre? Â¿Buscas un empleo estable con oportunidad de crecer? Â¡Esta es tu oportunidad!Busca...More InfoPlease mention the word **GLIMMERING** and tag RMTcyLjE4Mi4yNDQuNg== when applying to show you read the job post com...",
     "link": "https://www.indeed.com/jobs?q=%C3%82%C2%A1Empieza%20a%20trabajar%20de%20inmediato%20La%20Subasta%20App"
   },
   {
@@ -4246,7 +4246,7 @@ const initApp = () => {
       "Excellent organization, notes capture, and scheduling skills",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 3,
+    "daysAgo": 4,
     "description": "About the role The Project Management Coordinator role is essential for maintaining the structure and rhythm of our high level advisory work. In this position, you will support our principals as we assist a major regional logistics and transportat...",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Management%20Coordinator%20Arabian%20Private%20Holdings"
   },
@@ -4280,8 +4280,8 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 4,
-    "description": "TATALOKA (TATALOKA)Editor in Chief : Dr. Jawoto Sih SetyonoPublisher :  Faculty of Engineering, Faculty of Engineering, Universitas DiponegoroSubject : Engineering and TechnologyView JournalPlease mention the word **SLEEK** and tag RMjAuMTY4LjEzNi...",
+    "daysAgo": 5,
+    "description": "TATALOKA (TATALOKA)Editor in Chief : Dr. Jawoto Sih SetyonoPublisher :  Faculty of Engineering, Faculty of Engineering, Universitas DiponegoroSubject : Engineering and TechnologyView JournalPlease mention the word **SLEEK** and tag RMTcyLjE4Mi4yND...",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=TATALOKA%20Jurnal%20Presipitasi"
   },
   {
@@ -4297,7 +4297,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 3,
+    "daysAgo": 1,
     "description": "Leading UNOPS project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20(transactional)%20UNOPS"
   },
@@ -4314,7 +4314,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 5,
+    "daysAgo": 6,
     "description": "#ããããã³ã¿ã¼æ±äºº#SaaS#DXæ¨é²#AI#ããããã³ã¿ã¼æ±äºº#SaaS#DXæ¨é²#AIä¼æ¥­åéå¬ééç¨å½¢æï¼æ­£ç¤¾å¡è·ç¨®ï¼ã·ã¹ãã ã³ã³ãµã«ã¿ã³ãå¹´åï¼600ä¸åã800ä¸åãã¤ã³ãï¼ãã³ãã£ã¼ä¼æ¥­,1åå...",
     "link": "https://www.indeed.com/jobs?q=%C3%A3%C2%80%C2%90IT%C3%A6%C2%88%C2%A6%C3%A7%C2%95%C2%A5%C3%A3%C2%82%C2%B3%C3%A3%C2%83%C2%B3%C3%A3%C2%82%C2%B5%C3%A3%C2%83%C2%AB%20600%C3%A4%C2%B8%C2%87%C3%A3%C2%80%C2%9C%C3%A3%C2%80%C2%91PM%C3%A3%C2%83%C2%BBIT%C3%A6%C2%88%C2%A6%C3%A7%C2%95%C2%A5%C3%A6%C2%A7%C2%8B%C3%A6%C2%83%C2%B3%20%C3%A4%C2%B8%C2%8A%C3%A5%C2%A0%C2%B4%C3%A3%C2%82%C2%B3%C3%A3%C2%83%C2%B3%C3%A3%C2%82%C2%B5%C3%A3%C2%83%C2%AB%C3%A3%C2%82%C2%B9%C3%A3%C2%83%C2%94%C3%A3%C2%83%C2%B3%C3%A3%C2%82%C2%A2%C3%A3%C2%82%C2%A6%C3%A3%C2%83%C2%88%20%C3%A3%C2%82%C2%B3%C3%A3%C2%83%C2%B3%C3%A3%C2%82%C2%B5%C3%A3%C2%83%C2%AB%C3%A6%C2%9C%C2%AA%C3%A7%C2%B5%C2%8C%C3%A9%C2%A8%C2%93OK%20ONE%20CAREER%20PLUS"
   },
@@ -4331,7 +4331,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 1,
+    "daysAgo": 4,
     "description": "Leading Cervecería y Maltería Quilmes project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Global%20Rewards%20Project%20Manager%20Cervecer%C3%ADa%20y%20Malter%C3%ADa%20Quilmes"
   },
@@ -4348,8 +4348,8 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 5,
-    "description": "System kolejkowy dlasklepÃ³wSystem kolejkowy dlaszpitali i przychodniSystem kolejkowy dlaaptekSystem kolejkowy dlaurzÄdÃ³wPlease mention the word **EASE** and tag RMjAuMTY4LjEzNi4xNjU= when applying to show you read the job post completely (#RMjA...",
+    "daysAgo": 6,
+    "description": "System kolejkowy dlasklepÃ³wSystem kolejkowy dlaszpitali i przychodniSystem kolejkowy dlaaptekSystem kolejkowy dlaurzÄdÃ³wPlease mention the word **EASE** and tag RMTcyLjE4Mi4yNDQuNg== when applying to show you read the job post completely (#RMTc...",
     "link": "https://www.linkedin.com/jobs/search/?keywords=System%20kolejkowy%20KolejkoBot%20WidNet"
   },
   {
