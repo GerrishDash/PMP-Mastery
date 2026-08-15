@@ -4042,7 +4042,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 2,
+    "daysAgo": 3,
     "description": "Project leaders are the vision persons, and they focus on their targets, Project leaders lead, support, and give a plan for achieving a target. Project leaders are different from project managers, project leaders work among their team members, are...",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20leaders%20Niyukti%20Systems%2C%20Inc"
   },
@@ -4059,7 +4059,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 5,
+    "daysAgo": 2,
     "description": "Leading Rednoxx Limited project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.indeed.com/jobs?q=Product%20Owner%20Rednoxx%20Limited"
   },
@@ -4076,14 +4076,14 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 6,
-    "description": "Form should POSTcode]:text-sm [&amp;&gt;a]:primaryLink\"&gt;Make sure your form has the method=\"POST\" attributeYou are usingPlease mention the word **SUFFICES** and tag RNTIuMTYyLjkuMjQx when applying to show you read the job post completely (#RNTI...",
+    "daysAgo": 7,
+    "description": "Form should POSTcode]:text-sm [&amp;&gt;a]:primaryLink\"&gt;Make sure your form has the method=\"POST\" attributeYou are usingPlease mention the word **SUFFICES** and tag RNTIuMTU0LjE0MC44NA== when applying to show you read the job post completely (#...",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=APPLY%20TODAY%20Napa%20Valley%20Country%20Club"
   },
   {
     "id": 4,
     "title": "Project Manager",
-    "company": "Kenex Konsults International",
+    "company": "Droomwork Limited",
     "board": "LinkedIn",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4093,9 +4093,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 5,
-    "description": "Leading Kenex Konsults International project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20Kenex%20Konsults%20International"
+    "daysAgo": 2,
+    "description": "Leading Droomwork Limited project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20Droomwork%20Limited"
   },
   {
     "id": 5,
@@ -4110,14 +4110,14 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 6,
-    "description": "they can be from car journalists to test drivers to car designers.And if you know any automotive jobs that will allow me to drive/observe a variety of different cars please tell me.Please mention the word **HOLY** and tag RNTIuMTYyLjkuMjQx when ap...",
+    "daysAgo": 7,
+    "description": "they can be from car journalists to test drivers to car designers.And if you know any automotive jobs that will allow me to drive/observe a variety of different cars please tell me.Please mention the word **HOLY** and tag RNTIuMTU0LjE0MC44NA== whe...",
     "link": "https://www.indeed.com/jobs?q=What%20are%20the%20highest%20paying%20jobs%20the%20automotive%20industry%20DealerRefresh"
   },
   {
     "id": 6,
     "title": "Project Manager",
-    "company": "Jobberman Third Party",
+    "company": "Kenex Konsults International",
     "board": "Glassdoor",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4127,9 +4127,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 3,
-    "description": "Leading Jobberman Third Party project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20Jobberman%20Third%20Party"
+    "daysAgo": 4,
+    "description": "Leading Kenex Konsults International project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20Kenex%20Konsults%20International"
   },
   {
     "id": 7,
@@ -4144,14 +4144,14 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 6,
+    "daysAgo": 7,
     "description": "WhySeagate?MeetSeagateLife atSeagateHiringProcessUniversityProgramsSeagate CultureSearchJobsHiring ProcessrowsWhy Seagate?Meet SeagateLIfe at SeagateHiring Process University Programs Diversity, Equity, and Inclusion Search JobsPlease mention the ...",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Hiring%20Process%20SandForce"
   },
   {
     "id": 8,
     "title": "Project Manager",
-    "company": "Southeastern Montessori Academy",
+    "company": "Jobberman Third Party",
     "board": "Indeed",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4161,9 +4161,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 4,
-    "description": "Leading Southeastern Montessori Academy project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.indeed.com/jobs?q=Project%20Manager%20Southeastern%20Montessori%20Academy"
+    "daysAgo": 2,
+    "description": "Leading Jobberman Third Party project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.indeed.com/jobs?q=Project%20Manager%20Jobberman%20Third%20Party"
   },
   {
     "id": 9,
@@ -4178,14 +4178,14 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 7,
+    "daysAgo": 8,
     "description": "Be part of a team that thrives on collaboration, professionalism, technical expertise and important goals. K.KANELLAKIS is all about collaborative relationships of trust, based on the confidence of our long experience into an evolving industry. Co...",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Would%20you%20like%20be%20part%20of%20our%20team%20K.%20KANELLAKIS%20S.A."
   },
   {
     "id": 10,
     "title": "Project Manager",
-    "company": "Vecomity Ghana Ltd",
+    "company": "Southeastern Montessori Academy",
     "board": "LinkedIn",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4195,9 +4195,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 2,
-    "description": "Leading Vecomity Ghana Ltd project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20Vecomity%20Ghana%20Ltd"
+    "daysAgo": 1,
+    "description": "Leading Southeastern Montessori Academy project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20Southeastern%20Montessori%20Academy"
   },
   {
     "id": 11,
@@ -4212,14 +4212,14 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 7,
-    "description": "Job ApplicationPlease complete the form below to apply for a position with us.Full Name *AddressEmail Address *Phone Number*Upload Resume *Please mention the word **OVERTURE** and tag RNTIuMTYyLjkuMjQx when applying to show you read the job post c...",
+    "daysAgo": 8,
+    "description": "Job ApplicationPlease complete the form below to apply for a position with us.Full Name *AddressEmail Address *Phone Number*Upload Resume *Please mention the word **OVERTURE** and tag RNTIuMTU0LjE0MC44NA== when applying to show you read the job po...",
     "link": "https://www.indeed.com/jobs?q=ENGINEERS%20National%20Aluminium%20-%20GINCO%20Group%20of%20Companies"
   },
   {
     "id": 12,
-    "title": "Project Manager - Field Support Services Project (fssp), Ghana",
-    "company": "Trigon Associates, LLC (ED WOSB)",
+    "title": "Project Manager",
+    "company": "Vecomity Ghana Ltd",
     "board": "Glassdoor",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4229,9 +4229,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 1,
-    "description": "Leading Trigon Associates, LLC (ED WOSB) project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20-%20Field%20Support%20Services%20Project%20(fssp)%2C%20Ghana%20Trigon%20Associates%2C%20LLC%20(ED%20WOSB)"
+    "daysAgo": 4,
+    "description": "Leading Vecomity Ghana Ltd project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20Vecomity%20Ghana%20Ltd"
   },
   {
     "id": 13,
@@ -4246,14 +4246,14 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 9,
+    "daysAgo": 10,
     "description": "We value our people as our greatest asset, encouraging knowledge sharing and mutual support across all areas.Our goal is to attract and retain top talent while fostering career growth and well-being.Check this page for current openings, or if none...",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Join%20our%20team%20NetworkCO"
   },
   {
     "id": 14,
-    "title": "Project Manager",
-    "company": "Dext Technology Limited",
+    "title": "Project Manager - Field Support Services Project (fssp), Ghana",
+    "company": "Trigon Associates, LLC (ED WOSB)",
     "board": "Indeed",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4263,9 +4263,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 5,
-    "description": "Leading Dext Technology Limited project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.indeed.com/jobs?q=Project%20Manager%20Dext%20Technology%20Limited"
+    "daysAgo": 4,
+    "description": "Leading Trigon Associates, LLC (ED WOSB) project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.indeed.com/jobs?q=Project%20Manager%20-%20Field%20Support%20Services%20Project%20(fssp)%2C%20Ghana%20Trigon%20Associates%2C%20LLC%20(ED%20WOSB)"
   },
   {
     "id": 15,
@@ -4280,14 +4280,14 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 10,
+    "daysAgo": 11,
     "description": "Deionised-water, soft-brush cleaning. Zero abrasion, zero detergent residue, panel by panel. Soiling is the single largest recoverable loss on most systems; coastal dust, pollen and droppings routinely cost double-digit percentages of output.Pleas...",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=THERMAL%20HOTSPOT%20CHECKS%20Tyrell%20Solar"
   },
   {
     "id": 16,
-    "title": "Project Manager – Strengthening Newborn Respiratory Care Project",
-    "company": "Project HOPE Namibia (PHN)",
+    "title": "Project Manager",
+    "company": "Dext Technology Limited",
     "board": "LinkedIn",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4297,9 +4297,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 2,
-    "description": "Leading Project HOPE Namibia (PHN) project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20%E2%80%93%20Strengthening%20Newborn%20Respiratory%20Care%20Project%20Project%20HOPE%20Namibia%20(PHN)"
+    "daysAgo": 4,
+    "description": "Leading Dext Technology Limited project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20Dext%20Technology%20Limited"
   },
   {
     "id": 17,
@@ -4314,14 +4314,14 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 10,
-    "description": "Full method statement and risk assessment for groundworks. 12 hazards assessed, colour-coded risk ratings, PPE schedule, operative sign-off.Please mention the word **DUMBFOUNDED** and tag RNTIuMTYyLjkuMjQx when applying to show you read the job po...",
+    "daysAgo": 11,
+    "description": "Full method statement and risk assessment for groundworks. 12 hazards assessed, colour-coded risk ratings, PPE schedule, operative sign-off.Please mention the word **DUMBFOUNDED** and tag RNTIuMTU0LjE0MC44NA== when applying to show you read the jo...",
     "link": "https://www.indeed.com/jobs?q=Quality%20Management%20Plan%20The%20Site%20Office"
   },
   {
     "id": 18,
-    "title": "Project Manager – Factory Construction & Development",
-    "company": "Nairobi Enterprises Ltd - NEL",
+    "title": "Project Manager – Strengthening Newborn Respiratory Care Project",
+    "company": "Project HOPE Namibia (PHN)",
     "board": "Glassdoor",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4331,9 +4331,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 5,
-    "description": "Leading Nairobi Enterprises Ltd - NEL project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20%E2%80%93%20Factory%20Construction%20%26%20Development%20Nairobi%20Enterprises%20Ltd%20-%20NEL"
+    "daysAgo": 4,
+    "description": "Leading Project HOPE Namibia (PHN) project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20%E2%80%93%20Strengthening%20Newborn%20Respiratory%20Care%20Project%20Project%20HOPE%20Namibia%20(PHN)"
   },
   {
     "id": 19,
@@ -4348,14 +4348,14 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 11,
-    "description": "View our website and help put out the message, and change the way you live, forever.Please mention the word **MERRILY** and tag RNTIuMTYyLjkuMjQx when applying to show you read the job post completely (#RNTIuMTYyLjkuMjQx). This is a beta feature t...",
+    "daysAgo": 12,
+    "description": "View our website and help put out the message, and change the way you live, forever.Please mention the word **MERRILY** and tag RNTIuMTU0LjE0MC44NA== when applying to show you read the job post completely (#RNTIuMTU0LjE0MC44NA==). This is a beta f...",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Everyone%20One%20and%20done%20Our%20World%20Our%20Hands"
   },
   {
     "id": 20,
-    "title": "Technical Project Manager",
-    "company": "Med Bill, L.L.C",
+    "title": "Project Manager – Factory Construction & Development",
+    "company": "Nairobi Enterprises Ltd - NEL",
     "board": "Indeed",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4365,9 +4365,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 2,
-    "description": "Leading Med Bill, L.L.C project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.indeed.com/jobs?q=Technical%20Project%20Manager%20Med%20Bill%2C%20L.L.C"
+    "daysAgo": 3,
+    "description": "Leading Nairobi Enterprises Ltd - NEL project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.indeed.com/jobs?q=Project%20Manager%20%E2%80%93%20Factory%20Construction%20%26%20Development%20Nairobi%20Enterprises%20Ltd%20-%20NEL"
   }
 ];
 
