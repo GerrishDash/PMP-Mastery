@@ -4042,7 +4042,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 7,
+    "daysAgo": 8,
     "description": "Project leaders are the vision persons, and they focus on their targets, Project leaders lead, support, and give a plan for achieving a target. Project leaders are different from project managers, project leaders work among their team members, are...",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20leaders%20Niyukti%20Systems%2C%20Inc"
   },
@@ -4059,7 +4059,7 @@ const initApp = () => {
       "Excellent organization, notes capture, and scheduling skills",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 3,
+    "daysAgo": 1,
     "description": "Leading Upland Consulting Nigeria Limited project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.indeed.com/jobs?q=Project%20Coordinator%20Upland%20Consulting%20Nigeria%20Limited"
   },
@@ -4076,8 +4076,8 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 11,
-    "description": "Form should POSTcode]:text-sm [&amp;&gt;a]:primaryLink\"&gt;Make sure your form has the method=\"POST\" attributeYou are usingPlease mention the word **SUFFICES** and tag RMTcyLjIxNS4yMTYuMjA5 when applying to show you read the job post completely (#...",
+    "daysAgo": 12,
+    "description": "Form should POSTcode]:text-sm [&amp;&gt;a]:primaryLink\"&gt;Make sure your form has the method=\"POST\" attributeYou are usingPlease mention the word **SUFFICES** and tag RNTIuMTg4Ljg3LjY= when applying to show you read the job post completely (#RNTI...",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=APPLY%20TODAY%20Napa%20Valley%20Country%20Club"
   },
   {
@@ -4093,7 +4093,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 1,
+    "daysAgo": 3,
     "description": "Leading Thronos Alliance project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20Thronos%20Alliance"
   },
@@ -4110,8 +4110,8 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 11,
-    "description": "they can be from car journalists to test drivers to car designers.And if you know any automotive jobs that will allow me to drive/observe a variety of different cars please tell me.Please mention the word **HOLY** and tag RMTcyLjIxNS4yMTYuMjA5 whe...",
+    "daysAgo": 12,
+    "description": "they can be from car journalists to test drivers to car designers.And if you know any automotive jobs that will allow me to drive/observe a variety of different cars please tell me.Please mention the word **HOLY** and tag RNTIuMTg4Ljg3LjY= when ap...",
     "link": "https://www.indeed.com/jobs?q=What%20are%20the%20highest%20paying%20jobs%20the%20automotive%20industry%20DealerRefresh"
   },
   {
@@ -4127,7 +4127,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 1,
+    "daysAgo": 3,
     "description": "Leading Droomwork Limited project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20Droomwork%20Limited"
   },
@@ -4144,7 +4144,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 11,
+    "daysAgo": 12,
     "description": "WhySeagate?MeetSeagateLife atSeagateHiringProcessUniversityProgramsSeagate CultureSearchJobsHiring ProcessrowsWhy Seagate?Meet SeagateLIfe at SeagateHiring Process University Programs Diversity, Equity, and Inclusion Search JobsPlease mention the ...",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Hiring%20Process%20SandForce"
   },
@@ -4161,7 +4161,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 3,
+    "daysAgo": 4,
     "description": "Leading Kenex Konsults International project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.indeed.com/jobs?q=Project%20Manager%20Kenex%20Konsults%20International"
   },
@@ -4178,7 +4178,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 12,
+    "daysAgo": 13,
     "description": "Be part of a team that thrives on collaboration, professionalism, technical expertise and important goals. K.KANELLAKIS is all about collaborative relationships of trust, based on the confidence of our long experience into an evolving industry. Co...",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Would%20you%20like%20be%20part%20of%20our%20team%20K.%20KANELLAKIS%20S.A."
   },
@@ -4195,7 +4195,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 4,
+    "daysAgo": 2,
     "description": "Leading Sidan Associates & Partners project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20Sidan%20Associates%20%26%20Partners"
   },
@@ -4212,8 +4212,8 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 12,
-    "description": "Job ApplicationPlease complete the form below to apply for a position with us.Full Name *AddressEmail Address *Phone Number*Upload Resume *Please mention the word **OVERTURE** and tag RMTcyLjIxNS4yMTYuMjA5 when applying to show you read the job po...",
+    "daysAgo": 13,
+    "description": "Job ApplicationPlease complete the form below to apply for a position with us.Full Name *AddressEmail Address *Phone Number*Upload Resume *Please mention the word **OVERTURE** and tag RNTIuMTg4Ljg3LjY= when applying to show you read the job post c...",
     "link": "https://www.indeed.com/jobs?q=ENGINEERS%20National%20Aluminium%20-%20GINCO%20Group%20of%20Companies"
   },
   {
@@ -4229,7 +4229,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 2,
+    "daysAgo": 1,
     "description": "Leading Jobberman Third Party project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20Jobberman%20Third%20Party"
   },
@@ -4246,7 +4246,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 14,
+    "daysAgo": 15,
     "description": "We value our people as our greatest asset, encouraging knowledge sharing and mutual support across all areas.Our goal is to attract and retain top talent while fostering career growth and well-being.Check this page for current openings, or if none...",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Join%20our%20team%20NetworkCO"
   },
@@ -4280,7 +4280,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 15,
+    "daysAgo": 16,
     "description": "Deionised-water, soft-brush cleaning. Zero abrasion, zero detergent residue, panel by panel. Soiling is the single largest recoverable loss on most systems; coastal dust, pollen and droppings routinely cost double-digit percentages of output.Pleas...",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=THERMAL%20HOTSPOT%20CHECKS%20Tyrell%20Solar"
   },
@@ -4297,7 +4297,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 3,
+    "daysAgo": 5,
     "description": "Leading Vecomity Ghana Ltd project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20Vecomity%20Ghana%20Ltd"
   },
@@ -4314,8 +4314,8 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 15,
-    "description": "Full method statement and risk assessment for groundworks. 12 hazards assessed, colour-coded risk ratings, PPE schedule, operative sign-off.Please mention the word **DUMBFOUNDED** and tag RMTcyLjIxNS4yMTYuMjA5 when applying to show you read the jo...",
+    "daysAgo": 16,
+    "description": "Full method statement and risk assessment for groundworks. 12 hazards assessed, colour-coded risk ratings, PPE schedule, operative sign-off.Please mention the word **DUMBFOUNDED** and tag RNTIuMTg4Ljg3LjY= when applying to show you read the job po...",
     "link": "https://www.indeed.com/jobs?q=Quality%20Management%20Plan%20The%20Site%20Office"
   },
   {
@@ -4331,7 +4331,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 4,
+    "daysAgo": 3,
     "description": "Leading Annonymous.ai project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Management%20Specialist%20Annonymous.ai"
   },
@@ -4348,8 +4348,8 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 16,
-    "description": "View our website and help put out the message, and change the way you live, forever.Please mention the word **MERRILY** and tag RMTcyLjIxNS4yMTYuMjA5 when applying to show you read the job post completely (#RMTcyLjIxNS4yMTYuMjA5). This is a beta f...",
+    "daysAgo": 17,
+    "description": "View our website and help put out the message, and change the way you live, forever.Please mention the word **MERRILY** and tag RNTIuMTg4Ljg3LjY= when applying to show you read the job post completely (#RNTIuMTg4Ljg3LjY=). This is a beta feature t...",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Everyone%20One%20and%20done%20Our%20World%20Our%20Hands"
   },
   {
@@ -4365,7 +4365,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 3,
+    "daysAgo": 5,
     "description": "Leading Annonymous.ai project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.indeed.com/jobs?q=Project%20Management%20Specialist%20Annonymous.ai"
   }
