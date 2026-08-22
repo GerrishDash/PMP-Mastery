@@ -4042,7 +4042,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 9,
+    "daysAgo": 10,
     "description": "Project leaders are the vision persons, and they focus on their targets, Project leaders lead, support, and give a plan for achieving a target. Project leaders are different from project managers, project leaders work among their team members, are...",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20leaders%20Niyukti%20Systems%2C%20Inc"
   },
@@ -4059,7 +4059,7 @@ const initApp = () => {
       "Excellent organization, notes capture, and scheduling skills",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 5,
+    "daysAgo": 1,
     "description": "Leading Anonymous Employer project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.indeed.com/jobs?q=Project%20Coordinator%20Anonymous%20Employer"
   },
@@ -4076,14 +4076,14 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 13,
-    "description": "Form should POSTcode]:text-sm [&amp;&gt;a]:primaryLink\"&gt;Make sure your form has the method=\"POST\" attributeYou are usingPlease mention the word **SUFFICES** and tag RNTIuMTU5LjI0Ny4xNjI= when applying to show you read the job post completely (#...",
+    "daysAgo": 14,
+    "description": "Form should POSTcode]:text-sm [&amp;&gt;a]:primaryLink\"&gt;Make sure your form has the method=\"POST\" attributeYou are usingPlease mention the word **SUFFICES** and tag RMTcyLjIxNC4xMDQuNTU= when applying to show you read the job post completely (#...",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=APPLY%20TODAY%20Napa%20Valley%20Country%20Club"
   },
   {
     "id": 4,
     "title": "Project Manager",
-    "company": "Monas Consulting",
+    "company": "Crescendo Capital Limited",
     "board": "LinkedIn",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4093,9 +4093,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 2,
-    "description": "Leading Monas Consulting project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20Monas%20Consulting"
+    "daysAgo": 1,
+    "description": "Leading Crescendo Capital Limited project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20Crescendo%20Capital%20Limited"
   },
   {
     "id": 5,
@@ -4110,14 +4110,14 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 13,
-    "description": "they can be from car journalists to test drivers to car designers.And if you know any automotive jobs that will allow me to drive/observe a variety of different cars please tell me.Please mention the word **HOLY** and tag RNTIuMTU5LjI0Ny4xNjI= whe...",
+    "daysAgo": 14,
+    "description": "they can be from car journalists to test drivers to car designers.And if you know any automotive jobs that will allow me to drive/observe a variety of different cars please tell me.Please mention the word **HOLY** and tag RMTcyLjIxNC4xMDQuNTU= whe...",
     "link": "https://www.indeed.com/jobs?q=What%20are%20the%20highest%20paying%20jobs%20the%20automotive%20industry%20DealerRefresh"
   },
   {
     "id": 6,
     "title": "Project Manager",
-    "company": "Thronos Alliance",
+    "company": "Monas Consulting",
     "board": "Glassdoor",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4127,9 +4127,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 3,
-    "description": "Leading Thronos Alliance project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20Thronos%20Alliance"
+    "daysAgo": 1,
+    "description": "Leading Monas Consulting project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20Monas%20Consulting"
   },
   {
     "id": 7,
@@ -4144,14 +4144,14 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 13,
+    "daysAgo": 14,
     "description": "WhySeagate?MeetSeagateLife atSeagateHiringProcessUniversityProgramsSeagate CultureSearchJobsHiring ProcessrowsWhy Seagate?Meet SeagateLIfe at SeagateHiring Process University Programs Diversity, Equity, and Inclusion Search JobsPlease mention the ...",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Hiring%20Process%20SandForce"
   },
   {
     "id": 8,
     "title": "Project Manager",
-    "company": "Droomwork Limited",
+    "company": "Thronos Alliance",
     "board": "Indeed",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4162,8 +4162,8 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 4,
-    "description": "Leading Droomwork Limited project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.indeed.com/jobs?q=Project%20Manager%20Droomwork%20Limited"
+    "description": "Leading Thronos Alliance project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.indeed.com/jobs?q=Project%20Manager%20Thronos%20Alliance"
   },
   {
     "id": 9,
@@ -4178,14 +4178,14 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 14,
+    "daysAgo": 15,
     "description": "Be part of a team that thrives on collaboration, professionalism, technical expertise and important goals. K.KANELLAKIS is all about collaborative relationships of trust, based on the confidence of our long experience into an evolving industry. Co...",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Would%20you%20like%20be%20part%20of%20our%20team%20K.%20KANELLAKIS%20S.A."
   },
   {
     "id": 10,
     "title": "Project Manager",
-    "company": "Kenex Konsults International",
+    "company": "Droomwork Limited",
     "board": "LinkedIn",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4196,8 +4196,8 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 3,
-    "description": "Leading Kenex Konsults International project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20Kenex%20Konsults%20International"
+    "description": "Leading Droomwork Limited project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20Droomwork%20Limited"
   },
   {
     "id": 11,
@@ -4212,14 +4212,14 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 14,
-    "description": "Job ApplicationPlease complete the form below to apply for a position with us.Full Name *AddressEmail Address *Phone Number*Upload Resume *Please mention the word **OVERTURE** and tag RNTIuMTU5LjI0Ny4xNjI= when applying to show you read the job po...",
+    "daysAgo": 15,
+    "description": "Job ApplicationPlease complete the form below to apply for a position with us.Full Name *AddressEmail Address *Phone Number*Upload Resume *Please mention the word **OVERTURE** and tag RMTcyLjIxNC4xMDQuNTU= when applying to show you read the job po...",
     "link": "https://www.indeed.com/jobs?q=ENGINEERS%20National%20Aluminium%20-%20GINCO%20Group%20of%20Companies"
   },
   {
     "id": 12,
     "title": "Project Manager",
-    "company": "Sidan Associates & Partners",
+    "company": "Kenex Konsults International",
     "board": "Glassdoor",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4230,8 +4230,8 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 2,
-    "description": "Leading Sidan Associates & Partners project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20Sidan%20Associates%20%26%20Partners"
+    "description": "Leading Kenex Konsults International project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20Kenex%20Konsults%20International"
   },
   {
     "id": 13,
@@ -4246,14 +4246,14 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 16,
+    "daysAgo": 17,
     "description": "We value our people as our greatest asset, encouraging knowledge sharing and mutual support across all areas.Our goal is to attract and retain top talent while fostering career growth and well-being.Check this page for current openings, or if none...",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Join%20our%20team%20NetworkCO"
   },
   {
     "id": 14,
     "title": "Project Manager",
-    "company": "Jobberman Third Party",
+    "company": "Sidan Associates & Partners",
     "board": "Indeed",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4263,9 +4263,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 2,
-    "description": "Leading Jobberman Third Party project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.indeed.com/jobs?q=Project%20Manager%20Jobberman%20Third%20Party"
+    "daysAgo": 3,
+    "description": "Leading Sidan Associates & Partners project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.indeed.com/jobs?q=Project%20Manager%20Sidan%20Associates%20%26%20Partners"
   },
   {
     "id": 15,
@@ -4280,14 +4280,14 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 17,
+    "daysAgo": 18,
     "description": "Deionised-water, soft-brush cleaning. Zero abrasion, zero detergent residue, panel by panel. Soiling is the single largest recoverable loss on most systems; coastal dust, pollen and droppings routinely cost double-digit percentages of output.Pleas...",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=THERMAL%20HOTSPOT%20CHECKS%20Tyrell%20Solar"
   },
   {
     "id": 16,
     "title": "Project Manager",
-    "company": "Southeastern Montessori Academy",
+    "company": "Jobberman Third Party",
     "board": "LinkedIn",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4297,9 +4297,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 5,
-    "description": "Leading Southeastern Montessori Academy project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20Southeastern%20Montessori%20Academy"
+    "daysAgo": 4,
+    "description": "Leading Jobberman Third Party project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20Jobberman%20Third%20Party"
   },
   {
     "id": 17,
@@ -4314,14 +4314,14 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 17,
-    "description": "Full method statement and risk assessment for groundworks. 12 hazards assessed, colour-coded risk ratings, PPE schedule, operative sign-off.Please mention the word **DUMBFOUNDED** and tag RNTIuMTU5LjI0Ny4xNjI= when applying to show you read the jo...",
+    "daysAgo": 18,
+    "description": "Full method statement and risk assessment for groundworks. 12 hazards assessed, colour-coded risk ratings, PPE schedule, operative sign-off.Please mention the word **DUMBFOUNDED** and tag RMTcyLjIxNC4xMDQuNTU= when applying to show you read the jo...",
     "link": "https://www.indeed.com/jobs?q=Quality%20Management%20Plan%20The%20Site%20Office"
   },
   {
     "id": 18,
     "title": "Project Manager",
-    "company": "Vecomity Ghana Ltd",
+    "company": "Southeastern Montessori Academy",
     "board": "Glassdoor",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4331,9 +4331,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 2,
-    "description": "Leading Vecomity Ghana Ltd project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20Vecomity%20Ghana%20Ltd"
+    "daysAgo": 3,
+    "description": "Leading Southeastern Montessori Academy project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20Southeastern%20Montessori%20Academy"
   },
   {
     "id": 19,
@@ -4348,14 +4348,14 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 18,
-    "description": "View our website and help put out the message, and change the way you live, forever.Please mention the word **MERRILY** and tag RNTIuMTU5LjI0Ny4xNjI= when applying to show you read the job post completely (#RNTIuMTU5LjI0Ny4xNjI=). This is a beta f...",
+    "daysAgo": 19,
+    "description": "View our website and help put out the message, and change the way you live, forever.Please mention the word **MERRILY** and tag RMTcyLjIxNC4xMDQuNTU= when applying to show you read the job post completely (#RMTcyLjIxNC4xMDQuNTU=). This is a beta f...",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Everyone%20One%20and%20done%20Our%20World%20Our%20Hands"
   },
   {
     "id": 20,
-    "title": "Project Management Specialist",
-    "company": "Annonymous.ai",
+    "title": "Project Manager",
+    "company": "Vecomity Ghana Ltd",
     "board": "Indeed",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4365,9 +4365,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 4,
-    "description": "Leading Annonymous.ai project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.indeed.com/jobs?q=Project%20Management%20Specialist%20Annonymous.ai"
+    "daysAgo": 3,
+    "description": "Leading Vecomity Ghana Ltd project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.indeed.com/jobs?q=Project%20Manager%20Vecomity%20Ghana%20Ltd"
   }
 ];
 
