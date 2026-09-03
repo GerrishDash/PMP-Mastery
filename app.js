@@ -4077,7 +4077,7 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 20,
-    "description": "Form should POSTcode]:text-sm [&amp;&gt;a]:primaryLink\"&gt;Make sure your form has the method=\"POST\" attributeYou are usingPlease mention the word **SUFFICES** and tag RNzQuMjM1LjEyMy4xMA== when applying to show you read the job post completely (#...",
+    "description": "Form should POSTcode]:text-sm [&amp;&gt;a]:primaryLink\"&gt;Make sure your form has the method=\"POST\" attributeYou are usingPlease mention the word **SUFFICES** and tag RNTIuMTYxLjUwLjM0 when applying to show you read the job post completely (#RNTI...",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=APPLY%20TODAY%20Napa%20Valley%20Country%20Club"
   },
   {
@@ -4093,7 +4093,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 4,
+    "daysAgo": 3,
     "description": "Leading Harcadiax Systems Ltd project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20Harcadiax%20Systems%20Ltd"
   },
@@ -4111,7 +4111,7 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 20,
-    "description": "they can be from car journalists to test drivers to car designers.And if you know any automotive jobs that will allow me to drive/observe a variety of different cars please tell me.Please mention the word **HOLY** and tag RNzQuMjM1LjEyMy4xMA== whe...",
+    "description": "they can be from car journalists to test drivers to car designers.And if you know any automotive jobs that will allow me to drive/observe a variety of different cars please tell me.Please mention the word **HOLY** and tag RNTIuMTYxLjUwLjM0 when ap...",
     "link": "https://www.indeed.com/jobs?q=What%20are%20the%20highest%20paying%20jobs%20the%20automotive%20industry%20DealerRefresh"
   },
   {
@@ -4127,7 +4127,7 @@ const initApp = () => {
       "Proficiency in Jira, Confluence, and Agile boards",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 2,
+    "daysAgo": 4,
     "description": "Leading Troven Solution Services Ltd project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%2F%20Scrum%20Master%20Troven%20Solution%20Services%20Ltd"
   },
@@ -4150,20 +4150,20 @@ const initApp = () => {
   },
   {
     "id": 8,
-    "title": "Program Manager",
-    "company": "Copen Group",
+    "title": "Project Coordinator",
+    "company": "Jobberman Third Party",
     "board": "Indeed",
-    "exp": "Mid",
-    "salary": "$95,000 - $120,000/yr",
+    "exp": "Entry",
+    "salary": "$60,000 - $78,000/yr",
     "requirements": [
-      "Project Management Professional (PMP) certification required",
-      "7+ years leading enterprise cross-functional programs",
-      "Strong budget management, scheduling, and risk planning",
+      "Certified Associate in Project Management (CAPM) preferred",
+      "1-2 years experience in professional project tracking",
+      "Excellent organization, notes capture, and scheduling skills",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 4,
-    "description": "Leading Copen Group project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.indeed.com/jobs?q=Program%20Manager%20Copen%20Group"
+    "daysAgo": 3,
+    "description": "Leading Jobberman Third Party project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.indeed.com/jobs?q=Project%20Coordinator%20Jobberman%20Third%20Party"
   },
   {
     "id": 9,
@@ -4185,7 +4185,7 @@ const initApp = () => {
   {
     "id": 10,
     "title": "Project Coordinator",
-    "company": "Jobberman Third Party",
+    "company": "A reputable company",
     "board": "LinkedIn",
     "exp": "Entry",
     "salary": "$60,000 - $78,000/yr",
@@ -4195,9 +4195,9 @@ const initApp = () => {
       "Excellent organization, notes capture, and scheduling skills",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 1,
-    "description": "Leading Jobberman Third Party project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Coordinator%20Jobberman%20Third%20Party"
+    "daysAgo": 2,
+    "description": "Leading A reputable company project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Coordinator%20A%20reputable%20company"
   },
   {
     "id": 11,
@@ -4213,25 +4213,25 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 20,
-    "description": "Job ApplicationPlease complete the form below to apply for a position with us.Full Name *AddressEmail Address *Phone Number*Upload Resume *Please mention the word **OVERTURE** and tag RNzQuMjM1LjEyMy4xMA== when applying to show you read the job po...",
+    "description": "Job ApplicationPlease complete the form below to apply for a position with us.Full Name *AddressEmail Address *Phone Number*Upload Resume *Please mention the word **OVERTURE** and tag RNTIuMTYxLjUwLjM0 when applying to show you read the job post c...",
     "link": "https://www.indeed.com/jobs?q=ENGINEERS%20National%20Aluminium%20-%20GINCO%20Group%20of%20Companies"
   },
   {
     "id": 12,
-    "title": "Project Coordinator",
-    "company": "A reputable company",
+    "title": "Project Manager",
+    "company": "Jobberman Third Party",
     "board": "Glassdoor",
-    "exp": "Entry",
-    "salary": "$60,000 - $78,000/yr",
+    "exp": "Mid",
+    "salary": "$95,000 - $120,000/yr",
     "requirements": [
-      "Certified Associate in Project Management (CAPM) preferred",
-      "1-2 years experience in professional project tracking",
-      "Excellent organization, notes capture, and scheduling skills",
+      "Active PMP certification or equivalent path",
+      "3-5 years managing software or business operations projects",
+      "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 2,
-    "description": "Leading A reputable company project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Coordinator%20A%20reputable%20company"
+    "daysAgo": 5,
+    "description": "Leading Jobberman Third Party project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20Jobberman%20Third%20Party"
   },
   {
     "id": 13,
@@ -4253,7 +4253,7 @@ const initApp = () => {
   {
     "id": 14,
     "title": "Project Manager",
-    "company": "Jobberman Third Party",
+    "company": "Sidan Associates & Partners",
     "board": "Indeed",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4263,9 +4263,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 3,
-    "description": "Leading Jobberman Third Party project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.indeed.com/jobs?q=Project%20Manager%20Jobberman%20Third%20Party"
+    "daysAgo": 5,
+    "description": "Leading Sidan Associates & Partners project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.indeed.com/jobs?q=Project%20Manager%20Sidan%20Associates%20%26%20Partners"
   },
   {
     "id": 15,
@@ -4287,7 +4287,7 @@ const initApp = () => {
   {
     "id": 16,
     "title": "Project Manager",
-    "company": "Sidan Associates & Partners",
+    "company": "Jobberman Third Party",
     "board": "LinkedIn",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4297,9 +4297,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 1,
-    "description": "Leading Sidan Associates & Partners project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20Sidan%20Associates%20%26%20Partners"
+    "daysAgo": 5,
+    "description": "Leading Jobberman Third Party project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20Jobberman%20Third%20Party"
   },
   {
     "id": 17,
@@ -4315,13 +4315,13 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 20,
-    "description": "Full method statement and risk assessment for groundworks. 12 hazards assessed, colour-coded risk ratings, PPE schedule, operative sign-off.Please mention the word **DUMBFOUNDED** and tag RNzQuMjM1LjEyMy4xMA== when applying to show you read the jo...",
+    "description": "Full method statement and risk assessment for groundworks. 12 hazards assessed, colour-coded risk ratings, PPE schedule, operative sign-off.Please mention the word **DUMBFOUNDED** and tag RNTIuMTYxLjUwLjM0 when applying to show you read the job po...",
     "link": "https://www.indeed.com/jobs?q=Quality%20Management%20Plan%20The%20Site%20Office"
   },
   {
     "id": 18,
     "title": "Project Manager",
-    "company": "Jobberman Third Party",
+    "company": "Southeastern Montessori Academy",
     "board": "Glassdoor",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4331,9 +4331,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 1,
-    "description": "Leading Jobberman Third Party project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20Jobberman%20Third%20Party"
+    "daysAgo": 5,
+    "description": "Leading Southeastern Montessori Academy project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20Southeastern%20Montessori%20Academy"
   },
   {
     "id": 19,
@@ -4349,13 +4349,13 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 20,
-    "description": "View our website and help put out the message, and change the way you live, forever.Please mention the word **MERRILY** and tag RNzQuMjM1LjEyMy4xMA== when applying to show you read the job post completely (#RNzQuMjM1LjEyMy4xMA==). This is a beta f...",
+    "description": "View our website and help put out the message, and change the way you live, forever.Please mention the word **MERRILY** and tag RNTIuMTYxLjUwLjM0 when applying to show you read the job post completely (#RNTIuMTYxLjUwLjM0). This is a beta feature t...",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Everyone%20One%20and%20done%20Our%20World%20Our%20Hands"
   },
   {
     "id": 20,
     "title": "Project Manager",
-    "company": "Southeastern Montessori Academy",
+    "company": "Vecomity Ghana Ltd",
     "board": "Indeed",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4365,9 +4365,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 5,
-    "description": "Leading Southeastern Montessori Academy project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.indeed.com/jobs?q=Project%20Manager%20Southeastern%20Montessori%20Academy"
+    "daysAgo": 3,
+    "description": "Leading Vecomity Ghana Ltd project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.indeed.com/jobs?q=Project%20Manager%20Vecomity%20Ghana%20Ltd"
   }
 ];
 
