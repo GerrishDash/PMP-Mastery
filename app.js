@@ -4031,11 +4031,11 @@ const initApp = () => {
   const pmJobsDatabase = [
   {
     "id": 1,
-    "title": "Project leaders",
-    "company": "Niyukti Systems, Inc",
+    "title": "System kolejkowy KolejkoBot",
+    "company": "WidNet",
     "board": "LinkedIn",
-    "exp": "Senior",
-    "salary": "$135,000 - $165,000/yr",
+    "exp": "Mid",
+    "salary": "$95,000 - $120,000/yr",
     "requirements": [
       "Active PMP certification or equivalent path",
       "3-5 years managing software or business operations projects",
@@ -4043,8 +4043,8 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 20,
-    "description": "Project leaders are the vision persons, and they focus on their targets, Project leaders lead, support, and give a plan for achieving a target. Project leaders are different from project managers, project leaders work among their team members, are...",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20leaders%20Niyukti%20Systems%2C%20Inc"
+    "description": "System kolejkowy dlasklepÃ³wSystem kolejkowy dlaszpitali i przychodniSystem kolejkowy dlaaptekSystem kolejkowy dlaurzÄdÃ³wPlease mention the word **EASE** and tag RNTcuMTU0LjQuMzU= when applying to show you read the job post completely (#RNTcuMTU...",
+    "link": "https://www.linkedin.com/jobs/search/?keywords=System%20kolejkowy%20KolejkoBot%20WidNet"
   },
   {
     "id": 2,
@@ -4059,14 +4059,14 @@ const initApp = () => {
       "Excellent organization, notes capture, and scheduling skills",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 1,
+    "daysAgo": 5,
     "description": "Leading Anonymous Employer project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.indeed.com/jobs?q=Project%20Coordinator%20Anonymous%20Employer"
   },
   {
     "id": 3,
-    "title": "APPLY TODAY",
-    "company": "Napa Valley Country Club",
+    "title": "Jobs",
+    "company": "AddSPX B.V.",
     "board": "Glassdoor",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4077,8 +4077,8 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 20,
-    "description": "Form should POSTcode]:text-sm [&amp;&gt;a]:primaryLink\"&gt;Make sure your form has the method=\"POST\" attributeYou are usingPlease mention the word **SUFFICES** and tag RMTcyLjE3Mi4yMDYuMzc= when applying to show you read the job post completely (#...",
-    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=APPLY%20TODAY%20Napa%20Valley%20Country%20Club"
+    "description": "At the moment we do not have any open positions, but we would be happy to know you.Feel free to connect with us through our LinkedIn page or send your c.v. to info@addspx.com .We might invite you for a coffee and a chat!Please mention the word **S...",
+    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Jobs%20AddSPX%20B.V."
   },
   {
     "id": 4,
@@ -4099,20 +4099,20 @@ const initApp = () => {
   },
   {
     "id": 5,
-    "title": "What are the highest paying jobs the automotive industry",
-    "company": "DealerRefresh",
+    "title": "Brand Content & Communications Associate Manager",
+    "company": "FuseGlobal",
     "board": "Indeed",
-    "exp": "Mid",
-    "salary": "$95,000 - $120,000/yr",
+    "exp": "Entry",
+    "salary": "$60,000 - $78,000/yr",
     "requirements": [
-      "Active PMP certification or equivalent path",
-      "3-5 years managing software or business operations projects",
-      "Solid understanding of hybrid Waterfall/Agile lifecycles",
+      "Certified Associate in Project Management (CAPM) preferred",
+      "1-2 years experience in professional project tracking",
+      "Excellent organization, notes capture, and scheduling skills",
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 20,
-    "description": "they can be from car journalists to test drivers to car designers.And if you know any automotive jobs that will allow me to drive/observe a variety of different cars please tell me.Please mention the word **HOLY** and tag RMTcyLjE3Mi4yMDYuMzc= whe...",
-    "link": "https://www.indeed.com/jobs?q=What%20are%20the%20highest%20paying%20jobs%20the%20automotive%20industry%20DealerRefresh"
+    "description": "Posted 5:02:57 PM. Title: Brand Content & Communications Associate Manager (remote)Location: Remote (candidates mustâ¦See this and similar jobs on LinkedIn.Please mention the word **BRILLIANCE** and tag RNTcuMTU0LjQuMzU= when applying to show you...",
+    "link": "https://www.indeed.com/jobs?q=Brand%20Content%20%26%20Communications%20Associate%20Manager%20FuseGlobal"
   },
   {
     "id": 6,
@@ -4133,8 +4133,8 @@ const initApp = () => {
   },
   {
     "id": 7,
-    "title": "Hiring Process",
-    "company": "SandForce",
+    "title": "Brand Designer",
+    "company": "CoâStar",
     "board": "LinkedIn",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4145,8 +4145,8 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 20,
-    "description": "WhySeagate?MeetSeagateLife atSeagateHiringProcessUniversityProgramsSeagate CultureSearchJobsHiring ProcessrowsWhy Seagate?Meet SeagateLIfe at SeagateHiring Process University Programs Diversity, Equity, and Inclusion Search JobsPlease mention the ...",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=Hiring%20Process%20SandForce"
+    "description": "About Co-StarSomeone downloads CoâStar every 5 seconds.In the five years since we launched, 25% of young people 18-25 in the US have downloaded the app. Big Sean has rapped about us, Ariana Grande &amp; Kevin Durant post screenshots to their IGs...",
+    "link": "https://www.linkedin.com/jobs/search/?keywords=Brand%20Designer%20Co%C3%A2%C2%80%C2%93Star"
   },
   {
     "id": 8,
@@ -4167,8 +4167,8 @@ const initApp = () => {
   },
   {
     "id": 9,
-    "title": "Would you like be part of our team",
-    "company": "K. KANELLAKIS S.A.",
+    "title": "Ecommerce Specialist",
+    "company": "Huntress Talent",
     "board": "Glassdoor",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4179,8 +4179,8 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 20,
-    "description": "Be part of a team that thrives on collaboration, professionalism, technical expertise and important goals. K.KANELLAKIS is all about collaborative relationships of trust, based on the confidence of our long experience into an evolving industry. Co...",
-    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Would%20you%20like%20be%20part%20of%20our%20team%20K.%20KANELLAKIS%20S.A."
+    "description": "Looking for a hands-on associate to execute the day-to-day Shopify work that keeps our site running; Product builds, storefront assets management, collection management, and merchandising updates.This is a junior role built for someone early in th...",
+    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Ecommerce%20Specialist%20Huntress%20Talent"
   },
   {
     "id": 10,
@@ -4195,14 +4195,14 @@ const initApp = () => {
       "Excellent organization, notes capture, and scheduling skills",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 2,
+    "daysAgo": 4,
     "description": "Leading Jobberman Third Party project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Coordinator%20Jobberman%20Third%20Party"
   },
   {
     "id": 11,
-    "title": "ENGINEERS",
-    "company": "National Aluminium - GINCO Group of Companies",
+    "title": "Creative Project Manager",
+    "company": "MUSEUM OF ICE CREAM",
     "board": "Indeed",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4213,8 +4213,8 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 20,
-    "description": "Job ApplicationPlease complete the form below to apply for a position with us.Full Name *AddressEmail Address *Phone Number*Upload Resume *Please mention the word **OVERTURE** and tag RMTcyLjE3Mi4yMDYuMzc= when applying to show you read the job po...",
-    "link": "https://www.indeed.com/jobs?q=ENGINEERS%20National%20Aluminium%20-%20GINCO%20Group%20of%20Companies"
+    "description": "About The RoleAt Museum of Ice Cream, we exist to spark joy, create connection, and turn everyday moments into unforgettable experiences â while serving as the global champion of ice cream culture. From the brands and makers shaping the category...",
+    "link": "https://www.indeed.com/jobs?q=Creative%20Project%20Manager%20MUSEUM%20OF%20ICE%20CREAM"
   },
   {
     "id": 12,
@@ -4229,17 +4229,17 @@ const initApp = () => {
       "Excellent organization, notes capture, and scheduling skills",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 5,
+    "daysAgo": 2,
     "description": "Leading A reputable company project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Coordinator%20A%20reputable%20company"
   },
   {
     "id": 13,
-    "title": "Join our team",
-    "company": "NetworkCO",
+    "title": "Head of Operations",
+    "company": "OpenTrack",
     "board": "LinkedIn",
-    "exp": "Mid",
-    "salary": "$95,000 - $120,000/yr",
+    "exp": "Senior",
+    "salary": "$135,000 - $165,000/yr",
     "requirements": [
       "Active PMP certification or equivalent path",
       "3-5 years managing software or business operations projects",
@@ -4247,8 +4247,8 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 20,
-    "description": "We value our people as our greatest asset, encouraging knowledge sharing and mutual support across all areas.Our goal is to attract and retain top talent while fostering career growth and well-being.Check this page for current openings, or if none...",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=Join%20our%20team%20NetworkCO"
+    "description": "At OpenTrack, we're tackling the fragmented data and workflows of the trillion dollar logistics industry. Using data collected in real time from hundreds of sources, we help customers keep their cargo moving efficiently, on time and at a cost savi...",
+    "link": "https://www.linkedin.com/jobs/search/?keywords=Head%20of%20Operations%20OpenTrack"
   },
   {
     "id": 14,
@@ -4263,14 +4263,14 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 3,
+    "daysAgo": 1,
     "description": "Leading Jobberman Third Party project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.indeed.com/jobs?q=Project%20Manager%20Jobberman%20Third%20Party"
   },
   {
     "id": 15,
-    "title": "THERMAL HOTSPOT CHECKS",
-    "company": "Tyrell Solar",
+    "title": "Paralegal",
+    "company": "Giga Energy",
     "board": "Glassdoor",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4281,8 +4281,8 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 20,
-    "description": "Deionised-water, soft-brush cleaning. Zero abrasion, zero detergent residue, panel by panel. Soiling is the single largest recoverable loss on most systems; coastal dust, pollen and droppings routinely cost double-digit percentages of output.Pleas...",
-    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=THERMAL%20HOTSPOT%20CHECKS%20Tyrell%20Solar"
+    "description": "Why join GigaThe Pace: We're building at a speed most companies talk about but never actually operate at. If you've been bored somewhere else, you won't be here.The Impact: Every person at Giga touches the work that matters. No layers, no waiting ...",
+    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Paralegal%20Giga%20Energy"
   },
   {
     "id": 16,
@@ -4297,14 +4297,14 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 4,
+    "daysAgo": 3,
     "description": "Leading Sidan Associates & Partners project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20Sidan%20Associates%20%26%20Partners"
   },
   {
     "id": 17,
-    "title": "Quality Management Plan",
-    "company": "The Site Office",
+    "title": "Animal Cruelty Case Specialist",
+    "company": "Rose, Klein &amp; Marias",
     "board": "Indeed",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4315,8 +4315,8 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 20,
-    "description": "Full method statement and risk assessment for groundworks. 12 hazards assessed, colour-coded risk ratings, PPE schedule, operative sign-off.Please mention the word **DUMBFOUNDED** and tag RMTcyLjE3Mi4yMDYuMzc= when applying to show you read the jo...",
-    "link": "https://www.indeed.com/jobs?q=Quality%20Management%20Plan%20The%20Site%20Office"
+    "description": "DescriptionTerm of Employment: Full-Time, ExemptReports To: Criminal Justice Program Managing AttorneyUnion: Bargaining Unit Position, Nonprofit Professional Employees Union (NPEU)Location: Remote (U.S. Based)Who We AreThe Animal Legal Defense Fun...",
+    "link": "https://www.indeed.com/jobs?q=Animal%20Cruelty%20Case%20Specialist%20Rose%2C%20Klein%20%26amp%3B%20Marias"
   },
   {
     "id": 18,
@@ -4331,17 +4331,17 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 3,
+    "daysAgo": 4,
     "description": "Leading Jobberman Third Party project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20Jobberman%20Third%20Party"
   },
   {
     "id": 19,
-    "title": "Everyone One and done",
-    "company": "Our World Our Hands",
+    "title": "Data Entry Specialist",
+    "company": "Morgan McKinley",
     "board": "LinkedIn",
-    "exp": "Mid",
-    "salary": "$95,000 - $120,000/yr",
+    "exp": "Entry",
+    "salary": "$60,000 - $78,000/yr",
     "requirements": [
       "Active PMP certification or equivalent path",
       "3-5 years managing software or business operations projects",
@@ -4349,8 +4349,8 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 20,
-    "description": "View our website and help put out the message, and change the way you live, forever.Please mention the word **MERRILY** and tag RMTcyLjE3Mi4yMDYuMzc= when applying to show you read the job post completely (#RMTcyLjE3Mi4yMDYuMzc=). This is a beta f...",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=Everyone%20One%20and%20done%20Our%20World%20Our%20Hands"
+    "description": "Posted 3:00:05 PM. Healthcare AI Data SpecialistRemote | 6 Month Contract | $24â$26/hour | Full-Time (40 hrs/week)Weâ¦See this and similar jobs on LinkedIn.Please mention the word **UNQUESTIONABLY** and tag RNTcuMTU0LjQuMzU= when applying to sh...",
+    "link": "https://www.linkedin.com/jobs/search/?keywords=Data%20Entry%20Specialist%20Morgan%20McKinley"
   },
   {
     "id": 20,
@@ -4365,7 +4365,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 1,
+    "daysAgo": 5,
     "description": "Leading Southeastern Montessori Academy project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.indeed.com/jobs?q=Project%20Manager%20Southeastern%20Montessori%20Academy"
   }
