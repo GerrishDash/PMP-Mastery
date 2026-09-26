@@ -4043,7 +4043,7 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 20,
-    "description": "System kolejkowy dlasklepÃ³wSystem kolejkowy dlaszpitali i przychodniSystem kolejkowy dlaaptekSystem kolejkowy dlaurzÄdÃ³wPlease mention the word **EASE** and tag RNzQuMjQ5LjE4MC4xNjE= when applying to show you read the job post completely (#RNzQ...",
+    "description": "System kolejkowy dlasklepÃ³wSystem kolejkowy dlaszpitali i przychodniSystem kolejkowy dlaaptekSystem kolejkowy dlaurzÄdÃ³wPlease mention the word **EASE** and tag RMTcyLjE4Mi4yMDAuMTQ2 when applying to show you read the job post completely (#RMTc...",
     "link": "https://www.linkedin.com/jobs/search/?keywords=System%20kolejkowy%20KolejkoBot%20WidNet"
   },
   {
@@ -4111,7 +4111,7 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 20,
-    "description": "Posted 5:02:57 PM. Title: Brand Content & Communications Associate Manager (remote)Location: Remote (candidates mustâ¦See this and similar jobs on LinkedIn.Please mention the word **BRILLIANCE** and tag RNzQuMjQ5LjE4MC4xNjE= when applying to show...",
+    "description": "Posted 5:02:57 PM. Title: Brand Content & Communications Associate Manager (remote)Location: Remote (candidates mustâ¦See this and similar jobs on LinkedIn.Please mention the word **BRILLIANCE** and tag RMTcyLjE4Mi4yMDAuMTQ2 when applying to show...",
     "link": "https://www.indeed.com/jobs?q=Brand%20Content%20%26%20Communications%20Associate%20Manager%20FuseGlobal"
   },
   {
@@ -4161,7 +4161,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 2,
+    "daysAgo": 3,
     "description": "Leading Fourcore Technology Solutions Ltd project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.indeed.com/jobs?q=Project%20Manager%20Fourcore%20Technology%20Solutions%20Ltd"
   },
@@ -4195,7 +4195,7 @@ const initApp = () => {
       "Excellent organization, notes capture, and scheduling skills",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 2,
+    "daysAgo": 1,
     "description": "Leading Jobberman Third Party project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Coordinator%20Jobberman%20Third%20Party"
   },
@@ -4229,7 +4229,7 @@ const initApp = () => {
       "Excellent organization, notes capture, and scheduling skills",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 5,
+    "daysAgo": 2,
     "description": "Leading A reputable company project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Coordinator%20A%20reputable%20company"
   },
@@ -4263,7 +4263,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 3,
+    "daysAgo": 5,
     "description": "Leading Jobberman Third Party project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.indeed.com/jobs?q=Project%20Manager%20Jobberman%20Third%20Party"
   },
@@ -4297,7 +4297,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 5,
+    "daysAgo": 3,
     "description": "Leading Sidan Associates & Partners project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20Sidan%20Associates%20%26%20Partners"
   },
@@ -4315,7 +4315,7 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 20,
-    "description": "Posted 3:00:05 PM. Healthcare AI Data SpecialistRemote | 6 Month Contract | $24â$26/hour | Full-Time (40 hrs/week)Weâ¦See this and similar jobs on LinkedIn.Please mention the word **UNQUESTIONABLY** and tag RNzQuMjQ5LjE4MC4xNjE= when applying t...",
+    "description": "Posted 3:00:05 PM. Healthcare AI Data SpecialistRemote | 6 Month Contract | $24â$26/hour | Full-Time (40 hrs/week)Weâ¦See this and similar jobs on LinkedIn.Please mention the word **UNQUESTIONABLY** and tag RMTcyLjE4Mi4yMDAuMTQ2 when applying t...",
     "link": "https://www.indeed.com/jobs?q=Data%20Entry%20Specialist%20Morgan%20McKinley"
   },
   {
