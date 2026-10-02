@@ -1911,11 +1911,11 @@ const initApp = () => {
     // Set up badge color depending on Process Group
     modalPgBadge.textContent = data.pg;
     modalPgBadge.className = 'modal-pg-badge'; // reset
-    if (data.pg.includes('Initiating')) modalPgBadge.style.background = 'rgba(6, 214, 160, 0.15)', modalPgBadge.style.color = '#06d6a0';
-    else if (data.pg.includes('Planning')) modalPgBadge.style.background = 'rgba(17, 138, 178, 0.15)', modalPgBadge.style.color = '#118ab2';
-    else if (data.pg.includes('Executing')) modalPgBadge.style.background = 'rgba(123, 97, 255, 0.15)', modalPgBadge.style.color = '#7b61ff';
-    else if (data.pg.includes('Monitoring')) modalPgBadge.style.background = 'rgba(255, 159, 28, 0.15)', modalPgBadge.style.color = '#ff9f1c';
-    else if (data.pg.includes('Closing')) modalPgBadge.style.background = 'rgba(239, 71, 111, 0.15)', modalPgBadge.style.color = '#ef476f';
+    if (data.pg.includes('Initiating')) modalPgBadge.style.background = 'rgba(var(--c-teal-rgb), 0.15)', modalPgBadge.style.color = 'var(--c-teal)';
+    else if (data.pg.includes('Planning')) modalPgBadge.style.background = 'rgba(var(--c-blue-rgb), 0.15)', modalPgBadge.style.color = 'var(--c-blue)';
+    else if (data.pg.includes('Executing')) modalPgBadge.style.background = 'rgba(var(--c-violet-rgb), 0.15)', modalPgBadge.style.color = 'var(--c-violet)';
+    else if (data.pg.includes('Monitoring')) modalPgBadge.style.background = 'rgba(var(--c-amber-rgb), 0.15)', modalPgBadge.style.color = 'var(--c-amber)';
+    else if (data.pg.includes('Closing')) modalPgBadge.style.background = 'rgba(var(--c-rose-rgb), 0.15)', modalPgBadge.style.color = 'var(--c-rose)';
 
     // Populate lists (with expanded components for Project Management Plan inputs)
     modalInputs.innerHTML = data.inputs.map(item => {
@@ -3819,9 +3819,9 @@ const initApp = () => {
         safeLS.setItem('pmp_custom_filename', file.name);
 
         feedbackAlert.className = 'upload-feedback-alert success';
-        feedbackAlert.style.background = 'rgba(6, 214, 160, 0.1)';
+        feedbackAlert.style.background = 'rgba(var(--c-teal-rgb), 0.1)';
         feedbackAlert.style.color = 'var(--accent-primary)';
-        feedbackAlert.style.border = '1px solid rgba(6, 214, 160, 0.3)';
+        feedbackAlert.style.border = '1px solid rgba(var(--c-teal-rgb), 0.3)';
         feedbackAlert.innerHTML = `<strong>Success!</strong> "${file.name}" has been cached locally. Launching reader...`;
         feedbackAlert.classList.remove('hidden');
 
@@ -3838,9 +3838,9 @@ const initApp = () => {
       } catch (err) {
         console.error('Save error:', err);
         feedbackAlert.className = 'upload-feedback-alert error';
-        feedbackAlert.style.background = 'rgba(239, 71, 111, 0.1)';
+        feedbackAlert.style.background = 'rgba(var(--c-rose-rgb), 0.1)';
         feedbackAlert.style.color = 'var(--accent-warm)';
-        feedbackAlert.style.border = '1px solid rgba(239, 71, 111, 0.3)';
+        feedbackAlert.style.border = '1px solid rgba(var(--c-rose-rgb), 0.3)';
         feedbackAlert.innerHTML = `<strong>Write Failed!</strong> Failed to save PDF to IndexedDB offline cache.`;
         feedbackAlert.classList.remove('hidden');
         if (btnCancelUpload) btnCancelUpload.classList.remove('hidden');
@@ -3849,9 +3849,9 @@ const initApp = () => {
 
     fileReader.onerror = () => {
       feedbackAlert.className = 'upload-feedback-alert error';
-      feedbackAlert.style.background = 'rgba(239, 71, 111, 0.1)';
+      feedbackAlert.style.background = 'rgba(var(--c-rose-rgb), 0.1)';
       feedbackAlert.style.color = 'var(--accent-warm)';
-      feedbackAlert.style.border = '1px solid rgba(239, 71, 111, 0.3)';
+      feedbackAlert.style.border = '1px solid rgba(var(--c-rose-rgb), 0.3)';
       feedbackAlert.innerHTML = `<strong>Read Failed!</strong> FileReader failed to parse document.`;
       feedbackAlert.classList.remove('hidden');
       if (btnCancelUpload) btnCancelUpload.classList.remove('hidden');
@@ -5085,7 +5085,7 @@ const initApp = () => {
             </ul>
           </div>
 
-          <div style="background:rgba(6,214,160,0.08);border:1px solid rgba(6,214,160,0.25);border-left:4px solid var(--accent-primary);border-radius:8px;padding:12px 14px;">
+          <div style="background:rgba(var(--c-teal-rgb),0.08);border:1px solid rgba(var(--c-teal-rgb),0.25);border-left:4px solid var(--accent-primary);border-radius:8px;padding:12px 14px;">
             <span style="font-size:0.75rem;font-weight:700;color:var(--accent-primary);text-transform:uppercase;letter-spacing:0.06em;display:block;margin-bottom:4px;">💡 Exam Tip</span>
             <p style="font-size:0.85rem;color:var(--text-secondary);line-height:1.6;margin:0;">${ch.tip}</p>
           </div>

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pmp-mastery-v120';
+const CACHE_NAME = 'pmp-mastery-v121';
 const ASSETS = [
   './index.html',
   './styles.css',
@@ -10,6 +10,7 @@ const ASSETS = [
   './flashcards.js',
   './learn.js',
   './learn.css',
+  './ui-prefs.js',
   './app.js',
   './manifest.json',
   './pmp_logo.png',
@@ -21,7 +22,8 @@ const ASSETS = [
 // ─── Install ──────────────────────────────────────────────────────────────────
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS))
+    // cache: 'reload' bypasses the HTTP cache so a new version never stores stale files
+    caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS.map((url) => new Request(url, { cache: 'reload' }))))
   );
   self.skipWaiting();
 });
