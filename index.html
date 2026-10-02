@@ -6,6 +6,7 @@
   <meta name="description" content="Interactive PMP Exam Study App covering PMBOK 6th & 7th Edition — Predictive, Agile, Hybrid approaches with flashcards, EVM calculator, and scenario-based mock exam.">
   <title>PMP Exam Mastery — PMBOK 6th & 7th Edition Study Tool</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="learn.css">
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#0f172a">
   <meta name="mobile-web-app-capable" content="yes">
@@ -39,6 +40,12 @@
       </div>
       <div class="nav-item" data-section="mindset">
         <span class="nav-icon">🧠</span> PMP Mindset
+      </div>
+
+      <div class="nav-section-label">Guided Learning</div>
+      <div class="nav-item" data-section="learn">
+        <span class="nav-icon">🎓</span> Learning Lab
+        <span class="nav-badge" id="learnNavBadge">0/9</span>
       </div>
 
       <div class="nav-section-label">PMBOK 6th Edition — Predictive</div>
@@ -103,6 +110,16 @@
   <main class="main-content">
 
     <!-- ──── DASHBOARD ──── -->
+    <!-- ──── LEARNING LAB ──── -->
+    <section class="section" id="section-learn">
+      <div class="page-header">
+        <div class="breadcrumb">PMP Mastery <span class="sep">›</span> Guided Learning</div>
+        <h2>🎓 Learning Lab</h2>
+        <p>A guided path through the concepts the exam tests hardest: life cycles, approach selection, uncertainty, risk, Kanban, Lean, Scrum and agile metrics. Each module has diagrams, interactive tools and a knowledge check.</p>
+      </div>
+      <div id="learnRoot"></div>
+    </section>
+
     <section class="section active" id="section-dashboard">
       <div class="page-header">
         <div class="breadcrumb">PMP Mastery <span class="sep">›</span> Dashboard</div>
@@ -1444,6 +1461,7 @@
 <script src="questions4.js"></script>
 <script src="questions5.js"></script>
 <script src="flashcards.js"></script>
+<script src="learn.js"></script>
 <script src="app.js"></script>
 <script>
   if ('serviceWorker' in navigator) {
