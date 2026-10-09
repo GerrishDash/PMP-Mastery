@@ -4042,7 +4042,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 2,
+    "daysAgo": 3,
     "description": "The Project Manager is a client-facing role at the center of everything we do. Running high-impact A/B tests requires coordination across many disciplinesâresearch, strategy, design, copywriting, development, QA, analytics, and client stakeholde...",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20Spiralyze"
   },
@@ -4059,7 +4059,7 @@ const initApp = () => {
       "Excellent organization, notes capture, and scheduling skills",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 1,
+    "daysAgo": 3,
     "description": "Leading Anonymous Employer project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.indeed.com/jobs?q=Project%20Coordinator%20Anonymous%20Employer"
   },
@@ -4077,7 +4077,7 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 20,
-    "description": "System kolejkowy dlasklepÃ³wSystem kolejkowy dlaszpitali i przychodniSystem kolejkowy dlaaptekSystem kolejkowy dlaurzÄdÃ³wPlease mention the word **EASE** and tag RNTIuMjQ4LjQ1LjIxNw== when applying to show you read the job post completely (#RNTI...",
+    "description": "System kolejkowy dlasklepÃ³wSystem kolejkowy dlaszpitali i przychodniSystem kolejkowy dlaaptekSystem kolejkowy dlaurzÄdÃ³wPlease mention the word **EASE** and tag RMTcyLjIwMy4xOTUuMw== when applying to show you read the job post completely (#RMTc...",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=System%20kolejkowy%20KolejkoBot%20WidNet"
   },
   {
@@ -4093,7 +4093,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 2,
+    "daysAgo": 4,
     "description": "Leading DevRecruit Consulting Limited project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20DevRecruit%20Consulting%20Limited"
   },
@@ -4145,7 +4145,7 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 20,
-    "description": "Posted 5:02:57 PM. Title: Brand Content & Communications Associate Manager (remote)Location: Remote (candidates mustâ¦See this and similar jobs on LinkedIn.Please mention the word **BRILLIANCE** and tag RNTIuMjQ4LjQ1LjIxNw== when applying to show...",
+    "description": "Posted 5:02:57 PM. Title: Brand Content & Communications Associate Manager (remote)Location: Remote (candidates mustâ¦See this and similar jobs on LinkedIn.Please mention the word **BRILLIANCE** and tag RMTcyLjIwMy4xOTUuMw== when applying to show...",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Brand%20Content%20%26%20Communications%20Associate%20Manager%20FuseGlobal"
   },
   {
@@ -4184,8 +4184,8 @@ const initApp = () => {
   },
   {
     "id": 10,
-    "title": "Project Manager",
-    "company": "Jobberman Third Party",
+    "title": "Vacancy for Project manager (Real Estate Company)",
+    "company": "Coinbox Limited",
     "board": "LinkedIn",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4196,8 +4196,8 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 3,
-    "description": "Leading Jobberman Third Party project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20Jobberman%20Third%20Party"
+    "description": "Leading Coinbox Limited project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.linkedin.com/jobs/search/?keywords=Vacancy%20for%20Project%20manager%20(Real%20Estate%20Company)%20Coinbox%20Limited"
   },
   {
     "id": 11,
@@ -4218,20 +4218,20 @@ const initApp = () => {
   },
   {
     "id": 12,
-    "title": "Project Coordinator",
+    "title": "Project Manager",
     "company": "Jobberman Third Party",
     "board": "Glassdoor",
-    "exp": "Entry",
-    "salary": "$60,000 - $78,000/yr",
+    "exp": "Mid",
+    "salary": "$95,000 - $120,000/yr",
     "requirements": [
-      "Certified Associate in Project Management (CAPM) preferred",
-      "1-2 years experience in professional project tracking",
-      "Excellent organization, notes capture, and scheduling skills",
+      "Active PMP certification or equivalent path",
+      "3-5 years managing software or business operations projects",
+      "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 1,
+    "daysAgo": 3,
     "description": "Leading Jobberman Third Party project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Coordinator%20Jobberman%20Third%20Party"
+    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20Jobberman%20Third%20Party"
   },
   {
     "id": 13,
@@ -4253,7 +4253,7 @@ const initApp = () => {
   {
     "id": 14,
     "title": "Project Coordinator",
-    "company": "A reputable company",
+    "company": "Jobberman Third Party",
     "board": "Indeed",
     "exp": "Entry",
     "salary": "$60,000 - $78,000/yr",
@@ -4263,9 +4263,9 @@ const initApp = () => {
       "Excellent organization, notes capture, and scheduling skills",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 2,
-    "description": "Leading A reputable company project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.indeed.com/jobs?q=Project%20Coordinator%20A%20reputable%20company"
+    "daysAgo": 4,
+    "description": "Leading Jobberman Third Party project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.indeed.com/jobs?q=Project%20Coordinator%20Jobberman%20Third%20Party"
   },
   {
     "id": 15,
@@ -4286,20 +4286,20 @@ const initApp = () => {
   },
   {
     "id": 16,
-    "title": "Project Manager",
-    "company": "Jobberman Third Party",
+    "title": "Project Coordinator",
+    "company": "A reputable company",
     "board": "LinkedIn",
-    "exp": "Mid",
-    "salary": "$95,000 - $120,000/yr",
+    "exp": "Entry",
+    "salary": "$60,000 - $78,000/yr",
     "requirements": [
-      "Active PMP certification or equivalent path",
-      "3-5 years managing software or business operations projects",
-      "Solid understanding of hybrid Waterfall/Agile lifecycles",
+      "Certified Associate in Project Management (CAPM) preferred",
+      "1-2 years experience in professional project tracking",
+      "Excellent organization, notes capture, and scheduling skills",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 2,
-    "description": "Leading Jobberman Third Party project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20Jobberman%20Third%20Party"
+    "daysAgo": 4,
+    "description": "Leading A reputable company project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Coordinator%20A%20reputable%20company"
   },
   {
     "id": 17,
@@ -4320,8 +4320,8 @@ const initApp = () => {
   },
   {
     "id": 18,
-    "title": "Climate Resilience Project Manager",
-    "company": "Advans Ghana Savings and Loans Ltd",
+    "title": "Project Manager",
+    "company": "Jobberman Third Party",
     "board": "Glassdoor",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4331,9 +4331,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 5,
-    "description": "Leading Advans Ghana Savings and Loans Ltd project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Climate%20Resilience%20Project%20Manager%20Advans%20Ghana%20Savings%20and%20Loans%20Ltd"
+    "daysAgo": 4,
+    "description": "Leading Jobberman Third Party project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20Jobberman%20Third%20Party"
   },
   {
     "id": 19,
@@ -4349,13 +4349,13 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 20,
-    "description": "Posted 3:00:05 PM. Healthcare AI Data SpecialistRemote | 6 Month Contract | $24â$26/hour | Full-Time (40 hrs/week)Weâ¦See this and similar jobs on LinkedIn.Please mention the word **UNQUESTIONABLY** and tag RNTIuMjQ4LjQ1LjIxNw== when applying t...",
+    "description": "Posted 3:00:05 PM. Healthcare AI Data SpecialistRemote | 6 Month Contract | $24â$26/hour | Full-Time (40 hrs/week)Weâ¦See this and similar jobs on LinkedIn.Please mention the word **UNQUESTIONABLY** and tag RMTcyLjIwMy4xOTUuMw== when applying t...",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Data%20Entry%20Specialist%20Morgan%20McKinley"
   },
   {
     "id": 20,
-    "title": "Marketing Project Manager At Vodafone Ghana",
-    "company": "National Communications Backbone Company Ltd, Subsidiary of Vodafone Ghana",
+    "title": "Climate Resilience Project Manager",
+    "company": "Advans Ghana Savings and Loans Ltd",
     "board": "Indeed",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4365,9 +4365,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 5,
-    "description": "Leading National Communications Backbone Company Ltd, Subsidiary of Vodafone Ghana project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.indeed.com/jobs?q=Marketing%20Project%20Manager%20At%20Vodafone%20Ghana%20National%20Communications%20Backbone%20Company%20Ltd%2C%20Subsidiary%20of%20Vodafone%20Ghana"
+    "daysAgo": 4,
+    "description": "Leading Advans Ghana Savings and Loans Ltd project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.indeed.com/jobs?q=Climate%20Resilience%20Project%20Manager%20Advans%20Ghana%20Savings%20and%20Loans%20Ltd"
   }
 ];
 
