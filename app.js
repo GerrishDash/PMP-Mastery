@@ -4042,7 +4042,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 6,
+    "daysAgo": 7,
     "description": "The Project Manager is a client-facing role at the center of everything we do. Running high-impact A/B tests requires coordination across many disciplinesâresearch, strategy, design, copywriting, development, QA, analytics, and client stakeholde...",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20Spiralyze"
   },
@@ -4059,7 +4059,7 @@ const initApp = () => {
       "Excellent organization, notes capture, and scheduling skills",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 3,
+    "daysAgo": 4,
     "description": "Leading Anonymous Employer project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.indeed.com/jobs?q=Project%20Coordinator%20Anonymous%20Employer"
   },
@@ -4077,25 +4077,25 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 20,
-    "description": "System kolejkowy dlasklepÃ³wSystem kolejkowy dlaszpitali i przychodniSystem kolejkowy dlaaptekSystem kolejkowy dlaurzÄdÃ³wPlease mention the word **EASE** and tag RNTIuMTc2LjEyNC4yMjg= when applying to show you read the job post completely (#RNTI...",
+    "description": "System kolejkowy dlasklepÃ³wSystem kolejkowy dlaszpitali i przychodniSystem kolejkowy dlaaptekSystem kolejkowy dlaurzÄdÃ³wPlease mention the word **EASE** and tag RNC4yNDkuMjIuMA== when applying to show you read the job post completely (#RNC4yNDk...",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=System%20kolejkowy%20KolejkoBot%20WidNet"
   },
   {
     "id": 4,
-    "title": "Project Manager",
-    "company": "DevRecruit Consulting Limited",
+    "title": "Senior Project Manager",
+    "company": "Talent Network Institute",
     "board": "LinkedIn",
-    "exp": "Mid",
-    "salary": "$95,000 - $120,000/yr",
+    "exp": "Senior",
+    "salary": "$135,000 - $165,000/yr",
     "requirements": [
-      "Active PMP certification or equivalent path",
-      "3-5 years managing software or business operations projects",
-      "Solid understanding of hybrid Waterfall/Agile lifecycles",
+      "Project Management Professional (PMP) certification required",
+      "7+ years leading enterprise cross-functional programs",
+      "Strong budget management, scheduling, and risk planning",
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 1,
-    "description": "Leading DevRecruit Consulting Limited project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20DevRecruit%20Consulting%20Limited"
+    "description": "Leading Talent Network Institute project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.linkedin.com/jobs/search/?keywords=Senior%20Project%20Manager%20Talent%20Network%20Institute"
   },
   {
     "id": 5,
@@ -4117,7 +4117,7 @@ const initApp = () => {
   {
     "id": 6,
     "title": "Project Manager",
-    "company": "Coinbox Limited",
+    "company": "DevRecruit Consulting Limited",
     "board": "Glassdoor",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4127,9 +4127,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 1,
-    "description": "Leading Coinbox Limited project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20Coinbox%20Limited"
+    "daysAgo": 4,
+    "description": "Leading DevRecruit Consulting Limited project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20DevRecruit%20Consulting%20Limited"
   },
   {
     "id": 7,
@@ -4145,13 +4145,13 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 20,
-    "description": "Posted 5:02:57 PM. Title: Brand Content & Communications Associate Manager (remote)Location: Remote (candidates mustâ¦See this and similar jobs on LinkedIn.Please mention the word **BRILLIANCE** and tag RNTIuMTc2LjEyNC4yMjg= when applying to show...",
+    "description": "Posted 5:02:57 PM. Title: Brand Content & Communications Associate Manager (remote)Location: Remote (candidates mustâ¦See this and similar jobs on LinkedIn.Please mention the word **BRILLIANCE** and tag RNC4yNDkuMjIuMA== when applying to show you...",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Brand%20Content%20%26%20Communications%20Associate%20Manager%20FuseGlobal"
   },
   {
     "id": 8,
     "title": "Project Manager",
-    "company": "StellarVera Development Company",
+    "company": "Coinbox Limited",
     "board": "Indeed",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4161,9 +4161,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 2,
-    "description": "Leading StellarVera Development Company project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.indeed.com/jobs?q=Project%20Manager%20StellarVera%20Development%20Company"
+    "daysAgo": 1,
+    "description": "Leading Coinbox Limited project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.indeed.com/jobs?q=Project%20Manager%20Coinbox%20Limited"
   },
   {
     "id": 9,
@@ -4184,8 +4184,8 @@ const initApp = () => {
   },
   {
     "id": 10,
-    "title": "Vacancy for Project manager (Real Estate Company)",
-    "company": "Coinbox Limited",
+    "title": "Project Manager",
+    "company": "StellarVera Development Company",
     "board": "LinkedIn",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4195,9 +4195,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 3,
-    "description": "Leading Coinbox Limited project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=Vacancy%20for%20Project%20manager%20(Real%20Estate%20Company)%20Coinbox%20Limited"
+    "daysAgo": 5,
+    "description": "Leading StellarVera Development Company project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20StellarVera%20Development%20Company"
   },
   {
     "id": 11,
@@ -4229,7 +4229,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 5,
+    "daysAgo": 3,
     "description": "Leading Jobberman Third Party project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20Jobberman%20Third%20Party"
   },
@@ -4252,20 +4252,20 @@ const initApp = () => {
   },
   {
     "id": 14,
-    "title": "Project Coordinator",
-    "company": "Jobberman Third Party",
+    "title": "Project Manager – Fruit Processing",
+    "company": "HPW",
     "board": "Indeed",
-    "exp": "Entry",
-    "salary": "$60,000 - $78,000/yr",
+    "exp": "Mid",
+    "salary": "$95,000 - $120,000/yr",
     "requirements": [
-      "Certified Associate in Project Management (CAPM) preferred",
-      "1-2 years experience in professional project tracking",
-      "Excellent organization, notes capture, and scheduling skills",
+      "Active PMP certification or equivalent path",
+      "3-5 years managing software or business operations projects",
+      "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 5,
-    "description": "Leading Jobberman Third Party project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.indeed.com/jobs?q=Project%20Coordinator%20Jobberman%20Third%20Party"
+    "description": "Leading HPW project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.indeed.com/jobs?q=Project%20Manager%20%E2%80%93%20Fruit%20Processing%20HPW"
   },
   {
     "id": 15,
@@ -4286,8 +4286,8 @@ const initApp = () => {
   },
   {
     "id": 16,
-    "title": "Climate Resilience Project Manager",
-    "company": "Advans Ghana Savings and Loans Ltd",
+    "title": "Project Manager",
+    "company": "CoreNett Limited",
     "board": "LinkedIn",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4298,8 +4298,8 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 1,
-    "description": "Leading Advans Ghana Savings and Loans Ltd project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=Climate%20Resilience%20Project%20Manager%20Advans%20Ghana%20Savings%20and%20Loans%20Ltd"
+    "description": "Leading CoreNett Limited project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20CoreNett%20Limited"
   },
   {
     "id": 17,
@@ -4320,8 +4320,8 @@ const initApp = () => {
   },
   {
     "id": 18,
-    "title": "Project Manager – Fruit Processing",
-    "company": "HPW",
+    "title": "Global Rewards Project Manager",
+    "company": "Cervecería y Maltería Quilmes",
     "board": "Glassdoor",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4331,9 +4331,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 3,
-    "description": "Leading HPW project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20%E2%80%93%20Fruit%20Processing%20HPW"
+    "daysAgo": 4,
+    "description": "Leading Cervecería y Maltería Quilmes project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Global%20Rewards%20Project%20Manager%20Cervecer%C3%ADa%20y%20Malter%C3%ADa%20Quilmes"
   },
   {
     "id": 19,
@@ -4349,13 +4349,13 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 20,
-    "description": "Posted 3:00:05 PM. Healthcare AI Data SpecialistRemote | 6 Month Contract | $24â$26/hour | Full-Time (40 hrs/week)Weâ¦See this and similar jobs on LinkedIn.Please mention the word **UNQUESTIONABLY** and tag RNTIuMTc2LjEyNC4yMjg= when applying t...",
+    "description": "Posted 3:00:05 PM. Healthcare AI Data SpecialistRemote | 6 Month Contract | $24â$26/hour | Full-Time (40 hrs/week)Weâ¦See this and similar jobs on LinkedIn.Please mention the word **UNQUESTIONABLY** and tag RNC4yNDkuMjIuMA== when applying to sh...",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Data%20Entry%20Specialist%20Morgan%20McKinley"
   },
   {
     "id": 20,
-    "title": "Project Manager",
-    "company": "CoreNett Limited",
+    "title": "Project Manager - Field Support Services Project (fssp), Ghana",
+    "company": "Trigon Associates, LLC (ED WOSB)",
     "board": "Indeed",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4365,9 +4365,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 3,
-    "description": "Leading CoreNett Limited project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.indeed.com/jobs?q=Project%20Manager%20CoreNett%20Limited"
+    "daysAgo": 2,
+    "description": "Leading Trigon Associates, LLC (ED WOSB) project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.indeed.com/jobs?q=Project%20Manager%20-%20Field%20Support%20Services%20Project%20(fssp)%2C%20Ghana%20Trigon%20Associates%2C%20LLC%20(ED%20WOSB)"
   }
 ];
 
