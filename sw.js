@@ -1,4 +1,4 @@
-const CACHE_NAME = 'pmp-mastery-v146';
+const CACHE_NAME = 'pmp-mastery-v147';
 const ASSETS = [
   './index.html',
   './styles.css',
