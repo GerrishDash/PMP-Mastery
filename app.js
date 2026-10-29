@@ -4077,13 +4077,13 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 20,
-    "description": "System kolejkowy dlasklepÃ³wSystem kolejkowy dlaszpitali i przychodniSystem kolejkowy dlaaptekSystem kolejkowy dlaurzÄdÃ³wPlease mention the word **EASE** and tag RMjAuODEuMTU4LjE0Ng== when applying to show you read the job post completely (#RMjA...",
+    "description": "System kolejkowy dlasklepÃ³wSystem kolejkowy dlaszpitali i przychodniSystem kolejkowy dlaaptekSystem kolejkowy dlaurzÄdÃ³wPlease mention the word **EASE** and tag RMTcyLjE4Mi4yNDQuODM= when applying to show you read the job post completely (#RMTc...",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=System%20kolejkowy%20KolejkoBot%20WidNet"
   },
   {
     "id": 4,
-    "title": "Tech Project Manager",
-    "company": "Kenex Konsults International",
+    "title": "Project Manager",
+    "company": "Tantacom Groups",
     "board": "LinkedIn",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4093,9 +4093,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 1,
-    "description": "Leading Kenex Konsults International project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=Tech%20Project%20Manager%20Kenex%20Konsults%20International"
+    "daysAgo": 4,
+    "description": "Leading Tantacom Groups project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20Tantacom%20Groups"
   },
   {
     "id": 5,
@@ -4116,8 +4116,8 @@ const initApp = () => {
   },
   {
     "id": 6,
-    "title": "Project Manager",
-    "company": "Rekrut Consulting",
+    "title": "Tech Project Manager",
+    "company": "Kenex Konsults International",
     "board": "Glassdoor",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4127,9 +4127,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 4,
-    "description": "Leading Rekrut Consulting project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20Rekrut%20Consulting"
+    "daysAgo": 3,
+    "description": "Leading Kenex Konsults International project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Tech%20Project%20Manager%20Kenex%20Konsults%20International"
   },
   {
     "id": 7,
@@ -4145,13 +4145,13 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 20,
-    "description": "Posted 5:02:57 PM. Title: Brand Content & Communications Associate Manager (remote)Location: Remote (candidates mustâ¦See this and similar jobs on LinkedIn.Please mention the word **BRILLIANCE** and tag RMjAuODEuMTU4LjE0Ng== when applying to show...",
+    "description": "Posted 5:02:57 PM. Title: Brand Content & Communications Associate Manager (remote)Location: Remote (candidates mustâ¦See this and similar jobs on LinkedIn.Please mention the word **BRILLIANCE** and tag RMTcyLjE4Mi4yNDQuODM= when applying to show...",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Brand%20Content%20%26%20Communications%20Associate%20Manager%20FuseGlobal"
   },
   {
     "id": 8,
     "title": "Project Manager",
-    "company": "Jobberman Third Party",
+    "company": "Rekrut Consulting",
     "board": "Indeed",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4161,9 +4161,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 4,
-    "description": "Leading Jobberman Third Party project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.indeed.com/jobs?q=Project%20Manager%20Jobberman%20Third%20Party"
+    "daysAgo": 2,
+    "description": "Leading Rekrut Consulting project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.indeed.com/jobs?q=Project%20Manager%20Rekrut%20Consulting"
   },
   {
     "id": 9,
@@ -4195,7 +4195,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 1,
+    "daysAgo": 2,
     "description": "Leading Jobberman Third Party project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20Jobberman%20Third%20Party"
   },
@@ -4218,8 +4218,8 @@ const initApp = () => {
   },
   {
     "id": 12,
-    "title": "Project Manager – Fruit Processing",
-    "company": "HPW",
+    "title": "Project Manager",
+    "company": "Jobberman Third Party",
     "board": "Glassdoor",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4230,8 +4230,8 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 4,
-    "description": "Leading HPW project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20%E2%80%93%20Fruit%20Processing%20HPW"
+    "description": "Leading Jobberman Third Party project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20Jobberman%20Third%20Party"
   },
   {
     "id": 13,
@@ -4252,8 +4252,8 @@ const initApp = () => {
   },
   {
     "id": 14,
-    "title": "Project Manager",
-    "company": "CoreNett Limited",
+    "title": "Project Manager – Fruit Processing",
+    "company": "HPW",
     "board": "Indeed",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4263,9 +4263,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 5,
-    "description": "Leading CoreNett Limited project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.indeed.com/jobs?q=Project%20Manager%20CoreNett%20Limited"
+    "daysAgo": 1,
+    "description": "Leading HPW project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.indeed.com/jobs?q=Project%20Manager%20%E2%80%93%20Fruit%20Processing%20HPW"
   },
   {
     "id": 15,
@@ -4286,8 +4286,8 @@ const initApp = () => {
   },
   {
     "id": 16,
-    "title": "Global Rewards Project Manager",
-    "company": "Cervecería y Maltería Quilmes",
+    "title": "Project Manager",
+    "company": "CoreNett Limited",
     "board": "LinkedIn",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4298,8 +4298,8 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 3,
-    "description": "Leading Cervecería y Maltería Quilmes project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=Global%20Rewards%20Project%20Manager%20Cervecer%C3%ADa%20y%20Malter%C3%ADa%20Quilmes"
+    "description": "Leading CoreNett Limited project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20CoreNett%20Limited"
   },
   {
     "id": 17,
@@ -4320,8 +4320,8 @@ const initApp = () => {
   },
   {
     "id": 18,
-    "title": "Project Manager - Field Support Services Project (fssp), Ghana",
-    "company": "Trigon Associates, LLC (ED WOSB)",
+    "title": "Global Rewards Project Manager",
+    "company": "Cervecería y Maltería Quilmes",
     "board": "Glassdoor",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4332,8 +4332,8 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 5,
-    "description": "Leading Trigon Associates, LLC (ED WOSB) project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20-%20Field%20Support%20Services%20Project%20(fssp)%2C%20Ghana%20Trigon%20Associates%2C%20LLC%20(ED%20WOSB)"
+    "description": "Leading Cervecería y Maltería Quilmes project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Global%20Rewards%20Project%20Manager%20Cervecer%C3%ADa%20y%20Malter%C3%ADa%20Quilmes"
   },
   {
     "id": 19,
@@ -4349,13 +4349,13 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 20,
-    "description": "Posted 3:00:05 PM. Healthcare AI Data SpecialistRemote | 6 Month Contract | $24â$26/hour | Full-Time (40 hrs/week)Weâ¦See this and similar jobs on LinkedIn.Please mention the word **UNQUESTIONABLY** and tag RMjAuODEuMTU4LjE0Ng== when applying t...",
+    "description": "Posted 3:00:05 PM. Healthcare AI Data SpecialistRemote | 6 Month Contract | $24â$26/hour | Full-Time (40 hrs/week)Weâ¦See this and similar jobs on LinkedIn.Please mention the word **UNQUESTIONABLY** and tag RMTcyLjE4Mi4yNDQuODM= when applying t...",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Data%20Entry%20Specialist%20Morgan%20McKinley"
   },
   {
     "id": 20,
-    "title": "Technical Project Manager - Software Development",
-    "company": "Med Bill, L.L.C",
+    "title": "Project Manager - Field Support Services Project (fssp), Ghana",
+    "company": "Trigon Associates, LLC (ED WOSB)",
     "board": "Indeed",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4365,9 +4365,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 4,
-    "description": "Leading Med Bill, L.L.C project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.indeed.com/jobs?q=Technical%20Project%20Manager%20-%20Software%20Development%20Med%20Bill%2C%20L.L.C"
+    "daysAgo": 5,
+    "description": "Leading Trigon Associates, LLC (ED WOSB) project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.indeed.com/jobs?q=Project%20Manager%20-%20Field%20Support%20Services%20Project%20(fssp)%2C%20Ghana%20Trigon%20Associates%2C%20LLC%20(ED%20WOSB)"
   }
 ];
 
