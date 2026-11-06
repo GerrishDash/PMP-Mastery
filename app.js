@@ -4077,25 +4077,25 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 20,
-    "description": "System kolejkowy dlasklepÃ³wSystem kolejkowy dlaszpitali i przychodniSystem kolejkowy dlaaptekSystem kolejkowy dlaurzÄdÃ³wPlease mention the word **EASE** and tag RMjAuMTY5Ljc2LjE4MA== when applying to show you read the job post completely (#RMjA...",
+    "description": "System kolejkowy dlasklepÃ³wSystem kolejkowy dlaszpitali i przychodniSystem kolejkowy dlaaptekSystem kolejkowy dlaurzÄdÃ³wPlease mention the word **EASE** and tag RMTMyLjE5Ni4yMi4xNzc= when applying to show you read the job post completely (#RMTM...",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=System%20kolejkowy%20KolejkoBot%20WidNet"
   },
   {
     "id": 4,
-    "title": "Project Coordinator",
+    "title": "Project Manager",
     "company": "Confidential Client",
     "board": "LinkedIn",
-    "exp": "Entry",
-    "salary": "$60,000 - $78,000/yr",
+    "exp": "Mid",
+    "salary": "$95,000 - $120,000/yr",
     "requirements": [
-      "Certified Associate in Project Management (CAPM) preferred",
-      "1-2 years experience in professional project tracking",
-      "Excellent organization, notes capture, and scheduling skills",
+      "Active PMP certification or equivalent path",
+      "3-5 years managing software or business operations projects",
+      "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 4,
+    "daysAgo": 2,
     "description": "Leading Confidential Client project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Coordinator%20Confidential%20Client"
+    "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20Confidential%20Client"
   },
   {
     "id": 5,
@@ -4111,25 +4111,25 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 20,
-    "description": "Posted 5:02:57 PM. Title: Brand Content & Communications Associate Manager (remote)Location: Remote (candidates mustâ¦See this and similar jobs on LinkedIn.Please mention the word **BRILLIANCE** and tag RMjAuMTY5Ljc2LjE4MA== when applying to show...",
+    "description": "Posted 5:02:57 PM. Title: Brand Content & Communications Associate Manager (remote)Location: Remote (candidates mustâ¦See this and similar jobs on LinkedIn.Please mention the word **BRILLIANCE** and tag RMTMyLjE5Ni4yMi4xNzc= when applying to show...",
     "link": "https://www.indeed.com/jobs?q=Brand%20Content%20%26%20Communications%20Associate%20Manager%20FuseGlobal"
   },
   {
     "id": 6,
-    "title": "Project Manager",
+    "title": "Project Coordinator",
     "company": "Confidential Client",
     "board": "Glassdoor",
-    "exp": "Mid",
-    "salary": "$95,000 - $120,000/yr",
+    "exp": "Entry",
+    "salary": "$60,000 - $78,000/yr",
     "requirements": [
-      "Active PMP certification or equivalent path",
-      "3-5 years managing software or business operations projects",
-      "Solid understanding of hybrid Waterfall/Agile lifecycles",
+      "Certified Associate in Project Management (CAPM) preferred",
+      "1-2 years experience in professional project tracking",
+      "Excellent organization, notes capture, and scheduling skills",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 5,
+    "daysAgo": 1,
     "description": "Leading Confidential Client project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20Confidential%20Client"
+    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Coordinator%20Confidential%20Client"
   },
   {
     "id": 7,
@@ -4150,20 +4150,20 @@ const initApp = () => {
   },
   {
     "id": 8,
-    "title": "Project Coordinator",
+    "title": "Project Manager",
     "company": "Confidential Client",
     "board": "Indeed",
-    "exp": "Entry",
-    "salary": "$60,000 - $78,000/yr",
+    "exp": "Mid",
+    "salary": "$95,000 - $120,000/yr",
     "requirements": [
-      "Certified Associate in Project Management (CAPM) preferred",
-      "1-2 years experience in professional project tracking",
-      "Excellent organization, notes capture, and scheduling skills",
+      "Active PMP certification or equivalent path",
+      "3-5 years managing software or business operations projects",
+      "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 1,
     "description": "Leading Confidential Client project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.indeed.com/jobs?q=Project%20Coordinator%20Confidential%20Client"
+    "link": "https://www.indeed.com/jobs?q=Project%20Manager%20Confidential%20Client"
   },
   {
     "id": 9,
@@ -4184,20 +4184,20 @@ const initApp = () => {
   },
   {
     "id": 10,
-    "title": "Project Manager",
+    "title": "Project Coordinator",
     "company": "Confidential Client",
     "board": "LinkedIn",
-    "exp": "Mid",
-    "salary": "$95,000 - $120,000/yr",
+    "exp": "Entry",
+    "salary": "$60,000 - $78,000/yr",
     "requirements": [
-      "Active PMP certification or equivalent path",
-      "3-5 years managing software or business operations projects",
-      "Solid understanding of hybrid Waterfall/Agile lifecycles",
+      "Certified Associate in Project Management (CAPM) preferred",
+      "1-2 years experience in professional project tracking",
+      "Excellent organization, notes capture, and scheduling skills",
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 2,
     "description": "Leading Confidential Client project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20Confidential%20Client"
+    "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Coordinator%20Confidential%20Client"
   },
   {
     "id": 11,
@@ -4229,7 +4229,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 5,
+    "daysAgo": 1,
     "description": "Leading Confidential Client project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20Confidential%20Client"
   },
@@ -4263,7 +4263,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 4,
+    "daysAgo": 1,
     "description": "Leading Confidential Client project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.indeed.com/jobs?q=Project%20Manager%20Confidential%20Client"
   },
@@ -4320,7 +4320,7 @@ const initApp = () => {
   },
   {
     "id": 18,
-    "title": "Project Manager – Fruit Processing",
+    "title": "Project Manager",
     "company": "Confidential Client",
     "board": "Glassdoor",
     "exp": "Mid",
@@ -4333,7 +4333,7 @@ const initApp = () => {
     ],
     "daysAgo": 1,
     "description": "Leading Confidential Client project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20%E2%80%93%20Fruit%20Processing%20Confidential%20Client"
+    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20Confidential%20Client"
   },
   {
     "id": 19,
@@ -4354,7 +4354,7 @@ const initApp = () => {
   },
   {
     "id": 20,
-    "title": "Project Manager",
+    "title": "Project Manager – Fruit Processing",
     "company": "Confidential Client",
     "board": "Indeed",
     "exp": "Mid",
@@ -4365,9 +4365,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 1,
+    "daysAgo": 4,
     "description": "Leading Confidential Client project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.indeed.com/jobs?q=Project%20Manager%20Confidential%20Client"
+    "link": "https://www.indeed.com/jobs?q=Project%20Manager%20%E2%80%93%20Fruit%20Processing%20Confidential%20Client"
   }
 ];
 
