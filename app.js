@@ -4042,7 +4042,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 4,
+    "daysAgo": 5,
     "description": "COMPANY DESCRIPTION: A career here is life-enhancing. At Syner-G, we enable our people to build careers that impact positively on their quality of life. Through our expertise, insight, consulting and management skills, we accelerate breakthrough s...",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20Syner-G"
   },
@@ -4059,7 +4059,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 5,
+    "daysAgo": 2,
     "description": "Leading Confidential Client project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.indeed.com/jobs?q=Project%20Manager%20Confidential%20Client"
   },
@@ -4077,7 +4077,7 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 20,
-    "description": "System kolejkowy dlasklepÃ³wSystem kolejkowy dlaszpitali i przychodniSystem kolejkowy dlaaptekSystem kolejkowy dlaurzÄdÃ³wPlease mention the word **EASE** and tag RMjAuNjIuMjA3Ljc= when applying to show you read the job post completely (#RMjAuNjI...",
+    "description": "System kolejkowy dlasklepÃ³wSystem kolejkowy dlaszpitali i przychodniSystem kolejkowy dlaaptekSystem kolejkowy dlaurzÄdÃ³wPlease mention the word **EASE** and tag RMy40Mi4xNTcuMTIz when applying to show you read the job post completely (#RMy40Mi4...",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=System%20kolejkowy%20KolejkoBot%20WidNet"
   },
   {
@@ -4093,7 +4093,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 2,
+    "daysAgo": 1,
     "description": "Leading Confidential Client project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.linkedin.com/jobs/search/?keywords=ERP%20Product%20Owner%20Confidential%20Client"
   },
@@ -4111,7 +4111,7 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 20,
-    "description": "Posted 5:02:57 PM. Title: Brand Content &amp; Communications Associate Manager (remote)Location: Remote (candidates mustâ¦See this and similar jobs on LinkedIn.Please mention the word **BRILLIANCE** and tag RMjAuNjIuMjA3Ljc= when applying to show...",
+    "description": "Posted 5:02:57 PM. Title: Brand Content &amp; Communications Associate Manager (remote)Location: Remote (candidates mustâ¦See this and similar jobs on LinkedIn.Please mention the word **BRILLIANCE** and tag RMy40Mi4xNTcuMTIz when applying to show...",
     "link": "https://www.indeed.com/jobs?q=Brand%20Content%20%26%20Communications%20Associate%20Manager%20FuseGlobal"
   },
   {
@@ -4127,7 +4127,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 2,
+    "daysAgo": 1,
     "description": "Leading Confidential Client project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20Confidential%20Client"
   },
@@ -4161,7 +4161,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 1,
+    "daysAgo": 4,
     "description": "Leading Confidential Client project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.indeed.com/jobs?q=Project%20Manager%20Confidential%20Client"
   },
@@ -4195,7 +4195,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 1,
+    "daysAgo": 5,
     "description": "Leading Confidential Client project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20manager%20Confidential%20Client"
   },
@@ -4229,7 +4229,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 2,
+    "daysAgo": 3,
     "description": "Leading Confidential Client project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20%E2%80%93%20Road%20Construction%20Confidential%20Client"
   },
@@ -4263,14 +4263,14 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 4,
+    "daysAgo": 5,
     "description": "Leading Confidential Client project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.indeed.com/jobs?q=Project%20Manager%20Confidential%20Client"
   },
   {
     "id": 15,
-    "title": "Regional Sales Manager",
-    "company": "Johnson &amp; Johnson MedTech",
+    "title": "Project Management Officer",
+    "company": "Glints",
     "board": "Glassdoor",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4281,8 +4281,8 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 20,
-    "description": "At Johnson &amp; Johnson,â¯we believe health is everything. Our strength in healthcare innovation empowers us to build aâ¯world where complex diseases are prevented, treated, and cured,â¯where treatments are smarter and less invasive, andâ¯sol...",
-    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Regional%20Sales%20Manager%20Johnson%20%26amp%3B%20Johnson%20MedTech"
+    "description": "Project Objectives: Support the IT Portfolio Governance function by ensuring projects are delivered on schedule, within budget, and in accordance with governance standards. The role is responsible for coordinating project governance activities, mo...",
+    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Management%20Officer%20Glints"
   },
   {
     "id": 16,
@@ -4303,8 +4303,8 @@ const initApp = () => {
   },
   {
     "id": 17,
-    "title": "Project Management Officer",
-    "company": "Glints",
+    "title": "Technical Specialist",
+    "company": "PeopleLink Collaboration Inc.",
     "board": "Indeed",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4315,8 +4315,8 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 20,
-    "description": "Project Objectives: Support the IT Portfolio Governance function by ensuring projects are delivered on schedule, within budget, and in accordance with governance standards. The role is responsible for coordinating project governance activities, mo...",
-    "link": "https://www.indeed.com/jobs?q=Project%20Management%20Officer%20Glints"
+    "description": "..Please mention the word **REVOLUTIONARY** and tag RMy40Mi4xNTcuMTIz when applying to show you read the job post completely (#RMy40Mi4xNTcuMTIz). This is a beta feature to avoid spam applicants. Companies can search these words to find applicants...",
+    "link": "https://www.indeed.com/jobs?q=Technical%20Specialist%20PeopleLink%20Collaboration%20Inc."
   },
   {
     "id": 18,
@@ -4331,26 +4331,26 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 4,
+    "daysAgo": 3,
     "description": "Leading Confidential Client project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20Confidential%20Client"
   },
   {
     "id": 19,
-    "title": "Technical Specialist",
-    "company": "PeopleLink Collaboration Inc.",
+    "title": "Fresh Graduate Management Training Program",
+    "company": "Deliveree On-Demand Logistics (Southeast Asia)",
     "board": "LinkedIn",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
     "requirements": [
-      "Active PMP certification or equivalent path",
-      "3-5 years managing software or business operations projects",
-      "Solid understanding of hybrid Waterfall/Agile lifecycles",
+      "Project Management Professional (PMP) certification required",
+      "7+ years leading enterprise cross-functional programs",
+      "Strong budget management, scheduling, and risk planning",
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 20,
-    "description": "..Please mention the word **REVOLUTIONARY** and tag RMjAuNjIuMjA3Ljc= when applying to show you read the job post completely (#RMjAuNjIuMjA3Ljc=). This is a beta feature to avoid spam applicants. Companies can search these words to find applicants...",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=Technical%20Specialist%20PeopleLink%20Collaboration%20Inc."
+    "description": "If you just click apply, you will not receive a response. You must follow the instructions below under 'how to apply' for our team to review and respond to your application. Complete and qualified applications receive a response within 24 hours.Su...",
+    "link": "https://www.linkedin.com/jobs/search/?keywords=Fresh%20Graduate%20Management%20Training%20Program%20Deliveree%20On-Demand%20Logistics%20(Southeast%20Asia)"
   },
   {
     "id": 20,
@@ -4365,7 +4365,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 5,
+    "daysAgo": 3,
     "description": "Leading Confidential Client project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.indeed.com/jobs?q=Project%20Manager%20-%20Field%20Support%20Services%20Project%20(fssp)%2C%20Ghana%20Confidential%20Client"
   }
