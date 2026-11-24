@@ -4042,7 +4042,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 5,
+    "daysAgo": 6,
     "description": "COMPANY DESCRIPTION: A career here is life-enhancing. At Syner-G, we enable our people to build careers that impact positively on their quality of life. Through our expertise, insight, consulting and management skills, we accelerate breakthrough s...",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20Syner-G"
   },
@@ -4059,14 +4059,14 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 2,
+    "daysAgo": 3,
     "description": "Leading Confidential Client project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.indeed.com/jobs?q=Project%20Manager%20Confidential%20Client"
   },
   {
     "id": 3,
-    "title": "System kolejkowy KolejkoBot",
-    "company": "WidNet",
+    "title": "Liasoning Agents required for Cities",
+    "company": "Shamlax",
     "board": "Glassdoor",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4077,14 +4077,31 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 20,
-    "description": "System kolejkowy dlasklepÃ³wSystem kolejkowy dlaszpitali i przychodniSystem kolejkowy dlaaptekSystem kolejkowy dlaurzÄdÃ³wPlease mention the word **EASE** and tag RMy40Mi4xNTcuMTIz when applying to show you read the job post completely (#RMy40Mi4...",
-    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=System%20kolejkowy%20KolejkoBot%20WidNet"
+    "description": "Persons having 3-5 yrs of experience in the Foundry / Foundry Chemicals field can apply toManaging Director: sks@shamlax.comPlease mention the word **STIMULATE** and tag RNTIuMTY1LjU5Ljk2 when applying to show you read the job post completely (#RN...",
+    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Liasoning%20Agents%20required%20for%20Cities%20Shamlax"
   },
   {
     "id": 4,
-    "title": "ERP Product Owner",
+    "title": "Technical Project Manager/Scrum Master",
     "company": "Confidential Client",
     "board": "LinkedIn",
+    "exp": "Mid",
+    "salary": "$95,000 - $120,000/yr",
+    "requirements": [
+      "Certified Scrum Master (CSM) or PMI-ACP",
+      "3+ years facilitating Scrum ceremonies (sprints, retros, standups)",
+      "Proficiency in Jira, Confluence, and Agile boards",
+      "Strong verbal and written English communication skills"
+    ],
+    "daysAgo": 5,
+    "description": "Leading Confidential Client project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.linkedin.com/jobs/search/?keywords=Technical%20Project%20Manager%2FScrum%20Master%20Confidential%20Client"
+  },
+  {
+    "id": 5,
+    "title": "Project Manager",
+    "company": "Confidential Client",
+    "board": "Indeed",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
     "requirements": [
@@ -4093,30 +4110,13 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 1,
+    "daysAgo": 2,
     "description": "Leading Confidential Client project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=ERP%20Product%20Owner%20Confidential%20Client"
-  },
-  {
-    "id": 5,
-    "title": "Brand Content & Communications Associate Manager",
-    "company": "FuseGlobal",
-    "board": "Indeed",
-    "exp": "Entry",
-    "salary": "$60,000 - $78,000/yr",
-    "requirements": [
-      "Certified Associate in Project Management (CAPM) preferred",
-      "1-2 years experience in professional project tracking",
-      "Excellent organization, notes capture, and scheduling skills",
-      "Strong verbal and written English communication skills"
-    ],
-    "daysAgo": 20,
-    "description": "Posted 5:02:57 PM. Title: Brand Content &amp; Communications Associate Manager (remote)Location: Remote (candidates mustâ¦See this and similar jobs on LinkedIn.Please mention the word **BRILLIANCE** and tag RMy40Mi4xNTcuMTIz when applying to show...",
-    "link": "https://www.indeed.com/jobs?q=Brand%20Content%20%26%20Communications%20Associate%20Manager%20FuseGlobal"
+    "link": "https://www.indeed.com/jobs?q=Project%20Manager%20Confidential%20Client"
   },
   {
     "id": 6,
-    "title": "Project Manager",
+    "title": "ERP Product Owner",
     "company": "Confidential Client",
     "board": "Glassdoor",
     "exp": "Mid",
@@ -4127,14 +4127,14 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 1,
+    "daysAgo": 4,
     "description": "Leading Confidential Client project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20Confidential%20Client"
+    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=ERP%20Product%20Owner%20Confidential%20Client"
   },
   {
     "id": 7,
-    "title": "Ecommerce Specialist",
-    "company": "Huntress Talent",
+    "title": "Project Manager",
+    "company": "Confidential Client",
     "board": "LinkedIn",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4144,9 +4144,9 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 20,
-    "description": "Looking for a hands-on associate to execute the day-to-day Shopify work that keeps our site running; Product builds, storefront assets management, collection management, and merchandising updates.This is a junior role built for someone early in th...",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=Ecommerce%20Specialist%20Huntress%20Talent"
+    "daysAgo": 3,
+    "description": "Leading Confidential Client project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20Confidential%20Client"
   },
   {
     "id": 8,
@@ -4161,14 +4161,14 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 4,
+    "daysAgo": 5,
     "description": "Leading Confidential Client project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.indeed.com/jobs?q=Project%20Manager%20Confidential%20Client"
   },
   {
     "id": 9,
-    "title": "Creative Project Manager",
-    "company": "MUSEUM OF ICE CREAM",
+    "title": "Project manager",
+    "company": "Confidential Client",
     "board": "Glassdoor",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4178,13 +4178,13 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 20,
-    "description": "About The RoleAt Museum of Ice Cream, we exist to spark joy, create connection, and turn everyday moments into unforgettable experiences â while serving as the global champion of ice cream culture. From the brands and makers shaping the category...",
-    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Creative%20Project%20Manager%20MUSEUM%20OF%20ICE%20CREAM"
+    "daysAgo": 4,
+    "description": "Leading Confidential Client project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
+    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20manager%20Confidential%20Client"
   },
   {
     "id": 10,
-    "title": "Project manager",
+    "title": "Project Manager – Road Construction",
     "company": "Confidential Client",
     "board": "LinkedIn",
     "exp": "Mid",
@@ -4195,63 +4195,12 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 5,
+    "daysAgo": 4,
     "description": "Leading Confidential Client project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20manager%20Confidential%20Client"
+    "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20%E2%80%93%20Road%20Construction%20Confidential%20Client"
   },
   {
     "id": 11,
-    "title": "Head of Operations",
-    "company": "OpenTrack",
-    "board": "Indeed",
-    "exp": "Senior",
-    "salary": "$135,000 - $165,000/yr",
-    "requirements": [
-      "Active PMP certification or equivalent path",
-      "3-5 years managing software or business operations projects",
-      "Solid understanding of hybrid Waterfall/Agile lifecycles",
-      "Strong verbal and written English communication skills"
-    ],
-    "daysAgo": 20,
-    "description": "At OpenTrack, we're tackling the fragmented data and workflows of the trillion dollar logistics industry. Using data collected in real time from hundreds of sources, we help customers keep their cargo moving efficiently, on time and at a cost savi...",
-    "link": "https://www.indeed.com/jobs?q=Head%20of%20Operations%20OpenTrack"
-  },
-  {
-    "id": 12,
-    "title": "Project Manager – Road Construction",
-    "company": "Confidential Client",
-    "board": "Glassdoor",
-    "exp": "Mid",
-    "salary": "$95,000 - $120,000/yr",
-    "requirements": [
-      "Active PMP certification or equivalent path",
-      "3-5 years managing software or business operations projects",
-      "Solid understanding of hybrid Waterfall/Agile lifecycles",
-      "Strong verbal and written English communication skills"
-    ],
-    "daysAgo": 3,
-    "description": "Leading Confidential Client project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20%E2%80%93%20Road%20Construction%20Confidential%20Client"
-  },
-  {
-    "id": 13,
-    "title": "Paralegal",
-    "company": "Giga Energy",
-    "board": "LinkedIn",
-    "exp": "Mid",
-    "salary": "$95,000 - $120,000/yr",
-    "requirements": [
-      "Active PMP certification or equivalent path",
-      "3-5 years managing software or business operations projects",
-      "Solid understanding of hybrid Waterfall/Agile lifecycles",
-      "Strong verbal and written English communication skills"
-    ],
-    "daysAgo": 20,
-    "description": "Why join GigaThe Pace: We're building at a speed most companies talk about but never actually operate at. If you've been bored somewhere else, you won't be here.The Impact: Every person at Giga touches the work that matters. No layers, no waiting ...",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=Paralegal%20Giga%20Energy"
-  },
-  {
-    "id": 14,
     "title": "Project Manager",
     "company": "Confidential Client",
     "board": "Indeed",
@@ -4263,63 +4212,12 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 5,
+    "daysAgo": 1,
     "description": "Leading Confidential Client project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.indeed.com/jobs?q=Project%20Manager%20Confidential%20Client"
   },
   {
-    "id": 15,
-    "title": "Project Management Officer",
-    "company": "Glints",
-    "board": "Glassdoor",
-    "exp": "Mid",
-    "salary": "$95,000 - $120,000/yr",
-    "requirements": [
-      "Active PMP certification or equivalent path",
-      "3-5 years managing software or business operations projects",
-      "Solid understanding of hybrid Waterfall/Agile lifecycles",
-      "Strong verbal and written English communication skills"
-    ],
-    "daysAgo": 20,
-    "description": "Project Objectives: Support the IT Portfolio Governance function by ensuring projects are delivered on schedule, within budget, and in accordance with governance standards. The role is responsible for coordinating project governance activities, mo...",
-    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Management%20Officer%20Glints"
-  },
-  {
-    "id": 16,
-    "title": "Project Manager – Fruit Processing",
-    "company": "Confidential Client",
-    "board": "LinkedIn",
-    "exp": "Mid",
-    "salary": "$95,000 - $120,000/yr",
-    "requirements": [
-      "Active PMP certification or equivalent path",
-      "3-5 years managing software or business operations projects",
-      "Solid understanding of hybrid Waterfall/Agile lifecycles",
-      "Strong verbal and written English communication skills"
-    ],
-    "daysAgo": 2,
-    "description": "Leading Confidential Client project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20%E2%80%93%20Fruit%20Processing%20Confidential%20Client"
-  },
-  {
-    "id": 17,
-    "title": "Technical Specialist",
-    "company": "PeopleLink Collaboration Inc.",
-    "board": "Indeed",
-    "exp": "Mid",
-    "salary": "$95,000 - $120,000/yr",
-    "requirements": [
-      "Active PMP certification or equivalent path",
-      "3-5 years managing software or business operations projects",
-      "Solid understanding of hybrid Waterfall/Agile lifecycles",
-      "Strong verbal and written English communication skills"
-    ],
-    "daysAgo": 20,
-    "description": "..Please mention the word **REVOLUTIONARY** and tag RMy40Mi4xNTcuMTIz when applying to show you read the job post completely (#RMy40Mi4xNTcuMTIz). This is a beta feature to avoid spam applicants. Companies can search these words to find applicants...",
-    "link": "https://www.indeed.com/jobs?q=Technical%20Specialist%20PeopleLink%20Collaboration%20Inc."
-  },
-  {
-    "id": 18,
+    "id": 12,
     "title": "Project Manager",
     "company": "Confidential Client",
     "board": "Glassdoor",
@@ -4331,14 +4229,14 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 3,
+    "daysAgo": 5,
     "description": "Leading Confidential Client project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20Confidential%20Client"
   },
   {
-    "id": 19,
-    "title": "Fresh Graduate Management Training Program",
-    "company": "Deliveree On-Demand Logistics (Southeast Asia)",
+    "id": 13,
+    "title": "Internship Program- Project Management",
+    "company": "Confidential Client",
     "board": "LinkedIn",
     "exp": "Mid",
     "salary": "$95,000 - $120,000/yr",
@@ -4348,26 +4246,9 @@ const initApp = () => {
       "Strong budget management, scheduling, and risk planning",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 20,
-    "description": "If you just click apply, you will not receive a response. You must follow the instructions below under 'how to apply' for our team to review and respond to your application. Complete and qualified applications receive a response within 24 hours.Su...",
-    "link": "https://www.linkedin.com/jobs/search/?keywords=Fresh%20Graduate%20Management%20Training%20Program%20Deliveree%20On-Demand%20Logistics%20(Southeast%20Asia)"
-  },
-  {
-    "id": 20,
-    "title": "Project Manager - Field Support Services Project (fssp), Ghana",
-    "company": "Confidential Client",
-    "board": "Indeed",
-    "exp": "Mid",
-    "salary": "$95,000 - $120,000/yr",
-    "requirements": [
-      "Active PMP certification or equivalent path",
-      "3-5 years managing software or business operations projects",
-      "Solid understanding of hybrid Waterfall/Agile lifecycles",
-      "Strong verbal and written English communication skills"
-    ],
-    "daysAgo": 3,
+    "daysAgo": 4,
     "description": "Leading Confidential Client project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.indeed.com/jobs?q=Project%20Manager%20-%20Field%20Support%20Services%20Project%20(fssp)%2C%20Ghana%20Confidential%20Client"
+    "link": "https://www.linkedin.com/jobs/search/?keywords=Internship%20Program-%20Project%20Management%20Confidential%20Client"
   }
 ];
 
