@@ -4042,7 +4042,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 8,
+    "daysAgo": 9,
     "description": "COMPANY DESCRIPTION: A career here is life-enhancing. At Syner-G, we enable our people to build careers that impact positively on their quality of life. Through our expertise, insight, consulting and management skills, we accelerate breakthrough s...",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20Syner-G"
   },
@@ -4059,7 +4059,7 @@ const initApp = () => {
       "Strong budget management, scheduling, and risk planning",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 3,
+    "daysAgo": 1,
     "description": "Leading Confidential Client project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.indeed.com/jobs?q=Senior%20Product%20%26%20Program%20Manager%20Confidential%20Client"
   },
@@ -4077,7 +4077,7 @@ const initApp = () => {
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 20,
-    "description": "Persons having 3-5 yrs of experience in the Foundry / Foundry Chemicals field can apply toManaging Director: sks@shamlax.comPlease mention the word **STIMULATE** and tag RMjAuMTY4LjEzNi4xNjY= when applying to show you read the job post completely ...",
+    "description": "Persons having 3-5 yrs of experience in the Foundry / Foundry Chemicals field can apply toManaging Director: sks@shamlax.comPlease mention the word **STIMULATE** and tag RMjAuMTY5LjUwLjQ3 when applying to show you read the job post completely (#RM...",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Liasoning%20Agents%20required%20for%20Cities%20Shamlax"
   },
   {
@@ -4093,7 +4093,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 1,
+    "daysAgo": 4,
     "description": "Leading Confidential Client project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.linkedin.com/jobs/search/?keywords=Project%20Manager%20Confidential%20Client"
   },
@@ -4110,7 +4110,7 @@ const initApp = () => {
       "Proficiency in Jira, Confluence, and Agile boards",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 2,
+    "daysAgo": 1,
     "description": "Leading Confidential Client project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.indeed.com/jobs?q=Technical%20Project%20Manager%2FScrum%20Master%20Confidential%20Client"
   },
@@ -4127,7 +4127,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 5,
+    "daysAgo": 1,
     "description": "Leading Confidential Client project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20Confidential%20Client"
   },
@@ -4144,7 +4144,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 5,
+    "daysAgo": 3,
     "description": "Leading Confidential Client project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.linkedin.com/jobs/search/?keywords=ERP%20Product%20Owner%20Confidential%20Client"
   },
@@ -4161,7 +4161,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 1,
+    "daysAgo": 5,
     "description": "Leading Confidential Client project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.indeed.com/jobs?q=Project%20Manager%20%E2%80%93%20Road%20Construction%20Confidential%20Client"
   },
@@ -4178,7 +4178,7 @@ const initApp = () => {
       "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
-    "daysAgo": 1,
+    "daysAgo": 4,
     "description": "Leading Confidential Client project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
     "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Project%20Manager%20Confidential%20Client"
   },
@@ -4201,37 +4201,20 @@ const initApp = () => {
   },
   {
     "id": 11,
-    "title": "Senior Program Manager",
+    "title": "Project Management Assistant",
     "company": "Confidential Client",
     "board": "Indeed",
-    "exp": "Senior",
-    "salary": "$135,000 - $165,000/yr",
+    "exp": "Entry",
+    "salary": "$60,000 - $78,000/yr",
     "requirements": [
-      "Project Management Professional (PMP) certification required",
-      "7+ years leading enterprise cross-functional programs",
-      "Strong budget management, scheduling, and risk planning",
-      "Strong verbal and written English communication skills"
-    ],
-    "daysAgo": 3,
-    "description": "Leading Confidential Client project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.indeed.com/jobs?q=Senior%20Program%20Manager%20Confidential%20Client"
-  },
-  {
-    "id": 12,
-    "title": "Program Manager, Transforming Lives Through Nutrition (TLTN)",
-    "company": "Confidential Client",
-    "board": "Glassdoor",
-    "exp": "Mid",
-    "salary": "$95,000 - $120,000/yr",
-    "requirements": [
-      "Project Management Professional (PMP) certification required",
-      "7+ years leading enterprise cross-functional programs",
-      "Strong budget management, scheduling, and risk planning",
+      "Active PMP certification or equivalent path",
+      "3-5 years managing software or business operations projects",
+      "Solid understanding of hybrid Waterfall/Agile lifecycles",
       "Strong verbal and written English communication skills"
     ],
     "daysAgo": 2,
     "description": "Leading Confidential Client project team on key operational, software-enabled or organizational growth milestones. Coordinate stakeholder alignment, monitor critical path schedules, and resolve execution blockers.",
-    "link": "https://www.glassdoor.com/Job/jobs.htm?sc.keyword=Program%20Manager%2C%20Transforming%20Lives%20Through%20Nutrition%20(TLTN)%20Confidential%20Client"
+    "link": "https://www.indeed.com/jobs?q=Project%20Management%20Assistant%20Confidential%20Client"
   }
 ];
 
